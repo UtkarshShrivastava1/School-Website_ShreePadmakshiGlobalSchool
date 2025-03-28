@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 
 const SchoolTourSection = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isHoveredBook, setIsHoveredBook] = useState(false);
 
   return (
-    <div className="w-full bg-gradient-to-r from-white to-red-100 text-white py-16 px-4 relative overflow-hidden">
+    <div className="w-full bg-gradient-to-r from-white to-orange-200 text-white py-16 px-4 relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-24 h-24 bg-red-600 rounded-full opacity-30 transform -translate-x-12 -translate-y-12"></div>
-      <div className="absolute bottom-0 right-0 w-32 h-32 bg-red-600 rounded-full opacity-30 transform translate-x-16 translate-y-16"></div>
-      <div className="absolute top-1/4 right-10 w-16 h-16 bg-red-600 rounded-full opacity-20"></div>
+      <div className="absolute top-0 left-0 w-24 h-24 bg-orange-600 rounded-full opacity-30 transform -translate-x-12 -translate-y-12"></div>
+      <div className="absolute bottom-0 right-0 w-32 h-32 bg-orange-600 rounded-full opacity-30 transform translate-x-16 translate-y-16"></div>
+      <div className="absolute top-1/4 right-10 w-16 h-16 bg-orange-600 rounded-full opacity-20"></div>
       
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center relative z-10 text-gray-700">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 transform transition-transform duration-700 hover:scale-105">
@@ -30,7 +30,7 @@ const SchoolTourSection = () => {
           >
             <span className="relative z-10"> NOW</span>
             <span 
-              className={`absolute inset-0 bg-gradient-to-r from-yellow-400 to-red-400 opacity-0 transition-opacity duration-300 ${
+              className={`absolute inset-0 bg-gradient-to-r from-yellow-400 to-orange-400 opacity-0 transition-opacity duration-300 ${
                 isHovered ? 'opacity-20' : ''
               }`}
             ></span>

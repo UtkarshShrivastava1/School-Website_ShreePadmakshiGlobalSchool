@@ -79,7 +79,7 @@ const SchoolHeroSection = () => {
               preparing students for success in a rapidly changing world.
             </p>
             <div className="pt-4 flex flex-wrap gap-4">
-              <button className="bg-yellow-500 hover:bg-yellow-400 text-blue-900 font-bold py-3 px-6 rounded-md transition-colors">
+              <button className="bg-orange-400 hover:bg-yellow-400 text-blue-900 font-bold py-3 px-6 rounded-md transition-colors">
                 Schedule a Tour
               </button>
               <button className="bg-transparent hover:bg-white/10 border-2 border-white text-white font-bold py-3 px-6 rounded-md transition-colors">
@@ -101,29 +101,19 @@ const SchoolHeroSection = () => {
           
           {/* Right Side - Promotional Video */}
           <div className="relative">
-            <div className="aspect-w-16 aspect-h-11 rounded-xl overflow-hidden shadow-2xl border-4 border-white/20">
-              {/* Video Placeholder */}
-              <div className="bg-gray-800 w-full h-full flex items-center justify-center relative">
-                {/* Replace the img tag below with an iframe for your video */}
-                {/* <img 
-                  src={Image} 
-                  alt="School promotional video thumbnail" 
-                  className="w-full h-full object-cover absolute inset-0"
-                /> */}
-                {/* You should replace the above img with an iframe like this: */}
-                {/* <iframe 
-                  src="https://youtu.be/z29AKV8rt6o?si=40WG-2rgPna_Uc4R" 
-                  title="Promotional video"
-                  frameBorder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowFullScreen
-                ></iframe>  */}
-               <iframe width="560" height="315" src="https://www.youtube.com/embed/z29AKV8rt6o?si=DckRN5jb4_2BmSXO" title="YouTube video player" 
-                  className="w-full h-full absolute inset-0"  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-
+          <div className="relative w-full max-w-3xl mx-auto">
+  <div className="rounded-xl overflow-hidden shadow-2xl border-4 border-white/20">
+    <iframe 
+      src="https://www.youtube.com/embed/z29AKV8rt6o?si=DckRN5jb4_2BmSXO" 
+      title="YouTube video player" 
+      className="w-full h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px]"
+      frameBorder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      referrerPolicy="strict-origin-when-cross-origin" 
+      allowFullScreen
+    ></iframe>
                 <div className="absolute inset-0 bg-blue-900/30"></div>
-                <button className="relative z-10 w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center shadow-xl hover:bg-yellow-400 transition-colors">
+                <button className="relative z-10 w-20 h-20 bg-orange-400 rounded-full flex items-center justify-center shadow-xl hover:bg-yellow-400 transition-colors">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-900" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
                   </svg>
@@ -133,7 +123,7 @@ const SchoolHeroSection = () => {
             
             {/* Decorative elements for the video */}
             <div className="absolute -top-4 -right-4 w-20 h-20 bg-blue-600 rounded-lg -z-10"></div>
-            <div className="absolute -bottom-4 -left-4 w-32 h-12 bg-yellow-500 rounded-lg -z-10"></div>
+            <div className="absolute -bottom-4 -left-4 w-32 h-12 bg-orange-400 rounded-lg -z-10"></div>
             <div className="absolute top-1/2 transform -translate-y-1/2 -right-12 bg-white/90 rounded-lg p-4 shadow-lg hidden lg:block">
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">

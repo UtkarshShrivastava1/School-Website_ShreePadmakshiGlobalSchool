@@ -1,116 +1,54 @@
-import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React from 'react'
+import AnimatedTestimonials from "../ui/animated-testimonial"
 
-const testimonials = [
-  {
-    id: 1,
-    name: 'Maria Kate',
-    role: 'Photographer',
-    image: '/api/placeholder/150/150',
-    text: 'In ac turpis justo. Vivamus auctor quam vitae odio feugiat pulvinar. Sed semper ligula sed lorem tincidunt dignissim. Nam sed cursus lectus. Proin non rutrum magna. Proin gravida, justo et imperdiet tristique, turpis nisi viverra est, nec posuere ex arcu sit amet erat. Sed a dictum sem. Duis pretium condimentum nulla.',
-    rating: 4
-  },
-  {
-    id: 2,
-    name: 'John Smith',
-    role: 'Designer',
-    image: '/api/placeholder/150/150',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl nisl eget nisl.',
-    rating: 5
-  },
-  {
-    id: 3,
-    name: 'Emily Johnson',
-    role: 'Developer',
-    image: '/api/placeholder/150/150',
-    text: 'Phasellus ac velit euismod, ultricies ipsum nec, efficitur sapien. Nullam in tortor eget quam pulvinar finibus. Cras efficitur, nisl in bibendum vestibulum, nibh nunc fermentum neque, vitae euismod sapien mauris a sapien.',
-    rating: 3
-  }
-];
+function Testimonial() {
 
-const TestimonialSlider = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const goToPrevious = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? testimonials.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
-  };
-
-  const goToNext = () => {
-    const isLastSlide = currentIndex === testimonials.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
-  };
-
-  const renderStars = (rating) => {
-    const stars = [];
-    for (let i = 1; i <= 5; i++) {
-      stars.push(
-        <span key={i} className={`text-xl ${i <= rating ? 'text-yellow-400' : 'text-gray-300'}`}>
-          ★
-        </span>
-      );
-    }
-    return stars;
-  };
+    const testimonials = [
+        {
+          quote:
+            "The attention to detail and innovative features have completely transformed our workflow. This is exactly what we've been looking for.",
+          name: "Sarah Chen",
+          designation: "Product Manager at TechFlow",
+          src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          quote:
+            "Implementation was seamless and the results exceeded our expectations. The platform's flexibility is remarkable.",
+          name: "Michael Rodriguez",
+          designation: "CTO at InnovateSphere",
+          src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          quote:
+            "This solution has significantly improved our team's productivity. The intuitive interface makes complex tasks simple.",
+          name: "Emily Watson",
+          designation: "Operations Director at CloudScale",
+          src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          quote:
+            "Outstanding support and robust features. It's rare to find a product that delivers on all its promises.",
+          name: "James Kim",
+          designation: "Engineering Lead at DataPro",
+          src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+        {
+          quote:
+            "The scalability and performance have been game-changing for our organization. Highly recommend to any growing business.",
+          name: "Lisa Thompson",
+          designation: "VP of Technology at FutureNet",
+          src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        },
+      ];
 
   return (
-    <div className="w-full max-w-4xl mx-auto px-4 py-8">
-     <div className="flex items-center justify-center mb-10">
-        <div className="w-1/4 h-px bg-gray-300"></div>
-        <h2 className="text-3xl md:text-4xl font-serif text-black px-6">Parents <span className='text-red-800'>Testimonials </span> </h2>
-        <div className="w-1/4 h-px bg-gray-300"></div>
-      </div>
+    <>
+    
+        <h4 style={{ fontWeight: "700", fontSize: "2.5rem", color:"#f25811", marginBottom:"0px" }} className="text-3xl font-bold text-center text-orange-500 mb-4 mt-2.5">Testimonials</h4>
+        
+        <AnimatedTestimonials testimonials={testimonials} />
+    </>
+  )
+}
 
-      <div className="relative h-full">
-        {/* Testimonial Card */}
-        <div className="flex flex-col items-center justify-center">
-          <div className="w-32 h-32 mb-4 overflow-hidden rounded-full border-2 border-gray-200">
-            <img
-              src={testimonials[currentIndex].image}
-              alt={testimonials[currentIndex].name}
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          <h3 className="text-xl font-semibold text-gray-800">{testimonials[currentIndex].name}</h3>
-          <p className="text-gray-500 mb-4">{testimonials[currentIndex].role}</p>
-
-          <div className="text-center mb-4 px-4 md:px-12 lg:px-24">
-            <p className="text-gray-600 italic">
-              <span className="text-3xl text-gray-400">"</span>
-              {testimonials[currentIndex].text}
-              <span className="text-3xl text-gray-400">"</span>
-            </p>
-          </div>
-
-          <div className="flex justify-center mb-4">
-            {renderStars(testimonials[currentIndex].rating)}
-          </div>
-        </div>
-
-        {/* Navigation Buttons */}
-        <div className="absolute inset-y-0 left-0 flex items-center">
-          <button
-            onClick={goToPrevious}
-            className="bg-white rounded-full p-2 shadow-md hover:bg-gray-100 focus:outline-none"
-          >
-            <ChevronLeft className="h-6 w-6 text-gray-600" />
-          </button>
-        </div>
-
-        <div className="absolute inset-y-0 right-0 flex items-center">
-          <button
-            onClick={goToNext}
-            className="bg-white rounded-full p-2 shadow-md hover:bg-gray-100 focus:outline-none"
-          >
-            <ChevronRight className="h-6 w-6 text-gray-600" />
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default TestimonialSlider;
+export default Testimonial

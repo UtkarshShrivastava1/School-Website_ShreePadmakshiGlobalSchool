@@ -16,14 +16,14 @@ const WelcomeBanner = () => {
   
   return (
     <div className="flex flex-col items-center justify-center py-16 px-4 text-center overflow-hidden">
-      <h1 
-        className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 transform transition-all duration-1000 ease-out ${
+      <h3
+        className={`text-4xl md:text-5xl lg:text-5xl font-bold mb-6 transform transition-all duration-1000 ease-out ${
           isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}
       >
         <span className="text-black">Welcome to </span>
-        <span className="text-red-700 hover:text-red-800 transition-colors duration-300">Mount Litera Zee School</span>
-      </h1>
+        <span className="hover:text-orange-700 text-orange-500 transition-colors duration-300">SHREE PADMAKSHI GLOBAL  School</span>
+      </h3>
       
       <p 
         className={`text-gray-600 text-lg md:text-xl max-w-2xl mb-8 transition-all duration-1000 ease-out delay-300 ${
@@ -40,7 +40,7 @@ const WelcomeBanner = () => {
         }`}
       >
         <button 
-          className={`bg-gradient-to-r from-red-700 to-red-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition-all duration-300 transform ${isHovered1 ? 'scale-105 shadow-lg' : ''}`}
+          className={`bg-gradient-to-r from-orange-200 to-orange-600 hover:bg-blue-700 text-gray-800 px-6 py-3 rounded-md font-medium transition-all duration-300 transform ${isHovered1 ? 'scale-105 shadow-lg' : ''}`}
           onMouseEnter={() => setIsHovered1(true)}
           onMouseLeave={() => setIsHovered1(false)}
         >

@@ -49,6 +49,9 @@ import Navbar from './components/Home/Navbar';
 import Footer from './components/Home/Footer';
 import AdminLogin from './pages/Admin/AdminLogin';
 import AdminDasboard from './pages/Admin/AdminDasboard';
+import Director_1_Message from './pages/About/Director_1Message';
+// import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import Terms from './pages/Terms&Policy/Terms&Conditions';
 import Policy from './pages/Terms&Policy/PrivacyPolicy';
 import GalleryDashboard from './pages/Admin/GalleryDashboard';
@@ -75,6 +78,7 @@ function AppContent() {
         <Route path="/our-mission" element={<OurMission />} />
         <Route path="/our-vision" element={<OurVision />} />
         <Route path="/director-message" element={<DirectorMessage />} />
+        <Route path="/director-message_1" element={<Director_1_Message />} />
         <Route path="/principal-message" element={<PrincipalMessage />} />
         <Route path="/value-education" element={<ValueEducation />} />
         <Route path="/why-mlzs" element={<WhyMLZS />} />

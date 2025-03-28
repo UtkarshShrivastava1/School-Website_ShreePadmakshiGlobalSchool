@@ -64,18 +64,18 @@ const ValuesPage = () => {
   ];
   
   return (
-    <div className="min-h-screen bg-gray-50 font-sans">
+    <div className="min-h-screen bg-white font-sans">
       {/* Hero Section */}
-      <section className="relative bg-blue-900 text-white overflow-hidden">
+      <section className="relative bg-[#191f5d] text-white overflow-hidden">
         <div className="absolute inset-0">
-          <svg className="absolute left-0 top-0 h-full w-full text-blue-800" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <polygon points="0,0 100,0 100,20 0,60" opacity="0.2" />
-            <polygon points="0,60 100,20 100,70 0,100" opacity="0.3" />
+          <svg className="absolute left-0 top-0 h-full w-full text-orange-500" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
+            {/* <polygon points="0,0 100,0 100,20 0,60" opacity="0.2" />
+            <polygon points="0,60 100,20 100,70 0,100" opacity="0.3" /> */}
           </svg>
         </div>
         <div className="relative max-w-6xl mx-auto px-6 py-24 md:py-32">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Values</h1>
-          <div className="h-1 w-20 bg-yellow-400 mb-10"></div>
+          <div className="h-1 w-20 bg-orange-500 mb-10"></div>
           <div className="max-w-3xl">
             <p className="text-xl leading-relaxed text-blue-100 italic">
               "Value Education does not form a separate dimension of the curriculum but is integrally interwoven into the entire fabric of the curriculum."
@@ -88,7 +88,7 @@ const ValuesPage = () => {
       <section className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           <div>
-            <h2 className="text-3xl font-bold text-blue-800 mb-6">Holistic Value System</h2>
+            <h2 className="text-3xl font-bold text-orange-500 mb-6">Holistic Value System</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
               At our school, we believe that values education is not a standalone subject but an essential component integrated throughout our entire curriculum. Our approach ensures that moral and ethical principles are naturally woven into the everyday learning experience of our students.
             </p>
@@ -110,7 +110,13 @@ const ValuesPage = () => {
         </div>
         
         {/* Core Values Section */}
-        <h2 className="text-3xl font-bold text-blue-800 mb-10 text-center">Our Core Values</h2>
+        <div className="flex items-center justify-center mb-10">
+            <div className="w-1/4 h-px bg-gray-300"></div>
+            <h2 className="text-3xl md:text-4xl font-serif text-orange-500 px-6">
+              Our Core Values
+            </h2>
+            <div className="w-1/4 h-px bg-gray-300"></div>
+          </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {coreValues.map((value, index) => (
             <div 
@@ -131,7 +137,7 @@ const ValuesPage = () => {
         <div className="bg-blue-50 rounded-lg p-8 md:p-12 shadow-md">
           <div className="flex flex-col md:flex-row">
             <div className="md:w-1/3 mb-6 md:mb-0">
-              <h2 className="text-3xl font-bold text-blue-800 mb-4">Our Approach</h2>
+              <h2 className="text-3xl font-bold text-orange-500 mb-4">Our Approach</h2>
               <div className="h-1 w-20 bg-yellow-400"></div>
             </div>
             <div className="md:w-2/3">
@@ -156,7 +162,7 @@ const ValuesPage = () => {
       </section>
       
       {/* Testimonial Section */}
-      <section className="bg-blue-900 text-white py-16">
+      <section className="bg-[#191f5d] text-white py-16">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <svg className="w-10 h-10 mx-auto mb-4 text-blue-300" fill="currentColor" viewBox="0 0 24 24">
@@ -178,40 +184,40 @@ const ValuesPage = () => {
       
       {/* Values in Action */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold text-blue-800 mb-12 text-center">Values in Action</h2>
+        <h2 className="text-3xl font-bold text-orange-500 mb-12 text-center">Values in Action</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
             <img src="https://i.pinimg.com/736x/1c/f2/1e/1cf21e2dd3a9fece42bfe54c065c5ddb.jpg" alt="Community service" className="w-full h-48 object-cover" />
             <div className="p-6">
-              <h3 className="text-xl font-bold text-blue-800 mb-3">Community Engagement</h3>
+              <h3 className="text-xl font-bold text-orange-500 mb-3">Community Engagement</h3>
               <p className="text-gray-600 mb-4">
                 Students apply their values through meaningful community service projects that develop empathy and social responsibility.
               </p>
-              <a href="#" className="text-blue-600 font-medium hover:text-blue-800 transition">Learn more →</a>
+              <a href="#" className="text-blue-600 font-medium hover:text-orange-500 transition">Learn more →</a>
             </div>
           </div>
           
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
             <img src="https://i.pinimg.com/736x/08/42/0a/08420a20017446fdda37f5d3f132dc88.jpg" alt="Leadership programs" className="w-full h-48 object-cover" />
             <div className="p-6">
-              <h3 className="text-xl font-bold text-blue-800 mb-3">Leadership Development</h3>
+              <h3 className="text-xl font-bold text-orange-500 mb-3">Leadership Development</h3>
               <p className="text-gray-600 mb-4">
                 Our leadership programs encourage students to make ethical decisions and stand by their principles even in challenging situations.
               </p>
-              <a href="#" className="text-blue-600 font-medium hover:text-blue-800 transition">Learn more →</a>
+              <a href="#" className="text-blue-600 font-medium hover:text-orange-500 transition">Learn more →</a>
             </div>
           </div>
         </div>
       </section>
       
       {/* Call to Action */}
-      <section className="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-16">
+      <section className="bg-gradient-to-r from-[#191f5d] to-blue-900 text-white py-16">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-6">Experience Our Values-Based Education</h2>
           <p className="max-w-2xl mx-auto mb-8 text-blue-100">
             Visit our campus to see how we integrate values education throughout our curriculum and nurture well-rounded individuals.
           </p>
-          <button className="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold py-3 px-8 rounded-lg transition duration-300 shadow-lg">
+          <button className="bg-white hover:bg-orange-500 hover:text-white text-blue-900 font-bold py-3 px-8 rounded-lg transition duration-300 shadow-lg">
             Schedule a Visit
           </button>
         </div>

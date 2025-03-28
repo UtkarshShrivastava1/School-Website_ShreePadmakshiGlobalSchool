@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getAllEvents, getNotices } from "../../services/NotificationService";
+import api from "../../services/api";
 
 const SchoolNotification = () => {
   const [events, setEvents] = useState([]);

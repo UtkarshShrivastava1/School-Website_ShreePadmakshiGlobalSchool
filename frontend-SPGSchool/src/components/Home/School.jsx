@@ -47,7 +47,7 @@ const CommunityVoices = () => {
          {/* Heading with decorative lines */}
       <div className="flex items-center justify-center mb-10">
         <div className="w-1/4 h-px bg-gray-300"></div>
-        <h2 className="text-3xl md:text-4xl font-serif text-Black px-6">Our <span className="text-amber-800"> Educational Programs</span></h2>
+        <h2 className="text-3xl md:text-4xl font-serif text-orange-500 px-6">Our Educational Programs</h2>
         <div className="w-1/4 h-px bg-gray-300"></div>
       </div>
         <h1 className="text-4xl md:text-5xl font-serif text-center font-bold text-gray-900 mb-16">

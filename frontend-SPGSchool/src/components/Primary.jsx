@@ -28,7 +28,7 @@ export default function PrimarySchoolProgram() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">MLZS-Bilaspur Primary</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">SPGS-Bilaspur Primary</h2>
             <p className="text-lg text-gray-700 mb-6">
               At the second phase of schooling, as the I.Q. level of the child increases, the teaching-learning
               methodology takes a step ahead. Our purpose is to make these years as exciting as the previous years and
@@ -56,7 +56,15 @@ export default function PrimarySchoolProgram() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900">Our Approach</h2>
+
+            <div className="flex items-center justify-center mb-10">
+              <div className="w-1/4 h-px bg-gray-300"></div>
+              <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
+                {" "}
+                Our Approach
+              </h2>
+              <div className="w-1/4 h-px bg-gray-300"></div>
+            </div>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
               Teachers create all learning experiences covering a range of learning needs. By the time children move
               from the Primary School Program to the Middle School Program, they will have 'learnt to learn'.
@@ -67,7 +75,7 @@ export default function PrimarySchoolProgram() {
             {/* Feature 1 */}
             <div className="bg-white p-6 rounded-lg shadow-md transition-all hover:shadow-lg">
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
-                <BookOpen className="h-6 w-6 text-[#800000]" />
+                <BookOpen className="h-6 w-6 text-orange-500" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Comprehensive Curriculum</h3>
               <p className="text-gray-600">
@@ -129,25 +137,25 @@ export default function PrimarySchoolProgram() {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-1">
-                  <ArrowRight className="h-4 w-4 text-[#800000]" />
+                  <ArrowRight className="h-4 w-4 text-orange-500" />
                 </div>
                 <p className="text-gray-700">Interactive classroom sessions that encourage participation</p>
               </li>
               <li className="flex items-start">
                 <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-1">
-                  <ArrowRight className="h-4 w-4 text-[#800000]" />
+                  <ArrowRight className="h-4 w-4 text-orange-500" />
                 </div>
                 <p className="text-gray-700">Project-based learning to develop practical skills</p>
               </li>
               <li className="flex items-start">
                 <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-1">
-                  <ArrowRight className="h-4 w-4 text-[#800000]" />
+                  <ArrowRight className="h-4 w-4 text-orange-500" />
                 </div>
                 <p className="text-gray-700">Regular activities that make learning enjoyable</p>
               </li>
               <li className="flex items-start">
                 <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-1">
-                  <ArrowRight className="h-4 w-4 text-[#800000]" />
+                  <ArrowRight className="h-4 w-4 text-orange-500" />
                 </div>
                 <p className="text-gray-700">Continuous assessment to track and improve performance</p>
               </li>
@@ -165,7 +173,7 @@ export default function PrimarySchoolProgram() {
             designed to nurture young minds and develop their full potential.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="px-8 py-3 bg-white text-[#800000] font-semibold rounded-md hover:bg-gray-100 transition-colors">
+            <button className="px-8 py-3 bg-white text-orange-500 font-semibold rounded-md hover:bg-gray-100 transition-colors">
               Enroll Now
             </button>
             <button className="px-8 py-3 bg-transparent border-2 border-white font-semibold rounded-md hover:bg-red-700 transition-colors">
@@ -178,7 +186,14 @@ export default function PrimarySchoolProgram() {
       {/* Calendar Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900">Upcoming Events</h2>
+          <div className="flex items-center justify-center mb-10">
+              <div className="w-1/4 h-px bg-gray-300"></div>
+              <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
+                {" "}
+                Upcoming Events
+              </h2>
+              <div className="w-1/4 h-px bg-gray-300"></div>
+            </div>
           <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
             Stay updated with our school activities and events
           </p>
@@ -188,12 +203,12 @@ export default function PrimarySchoolProgram() {
           {/* Event 1 */}
           <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
             <div className="flex items-center mb-4">
-              <Calendar className="h-5 w-5 text-[#800000] mr-2" />
+              <Calendar className="h-5 w-5 text-orange-500 mr-2" />
               <span className="text-sm text-gray-500">May 15, 2025</span>
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">Annual Science Exhibition</h3>
             <p className="text-gray-600 mb-4">Students showcase their innovative science projects and experiments.</p>
-            <a href="#" className="text-[#800000] font-medium hover:text-blue-800 flex items-center">
+            <a href="#" className="text-orange-500 font-medium hover:text-blue-800 flex items-center">
               Learn more <ArrowRight className="h-4 w-4 ml-1" />
             </a>
           </div>
@@ -201,14 +216,14 @@ export default function PrimarySchoolProgram() {
           {/* Event 2 */}
           <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
             <div className="flex items-center mb-4">
-              <Calendar className="h-5 w-5 text-[#800000] mr-2" />
+              <Calendar className="h-5 w-5 text-orange-500 mr-2" />
               <span className="text-sm text-gray-500">June 5, 2025</span>
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">Parent-Teacher Meeting</h3>
             <p className="text-gray-600 mb-4">
               Discuss your child's progress and development with our experienced teachers.
             </p>
-            <a href="#" className="text-[#800000] font-medium hover:text-[#800000] flex items-center">
+            <a href="#" className="text-orange-500 font-medium hover:text-orange-500 flex items-center">
               Learn more <ArrowRight className="h-4 w-4 ml-1" />
             </a>
           </div>
@@ -216,12 +231,12 @@ export default function PrimarySchoolProgram() {
           {/* Event 3 */}
           <div className="bg-white p-6 rounded-lg shadow-md border border-gray-100">
             <div className="flex items-center mb-4">
-              <Calendar className="h-5 w-5 text-[#800000] mr-2" />
+              <Calendar className="h-5 w-5 text-orange-500 mr-2" />
               <span className="text-sm text-gray-500">July 10, 2025</span>
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">Cultural Fest</h3>
             <p className="text-gray-600 mb-4">A celebration of art, music, dance, and cultural diversity.</p>
-            <a href="#" className="text-[#800000] font-medium hover:text-blue-800 flex items-center">
+            <a href="#" className="text-orange-500 font-medium hover:text-blue-800 flex items-center">
               Learn more <ArrowRight className="h-4 w-4 ml-1" />
             </a>
           </div>
@@ -232,7 +247,14 @@ export default function PrimarySchoolProgram() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900">What Parents Say</h2>
+            <div className="flex items-center justify-center mb-10">
+              <div className="w-1/4 h-px bg-gray-300"></div>
+              <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
+                {" "}
+                What Parents Say
+              </h2>
+              <div className="w-1/4 h-px bg-gray-300"></div>
+            </div>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
               Hear from parents whose children have thrived in our Primary School Program
             </p>
@@ -318,7 +340,7 @@ export default function PrimarySchoolProgram() {
           <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
             Contact us today to learn more about our Primary School Program and admission process.
           </p>
-          <button className="px-8 py-3 bg-[#800000] text-white font-semibold rounded-md hover:bg-red-700 transition-colors">
+          <button className="px-8 py-3 bg-orange-500 text-white font-semibold rounded-md hover:bg-red-700 transition-colors">
             Contact Us
           </button>
         </div>

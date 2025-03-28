@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import image1 from '../../assets/c-1.png';
+import { Link } from 'react-router-dom';
 import { getAllEvents, getNotices } from "../../services/NotificationService";
 
 const NewsSection = () => {
@@ -28,7 +29,7 @@ const NewsSection = () => {
       {/* Heading with decorative lines */}
       <div className="flex items-center justify-center mb-10">
         <div className="w-1/4 h-px bg-gray-300"></div>
-        <h2 className="text-3xl md:text-4xl font-serif text-red-800 px-6">Latest News</h2>
+        <h2 className="text-3xl md:text-4xl font-serif text-orange-500 px-6">Latest News</h2>
         <div className="w-1/4 h-px bg-gray-300"></div>
       </div>
        
@@ -68,12 +69,12 @@ const NewsSection = () => {
             ))}
             
             <div className="mt-6 text-center">
-              <a 
-                href="#" 
+              <Link 
+                to="/news-events" 
                 className="inline-block px-5 py-2 border border-gray-300 text-sm font-medium text-gray-700 hover:bg-gray-200 transition-colors duration-200 rounded-lg"
               >
                 VIEW MORE
-              </a>
+              </Link>
             </div>
           </div>
         </div>

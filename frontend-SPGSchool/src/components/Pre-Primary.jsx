@@ -1,4 +1,5 @@
-import img from "../assets/c-3.png"
+import img from "../assets/P_And_H/FancyDress.jpeg"
+import SportsRoom from "../assets/SportsRoom.jpeg"
 // import { Button } from "../components/button"
 import { Card, CardContent } from "../components/WhyCards"
 import { BookOpen, Users, Brain, Music, Clock, Calendar, PlayCircle, CheckCircle, Star } from "lucide-react"
@@ -15,7 +16,7 @@ export default function PrePrimaryPage() {
             <div className="md:w-1/2 space-y-6">
               <h1 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">Pre-Primary School Program</h1>
               <p className="text-lg text-gray-700">
-                The Pre-Primary School Program at Mount Litera Zee School, Bilaspur comprises
+                The Pre-Primary School Program at Shree Padmakshi Global School, Bilaspur comprises
                 <span className="font-semibold"> Nursery, Jr.kg & Sr.kg</span>.
               </p>
               <p className="text-gray-600">
@@ -27,8 +28,8 @@ export default function PrePrimaryPage() {
             </div>
             <div className="md:w-1/2 relative h-64 md:h-96 rounded-lg overflow-hidden shadow-lg">
               <img
-                src="http://mlzsbilaspur.com/Assets/Images/sub-banner1.jpg"
-                alt="Mount Litera Zee School Pre-Primary Program"
+                src={img}
+                alt="Shree Padmakshi Global School Pre-Primary Program"
                 fill
                 className="object-cover rounded-lg"
               />
@@ -41,7 +42,14 @@ export default function PrePrimaryPage() {
       <section id="illume" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">The 'ILLUME' Approach</h2>
+            <div className="flex items-center justify-center mb-10">
+              <div className="w-1/4 h-px bg-gray-300"></div>
+              <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
+                {" "}
+                The 'ILLUME' Approach
+              </h2>
+              <div className="w-1/4 h-px bg-gray-300"></div>
+            </div>
             <p className="text-gray-600 max-w-3xl mx-auto">
               The pre-primary curriculum is delivered through the 'ILLUME' approach based on the following premise:
             </p>
@@ -166,6 +174,8 @@ export default function PrePrimaryPage() {
               <div className="flex items-center gap-3">
                 <Calendar className="h-8 w-8 text-blue-500" />
                 <h2 className="text-3xl font-bold text-gray-800">Attendance And Assembly</h2>
+
+                
               </div>
               <p className="text-gray-700">
                 This is followed by Attendance and Assembly where the children learn to self-register through activities
@@ -186,7 +196,7 @@ export default function PrePrimaryPage() {
             </div>
             <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
               <img
-                src="http://mlzsbilaspur.com/Assets/Images/sub-banner1.jpg"
+                src={SportsRoom}
                 alt="Mount Litera Zee School Bilaspur Play"
                 fill
                 className="w-full h-auto object-cover rounded-lg"
@@ -235,8 +245,14 @@ export default function PrePrimaryPage() {
       <section id="assessment" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Assessment In Pre Primary School</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">MLZS Assessment Card is called Milestones</p>
+             <div className="flex items-center justify-center mb-10">
+              <div className="w-1/4 h-px bg-gray-300"></div>
+              <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
+                Assessment In Pre Primary School
+              </h2>
+              <div className="w-1/4 h-px bg-gray-300"></div>
+            </div>
+            <p className="text-gray-600 max-w-2xl mx-auto">SPGS Assessment Card is called Milestones</p>
           </div>
 
           <div className="max-w-3xl mx-auto bg-blue-50 p-8 rounded-lg shadow-sm">

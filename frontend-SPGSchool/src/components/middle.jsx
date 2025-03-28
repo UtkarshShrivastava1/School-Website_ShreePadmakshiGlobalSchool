@@ -1,33 +1,43 @@
-import img from "../assets/c-3.png"
+import ArtRoom from "../assets/LabAndLibrary/ArtRoom2.jpg"
+import classRoom from "../assets/Classroom/ClassN1.jpg"
+import image from "../assets/c-2.png"
 import { ArrowRight, BookOpen, Brain, Users, Award, Trophy, Target, Lightbulb } from "lucide-react"
 
 export default function MiddleSchoolProgram() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/placeholder.svg?height=600&width=1600"
-            alt="Middle School Students Learning"
-            fill
-            className="object-cover brightness-[0.7]"
-            priority
-          />
-        </div>
-        <div className="relative z-10 px-4 py-24 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center text-white">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Middle School Program</h1>
-          <p className="mt-6 max-w-2xl text-xl">
-            Classes VI - VIII: Guiding students toward independent learning and greater responsibility
-          </p>
-        </div>
-      </section>
+    
+{/* Hero Section */}
+<section className="relative">
+  {/* Background Image Wrapper */}
+  <div className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh]">
+    <img
+      src={image}
+      alt="Middle School Students Learning"
+      className="absolute inset-0 w-full h-[60vh] object-cover brightness-[0.7]"
+      priority
+    />
+  </div>
+
+  {/* Hero Content */}
+  <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white px-2 sm:px-6 lg:px-5">
+    <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+      Middle School Program
+    </h1>
+    <p className="mt-6 max-w-2xl text-xl">
+      Classes VI - VIII: Guiding students toward independent learning and greater responsibility
+    </p>
+  </div>
+</section>
+
+
+
 
       {/* Introduction Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto ">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">MLZS-Bilaspur Middle School</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">SPGS-Bilaspur Middle School</h2>
             <p className="text-lg text-gray-700 mb-6">
               At this age, children begin to connect themselves with the community in a larger sense. An integrated
               package of teaching, learning and assessment is delivered through the Litera Octave approach; the child is
@@ -41,7 +51,7 @@ export default function MiddleSchoolProgram() {
           </div>
           <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
             <img
-              src="/placeholder.svg?height=400&width=600"
+              src={ArtRoom}
               alt="Middle school students engaged in learning"
               fill
               className="object-cover"
@@ -54,7 +64,15 @@ export default function MiddleSchoolProgram() {
       <section className="py-16 bg-indigo-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900">Our Approach</h2>
+            <h2 className="text-3xl font-bold text-gray-900"></h2>
+            <div className="flex items-center justify-center mb-10">
+              <div className="w-1/4 h-px bg-gray-300"></div>
+              <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
+             
+                Our Approach
+              </h2>
+              <div className="w-1/4 h-px bg-gray-300"></div>
+            </div>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
               We aim to prepare our children to be healthy and active with a passion for developing their physical
               abilities and to achieve high standards and high levels of attainment in academics, and extra curricular
@@ -69,6 +87,8 @@ export default function MiddleSchoolProgram() {
                 <BookOpen className="h-6 w-6 text-indigo-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Integrated Learning</h3>
+
+              
               <p className="text-gray-600">
                 A comprehensive approach that combines teaching, learning, and assessment through the Litera Octave
                 method.
@@ -114,7 +134,7 @@ export default function MiddleSchoolProgram() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1 relative h-[400px] rounded-xl overflow-hidden shadow-xl">
             <img
-              src="/placeholder.svg?height=400&width=600"
+              src={classRoom}
               alt="Students taking assessments"
               fill
               className="object-cover"
@@ -164,7 +184,15 @@ export default function MiddleSchoolProgram() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900">Inter-house Competitions</h2>
+            <h2 className="text-3xl font-bold text-gray-900"></h2>
+            <div className="flex items-center justify-center mb-10">
+              <div className="w-1/4 h-px bg-gray-300"></div>
+              <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
+       
+                Inter-house Competitions
+              </h2>
+              <div className="w-1/4 h-px bg-gray-300"></div>
+            </div>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
               We understand the importance of competitions for the children especially as they progress and develop
               through the school.
@@ -178,6 +206,7 @@ export default function MiddleSchoolProgram() {
                 <Trophy className="h-6 w-6 text-indigo-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Sports Competitions</h3>
+              
               <p className="text-gray-600 mb-4">
                 Students compete in various sports activities including cricket, football, basketball, athletics, and
                 more.
@@ -262,7 +291,15 @@ export default function MiddleSchoolProgram() {
       {/* House System */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900">Our House System</h2>
+          <div className="flex items-center justify-center mb-10">
+              <div className="w-1/4 h-px bg-gray-300"></div>
+              <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
+                {" "}
+                Our House System
+              </h2>
+              <div className="w-1/4 h-px bg-gray-300"></div>
+            </div>
+
           <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
             Students are divided into four houses, fostering a sense of belonging and healthy competition
           </p>
@@ -308,7 +345,7 @@ export default function MiddleSchoolProgram() {
       </section>
 
       {/* Preparing for Secondary */}
-      <section className="py-16 bg-indigo-600 text-white">
+      <section className="py-16 bg-[#191f5d] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -346,7 +383,7 @@ export default function MiddleSchoolProgram() {
             </div>
             <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
               <img
-                src="/placeholder.svg?height=400&width=600"
+                src={ArtRoom}
                 alt="Students preparing for secondary school"
                 fill
                 className="object-cover"
@@ -360,7 +397,15 @@ export default function MiddleSchoolProgram() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900">What Students & Parents Say</h2>
+            <div className="flex items-center justify-center mb-10">
+              <div className="w-1/4 h-px bg-gray-300"></div>
+              <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
+                {" "}
+                What Students & Parents Say
+              </h2>
+              <div className="w-1/4 h-px bg-gray-300"></div>
+            </div>
+
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
               Hear from our community about their experiences with the Middle School Program
             </p>
@@ -448,10 +493,10 @@ export default function MiddleSchoolProgram() {
             Contact us today to learn more about admissions for Classes VI - VIII.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="px-8 py-3 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 transition-colors">
+            <button className="px-8 py-3 bg-[#191f5d] text-white font-semibold rounded-md hover:bg-indigo-700 transition-colors">
               Apply Now
             </button>
-            <button className="px-8 py-3 bg-white border border-indigo-600 text-indigo-600 font-semibold rounded-md hover:bg-indigo-50 transition-colors">
+            <button className="px-8 py-3 bg-white border border-[#191f5d] text-[#191f5d] font-semibold rounded-md hover:bg-indigo-50 transition-colors">
               Schedule a Visit
             </button>
           </div>

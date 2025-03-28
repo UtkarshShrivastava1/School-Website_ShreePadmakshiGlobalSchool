@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import Logo from '../../assets/Media.jpg';
+import {  Calendar, Bell, User } from 'lucide-react';
 import { LogOut, Menu, X } from "lucide-react"
-import Logo from '../../assets/logo.jpg';
+// import Logo from '../../assets/logo.jpg';
 import { FaCalendarAlt } from "react-icons/fa";
 import { IoMdNotifications } from "react-icons/io";
 import { MdPhotoLibrary } from "react-icons/md";

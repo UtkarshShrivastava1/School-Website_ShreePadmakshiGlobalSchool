@@ -55,11 +55,11 @@ const WhyMountLetraZee = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
+      <div className="bg-gradient-to-r from-[#191f5d] to-[#191f5d] text-white">
         <div className="container mx-auto px-4 py-16 md:py-24">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="md:w-1/2 mb-8 md:mb-0">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">Why Choose Mount Letra Zee School?</h1>
+              <h1 className="text-4xl md:text-5xl font-medium mb-6">Why Choose SHREE PADMAKSHI GLOBAL SCHOOL?</h1>
               <p className="text-xl md:text-2xl">
                 Empowering young minds to excel in academics and life with our comprehensive approach to education.
               </p>
@@ -67,7 +67,7 @@ const WhyMountLetraZee = () => {
             <div className="md:w-1/2 flex justify-center">
               <img 
                 src="/api/placeholder/500/300" 
-                alt="Mount Letra Zee School campus" 
+                alt="SHREE PADMAKSHI GLOBAL  School campus" 
                 className="rounded-lg shadow-lg"
               />
             </div>
@@ -81,7 +81,7 @@ const WhyMountLetraZee = () => {
         <div className="max-w-3xl mx-auto mb-16 text-center">
           <h2 className="text-3xl font-semibold mb-6 text-gray-800">A Legacy of Excellence in Education</h2>
           <p className="text-lg text-gray-600">
-            At Mount Letra Zee School, we believe in nurturing not just academic brilliance but also character, creativity, and confidence. Our educational philosophy combines traditional values with modern teaching approaches to prepare students for the challenges of tomorrow.
+            At SHREE PADMAKSHI GLOBAL  School, we believe in nurturing not just academic brilliance but also character, creativity, and confidence. Our educational philosophy combines traditional values with modern teaching approaches to prepare students for the challenges of tomorrow.
           </p>
         </div>
 
@@ -135,20 +135,7 @@ const WhyMountLetraZee = () => {
             ))}
           </div>
         </div>
-
-    
-      
-
-       
-       
-
-       
-        
-       
-       
-      </div>
-
-      
+      </div>      
     </div>
   );
 };

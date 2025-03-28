@@ -1,4 +1,7 @@
 import React from 'react';
+import School from "../../assets/School.jpg";
+import FancyDress from "../../assets/P_And_H/FancyDress.jpeg"
+import classroom from "../../assets/Classroom/ClassN1.jpg"
 
 const OurVisionAndMission= () => {
   // Animation for vision/mission items on scroll
@@ -44,7 +47,7 @@ const OurVisionAndMission= () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-block p-3 bg-blue-100 rounded-full mb-4">
-              <svg className="w-8 h-8 text-blue-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
               </svg>
             </div>
@@ -106,7 +109,7 @@ const OurVisionAndMission= () => {
                   {item.icon}
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-blue-800 mb-2">{item.title}</h3>
+                  <h3 className="text-xl font-bold text-orange-600 mb-2">{item.title}</h3>
                   <p className="text-gray-700 leading-relaxed">{item.description}</p>
                 </div>
               </div>
@@ -125,7 +128,7 @@ const OurVisionAndMission= () => {
             <p className="text-2xl font-light italic mb-6">
               "Education is not the filling of a pail, but the lighting of a fire."
             </p>
-            <p className="font-medium text-blue-200">- William Butler Yeats</p>
+            <p className="font-medium text-white">- William Butler Yeats</p>
           </div>
         </div>
       </div>
@@ -138,7 +141,7 @@ const OurVisionAndMission= () => {
             Discover how our approach to education can help your child thrive and reach their full potential.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-blue-800 hover:bg-blue-900 text-white font-medium py-3 px-8 rounded-lg transition duration-300">
+            <button className="bg-orange-500 hover:bg-orange-900 text-white font-medium py-3 px-8 rounded-lg transition duration-300">
               Schedule a Visit
             </button>
             <button className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-3 px-8 rounded-lg transition duration-300">
@@ -153,13 +156,13 @@ const OurVisionAndMission= () => {
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-12">Our Campus Life</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="relative overflow-hidden rounded-lg shadow-md h-64">
-            <img src="/api/placeholder/600/400" alt="Campus" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
+            <img src={School} alt="Campus" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
           </div>
           <div className="relative overflow-hidden rounded-lg shadow-md h-64">
-            <img src="/api/placeholder/600/400" alt="Classroom" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
+            <img src={classroom} alt="Classroom" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
           </div>
           <div className="relative overflow-hidden rounded-lg shadow-md h-64">
-            <img src="/api/placeholder/600/400" alt="Activities" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
+            <img src={FancyDress} alt="Activities" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
           </div>
         </div>
       </div>
