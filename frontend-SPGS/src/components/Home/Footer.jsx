@@ -15,24 +15,24 @@ const Footer = () => {
               Get Connected
             </h3>
             <div className="flex gap-4 mt-2">
-              <a
-                href="https://www.facebook.com/ShreePadmakshiGlobalSchoolBilaspur"
+              <Link
+                to="https://www.facebook.com/ShreePadmakshiGlobalSchoolBilaspur"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
                 className="text-gray-600 hover:text-blue-900 transition-colors duration-300"
               >
                 <Facebook size={24} />
-              </a>
-              <a
-                href="https://www.instagram.com/shree_padmakshi_global_school/"
+              </Link>
+              <Link
+                to="https://www.instagram.com/shree_padmakshi_global_school/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
                 className="text-gray-600 hover:text-blue-900 transition-colors duration-300"
               >
                 <Instagram size={24} />
-              </a>
+              </Link>
             </div>
 
             <div className="mt-8">
@@ -55,29 +55,29 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="/our-school" className="text-gray-600 hover:text-blue-700">
+                <Link to="/our-school" className="text-gray-600 hover:text-blue-700">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/our-campus" className="text-gray-600 hover:text-blue-700">
+                <Link to="/our-campus" className="text-gray-600 hover:text-blue-700">
                   Facilities and Campus
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/our-location" className="text-gray-600 hover:text-blue-700">
+                <Link to="/our-location" className="text-gray-600 hover:text-blue-700">
                   Our Location
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/faculty" className="text-gray-600 hover:text-blue-700">
+                <Link to="/faculty" className="text-gray-600 hover:text-blue-700">
                   Our Faculty
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/transport-facilities" className="text-gray-600 hover:text-blue-700">
+                <Link to="/transport-facilities" className="text-gray-600 hover:text-blue-700">
                   School Transportation
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -89,24 +89,24 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="/fee-structure" className="text-gray-600 hover:text-blue-700">
+                <Link to="/fee-structure" className="text-gray-600 hover:text-blue-700">
                   Fees and Payments
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-gray-600 hover:text-blue-700">
+                <Link to="#" className="text-gray-600 hover:text-blue-700">
                   Book a tour
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/contact" className="text-gray-600 hover:text-blue-700">
+                <Link to="/contact" className="text-gray-600 hover:text-blue-700">
                   Contact Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/contact" className="text-gray-600 hover:text-blue-700">
+                <Link to="/contact" className="text-gray-600 hover:text-blue-700">
                   Enroll Online
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -118,24 +118,24 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="why-mlzs" className="text-gray-600 hover:text-blue-700">
+                <Link to="why-mlzs" className="text-gray-600 hover:text-blue-700">
                   Learning Overview
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/house-system" className="text-gray-600 hover:text-blue-700">
+                <Link to="/house-system" className="text-gray-600 hover:text-blue-700">
                   Extra Curricular Activities
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/school-calendar" className="text-gray-600 hover:text-blue-700">
+                <Link to="/school-calendar" className="text-gray-600 hover:text-blue-700">
                   Academic Calendar
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/school-notification" className="text-gray-600 hover:text-blue-700">
+                <Link to="/school-notification" className="text-gray-600 hover:text-blue-700">
                   SPGS Newsletter
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -158,30 +158,30 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Mail className="text-blue-700 mr-2 flex-shrink-0" size={20} />
-                <a
-                  href="mailto:spgsbilaspur@gmail.com"
+                <Link
+                  to="mailto:spgsbilaspur@gmail.com"
                   className="text-gray-600 hover:text-blue-700"
                 >
                  spgsbilaspur@gmail.com
-                </a>
+                </Link>
               </li>
               <li className="flex items-center">
                 <Phone className="text-blue-700 mr-2 flex-shrink-0" size={20} />
-                <a
-                  href="tel:9111777295"
+                <Link
+                  to="tel:9111777295"
                   className="text-gray-600 hover:text-blue-700"
                 >
                    9111777295
-                </a>
+                </Link>
               </li>
               <li className="flex items-center">
                 <Phone className="text-blue-700 mr-2 flex-shrink-0" size={20} />
-                <a
-                  href="tel:9424130028"
+                <Link
+                  to="tel:9424130028"
                   className="text-gray-600 hover:text-blue-700"
                 >
                   9424130028
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -191,34 +191,34 @@ const Footer = () => {
         <div className="border-t border-gray-300 pt-4 flex flex-col sm:flex-row justify-between text-xs sm:text-sm">
           <div className="flex flex-col sm:flex-row gap-4 mb-2 sm:mb-0 items-center">
             <div className="flex items-center gap-4">
-              <a href="/policy" className="text-gray-600 hover:text-blue-700">
+              <Link to="/policy" className="text-gray-600 hover:text-blue-700">
                 Privacy Policy
-              </a>
+              </Link>
               <span className="text-gray-400">•</span>
-              <a href="/terms" className="text-gray-600 hover:text-blue-700">
+              <Link to="/terms" className="text-gray-600 hover:text-blue-700">
                 Terms & Conditions
-              </a>
+              </Link>
               <span className="text-gray-400">•</span>
-              {/* <a
-                href="/admin-login"
+              {/* <Link
+                to="/admin-login"
                 className="text-gray-600 hover:text-blue-700"
               >
                 Admin
-              </a> */}
+              </Link> */}
               <Link to="/admin-login" className="text-gray-600 hover:text-blue-700">
                 Admin
               </Link>
             </div>
             <div className="text-gray-500 text-xs sm:text-sm mt-2 sm:mt-0 sm:ml-4">
               Powered by 
-              <a 
-                href="https://www.zager.in/" 
+              <Link 
+                to="https://www.zager.in/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="ml-1 text-blue-700 hover:underline transition-colors duration-300 ease-in-out hover:text-blue-900 font-semibold"
               >
                 Zager Digital Services
-              </a>
+              </Link>
             </div>
           </div>
           <div className="text-gray-500 mt-2 sm:mt-0">
