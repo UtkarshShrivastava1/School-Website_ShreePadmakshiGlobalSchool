@@ -1,6 +1,7 @@
 import React from "react";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import Logo from "../../assets/Media.jpg";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -198,12 +199,15 @@ const Footer = () => {
                 Terms & Conditions
               </a>
               <span className="text-gray-400">•</span>
-              <a
+              {/* <a
                 href="/admin-login"
                 className="text-gray-600 hover:text-blue-700"
               >
                 Admin
-              </a>
+              </a> */}
+              <Link to="/admin-login" className="text-gray-600 hover:text-blue-700">
+                Admin
+              </Link>
             </div>
             <div className="text-gray-500 text-xs sm:text-sm mt-2 sm:mt-0 sm:ml-4">
               Powered by 
