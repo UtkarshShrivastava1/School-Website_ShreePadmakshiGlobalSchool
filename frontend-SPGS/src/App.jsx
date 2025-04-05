@@ -58,9 +58,9 @@ import GalleryDashboard from './pages/Admin/GalleryDashboard';
 
 function App() {
   return (
-    <Router>
+    // <Router>
       <AppContent />
-    </Router>
+    // </Router>
   );
 }
 
