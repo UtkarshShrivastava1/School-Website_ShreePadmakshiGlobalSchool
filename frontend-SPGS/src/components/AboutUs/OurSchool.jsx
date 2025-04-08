@@ -13,7 +13,7 @@ const AboutPage = () => {
           <div className="w-full h-full bg-[url('/api/placeholder/1920/600')] bg-cover bg-center"></div>
         </div>
         <div className="relative container mx-auto px-6 py-24 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">About Mount Litera Zee School</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">About Shree Padmakshi Global School</h1>
           <p className="text-xl max-w-3xl mx-auto">Building the foundation for tomorrow's leaders through holistic education.</p>
         </div>
       </div>
@@ -71,17 +71,17 @@ const AboutPage = () => {
             <section>
               <h2 className="text-3xl font-bold text-orange-500 mb-4">Our Legacy</h2>
               <p className="text-gray-700 mb-4 leading-relaxed">
-                Mount Litera Zee School Bilaspur is a member of the K12 Pan India chain of Mount Litera Zee Schools under the aegis of Zee Learn Limited. The Mount Litera Zee School chain has many laurels in its cap for exemplary achievements in the Education sector. MLZS has a Pan India presence and a Universal learning system where the divide of big and small cities is bridged as all the students study the same curricula at the same time and the same pace.
+                Shree Padmakshi Global School Bilaspur is a member of the K12 Pan India chain of Shree Padmakshi Global Schools under the aegis of SPGS Learn Limited. The Shree Padmakshi Global School chain has many laurels in its cap for exemplary achievements in the Education sector. SPGS has a Pan India presence and a Universal learning system where the divide of big and small cities is bridged as all the students study the same curricula at the same time and the same pace.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Founded in 2014, Mount Litera Zee School Bilaspur is a visionary attempt to empower children - the BUILDERS OF HUMANITY. The school aims at providing holistic development and nurturing the unique potential of every child.
+                Founded in 2014, Shree Padmakshi Global School Bilaspur is a visionary attempt to empower children - the BUILDERS OF HUMANITY. The school aims at providing holistic development and nurturing the unique potential of every child.
               </p>
             </section>
             
             <section>
               <h2 className="text-3xl font-bold text-orange-500 mb-4">Infrastructure & Safety</h2>
               <p className="text-gray-700 leading-relaxed">
-                Mount Litera Zee School – Bilaspur houses state of the art infrastructure with the latest technological knowhow for holistic growth of the students. Security is of paramount importance and Mount Litera Zee School Bilaspur practices I-Care, a program dedicated to child safety.
+                Shree Padmakshi Global School, Bilaspur houses state of the art infrastructure with the latest technological knowhow for holistic growth of the students. Security is of paramount importance and Shree Padmakshi Global School Bilaspur practices I-Care, a program dedicated to child safety.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
@@ -110,7 +110,7 @@ const AboutPage = () => {
             <section>
               <h2 className="text-3xl font-bold text-orange-500 mb-4">Our Unique Approach</h2>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Mount Litera Zee School is an aspiration of new learning's and new exploration of talent without the constraints of Rote learning where understanding and clarity rules the day and mindless cramming is a thing of the past. Socio Emotional skills are honed through various Clubs- and a plethora of personality building activities make 'Learning Fun'.
+              Shree Padmakshi Global School is an aspiration of new learnings and new exploration of talent without the constraints of Rote learning where understanding and clarity rule the day and mindless cramming is a thing of the past. Socio-Emotional skills are honed through various Clubs- and a plethora of personality-building activities make 'Learning Fun'.
               </p>
               
               <div className="bg-blue-50 p-6 rounded-lg">

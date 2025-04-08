@@ -4,11 +4,13 @@ const StudentGuidelines = () => {
   return (
     <div className="min-h-screen bg-gray-50 p-10 flex flex-col justify-center items-center">
       <div className="w-4/5 mb-6 text-center mx-auto">
-        <div className="flex items-center justify-center mb-10">
-          <div className="w-1/4 h-px bg-gray-300"></div>
-          <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">Student Guidelines</h2>
-          <div className="w-1/4 h-px bg-gray-300"></div>
-        </div>
+      <div className="flex items-center justify-center mb-6 md:mb-10 px-4 md:px-0">
+  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-2 sm:px-4 md:px-6 text-center">
+  Students Guidelines
+  </h2>
+  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+</div>
         <p className="text-gray-600 max-w-4xl mx-auto">
         Shree Padmakshi Global School is an institution for teaching and education wherein we have a set of rules to ensure discipline and safety of all members of our educational community. Every student’s enrolment at Shree Padmakshi Global School means adhering to the defined set of rules and a commitment towards respecting them. Parents are advised to explain to their children about these rules and help them understand its virtue in establishing harmony. These rules include:
         </p>

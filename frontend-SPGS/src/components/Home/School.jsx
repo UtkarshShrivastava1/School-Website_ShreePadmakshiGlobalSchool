@@ -3,6 +3,7 @@ import image1 from '../../assets/c-1.png';
 import image2 from '../../assets/c-2.png';
 import image3 from '../../assets/c-3.png';
 import image4 from '../../assets/c-4.png';
+import { NavLink } from 'react-router-dom';
 
 const CommunityVoices = () => {
   const sections = [
@@ -11,7 +12,8 @@ const CommunityVoices = () => {
       imgSrc:"https://images.pexels.com/photos/5530484/pexels-photo-5530484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       alt: "Lower School Students",
       description: "Experience the joy of early learning in our nurturing Lower School environment where young minds flourish through discovery and play.",
-      class:"Nursery to kg-2"
+      class:"Nursery to kg-2",
+      link:"/academics-pre-primary"
     },
     {
       title: "Lower School",
@@ -19,21 +21,24 @@ const CommunityVoices = () => {
       alt: "Middle School Students",
       description: "Our Middle School program empowers students to explore their interests while developing critical thinking and leadership skills."
     ,
-      class:"1 to 5"
+      class:"1 to 5",
+        link:"/academics-primary"
     },
     {
       title: "Middle School",
       imgSrc: "https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       alt: "Upper School Students",
       description: "Upper School students engage in rigorous academics, innovative research, and meaningful community engagement.",
-      class:"6 to 8"
+      class:"6 to 8",
+        link:"/academics-middle"
     },
     {
       title: "Upper School",
       imgSrc: "https://images.pexels.com/photos/5212700/pexels-photo-5212700.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       alt: "Upper School",
       description: "Our alumni network continues to make lasting impacts across the globe, carrying forward our values of excellence and service.",
-      class:"9 to 12"
+      class:"9 to 12",
+        link:"/academics-upper"
     }
   ];
 
@@ -45,14 +50,16 @@ const CommunityVoices = () => {
         
         {/* Main Heading */}
          {/* Heading with decorative lines */}
-      <div className="flex items-center justify-center mb-10">
-        <div className="w-1/4 h-px bg-gray-300"></div>
-        <h2 className="text-3xl md:text-4xl font-serif text-orange-500 px-6">Our Educational Programs</h2>
-        <div className="w-1/4 h-px bg-gray-300"></div>
-      </div>
-        <h1 className="text-4xl md:text-5xl font-serif text-center font-bold text-gray-900 mb-16">
+         <div className="flex items-center justify-center mb-8 md:mb-10">
+      <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
+      <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-3 md:px-6 text-center">
+       Our Educational Programs
+      </h2>
+      <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
+    </div>
+        {/* <h1 className="text-4xl md:text-5xl font-serif text-center font-bold text-gray-900 mb-16">
  
-        </h1>
+        </h1> */}
 
         {/* <div className="flex justify-center mb-6">
         <p className="mt-1 text-lg text-gray-600 max-w-3xl mx-auto">
@@ -79,8 +86,8 @@ const CommunityVoices = () => {
           </p>
         </div>
         
-        <a 
-          href="#" 
+        <NavLink 
+          to={service.link} 
           className="inline-flex items-center text-red-700 font-medium hover:text-amber-600"
         >
           Learn More
@@ -98,7 +105,7 @@ const CommunityVoices = () => {
               d="M14 5l7 7m0 0l-7 7m7-7H3" 
             />
           </svg>
-        </a>
+        </NavLink>
       </div>
       <div className="md:w-2/5 relative">
         <div className="w-full h-full overflow-hidden rounded-r-lg">

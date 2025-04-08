@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import School from "../../assets/School.jpg";
-import BusStaff from "../../assets/Transport/BusStaff.jpg";
+import SchoolFront from "../../assets/SchoolFront.jpg";
 import Bus from "../../assets/Transport/Bus.jpg";
 import BioLab from "../../assets/LabAndLibrary/BioLab.jpeg";
 import Classroom from "../../assets/Classroom/ClassN1.jpg";
@@ -11,55 +11,14 @@ import ChemLab from "../../assets/LabAndLibrary/ChemLab.jpeg";
 
 const Carousal = () => {
   const images = [
-    {
-      image: School,
-      location:
-        "Main Road, Near Over Bridge Uslapur, Bilaspur C.G., Bilaspur Chhattisgarh, India 495001",
-      text: "Modern Secure and Safe Infrastructure @ SPGS Bilaspur",
-    },
-    {
-      image: Bus,
-      location:
-        "Main Road, Near Over Bridge Uslapur, Bilaspur C.G., Bilaspur Chhattisgarh, India 495001",
-      text: "Bus Facility @ SPGS Bilaspur",
-    },
-    {
-      image: BusStaff,
-      location:
-        "Main Road, Near Over Bridge Uslapur, Bilaspur C.G., Bilaspur Chhattisgarh, India 495001",
-      text: "Bus Facility @ SPGS Bilaspur",
-    },
-    {
-      image: Classroom,
-      location:
-        "Main Road, Near Over Bridge Uslapur, Bilaspur C.G., Bilaspur Chhattisgarh, India 495001",
-      text: "State-of-the-Art Classrooms @ SPGS Bilaspur",
-    },
-    {
-      image: Library,
-      location:
-        "Main Road, Near Over Bridge Uslapur, Bilaspur C.G., Bilaspur Chhattisgarh, India 495001",
-      text: "A Well-Stocked Library @ SPGS Bilaspur",
-    },
-
-    {
-      image: BioLab,
-      location:
-        "Main Road, Near Over Bridge Uslapur, Bilaspur C.G., Bilaspur Chhattisgarh, India 495001",
-      text: "Exploring Life Sciences @ SPGS Bilaspur",
-    },
-    {
-      image: PhyLab,
-      location:
-        "Main Road, Near Over Bridge Uslapur, Bilaspur C.G., Bilaspur Chhattisgarh, India 495001",
-      text: "Hands-On Learning in Physics @ SPGS Bilaspur",
-    },
-    {
-      image: ChemLab,
-      location:
-        "Main Road, Near Over Bridge Uslapur, Bilaspur C.G., Bilaspur Chhattisgarh, India 495001",
-      text: "Experimenting with Science @ SPGS Bilaspur",
-    },
+    { image: School, text: "Modern Secure and Safe Infrastructure" },
+    { image: Bus, text: "Bus Facility Available" },
+    { image: SchoolFront, text: "Students at Our Campus" },
+    { image: Classroom, text: "State-of-the-Art Classrooms" },
+    { image: Library, text: "A Well-Stocked Library" },
+    { image: BioLab, text: "Exploring Life Sciences" },
+    { image: PhyLab, text: "Hands-On Learning in Physics" },
+    { image: ChemLab, text: "Experimenting with Science" },
   ];
 
   const [current, setCurrent] = useState(0);
@@ -69,58 +28,51 @@ const Carousal = () => {
     setCurrent((prev) => (prev - 1 + images.length) % images.length);
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 3000);
+    const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="relative w-full max-w-7xl mx-auto mt-10 rounded-lg overflow-hidden shadow-lg">
       <div
-        className="h-[600px] sm:h-[600px] bg-cover bg-center flex flex-col justify-center text-white px-6 sm:px-8"
-        style={{ backgroundImage: `url(${images[current].image})` }}
+        className="h-[400px] sm:w-auto md:h-[600px] bg-cover bg-center flex flex-col justify-end items-baseline lg:justify-center text-white px-6 text-center"
+        style={{ backgroundImage: `url(${images[current].image}) ` }}
       >
-        <h2 className="text-lg sm:text-4xl font-bold text-center sm:text-left">
+        <h2 className="text-xl sm:text-2xl md:text-4xl font-bold">
           {images[current].text}
         </h2>
-        <p className="text-md sm:text-lg mt-2 text-center sm:text-left">
-          CBSE Affiliation No : 3330519
-        </p>
-        <p className="absolute bottom-5 left-6 sm:left-8 text-sm sm:text-md">
-          📍 {images[current].location}
-        </p>
+        <p className="text-sm sm:text-lg mt-2 hidden lg:block">CBSE Affiliation No: 3330519</p>
       </div>
 
+      {/* Navigation Buttons */}
       <button
         onClick={prevSlide}
-        className="absolute top-1/2 left-3 sm:left-5 transform -translate-y-1/2 bg-gray-800/50 p-2 sm:p-3 rounded-full"
+        className="absolute top-1/2 left-2 md:left-5 transform -translate-y-1/2 bg-gray-800/50 p-2 md:p-3 rounded-full cursor-pointer"
       >
-        <ChevronLeft className="text-white cursor-pointer" />
+        <ChevronLeft className="text-white" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute top-1/2 right-3 sm:right-5 transform -translate-y-1/2 bg-gray-800/50 p-2 sm:p-3 rounded-full"
+        className="absolute top-1/2 right-2 md:right-5 transform -translate-y-1/2 bg-gray-800/50 p-2 md:p-3 rounded-full cursor-pointer"
       >
-        <ChevronRight className="text-white cursor-pointer" />
+        <ChevronRight className="text-white" />
       </button>
 
-      <div className="absolute bottom-0 w-full bg-white p-3 sm:p-4 rounded-t-lg shadow-lg sm:mt-1.5">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4 text-center">
-          <div className="flex-1">
-            <h3 className="text-black font-bold text-lg sm:text-sm">
-              Pre-Primary
-            </h3>
-            <p className="text-sm">Playgroup to Sr.KG</p>
-          </div>
-          <div className="h-px w-12 sm:h-12 sm:w-px bg-gray-300"></div>
-          <div className="flex-1">
-            <h3 className="text-black font-bold text-lg">Primary</h3>
-            <p className="text-sm">Grade 1 to 5</p>
-          </div>
-          <div className="h-px w-12 sm:h-12 sm:w-px bg-gray-300"></div>
-          <div className="flex-1">
-            <h3 className="text-black font-bold text-lg">Middle School</h3>
-            <p className="text-sm">Grade 6 to 8</p>
-          </div>
+      {/* Section Information */}
+      <div className="absolute bottom-0 w-full bg-white p-3 md:p-4 rounded-t-lg shadow-lg hidden lg:block">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-2 text-center">
+          {[
+            { title: "Pre-Primary", subtitle: "Playgroup to Sr.KG" },
+            { title: "Primary", subtitle: "Grade 1 to 5" },
+            { title: "Middle School", subtitle: "Grade 6 to 8" },
+          ].map((section, index) => (
+            <div key={index} className="flex-1">
+              <h3 className="text-black font-bold text-lg md:text-xl">
+                {section.title}
+              </h3>
+              <p className="text-sm md:text-md">{section.subtitle}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

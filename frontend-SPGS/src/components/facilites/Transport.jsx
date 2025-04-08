@@ -4,19 +4,14 @@ import transport from '../../assets/transport.jpg';
 const TransportFacilities = () => {
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
-      {/* <div className="flex items-center justify-center mb-8">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-amber-500 mr-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z" />
-          <path d="M3 9V6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v3" />
-          <rect x="7" y="14" width="4" height="4" />
-          <rect x="13" y="14" width="4" height="4" />
-        </svg> */}
-        <div className="flex items-center justify-center mb-10">
-        <div className="w-1/4 h-px bg-gray-300"></div>
-        <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">Transport Facilities</h2>
-        <div className="w-1/4 h-px bg-gray-300"></div>
-      {/* </div> */}
-      </div>
+     
+     <div className="flex items-center justify-center mb-6 md:mb-10 px-4 md:px-0">
+  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-2 sm:px-4 md:px-6 text-center">
+  Transport Facilities
+  </h2>
+  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+</div>
       
       <div className="flex flex-col md:flex-row gap-6">
         {/* Left section */}

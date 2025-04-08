@@ -46,11 +46,10 @@ const SchoolCalendar = () => {
         .toISOString()
         .split("T")[0];
 
-      console.log("Fetching data for:", formattedDate);
 
       const response = await axios.get(`http://localhost:5000/details/${formattedDate}`);
 
-      console.log("Response data:", response.data);
+      
 
       setEvent(response.data.event || null);
       setLeave(response.data.leave || null);
@@ -118,14 +117,14 @@ const SchoolCalendar = () => {
             Track your schedule, manage events, and plan your academic journey
           </p>
         </div> */}
-        <div className="flex items-center justify-center mb-10">
-        <div className="w-1/4 h-px bg-gray-300"></div>
-        <h2 className="text-3xl md:text-4xl font-serif text-orange-500 px-6">Academic Calendar</h2>
-        <div className="w-1/4 h-px bg-gray-300"></div>
-      </div>
-      
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+ <div className="flex items-center justify-center mb-8 md:mb-10">
+      <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
+      <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-3 md:px-6 text-center">
+      Academic Calendar
+      </h2>
+      <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
+    </div>
+<div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {/* Calendar Column */}
           <div className="lg:col-span-2">
             <div className="bg-white border border-teal-100 rounded-xl overflow-hidden shadow-md">

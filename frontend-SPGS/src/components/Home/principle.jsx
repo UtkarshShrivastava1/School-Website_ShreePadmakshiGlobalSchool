@@ -19,8 +19,8 @@ const PrincipalWelcome = () => {
               <h2 className="font-semibold text-lg text-gray-800">Mrs. Sweta Singh</h2>
         
               <p className="mt-3 text-gray-600 leading-relaxed">
-                On behalf of MLGS community, I would like to welcome all our new families to MLGS to allow you a
-                chance to get to know what makes MLGS a very special place for students and families...
+                On behalf of SPGS community, I would like to welcome all our new families to SPGS to allow you a
+                chance to get to know what makes SPGS a very special place for students and families...
               </p>
               
               <div className="mt-6">

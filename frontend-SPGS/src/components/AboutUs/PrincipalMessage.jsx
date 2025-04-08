@@ -17,7 +17,7 @@ const PrincipalWelcome = () => {
       <div className="max-w-5xl mx-auto">
         <div className="bg-white rounded-xl shadow-lg overflow-hidden">
           {/* School Values Banner */}
-          <div className="bg-[#f25811] text-white py-3 px-6 flex justify-center space-x-8 md:space-x-16 text-sm">
+          {/* <div className="bg-[#f25811] text-white py-3 px-6 flex justify-center space-x-8 md:space-x-16 text-sm">
             <div className="flex items-center">
               <BookOpen className="w-4 h-4 mr-2" />
               <span>Excellence</span>
@@ -30,7 +30,23 @@ const PrincipalWelcome = () => {
               <GraduationCap className="w-4 h-4 mr-2" />
               <span>Achievement</span>
             </div>
-          </div>
+          </div> */}
+
+<div className="bg-[#f25811] text-white py-4 px-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center text-sm">
+  <div className="flex items-center justify-center">
+    <BookOpen className="w-4 h-4 mr-2" />
+    <span>Excellence</span>
+  </div>
+  <div className="flex items-center justify-center">
+    <Users className="w-4 h-4 mr-2" />
+    <span>Community</span>
+  </div>
+  <div className="flex items-center justify-center">
+    <GraduationCap className="w-4 h-4 mr-2" />
+    <span>Achievement</span>
+  </div>
+</div>
+
 
           <div className="md:flex">
       {/* Principal Info */}

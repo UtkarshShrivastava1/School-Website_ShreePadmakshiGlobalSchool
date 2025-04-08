@@ -27,13 +27,15 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen p-15">
       {/* Page Title Section */}
-      <div className="text-center mb-12 max-w-6xl mx-auto">
-        <div className="flex items-center justify-center mb-10">
-          <div className="w-1/4 h-px bg-gray-300"></div>
-          <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">Contact Us</h2>
-          <div className="w-1/4 h-px bg-gray-300"></div>
-        </div>
-      </div>
+ <div className="flex items-center justify-center mb-6 md:mb-10 px-4 md:px-0">
+  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-2 sm:px-4 md:px-6 text-center">
+  Contact Us
+  </h2>
+  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+</div>
+
+     
 
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8">
         {/* Left Column with Border */}
@@ -127,7 +129,7 @@ const ContactPage = () => {
               </div>
               <div>
                 <h3 className="font-medium text-lg text-[#191f5d]">
-                  spgsbilaspur@gmail.com
+                  admin@SPGSbilaspur.com
                 </h3>
                 <p className="text-gray-600">9111777295, 9424130028</p>
               </div>

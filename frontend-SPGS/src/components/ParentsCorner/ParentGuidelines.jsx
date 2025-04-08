@@ -3,12 +3,19 @@ import React from 'react';
 const ParentGuidelines = () => {
   return (
     <div className="min-h-screen bg-gray-50 p-10 flex flex-col justify-center items-center">
+
+
+
+
+
       <div className="w-4/5 mb-6 text-center mx-auto">
-        <div className="flex items-center justify-center mb-10">
-          <div className="w-1/4 h-px bg-gray-300"></div>
-          <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">Parents Guidelines</h2>
-          <div className="w-1/4 h-px bg-gray-300"></div>
-        </div>
+      <div className="flex items-center justify-center mb-6 md:mb-10 px-4 md:px-0">
+  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-2 sm:px-4 md:px-6 text-center">
+  Parents Guidelines
+  </h2>
+  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+</div>
         <p className="text-gray-600 max-w-4xl mx-auto">
         In order to achieve the common Bilaspur of satisfactory education and promoting the all-round development for your child here are few vital instructions for you to follow
         </p>

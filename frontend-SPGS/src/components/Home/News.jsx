@@ -14,8 +14,7 @@ const NewsSection = () => {
         // getNotices()
       ]);
       setEvents(eventsData);
-      console.log(eventsData);
-      // console.log(events)
+  
     } catch (error) {
       console.log(error.message);
     }
@@ -27,12 +26,13 @@ const NewsSection = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Heading with decorative lines */}
-      <div className="flex items-center justify-center mb-10">
-        <div className="w-1/4 h-px bg-gray-300"></div>
-        <h2 className="text-3xl md:text-4xl font-serif text-orange-500 px-6">Latest News</h2>
-        <div className="w-1/4 h-px bg-gray-300"></div>
-      </div>
-       
+      <div className="flex items-center justify-center mb-8 md:mb-10">
+      <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
+      <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-3 md:px-6 text-center">
+      Latest News
+      </h2>
+      <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
+    </div>
       {/* Content Area */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main Featured Article */}

@@ -1,5 +1,6 @@
-import img from "../assets/c-3.png"
+import School from "../assets/School.jpg"
 import { ArrowRight, BookOpen, Brain, Users, Award, Calendar } from "lucide-react"
+import Classsroom from "../assets/Classroom/ClassN3.jpg"
 
 export default function PrimarySchoolProgram() {
   return (
@@ -43,7 +44,7 @@ export default function PrimarySchoolProgram() {
           </div>
           <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
             <img
-              src={img}
+              src={School}
               alt="Students engaged in learning activities"
               fill
               className="object-cover h-[100%]"
@@ -60,7 +61,6 @@ export default function PrimarySchoolProgram() {
             <div className="flex items-center justify-center mb-10">
               <div className="w-1/4 h-px bg-gray-300"></div>
               <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
-                {" "}
                 Our Approach
               </h2>
               <div className="w-1/4 h-px bg-gray-300"></div>
@@ -122,7 +122,7 @@ export default function PrimarySchoolProgram() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1 relative h-[400px] rounded-xl overflow-hidden shadow-xl">
             <img
-              src="https://images.pexels.com/photos/8926556/pexels-photo-8926556.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              src={Classsroom}
               alt="Interactive classroom learning"
               fill
               className="object-cover"

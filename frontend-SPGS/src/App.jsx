@@ -55,12 +55,14 @@ import Director_1_Message from './pages/About/Director_1Message';
 import Terms from './pages/Terms&Policy/Terms&Conditions';
 import Policy from './pages/Terms&Policy/PrivacyPolicy';
 import GalleryDashboard from './pages/Admin/GalleryDashboard';
+import AcademicUpper from './pages/WhyUs/AcademicUpper';
+import SchoolValuesPage from './components/AboutUs/ValuesInAction';
 
 function App() {
   return (
-    // <Router>
+
       <AppContent />
-    // </Router>
+
   );
 }
 
@@ -72,7 +74,10 @@ function AppContent() {
     <>
       {!isAdminRoute && <Navbar />}
       <Routes>
+        {/* HOME  */}
         <Route path="/" element={<Home />} />
+
+        {/* OUR SCHOOL */}
         <Route path="/our-school" element={<OurSchool />} />
         <Route path="/mount-litera-zee-schools" element={<MountLiteraZeeSchools />} />
         <Route path="/our-mission" element={<OurMission />} />
@@ -81,11 +86,17 @@ function AppContent() {
         <Route path="/director-message_1" element={<Director_1_Message />} />
         <Route path="/principal-message" element={<PrincipalMessage />} />
         <Route path="/value-education" element={<ValueEducation />} />
+        <Route path="/school-values" element={<SchoolValuesPage />} />
+
+        {/* WHY US  */}
         <Route path="/why-mlzs" element={<WhyMLZS />} />
         <Route path="/academics-pre-primary" element={<AcademicsPrePrimary />} />
         <Route path="/academics-primary" element={<AcademicsPrimary />} />
         <Route path="/academics-middle" element={<AcademicsMiddle />} />
+        <Route path="/academics-upper" element={<AcademicUpper />} />
         <Route path="/beyond-academics" element={<BeyondAcademics />} />
+
+
         <Route path="/guidelines-procedures" element={<GuidelinesProcedures />} />
         <Route path="/school-rules-regulations" element={<SchoolRulesRegulations />} />
         <Route path="/withdrawal-policy" element={<WithdrawalPolicy />} />

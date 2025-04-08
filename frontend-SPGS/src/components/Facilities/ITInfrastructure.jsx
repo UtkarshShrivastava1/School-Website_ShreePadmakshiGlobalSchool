@@ -5,11 +5,13 @@ const ITInfrastructure = () => {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* <h1 className="text-3xl font-bold text-center mb-4">IT Infrastructure</h1> */}
-      <div className="flex items-center justify-center mb-10">
-        <div className="w-1/4 h-px bg-gray-300"></div>
-        <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">IT Infrastructure</h2>
-        <div className="w-1/4 h-px bg-gray-300"></div>
-      </div>
+      <div className="flex items-center justify-center mb-6 md:mb-10 px-4 md:px-0">
+  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-2 sm:px-4 md:px-6 text-center">
+   IT Infrastructure
+  </h2>
+  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+</div>
       
       <p className="text-center text-gray-700 mb-12 max-w-3xl mx-auto">
         Our state-of-the-art IT infrastructure supports digital learning and administrative efficiency

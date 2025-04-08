@@ -93,34 +93,21 @@ const SchoolCalendar = () => {
 
   return (
     <div className="min-h-screen  text-slate-800">
-      {/* Navbar */}
-      {/* <div className="bg-white border-b border-teal-100 px-4 sm:px-8 py-4 sticky top-0 z-10 shadow-sm">
-        <div className="flex items-center justify-between max-w-7xl mx-auto">
-          <div className="flex items-center gap-3">
-            <CalendarIcon className="text-teal-500" size={24} />
-            <h1 className="text-lg font-medium tracking-tight">EduPlanner</h1>
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="w-8 h-8 bg-amber-400 rounded-full flex items-center justify-center">
-              <User size={16} />
-            </div>
-          </div>
-        </div>
-      </div> */}
+    
 
       <main className="max-w-7xl mx-auto py-6 sm:py-8 px-4 sm:px-6 lg:px-8">
         {/* Header - Centered */}
         <div className="mb-8 sm:mb-12 mt-2 sm:mt-4 text-center">
-          <div className="flex items-center justify-center mb-10">
-            <div className="w-1/4 h-px bg-gray-300"></div>
-            <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
-            Academic Calendar
-            </h2>
-            <div className="w-1/4 h-px bg-gray-300"></div>
-          </div>
-          {/* <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-800">
-            Academic Calendar
-          </h2> */}
+        <div className="flex items-center justify-center mb-6 md:mb-10 px-4 md:px-0">
+  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-2 sm:px-4 md:px-6 text-center">
+  Academic Calendar 
+  </h2>
+  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+</div>
+
+        
+           
           <p className="mt-2 sm:mt-3 text-slate-500 max-w-xl mx-auto">
             Track your schedule, manage events, and plan your academic journey
           </p>

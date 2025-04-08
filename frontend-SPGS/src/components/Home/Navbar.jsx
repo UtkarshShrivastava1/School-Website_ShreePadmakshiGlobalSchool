@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Menu, X, Calendar, Bell, User, Icon, icons } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../assets/Media.jpg";
 import {
   School,
@@ -101,6 +101,11 @@ const Navbar = () => {
         {
           name: "Academics: Middle",
           link: "/academics-middle",
+          icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
+        },
+        {
+          name: "Academics: Upper",
+          link: "/academics-upper",
           icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
         {
@@ -244,7 +249,7 @@ const Navbar = () => {
   return (
     <div className="w-full ">
       {/* Top Navbar - Burgundy Background */}
-      <div className="bg-gradient-to-r from-[#191f5d] to-[#191f5d] text-white py-3 px-4 md:px-8">
+      <div className="bg-gradient-to-r from-[#191f5d] to-[#191f5d] text-white py-3 px-4 md:px-8  sm:text-sm">
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo and Title */}
           <div className="flex items-center space-x-3">
@@ -255,17 +260,17 @@ const Navbar = () => {
             />
             <div className="hidden md:block">
               <h1 className="text-2xl md:text-3xl font-serif ">
-              SHREE PADMAKSHI GLOBAL SCHOOL Bilaspur
+              SHREE PADMAKSHI GLOBAL SCHOOL,BILASPUR
               </h1>
               <p className="text-sm ">CBSE Affiliation No: 3330519</p>
             </div>
           </div>
 
           {/* Mobile Title - Shown only on smallest screens */}
-          <div className="md:hidden text-center absolute left-1/2 transform -translate-x-1/2">
-            <h1 className="text-xl font-serif">
-            SHREE PADMAKSHI GLOBAL SCHOOL Bilaspur
-            </h1>
+          <div className="md:hidden text-center  absolute left-1/2 transform -translate-x-1/2">
+            <p className="text-sm  font-serif">
+            SHREE PADMAKSHI GLOBAL SCHOOL,BILASPUR
+            </p>
             <p className="text-xs text-gray-200">
               CBSE Affiliation No: 3330519
             </p>
@@ -296,7 +301,7 @@ const Navbar = () => {
               {/* Directory Icon */}
               <div className="flex flex-col items-center cursor-pointer">
                 <User className="h-5 w-5 text-yellow-200" />
-                <span className="text-xs text-yellow-200 mt-1">ADMISSION</span>
+                <NavLink to='https://entab.online/Registration/RegistrationGroupClass' className="text-xs text-yellow-200 mt-1">ADMISSION</NavLink>
               </div>
             </div>
 
@@ -393,60 +398,68 @@ const Navbar = () => {
 
             {/* Mobile Nav Items with Dropdowns */}
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {navItems.map((item, index) => (
-                <div key={index}>
-                  <button
-                    onClick={() => item.dropdown && toggleDropdown(index)}
-                    className={`w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 uppercase
-                    ${
-                      activeDropdown === index
-                        ? "text-blue-700 bg-gray-50"
-                        : "text-gray-700"
-                    } 
-                    hover:text-blue-700 hover:bg-gray-50`}
-                  >
-                    <div className="flex justify-between items-center">
-                      {item.name}
-                      {item.dropdown && (
-                        <svg
-                          className={`h-4 w-4 transition-transform duration-200 ${
-                            activeDropdown === index
-                              ? "transform rotate-90"
-                              : ""
-                          }`}
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      )}
-                    </div>
-                  </button>
+  {navItems.map((item, index) => (
+    <div key={index}>
+      <button
+        onClick={() => {
+          if (item.dropdown) {
+            toggleDropdown(index);
+          } else {
+            handleNavigation(item.link);
+          }
+        }}
+        className={`w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 uppercase
+          ${
+            activeDropdown === index
+              ? "text-blue-700 bg-gray-50"
+              : "text-gray-700"
+          } 
+          hover:text-blue-700 hover:bg-gray-50`}
+      >
+        <div className="flex justify-between items-center">
+          {item.name}
+          {item.dropdown && (
+            <svg
+              className={`h-4 w-4 transition-transform duration-200 ${
+                activeDropdown === index ? "transform rotate-90" : ""
+              }`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          )}
+        </div>
+      </button>
 
-                  {/* Mobile Dropdown */}
-                  {item.dropdown && activeDropdown === index && (
-                    <div className="bg-white py-2">
-                      {item.dropdownItems.map((dropdownItem, dropdownIndex) => (
-                        <button
-                          key={dropdownIndex}
-                          onClick={() => handleNavigation(dropdownItem.link)}
-                          className="w-full flex flex-row gap-2 items-center   px-4 py-3 md:hover:bg-gray-200 sm:hover:bg-gray-200  text-sm text-black hover:text-black hover:bg-gray-200 border-b border-gray-600"
-                        >
-                          {dropdownItem.icon}
-                          {dropdownItem.name}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
+      {/* Mobile Dropdown */}
+      {item.dropdown && activeDropdown === index && (
+        <div className="bg-white py-2">
+          {item.dropdownItems.map((dropdownItem, dropdownIndex) => (
+            <button
+              key={dropdownIndex}
+              onClick={() => handleNavigation(dropdownItem.link)}
+              className="w-full flex flex-row gap-2 items-center   
+                px-4 py-3 md:hover:bg-gray-200 sm:hover:bg-gray-200  
+                text-sm text-black hover:text-black hover:bg-gray-200 border-b
+                border-gray-600"
+            >
+              {dropdownItem.icon}
+              {dropdownItem.name}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  ))}
+</div>
+
           </div>
         )}
       </nav>

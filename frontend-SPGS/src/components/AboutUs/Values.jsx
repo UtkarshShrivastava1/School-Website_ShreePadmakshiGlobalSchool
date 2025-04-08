@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { NavLink } from 'react-router-dom';
 
 const ValuesPage = () => {
   const valuesRef = useRef([]);
@@ -143,7 +144,7 @@ const ValuesPage = () => {
             <div className="md:w-2/3">
               <div className="prose prose-lg max-w-none">
                 <p>
-                  Stress is laid on developing a methodical and disciplined approach to life; to have a discriminating mind, the courage to tread new paths and to follow the dictates of one's own conscience even if it means being different.
+                  Stress is laid on developing a methodical and disciplined approach to life; to have a discriminating mind, the courage to tread new paths and to follow the dictates of one's conscience even if it means being different.
                 </p>
                 <p>
                   Our value education approach includes:
@@ -172,7 +173,7 @@ const ValuesPage = () => {
               "The values education at this school has helped my child develop not just academically, but as a thoughtful, principled individual with the courage to stand by their convictions."
             </p>
             <div className="flex items-center justify-center">
-              <img src="https://i.pinimg.com/736x/d9/b6/1a/d9b61a74e0ca7c64d50d27bb42013b4b.jpg" alt="Parent" className="rounded-full w-16 h-16 mr-4" />
+              <img src="https://images.pexels.com/photos/6635041/pexels-photo-6635041.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Parent" className="rounded-full w-16 h-16 mr-4" />
               <div className="text-left">
                 <p className="font-medium">Parent of Class 9 Student</p>
                 <p className="text-blue-300">Mother of Arjun S.</p>
@@ -193,7 +194,7 @@ const ValuesPage = () => {
               <p className="text-gray-600 mb-4">
                 Students apply their values through meaningful community service projects that develop empathy and social responsibility.
               </p>
-              <a href="#" className="text-blue-600 font-medium hover:text-orange-500 transition">Learn more →</a>
+              <NavLink to="/school-values" className="text-blue-600 font-medium hover:text-orange-500 transition">Learn more →</NavLink>
             </div>
           </div>
           
@@ -204,7 +205,7 @@ const ValuesPage = () => {
               <p className="text-gray-600 mb-4">
                 Our leadership programs encourage students to make ethical decisions and stand by their principles even in challenging situations.
               </p>
-              <a href="#" className="text-blue-600 font-medium hover:text-orange-500 transition">Learn more →</a>
+              <NavLink to="/school-values" className="text-blue-600 font-medium hover:text-orange-500 transition">Learn more →</NavLink>
             </div>
           </div>
         </div>

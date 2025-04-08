@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import School from '../assets/School.jpg';
 
 const BeyondAcademic = () => {
   const [activeTab, setActiveTab] = useState('campus');
@@ -8,8 +9,8 @@ const BeyondAcademic = () => {
       id: 'campus',
       title: 'Our Campus',
       icon: '🏫',
-      image: 'http://mlzsbilaspur.com/Assets/Images/Ourcampus.jpg',
-      description: 'MLZS boasts of a large campus with state of the art building for academic instruction. The building is complete with offices for Trustee, Principal, Relationship Manager and Administration on the ground floor. The with pre-primary classrooms alongwith Library, Math Lab, Science lab and the computer lab constitute the first floor. The staff room along with senior grades rest on second floor. The floors are connected with wide stairs with clean washrooms at each floor for easy access, airy corridors and well-ventilated classrooms. The classrooms also have been equipped with smart boards for interactive learning. The playground area is equally attractive. Large, open area, surrounded by natural beauty offers a breathtaking sight. The playground gives access to sports like Cricket, Football, Hockey and basketball.'
+      image: School,
+      description: 'SPGS boasts of a large campus with state of the art building for academic instruction. The building is complete with offices for Trustee, Principal, Relationship Manager and Administration on the ground floor. The with pre-primary classrooms alongwith Library, Math Lab, Science lab and the computer lab constitute the first floor. The staff room along with senior grades rest on second floor. The floors are connected with wide stairs with clean washrooms at each floor for easy access, airy corridors and well-ventilated classrooms. The classrooms also have been equipped with smart boards for interactive learning. The playground area is equally attractive. Large, open area, surrounded by natural beauty offers a breathtaking sight. The playground gives access to sports like Cricket, Football, Hockey and basketball.'
     },
     {
       id: 'language-lab',
@@ -30,14 +31,14 @@ const BeyondAcademic = () => {
       title: 'Math Lab',
       icon: '🔢',
       image: 'http://mlzsbilaspur.com/Assets/Images/beyound/math-Lab.jpg',
-      description: 'From time immemorial, mathematics has been the tool to decode greatest mysteries of the world and the universe. With development in teaching methods, which have become more and more experimental, learning mathematical concepts requires special training. This intricate puzzle needs to be solved outside the classroom, away from mere theoretical approach. MLZS makes this work even easier with its math lab which endows the child with insight into mathematical formulae, collection of data and rectifying errors through experimentation. The math lab consists of all the required material for a fascinating experience of the subject making mathematical studies a piece of cake.'
+      description: 'From time immemorial, mathematics has been the tool to decode greatest mysteries of the world and the universe. With development in teaching methods, which have become more and more experimental, learning mathematical concepts requires special training. This intricate puzzle needs to be solved outside the classroom, away from mere theoretical approach. SPGS makes this work even easier with its math lab which endows the child with insight into mathematical formulae, collection of data and rectifying errors through experimentation. The math lab consists of all the required material for a fascinating experience of the subject making mathematical studies a piece of cake.'
     },
     {
       id: 'music-room',
       title: 'Music Room',
       icon: '🎵',
       image: 'http://mlzsbilaspur.com/Assets/Images/beyound/music.jpg',
-      description: 'Music rejuvenates the mind and soul and refreshes it. At MLZS, we encourage students to express themselves in the language of melody. With a fully equipped music room with all instruments intact, we push the bar higher and higher. Our skilled vocals and instrumental trainers make sure that music in the heart never ceases to enthrall the world.'
+      description: 'Music rejuvenates the mind and soul and refreshes it. At SPGS, we encourage students to express themselves in the language of melody. With a fully equipped music room with all instruments intact, we push the bar higher and higher. Our skilled vocals and instrumental trainers make sure that music in the heart never ceases to enthrall the world.'
     },
     {
       id: 'library',
@@ -51,7 +52,7 @@ const BeyondAcademic = () => {
       title: 'Art & Craft',
       icon: '🎨',
       image: 'http://mlzsbilaspur.com/Assets/Images/beyound/Art.jpg',
-      description: 'At MLZS, we encourage students to be creative and imaginative. It is said that a childs world is best understood when he carves out his imagination with tints of his selection. The students love to play with colours and act like demigods, creating something new every day. Support and technical guidance helps them to appreciate art work by great artists and insists them to generate new art works and then take pride in it.'
+      description: 'At SPGS, we encourage students to be creative and imaginative. It is said that a childs world is best understood when he carves out his imagination with tints of his selection. The students love to play with colours and act like demigods, creating something new every day. Support and technical guidance helps them to appreciate art work by great artists and insists them to generate new art works and then take pride in it.'
     }
   ];
 
@@ -64,7 +65,7 @@ const BeyondAcademic = () => {
         <div className="container mx-auto px-4 py-20 max-w-7xl">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 text-center">Beyond Academics</h1>
           <p className="text-xl md:text-2xl text-center max-w-3xl mx-auto opacity-90">
-            Explore the exceptional facilities at MLZS designed to nurture well-rounded, creative, and confident individuals.
+            Explore the exceptional facilities at SPGS designed to nurture well-rounded, creative, and confident individuals.
           </p>
         </div>
         
@@ -83,7 +84,7 @@ const BeyondAcademic = () => {
               <button
                 key={facility.id}
                 onClick={() => setActiveTab(facility.id)}
-                className={`flex items-center px-4 py-3 md:px-6 md:py-4 rounded-lg transition-all whitespace-nowrap ${
+                className={`flex items-center px-4 py-3 md:px-6 md:py-4 rounded-lg transition-all whitespace-nowrap cursor-pointer ${
                   activeTab === facility.id 
                     ? 'bg-indigo-600 text-white shadow-lg' 
                     : 'bg-white text-gray-700 hover:bg-indigo-100 shadow'
@@ -166,7 +167,7 @@ const BeyondAcademic = () => {
         <div className="container mx-auto px-4 max-w-5xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Experience Our Campus</h2>
           <p className="text-xl max-w-2xl mx-auto mb-8 opacity-90">
-            See our world-class facilities in person and discover how MLZS can provide your child with an exceptional education.
+            See our world-class facilities in person and discover how SPGS can provide your child with an exceptional education.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white text-indigo-700 hover:bg-indigo-50 px-8 py-4 rounded-lg font-bold text-lg transition-colors">
@@ -184,7 +185,7 @@ const BeyondAcademic = () => {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-2xl font-bold mb-4">MLZS</h3>
+              <h3 className="text-2xl font-bold mb-4">SPGS</h3>
               <p className="text-gray-400">
                 Providing exceptional education and facilities to nurture the leaders of tomorrow.
               </p>
@@ -201,14 +202,14 @@ const BeyondAcademic = () => {
             <div>
               <h3 className="text-lg font-bold mb-4">Contact</h3>
               <ul className="space-y-2 text-gray-400">
-                <li>Email: info@mlzs.edu</li>
+                <li>Email: info@SPGS.edu</li>
                 <li>Phone: +91 1234567890</li>
-                <li>Address: MLZS Campus, Education City</li>
+                <li>Address: SPGS Campus, Education City</li>
               </ul>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
-            <p>&copy; {new Date().getFullYear()} MLZS. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} SPGS. All rights reserved.</p>
           </div>
         </div>
       </footer> */}

@@ -111,9 +111,9 @@ export default function CareersPage() {
             <h3 className="text-xl font-bold mb-6 text-indigo-900">How to Apply</h3>
 
             <Tabs defaultValue="email">
-              <TabsList className="grid w-full grid-cols-2 mb-6 bg-slate-100">
-                <TabsTrigger value="email" className="data-[state=active]:bg-white data-[state=active]:text-orange-600">Email Application</TabsTrigger>
-                <TabsTrigger value="online" className="data-[state=active]:bg-white data-[state=active]:text-orange-600">Online Application</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-2 mb-6 bg-slate-100 rounded-md">
+                <TabsTrigger value="email" className="data-[state=active]:bg-white data-[state=active]:text-orange-600 cursor-pointer ">Email Application</TabsTrigger>
+                <TabsTrigger value="online" className="data-[state=active]:bg-white data-[state=active]:text-orange-600 cursor-pointer ">Online Application</TabsTrigger>
               </TabsList>
 
               <TabsContent value="email" className="space-y-4">
@@ -123,8 +123,8 @@ export default function CareersPage() {
                 </p>
                 <div className="flex items-center gap-2 p-3 bg-slate-100 rounded-md">
                   <Mail className="h-5 w-5 text-orange-600" />
-                  <a href="mailto:Mlzs.bilaspur@mountlitera.com" className="text-orange-600 font-medium">
-                    Mlzs.bilaspur@mountlitera.com
+                  <a href="mailto:Carrer@SPGSbilaspur.com" className="text-orange-600 font-medium">
+                    Carrer@SPGSbilaspur.com
                   </a>
                 </div>
               </TabsContent>

@@ -22,7 +22,7 @@ const WelcomeBanner = () => {
         }`}
       >
         <span className="text-black">Welcome to </span>
-        <span className="hover:text-orange-700 text-orange-500 transition-colors duration-300">SHREE PADMAKSHI GLOBAL  School</span>
+        <span className="hover:text-orange-700 text-orange-500 transition-colors duration-300">SHREE PADMAKSHI GLOBAL SCHOOL</span>
       </h3>
       
       <p 

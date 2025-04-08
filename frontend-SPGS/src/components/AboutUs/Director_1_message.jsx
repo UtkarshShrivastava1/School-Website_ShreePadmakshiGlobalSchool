@@ -123,7 +123,7 @@ const Directors_1_message = () => {
                   </div>
                   <div className="ml-4">
                     <p className="font-bold text-orange-500 ">Dr. Vinod Tiwari</p>
-                    <p className="text-sm text-gray-600">Director,  SHREE PADMAKSHI GLOBAL SCHOOL</p>
+                    <p className="text-sm text-gray-600">Director, SHREE PADMAKSHI GLOBAL SCHOOL</p>
                   </div>
                 </div>
               </div>
@@ -167,7 +167,7 @@ const Directors_1_message = () => {
               { year: '2021', title: 'Digital Transformation', description: 'Implementation of advanced smart classrooms' }
             ].map((item, index) => (
               <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12 text-right' : 'pl-12 text-left'}`}>
+                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-10 text-right' : 'pl-10 text-left'}`}>
                   <h3 className="text-xl font-bold text-orange-500 ">{item.title}</h3>
                   <p className="text-gray-700 mt-2">{item.description}</p>
                 </div>

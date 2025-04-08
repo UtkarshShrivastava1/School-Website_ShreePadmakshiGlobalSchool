@@ -63,7 +63,7 @@ const DirectorsMessagePage = () => {
 
                 <p className="mb-4">
                 At Shree Padmakshi Global School, we believe that education should be a transformative
-                experience that prepares students for success in an ever-changing world. We strive to instill in
+                experience .That prepares students for success in an ever-changing world. We strive to instil in
                 our students a love of learning, a strong sense of values, and the skills and confidence to make
                 a positive impact in their communities.
 
@@ -81,9 +81,9 @@ const DirectorsMessagePage = () => {
                 
                 </p>
 
-                <p className="mb-2">Sincerely,,</p>
+                <p className="mb-2">Sincerely,</p>
                 <p className="italic font-medium">Dr. Sanjana Tiwari</p>
-                <p className="text-sm text-muted-foreground">Director, Shree Padmakshi Global Schoo</p>
+                <p className="text-sm text-muted-foreground">Director, Shree Padmakshi Global School</p>
              
 
             </div>
@@ -92,14 +92,14 @@ const DirectorsMessagePage = () => {
               <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-orange-500">
                 <h3 className="text-xl font-bold text-orange-500  mb-4">Our Campus</h3>
                 <p className="text-gray-700">
-                  The ambience of the school is away from the hustle and bustle of city life and is congenial for academics. The school is equipped with world class ultra modern learning facilities. The classrooms are fully Air conditioned, spacious and equipped with all modern facilities of smart classes.
+                  The ambience of the school is away from the hustle and bustle of city life and is congenial for academics. The school is equipped with world-class ultra modern learning facilities. The classrooms are fully Air conditioned, spacious and equipped with all modern facilities of smart classes.
                 </p>
               </div>
               
               <div className="bg-white p-6 rounded-lg shadow-md border-t-4 border-orange-500">
                 <h3 className="text-xl font-bold text-orange-500  mb-4">Our Philosophy</h3>
                 <p className="text-gray-700">
-                  At Mount Litera Zee School, Bilaspur we believe that every child has a right to live in calm, orderly, safe and secure environment essential for development to fullest potential. As a progressive, learning centric co-educational school we provide all necessary facilities for overall development of students.
+                  At Shree Padmakshi Global School, Bilaspur we believe that every child has a right to live in calm, orderly, safe and secure environment essential for development to fullest potential. As a progressive, learning centric co-educational school we provide all necessary facilities for overall development of students.
                 </p>
               </div>
             </div>
@@ -154,13 +154,13 @@ const DirectorsMessagePage = () => {
           {/* Timeline Items */}
           <div className="space-y-12">
             {[
-              { year: '2014', title: 'School Founding', description: 'Mount Litera Zee School Bilaspur was established' },
+              { year: '2014', title: 'School Founding', description: 'Shree Padmakshi Global School Bilaspur was established' },
               { year: '2016', title: 'Infrastructure Expansion', description: 'Addition of state-of-the-art facilities' },
               { year: '2018', title: 'Educational Excellence', description: 'Recognition for academic achievements' },
               { year: '2021', title: 'Digital Transformation', description: 'Implementation of advanced smart classrooms' }
             ].map((item, index) => (
               <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12 text-right' : 'pl-12 text-left'}`}>
+                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-10 text-right' : 'pl-10 text-left '}`}>
                   <h3 className="text-xl font-bold text-orange-500 ">{item.title}</h3>
                   <p className="text-gray-700 mt-2">{item.description}</p>
                 </div>

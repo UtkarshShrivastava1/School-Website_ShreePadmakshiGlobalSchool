@@ -14,7 +14,7 @@ const Gallery = () => {
     const fetchImages = async () => {
       try {
         const { data } = await api.get("/posts");
-        console.log(data.data)
+       
         setImages(data.data || []);
        
       } catch (error) {
@@ -29,6 +29,9 @@ const Gallery = () => {
 
   const handleClick = (card) => {
     setLastSelected(selected);
+    
+    {console.log(`Selected details :  ${selected} `)}
+
     setSelected(card);
   };
 
@@ -39,13 +42,14 @@ const Gallery = () => {
 
   return (
     <div>
-      <div className="flex items-center justify-center mb-10">
-        <div className="w-1/4 h-px bg-gray-300"></div>
-        <h2 className="text-3xl md:text-4xl font-serif text-orange-500 px-6">
-          Our<span className="text-orange-500"> Gallery</span>
-        </h2>
-        <div className="w-1/4 h-px bg-gray-300"></div>
-      </div>
+       <div className="flex items-center justify-center mb-8 md:mb-10">
+      <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
+      <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-3 md:px-6 text-center">
+        Our Gallery
+      </h2>
+      <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
+    </div>
+      
 
              
       <div className="w-full h-full p-10 grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto gap-4 relative ">
@@ -54,20 +58,24 @@ const Gallery = () => {
         ) : error ? (
           <p className="text-center text-red-500">{error}</p>
         ) : (
-          images.map((card,i) => (
-            <div key={i} className="relative overflow-hidden bg-amber-600">
+          images.map((card) => (
+            <div key={card._id} className="relative overflow-hidden mb-[430px] h-full  bg-amber-600">
               <motion.div
                 onClick={() => handleClick(card)}
                 className={cn(
-                  "relative overflow-hidden bg-white rounded-xl cursor-pointer",
+                  "relative overflow-hidden bg-white rounded-xl cursor-pointer h-full",
                   selected?._id === card._id && "z-50"
                 )}
+               
                 layoutId={`card-${card._id}`}
               >
                 
                 {selected?._id === card._id && <SelectedCard selected={selected} />}
                 <ImageComponent card={card} />
-               
+                {/* {console.log(`Card details : ${card._id} ${selected?._id} `)} */}
+
+                {/* {console.log("Seleced image id : "+selected?._id)} */}
+                
               </motion.div>
             </div>
           ))
@@ -94,7 +102,7 @@ const ImageComponent = ({ card }) => {
       className="object-cover object-top absolute inset-0 h-full w-full transition duration-200 "
       alt={card?.title || "thumbnail"}
     />
-      {console.log(card.image?.url)}
+     
     </>
    
   );
@@ -109,7 +117,7 @@ const SelectedCard = ({ selected }) => {
         className="absolute inset-0 h-full w-full opacity-60 z-10"
       />
       <motion.div
-        layoutId={`content-${selected?._id}`}
+        layoutId={`content-${selected._id}`}
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: 100 }}

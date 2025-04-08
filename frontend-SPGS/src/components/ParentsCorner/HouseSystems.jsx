@@ -20,14 +20,15 @@ const HouseSystems = () => {
             <span className="inline-block bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-medium mb-4">
               Competitions
             </span>
-            <div className="flex items-center justify-center mb-10">
-              <div className="w-1/4 h-px bg-gray-300"></div>
-              <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
-                {" "}
-                Inter-house Competitions
-              </h2>
-              <div className="w-1/4 h-px bg-gray-300"></div>
-            </div>
+           <div className="flex items-center justify-center mb-6 md:mb-10 px-4 md:px-0">
+  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-2 sm:px-4 md:px-6 text-center">
+  Inter-house Competitions
+  </h2>
+  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+</div>
+
+           
 
             <p className="mt-4 max-w-3xl mx-auto text-xl text-gray-500">
               We understand the importance of competitions for children as they

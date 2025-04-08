@@ -105,7 +105,7 @@ export default function PrePrimaryPage() {
             <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
               <img
                 src="http://mlzsbilaspur.com/Assets/Images/pp-program.jpg"
-                alt="Mount Litera Zee School Bilaspur Primary"
+                alt="Shree padhnakshi global school Bilaspur Primary"
                 fill
                 className="w-full object-cover rounded-lg"
               />
@@ -113,7 +113,7 @@ export default function PrePrimaryPage() {
             <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
               <img
                 src="http://mlzsbilaspur.com/Assets/Images/prePrimaryClass.jpg"
-                alt="Mount Litera Zee School Bilaspur Primary"
+                alt="Shree padhnakshi global school Bilaspur Primary"
                 fill
                 className="object-cover rounded-lg"
               />
@@ -154,7 +154,7 @@ export default function PrePrimaryPage() {
             <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
               <img
                 src="http://mlzsbilaspur.com/Assets/Images/pp1.jpg"
-                alt="Mount Litera Zee School Bilaspur Play"
+                alt="Shree padhnakshi global school Bilaspur Play"
                 fill
                 className="w-full h-auto object-cover rounded-lg"
 
@@ -166,7 +166,7 @@ export default function PrePrimaryPage() {
             <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md order-1 md:order-1">
               <img
                 src="http://mlzsbilaspur.com/Assets/Images/pp2.jpg"
-                alt="Mount Litera Zee School Bilaspur Play"
+                alt="Shree padhnakshi global school Bilaspur Play"
                 className="w-full h-auto object-cover rounded-lg"
               />
             </div>
@@ -189,7 +189,7 @@ export default function PrePrimaryPage() {
             <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
               <img
                 src="http://mlzsbilaspur.com/Assets/Images/pp2.jpg"
-                alt="Mount Litera Zee School Bilaspur Play"
+                alt="Shree padhnakshi global school Bilaspur Play"
                 fill
                 className="w-full h-auto object-cover rounded-lg"
               />
@@ -197,7 +197,7 @@ export default function PrePrimaryPage() {
             <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
               <img
                 src={SportsRoom}
-                alt="Mount Litera Zee School Bilaspur Play"
+                alt="Shree padhnakshi global school Bilaspur Play"
                 fill
                 className="w-full h-auto object-cover rounded-lg"
               />
