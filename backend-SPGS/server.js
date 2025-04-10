@@ -6,6 +6,7 @@ const errorHandler = require("./middleware/errorHandler");
 const chalk = require("chalk");
 const boxen = require("boxen");
 const os = require("os");
+const ip = require("ip"); // Add this
 const cloudinary = require("cloudinary").v2;
 
 // App Init
@@ -95,6 +96,21 @@ app.listen(port, () => {
   const systemInfo = `${os.type()} ${os.platform()} ${os.arch()}`;
   const nodeVersion = process.version;
 
+  // 👀 Show correct URL depending on environment
+  let displayURL = "";
+  if (isProduction && process.env.FRONTEND_URL) {
+    displayURL = `${chalk.bold("🌐  Production URL")}: ${chalk.cyan(
+      process.env.FRONTEND_URL
+    )}`;
+  } else {
+    displayURL = `
+${chalk.bold("🧭  Local URL")}: http://localhost:${chalk.blue(port)}
+${chalk.bold("🧭  Network URL")}: http://${chalk.gray(
+      ip.address()
+    )}:${chalk.blue(port)}
+    `;
+  }
+
   const message = boxen(
     `
 ${chalk.bold("🔌  Server Status")}: ${chalk.green("Running")}
@@ -109,7 +125,7 @@ ${chalk.bold("📡  Mongo URI")}: ${chalk.gray(
       isProduction ? "Atlas (Production)" : "Local Dev"
     )}
 ${chalk.bold("🌍  Environment")}: ${chalk.cyan(process.env.NODE_ENV)}
-${chalk.bold("🧭  Listening on")}: http://localhost:${chalk.blue(port)}
+${displayURL}
 `,
     {
       padding: 1,
