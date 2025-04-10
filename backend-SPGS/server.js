@@ -1,85 +1,80 @@
-require("dotenv").config();
 const express = require("express");
-const connectDB = require("./config/db");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 const cors = require("cors");
-const errorHandler = require("./middleware/errorHandler");
-const chalk = require("chalk");
-const boxen = require("boxen");
 const os = require("os");
+const path = require("path");
+const colors = require("colors");
+const helmet = require("helmet");
+const compression = require("compression");
+const errorHandler = require("./middleware/errorHandler");
 const ip = require("ip");
-const cloudinary = require("cloudinary").v2;
 
-// App Init
+dotenv.config();
+
 const app = express();
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
 const isProduction = process.env.NODE_ENV === "production";
 const port = process.env.PORT || 5000;
 
-// MongoDB URI Picker
+// MongoDB URI based on environment
 const mongoURI = isProduction
   ? process.env.MONGO_ATLAS_URI
   : process.env.MONGO_LOCAL_URI;
 
-// 🧠 Database Connection
-connectDB(mongoURI);
+// ✅ Connect to MongoDB
+mongoose
+  .connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log(
+      `✅ MongoDB Connected (${process.env.NODE_ENV})`.brightMagenta.bold
+    );
+  })
+  .catch((err) => {
+    console.error("❌ MongoDB Connection Failed".red, err);
+    process.exit(1);
+  });
 
-// 📦 Cloudinary Config & Test
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
-
-// Test Cloudinary Credentials
-let cloudinaryStatus = "❌ Not configured properly";
-try {
-  if (
-    process.env.CLOUDINARY_CLOUD_NAME &&
-    process.env.CLOUDINARY_API_KEY &&
-    process.env.CLOUDINARY_API_SECRET
-  ) {
-    cloudinaryStatus = "✅ Connected";
-  }
-} catch (err) {
-  cloudinaryStatus = "❌ Error in Cloudinary Config";
-}
-
-// 🧱 Body Parsing Middleware
+// ✅ Middleware: Parse JSON
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
 
-// 🌐 CORS Configuration
-const allowedOrigins = isProduction
+// ✅ Middleware: Security & Compression (for production)
+if (isProduction) {
+  app.use(helmet());
+  app.use(compression());
+  console.log("🛡️ Helmet & Compression enabled for production".cyan);
+}
+
+// ✅ CORS Configuration
+const allowedOrigins = process.env.FRONTEND_URL
   ? process.env.FRONTEND_URL.split(",").map((origin) => origin.trim())
-  : ["http://localhost:3000"];
+  : [];
 
 const corsOptions = {
   origin: function (origin, callback) {
-    console.log("🌐 CORS Request From:", origin); // Optional: for debugging
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
+      console.warn(`[CORS BLOCKED] Origin: ${origin}`.yellow);
       callback(new Error("Not allowed by CORS"));
     }
   },
-  methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE", "OPTIONS"],
-  allowedHeaders: [
-    "Origin",
-    "X-Requested-With",
-    "Content-Type",
-    "Accept",
-    "Authorization",
-  ],
   credentials: true,
 };
 
-// Apply CORS globally
 app.use(cors(corsOptions));
+console.log(
+  isProduction
+    ? "✅ CORS configured for production".green
+    : "🛠️ CORS open for local development".yellow
+);
 
-// 🚦 Handle Preflight (OPTIONS)
-app.options("*", cors(corsOptions));
+// ✅ Static File Hosting (if any)
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+console.log(`📁 Serving static files from /uploads`.blue);
 
-// 🧭 Routes
+// ✅ API Routes
 app.use("/api/auth", require("./Routes/AuthRoutes"));
 app.use("/events", require("./Routes/EventRoutes"));
 app.use("/details", require("./Routes/DetailsRoutes"));
@@ -88,54 +83,50 @@ app.use("/api/notices", require("./Routes/NoticeRoutes"));
 app.use("/api/posts", require("./Routes/postRoutes"));
 app.use("/api/disclosure", require("./Routes/disclosureRoutes"));
 
-// 🚨 Error Handler
+// ✅ Global Error Handler
 app.use(errorHandler);
 
-// 🚀 Start Server
+// ✅ Fallback Error Handler
+app.use((err, req, res, next) => {
+  console.error("[Global Error Handler]".red, err.stack || err.message);
+  res.status(500).json({ message: "Internal Server Error" });
+});
+
+// ✅ Graceful Shutdown
+process.on("SIGINT", async () => {
+  console.log("SIGINT received. Closing MongoDB connection...".yellow);
+  await mongoose.connection.close();
+  console.log("MongoDB connection closed.".yellow);
+  process.exit(0);
+});
+
+process.on("uncaughtException", (err) => {
+  console.error("[Uncaught Exception]".red, err.message);
+  process.exit(1);
+});
+
+process.on("unhandledRejection", (err) => {
+  console.error("[Unhandled Rejection]".red, err.message);
+  process.exit(1);
+});
+
+// ✅ Start Server
 app.listen(port, () => {
-  const timestamp = new Date().toLocaleString();
-  const systemInfo = `${os.type()} ${os.platform()} ${os.arch()}`;
-  const nodeVersion = process.version;
+  const backendURL = `http://localhost:${port}`;
+  const networkURL = `http://${ip.address()}:${port}`;
+  const appName = "School Management System";
+  const time = new Date().toLocaleString();
+  const nodeVer = process.version;
 
-  let displayURL = "";
-  if (isProduction && process.env.FRONTEND_URL) {
-    displayURL = `${chalk.bold("🌐  Production URL")}: ${chalk.cyan(
-      process.env.FRONTEND_URL
-    )}`;
-  } else {
-    displayURL = `
-${chalk.bold("🧭  Local URL")}: http://localhost:${chalk.blue(port)}
-${chalk.bold("🧭  Network URL")}: http://${chalk.gray(
-      ip.address()
-    )}:${chalk.blue(port)}
-    `;
-  }
-
-  const message = boxen(
-    `
-${chalk.bold("🔌  Server Status")}: ${chalk.green("Running")}
-${chalk.bold("🕓  Started At")}: ${chalk.gray(timestamp)}
-${chalk.bold("🖥️   System")}: ${chalk.gray(systemInfo)}
-${chalk.bold("🧪  Node Version")}: ${chalk.gray(nodeVersion)}
-${chalk.bold("☁️   Cloudinary")}: ${chalk.cyan(cloudinaryStatus)}
-${chalk.bold("🔐  CORS Mode")}: ${
-      isProduction ? chalk.green("Strict") : chalk.yellow("Open")
-    }
-${chalk.bold("📡  Mongo URI")}: ${chalk.gray(
-      isProduction ? "Atlas (Production)" : "Local Dev"
-    )}
-${chalk.bold("🌍  Environment")}: ${chalk.cyan(process.env.NODE_ENV)}
-${displayURL}
-`,
-    {
-      padding: 1,
-      margin: 1,
-      borderStyle: "double",
-      borderColor: "green",
-      title: "🚀 Server Boot Info",
-      titleAlignment: "center",
-    }
-  );
-
-  console.log(message);
+  console.log("\n===============================".brightCyan);
+  console.log(`${appName} is live 🚀`.brightGreen.bold);
+  console.log(`Environment: `.blue + `${process.env.NODE_ENV}`.brightBlue);
+  console.log(`Port: `.blue + `${port}`.brightYellow);
+  console.log(`Local URL: `.blue + backendURL.brightCyan);
+  console.log(`Network URL: `.blue + networkURL.brightCyan);
+  console.log(`MongoDB: `.blue + mongoURI.gray);
+  console.log(`Node.js: `.blue + nodeVer.green);
+  console.log(`Machine: `.blue + os.hostname().brightMagenta);
+  console.log(`Started at: `.blue + time.brightWhite);
+  console.log("===============================\n".brightCyan);
 });
