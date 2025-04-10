@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import School from "../../assets/School.jpg";
 import SchoolFront from "../../assets/SchoolFront.jpg";
@@ -22,26 +22,73 @@ const Carousal = () => {
   ];
 
   const [current, setCurrent] = useState(0);
+  const [transitioning, setTransitioning] = useState(true);
+  const sliderRef = useRef(null);
 
-  const nextSlide = () => setCurrent((prev) => (prev + 1) % images.length);
-  const prevSlide = () =>
-    setCurrent((prev) => (prev - 1 + images.length) % images.length);
+  const totalSlides = images.length;
+
+  // Clone first slide and add to end for smooth looping
+  const extendedImages = [...images, images[0]];
+
+  const nextSlide = () => {
+    setCurrent((prev) => prev + 1);
+    setTransitioning(true);
+  };
+
+  const prevSlide = () => {
+    if (current === 0) {
+      setCurrent(totalSlides - 1);
+      setTransitioning(false); // Instantly jump back without animation
+      setTimeout(() => {
+        setTransitioning(true);
+      }, 50);
+    } else {
+      setCurrent((prev) => prev - 1);
+      setTransitioning(true);
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
   }, []);
 
+  // When we reach the fake clone (last slide), snap back to the real one
+  useEffect(() => {
+    if (current === totalSlides) {
+      const timeout = setTimeout(() => {
+        setTransitioning(false);
+        setCurrent(0);
+      }, 1000); // match the transition duration
+      return () => clearTimeout(timeout);
+    }
+  }, [current]);
+
   return (
-    <div className="relative w-full max-w-7xl mx-auto mt-10 rounded-lg overflow-hidden shadow-lg">
-      <div
-        className="h-[400px] sm:w-auto md:h-[600px] bg-cover bg-center flex flex-col justify-end items-baseline lg:justify-center text-white px-6 text-center"
-        style={{ backgroundImage: `url(${images[current].image}) ` }}
-      >
-        <h2 className="text-xl sm:text-2xl md:text-4xl font-bold">
-          {images[current].text}
-        </h2>
-        <p className="text-sm sm:text-lg mt-2 hidden lg:block">CBSE Affiliation No: 3330519</p>
+    <div className="relative w-full max-w-7xl mx-auto mt-10 overflow-hidden rounded-lg shadow-lg">
+      <div className="w-full h-[400px] md:h-[600px] relative overflow-hidden">
+        <div
+          ref={sliderRef}
+          className={`flex ${
+            transitioning ? "transition-transform duration-[1000ms] ease-[cubic-bezier(0.75,0,0.25,1)]" : ""
+          }`}
+          style={{ transform: `translateX(-${current * 100}%)` }}
+        >
+          {extendedImages.map((item, index) => (
+            <div
+              key={index}
+              className="min-w-full h-[400px] md:h-[600px] bg-cover bg-center flex flex-col justify-end items-baseline lg:justify-center text-white px-6 text-center"
+              style={{ backgroundImage: `url(${item.image})` }}
+            >
+              <h2 className="text-xl sm:text-2xl md:text-4xl font-bold">
+                {item.text}
+              </h2>
+              <p className="text-sm sm:text-lg mt-2 hidden lg:block">
+                CBSE Affiliation No: 3330519
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Navigation Buttons */}
@@ -58,7 +105,7 @@ const Carousal = () => {
         <ChevronRight className="text-white" />
       </button>
 
-      {/* Section Information */}
+      {/* Section Info */}
       <div className="absolute bottom-0 w-full bg-white p-3 md:p-4 rounded-t-lg shadow-lg hidden lg:block">
         <div className="flex flex-col md:flex-row items-center justify-between gap-2 text-center">
           {[

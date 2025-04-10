@@ -1,7 +1,7 @@
 import React from 'react';
 import school from '../../assets/c-3.png';
 import Count from './Count';
-
+import { NavLink } from 'react-router-dom';
 const AboutPage = () => {
   return (
     <div className="bg-white min-h-screen">
@@ -145,7 +145,7 @@ const AboutPage = () => {
             Experience firsthand how we nurture young minds and build tomorrow's leaders. Schedule a visit today.
           </p>
           <button className="bg-white text-orange-500 font-bold py-3 px-8 rounded-full cursor-pointer hover:bg-red-100 transition duration-300">
-            Contact Us
+           <NavLink to="/contact"> Contact Us</NavLink> 
           </button>
         </div>
       </div>

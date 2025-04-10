@@ -11,6 +11,8 @@ import {
   Calendar,
   Building,
 } from "lucide-react";
+import api from "../../services/api";
+import axios from "axios";
 
 const SchoolPortal = () => {
   const [activeTab, setActiveTab] = useState("documents");
@@ -67,13 +69,14 @@ const SchoolPortal = () => {
     const fetchDocuments = async () => {
       try {
         setIsLoading((prev) => ({ ...prev, documents: true }));
-        const response = await fetch("http://localhost:5000/api/disclosure");
+        const response = await axios.get("http://localhost:5000/api/disclosure");
+        console.log(response.data);
 
-        if (!response.ok) {
-          throw new Error("Failed to fetch documents");
-        }
+        // if (!response.ok) {
+        //   throw new Error("Failed to fetch documents");
+        // }
 
-        const data = await response.json();
+        const data = await response.data;
         // console.log(data)
         setDocuments(data);
         console.log(data);
@@ -89,11 +92,10 @@ const SchoolPortal = () => {
   }, []);
 
   const handleDownload = (documentId) => {
-    window.open(
-      `http://localhost:5000/api/disclosure/download?id=${documentId}`,
-      "_blank"
-    );
+    const downloadUrl = `${api.defaults.baseURL.replace('/api', '')}/disclosure/download?id=${documentId}`;
+    window.open(downloadUrl, "_blank");
   };
+  
 
   // const filteredDocuments = documents.filter((doc) => {
   //   const matchesFilter = activeFilter === "all" || doc.type === activeFilter;

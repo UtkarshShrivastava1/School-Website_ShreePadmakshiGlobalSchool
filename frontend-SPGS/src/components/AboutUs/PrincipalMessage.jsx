@@ -78,11 +78,11 @@ const PrincipalWelcome = () => {
 
                 <p className="mb-4">
                 I am delighted to welcome you to Shree Padmakshi Global School, a vibrant and inclusive community of learners. 
-                As Principal, I am committed to providing a world-class education that prepares students for success in an eve-changing world.
+                As Principal, I am committed to providing a world-class education that prepares students for success in an ever-changing world.
                 </p>
 
                 <p className="mb-4">
-                At Shree Padmakshi Global School, we believe that every child is unique and deserves a personalized learning 
+                At Shree Padmakshi Global School, we believe that every child is unique and deserves a personalized learning ,
 experience. Our dedicated and experienced faculty are passionate about teaching and learning, and are committed 
 to helping each student reach their full potential.
                 </p>
@@ -90,7 +90,7 @@ to helping each student reach their full potential.
                 <p className="mb-4">
                 Our school offers a rigorous and well-rounded curriculum, state-of-the-art facilities, and a wide range of 
 extracurricular activities. We strive to create a safe, supportive, and inclusive environment that fosters social, 
-emotional, and academic growth
+emotional, and academic growth.
                 </p>
 
                 <p className="mb-4">
@@ -111,7 +111,7 @@ and rewarding educational experience.
 
                 <p className="mb-2">Sincerely,,</p>
                 <p className="italic font-medium">Mrs. Sweta Singh</p>
-                <p className="text-sm text-muted-foreground">Principal, Shree Padmakshi Global Schoo</p>
+                <p className="text-sm text-muted-foreground">Principal, Shree Padmakshi Global School</p>
               </div>
 
               {/* Signature Image Placeholder */}

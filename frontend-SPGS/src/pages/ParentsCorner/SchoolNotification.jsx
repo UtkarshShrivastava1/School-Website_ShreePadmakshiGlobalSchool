@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getAllEvents, getNotices } from "../../services/NotificationService";
 import api from "../../services/api";
 
+
 const SchoolNotification = () => {
   const [events, setEvents] = useState([]);
   const [notices, setNotices] = useState([]);
@@ -89,7 +90,8 @@ const SchoolNotification = () => {
               <p className="text-gray-700 mt-2">{item.description}</p>
               {type === 'notice' && item.fileUrl && (
                 <a
-                  href={`http://localhost:5000${item.fileUrl}`}
+                  href={`${api}/${item.fileUrl}`}
+ 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center mt-3 bg-green-100 text-green-800 px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-200 transition-colors"

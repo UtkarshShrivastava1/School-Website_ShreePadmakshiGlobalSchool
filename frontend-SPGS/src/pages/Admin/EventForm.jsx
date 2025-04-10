@@ -5,7 +5,9 @@ const EventForm = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [date, setDate] = useState('');
-
+    
+  const URI = `${ import.meta.env.VITE_NODE_ENV === "development" ? import.meta.env.VITE_DEVELOPMENT_URL : import.meta.env.VITE_PRODUCTION_URL }`;
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const eventData = { title, description, date };
@@ -19,7 +21,7 @@ const EventForm = () => {
     // setDate('');
 
     try {
-      const response = axios.post('http://localhost:5000/events', eventData);
+      const response = axios.post(`${URI}/events`, eventData);
       // console.log(response.data);
       alert('Event created successfully');
       setTitle('');

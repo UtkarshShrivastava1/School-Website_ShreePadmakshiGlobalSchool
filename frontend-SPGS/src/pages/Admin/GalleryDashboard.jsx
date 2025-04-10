@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Edit, Trash2, PlusCircle, X, ImagePlus, CheckCircle2 } from 'lucide-react';
+import api from '../../services/api';
+
 
 function GalleryDashboard() {
   const [posts, setPosts] = useState([]);
@@ -26,18 +28,18 @@ function GalleryDashboard() {
         throw new Error('Unauthorized! Please login first.');
       }
 
-      const response = await fetch('http://localhost:5000/api/posts', {
+      const response = await api.get(`/posts`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
       });
+      // console.log('Posts fetched:', response.data);
+      // if (!response.ok) {
+      //   throw new Error('Failed to fetch posts');
+      // }
 
-      if (!response.ok) {
-        throw new Error('Failed to fetch posts');
-      }
-
-      const data = await response.json();
-      setPosts(data.data);
+      // const data = await response.json();
+      setPosts(response.data.data);
       setLoading(false);
     } catch (err) {
       console.error('Error fetching posts:', err);
@@ -77,26 +79,26 @@ function GalleryDashboard() {
 
     try {
       const token = localStorage.getItem('adminToken');
-      const response = await fetch(`http://localhost:5000/api/posts/${postId}`, {
-        method: 'DELETE',
+    
+      // Correct Axios delete request
+      const response = await api.delete(`/posts/${postId}`, {
         headers: {
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
       });
-
-      if (!response.ok) {
-        throw new Error('Failed to delete post');
-      }
-
-      // Remove the deleted post from the state
-      setPosts(posts.filter(post => post._id !== postId));
-      
+    
+      console.log('Post deleted:', response.data);
+    
+      // Remove from local state
+      setPosts(prevPosts => prevPosts.filter(post => post._id !== postId));
+    
       // Show success notification
       showNotification('Post deleted successfully!');
     } catch (err) {
       console.error('Error deleting post:', err);
-      showNotification(err.message, 'error');
+      showNotification(err?.response?.data?.message || err.message, 'error');
     }
+    
   };
 
   const handleEdit = (post) => {
@@ -118,38 +120,35 @@ function GalleryDashboard() {
       const formData = new FormData();
       formData.append('title', editFormData.title);
       formData.append('content', editFormData.content);
-      
+    
       // Only append image if a new one is selected
       if (editFormData.image) {
         formData.append('image', editFormData.image);
       }
-
-      const response = await fetch(`http://localhost:5000/api/posts/${selectedPost._id}`, {
-        method: 'PUT',
+    
+      const response = await api.put(`/posts/${selectedPost._id}`, formData, {
         headers: {
           'Authorization': `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data',
         },
-        body: formData,
       });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Failed to update post');
-      }
-
+    
+      const data = response.data;
+      console.log('Post updated:', data);
+    
       // Update the post in the list
-      setPosts(posts.map(post => 
+      setPosts(posts.map(post =>
         post._id === selectedPost._id ? data.data : post
       ));
-
+    
       // Show success notification
       showNotification('Post updated successfully!');
       setIsEditModalOpen(false);
     } catch (err) {
       console.error('Error updating post:', err);
-      showNotification(err.message, 'error');
+      showNotification(err.response?.data?.message || err.message, 'error');
     }
+    
   };
 
   const handleImageChange = (e) => {

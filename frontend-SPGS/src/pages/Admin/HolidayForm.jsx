@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import api from '../../services/api';
 
 function HolidayForm() {
   const [formData, setFormData] = useState({
@@ -24,7 +25,7 @@ function HolidayForm() {
     setMessage(""); 
 
     try {
-      await axios.post("http://localhost:5000/api/leaves/apply", formData);
+      await api.post("/leaves/apply", formData);
       setMessage("Holiday added successfully!");
       setFormData({
         title: "",

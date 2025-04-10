@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { addNotice } from "../../services/NotificationService";
+import axios from "axios";
+import api from "../../services/api";
 
 const NoticeForm = ({ refreshNotices }) => {
   const [formData, setFormData] = useState({
@@ -28,7 +30,11 @@ const NoticeForm = ({ refreshNotices }) => {
     if (file) data.append("file", file);
 
     try {
-      await addNotice(data);
+      // await addNotice(data);
+      // await axios.post("http://localhost:5000/api/notices/add", data, {
+      await api.post("/notices/add", data, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
       setMessage("Notice added successfully!");
       setFormData({ title: "", description: "", date: "" });
       setFile(null);

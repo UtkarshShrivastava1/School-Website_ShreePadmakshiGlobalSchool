@@ -27,6 +27,7 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
     if (file) data.append("file", file);
 
     try {
+      console.log(data)
       await addDisclosure(data);
       setMessage("Disclosure added successfully!");
       setFormData({ type: "", title: "", description: "" });

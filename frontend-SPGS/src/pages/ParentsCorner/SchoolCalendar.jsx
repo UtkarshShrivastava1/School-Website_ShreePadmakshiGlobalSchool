@@ -4,6 +4,7 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { useNavigate } from "react-router-dom";
 import { Clock, Calendar as CalendarIcon, BookOpen, User } from "lucide-react";
+import api from "../../services/api"; // Adjust the import path as necessary
 
 
 
@@ -28,6 +29,8 @@ const SchoolCalendar = () => {
   const navigate = useNavigate();
 
 
+  const URI = `${ import.meta.env.VITE_NODE_ENV === "development" ? import.meta.env.VITE_DEVELOPMENT_URL : import.meta.env.VITE_PRODUCTION_URL }`;
+
   useEffect(() => {
     if (selectedDate) {
       fetchData(selectedDate);
@@ -48,7 +51,8 @@ const SchoolCalendar = () => {
 
       console.log("Fetching data for:", formattedDate);
 
-      const response = await axios.get(`http://localhost:3000/details/${formattedDate}`);
+      const response = await axios.get(`${URI}/details/${formattedDate}`);
+      // const response = await api.get(`/details/${formattedDate}`);
 
       console.log("Response data:", response.data);
 

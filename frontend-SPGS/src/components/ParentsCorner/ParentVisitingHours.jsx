@@ -122,9 +122,9 @@ const VisitingHoursPage = () => {
               {i === 0 &&
                 "All important information from the school is communicated through the school website, email, and SMS."}
               {i === 1 &&
-                "Our school is located at Mount Litera Zee School Uslapur, Bilaspur C.G., Pincode- 495001."}
+                "Our school is located at Shree Padmakshi Global School Uslapur, Bilaspur C.G., Pincode- 495001."}
               {i === 2 &&
-                "You may contact the school through e-mails to Mlzs.bilaspur@mountlitera.com"}
+                "You may contact the school through e-mails to admin@SPGSbilaspur.com"}
             </p>
           </div>
         ))}

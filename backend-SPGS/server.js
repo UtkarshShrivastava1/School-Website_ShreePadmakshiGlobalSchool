@@ -4,6 +4,7 @@ const connectDB = require("./config/db");
 const cors = require("cors");
 const errorHandler = require('./middleware/errorHandler');
 
+
 const app = express();
 
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
@@ -21,6 +22,7 @@ connectDB();
 
 // Middleware
 app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true }));
 
 // Middleware: CORS configuration
 if (isProduction) {

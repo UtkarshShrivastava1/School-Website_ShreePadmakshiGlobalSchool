@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import api from "../../services/api";
 
 function GalleryForm({ onSubmit = () => {}, initialValues = {} }) {
   const [formData, setFormData] = useState({
@@ -35,39 +36,80 @@ function GalleryForm({ onSubmit = () => {}, initialValues = {} }) {
     }
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+
+  //   try {
+  //     const token = localStorage.getItem("adminToken"); // Get JWT Token
+  //     if (!token) {
+  //       alert("Unauthorized! Please login first.");
+  //       return;
+  //     }
+
+  //     const postData = new FormData();
+  //     postData.append("title", formData.title);
+  //     postData.append("content", formData.content);
+  //     if (formData.image) {
+  //       postData.append("image", formData.image);
+  //     }
+
+  //     const response = await api.get("/posts", {
+  //       // method: "POST",
+  //       headers: {
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //       body: postData,
+  //     });
+
+  //     const data = await response.data;
+
+  //     if (!response.ok) {
+  //       throw new Error(data.message || "Failed to submit");
+  //     }
+
+  //     alert("Form submitted successfully!");
+  //     setFormData({
+  //       title: "",
+  //       content: "",
+  //       image: null,
+  //     });
+  //     setPreviewUrl("");
+  //   } catch (error) {
+  //     console.error("Error submitting post:", error);
+  //     alert(error.message);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
+  
     try {
-      const token = localStorage.getItem("adminToken"); // Get JWT Token
+      const token = localStorage.getItem("adminToken");
       if (!token) {
         alert("Unauthorized! Please login first.");
         return;
       }
-
+  
       const postData = new FormData();
       postData.append("title", formData.title);
       postData.append("content", formData.content);
       if (formData.image) {
         postData.append("image", formData.image);
       }
-
-      const response = await fetch("http://localhost:5000/api/posts", {
-        method: "POST",
+  
+      const response = await api.post("/posts", postData, {
         headers: {
           Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
         },
-        body: postData,
       });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || "Failed to submit");
-      }
-
+  
       alert("Form submitted successfully!");
+  
       setFormData({
         title: "",
         content: "",
@@ -76,12 +118,12 @@ function GalleryForm({ onSubmit = () => {}, initialValues = {} }) {
       setPreviewUrl("");
     } catch (error) {
       console.error("Error submitting post:", error);
-      alert(error.message);
+      alert(error.response?.data?.message || error.message || "Unknown error");
     } finally {
       setLoading(false);
     }
   };
-
+  
   const handleViewDashboard = () => {
     navigate("/admin/gallery-dashboard");
   };

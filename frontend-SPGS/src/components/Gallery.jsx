@@ -27,13 +27,21 @@ const Gallery = () => {
     fetchImages();
   }, []);
 
-  const handleClick = (card) => {
-    setLastSelected(selected);
+  // const handleClick = (card) => {
+  //   setLastSelected(selected?._id );
     
-    {console.log(`Selected details :  ${selected} `)}
+  //   {console.log(`Selected details :  ${selected} `)}
 
+  //   setSelected(card?._id);
+  // };
+
+  const handleClick = (card) => {
+    setLastSelected(selected?._id);
+    // console.log("Previously selected:", selected?._id);
+    // console.log("Now selecting:", card._id);
     setSelected(card);
   };
+  
 
   const handleOutsideClick = () => {
     setLastSelected(selected);
@@ -52,18 +60,18 @@ const Gallery = () => {
       
 
              
-      <div className="w-full h-full p-10 grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto gap-4 relative ">
+      <div className="w-full h-full p-10 grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto gap-4 relative mb-2.5">
         {loading ? (
           <p className="text-center text-gray-500 bg-amber-400">Loading images...</p>
         ) : error ? (
           <p className="text-center text-red-500">{error}</p>
         ) : (
           images.map((card) => (
-            <div key={card._id} className="relative overflow-hidden mb-[430px] h-full  bg-amber-600">
+            <div key={card._id} className="relative overflow-hidden mb-[460px] h-full  bg-amber-600">
               <motion.div
                 onClick={() => handleClick(card)}
                 className={cn(
-                  "relative overflow-hidden bg-white rounded-xl cursor-pointer h-full",
+                  "relative overflow-hidden bg-white rounded-xl cursor-pointer h-full ",
                   selected?._id === card._id && "z-50"
                 )}
                
@@ -72,7 +80,11 @@ const Gallery = () => {
                 
                 {selected?._id === card._id && <SelectedCard selected={selected} />}
                 <ImageComponent card={card} />
-                {/* {console.log(`Card details : ${card._id} ${selected?._id} `)} */}
+               {/* {console.log("Card details:", {
+  cardId: card._id,
+  selectedId: selected?._id ,
+})}  */}
+
 
                 {/* {console.log("Seleced image id : "+selected?._id)} */}
                 
@@ -97,9 +109,9 @@ const ImageComponent = ({ card }) => {
      <motion.img
       layoutId={`image-${card._id}-image`}
       src={card.image?.url}
-      height="500"
-      width="500"
-      className="object-cover object-top absolute inset-0 h-full w-full transition duration-200 "
+      height="600"
+      width="600"
+      className="object-cover object-top absolute inset-0 h-full w-full transition duration-200  bg-amber-400"
       alt={card?.title || "thumbnail"}
     />
      

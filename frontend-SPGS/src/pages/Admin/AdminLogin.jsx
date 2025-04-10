@@ -3,7 +3,8 @@
 import { Eye, EyeOff, LogIn } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
+import  api  from "../../services/api";
 
 function AdminLogin() {
   const [username, setUsername] = useState("");
@@ -19,8 +20,8 @@ function AdminLogin() {
     setError("");
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/auth/admin-login",
+      const response = await api.post(
+        "/auth/admin-login",
         {
           username,
           password,

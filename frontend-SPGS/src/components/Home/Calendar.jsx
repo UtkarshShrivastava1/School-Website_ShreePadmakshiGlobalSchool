@@ -4,6 +4,7 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { useNavigate } from "react-router-dom";
 import { Clock, Calendar as CalendarIcon, BookOpen, User } from "lucide-react";
+import api from "../../services/api";
 
 
 
@@ -34,6 +35,8 @@ const SchoolCalendar = () => {
     }
   }, [selectedDate]);
 
+  const URI = `${ import.meta.env.VITE_NODE_ENV === "development" ? import.meta.env.VITE_DEVELOPMENT_URL : import.meta.env.VITE_PRODUCTION_URL }`;
+
   const fetchData = async (date) => {
     if (!date) {
       console.error("Selected date is undefined");
@@ -41,13 +44,14 @@ const SchoolCalendar = () => {
     }
 
     setLoading(true);
+    
     try {
       const formattedDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000)
         .toISOString()
         .split("T")[0];
 
 
-      const response = await axios.get(`http://localhost:5000/details/${formattedDate}`);
+      const response = await axios.get(`${URI}/details/${formattedDate}`);
 
       
 
@@ -61,6 +65,12 @@ const SchoolCalendar = () => {
       setLoading(false);
     }
   };
+      // const response = await axios.get(`http://localhost:5000/`);
+
+      
+
+     
+   
 
   const handleDateChange = (date) => {
     if (!date) {
