@@ -6,7 +6,7 @@ const errorHandler = require("./middleware/errorHandler");
 const chalk = require("chalk");
 const boxen = require("boxen");
 const os = require("os");
-const ip = require("ip"); // Add this
+const ip = require("ip");
 const cloudinary = require("cloudinary").v2;
 
 // App Init
@@ -49,34 +49,35 @@ app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
 
 // 🌐 CORS Configuration
-if (isProduction) {
-  const allowedOrigins = process.env.FRONTEND_URL.split(",").map((origin) =>
-    origin.trim()
-  );
+const allowedOrigins = isProduction
+  ? process.env.FRONTEND_URL.split(",").map((origin) => origin.trim())
+  : ["http://localhost:3000"];
 
-  app.use(
-    cors({
-      origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-          callback(null, true);
-        } else {
-          callback(new Error("Not allowed by CORS"));
-        }
-      },
-      methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
-      allowedHeaders:
-        "Origin,X-Requested-With,Content-Type,Accept,Authorization",
-      credentials: true,
-    })
-  );
-  console.log(chalk.green("✅ CORS configured for production."));
-} else {
-  app.use(cors());
-  console.log(chalk.yellow("🛠️ CORS configured for local development."));
-}
+const corsOptions = {
+  origin: function (origin, callback) {
+    console.log("🌐 CORS Request From:", origin); // Optional: for debugging
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE", "OPTIONS"],
+  allowedHeaders: [
+    "Origin",
+    "X-Requested-With",
+    "Content-Type",
+    "Accept",
+    "Authorization",
+  ],
+  credentials: true,
+};
 
-// 🚦 Handle Preflight
-app.options("*", cors());
+// Apply CORS globally
+app.use(cors(corsOptions));
+
+// 🚦 Handle Preflight (OPTIONS)
+app.options("*", cors(corsOptions));
 
 // 🧭 Routes
 app.use("/api/auth", require("./Routes/AuthRoutes"));
@@ -96,7 +97,6 @@ app.listen(port, () => {
   const systemInfo = `${os.type()} ${os.platform()} ${os.arch()}`;
   const nodeVersion = process.version;
 
-  // 👀 Show correct URL depending on environment
   let displayURL = "";
   if (isProduction && process.env.FRONTEND_URL) {
     displayURL = `${chalk.bold("🌐  Production URL")}: ${chalk.cyan(
