@@ -1,19 +1,32 @@
-const mongoose = require('mongoose');
-const { initializeAdmin } = require('../models/admin');
-
+const mongoose = require("mongoose");
+const { initializeAdmin } = require("../models/admin");
 
 const connectDB = async () => {
-    try {
-      await mongoose.connect(process.env.MONGO_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      });
-      initializeAdmin();
-      console.log('MongoDB connected...');
-    } catch (err) {
-      console.error(err.message);
-      process.exit(1);
-    }
-  };
+  try {
+    // Select the appropriate connection string based on environment
+    const mongoURI =
+      process.env.NODE_ENV === "production"
+        ? process.env.MONGO_URI
+        : process.env.MONGO_URI ||
+          "mongodb://localhost:27017/school-management";
 
-    module.exports = connectDB;
+    // Add connection options
+    await mongoose.connect(mongoURI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+
+    // Initialize admin after successful connection
+    await initializeAdmin();
+
+    // Use colors for better console output if colors package is used
+    console.log("🗃️ MongoDB connected successfully".green ? "green" : "");
+  } catch (err) {
+    console.error("❌ MongoDB Connection Error:", err.message);
+    console.log(`👉 Connecting to Mongo URI: ${mongoURI}`.cyan);
+    // Exit process with failure
+    process.exit(1);
+  }
+};
+
+module.exports = connectDB;
