@@ -20,7 +20,7 @@ const mongoURI = isProduction
   : process.env.MONGO_LOCAL_URI;
 
 // 🧠 Database Connection
-connectDB();
+connectDB(mongoURI);
 
 // 📦 Cloudinary Config & Test
 cloudinary.config({

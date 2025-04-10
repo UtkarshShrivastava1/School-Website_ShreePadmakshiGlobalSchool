@@ -1,19 +1,18 @@
-const mongoose = require('mongoose');
-const { initializeAdmin } = require('../models/admin');
+const mongoose = require("mongoose");
+const { initializeAdmin } = require("../models/admin");
 
+const connectDB = async (mongoURI) => {
+  try {
+    await mongoose.connect(mongoURI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    await initializeAdmin();
+    console.log("✅ MongoDB connected...");
+  } catch (err) {
+    console.error("❌ MongoDB connection error:", err.message);
+    process.exit(1);
+  }
+};
 
-const connectDB = async () => {
-    try {
-      await mongoose.connect(process.env.MONGO_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      });
-      initializeAdmin();
-      console.log('MongoDB connected...');
-    } catch (err) {
-      console.error(err.message);
-      process.exit(1);
-    }
-  };
-
-    module.exports = connectDB;
+module.exports = connectDB;
