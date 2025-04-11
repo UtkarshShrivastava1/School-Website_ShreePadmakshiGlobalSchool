@@ -1,60 +1,82 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
+import { MoveRight, Search } from "lucide-react";
 
 const WelcomeBanner = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isHovered1, setIsHovered1] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
-  
+
   useEffect(() => {
-    // Set a small timeout to ensure the animation plays after component mounts
     const timer = setTimeout(() => {
       setIsLoaded(true);
     }, 100);
-    
     return () => clearTimeout(timer);
   }, []);
-  
+
   return (
-    <div className="flex flex-col items-center justify-center py-16 px-4 text-center overflow-hidden">
+    <div className="flex flex-col items-center justify-center py-20 px-4 text-center overflow-hidden bg-white">
+      {/* Heading */}
       <h3
-        className={`text-4xl md:text-5xl lg:text-5xl font-bold mb-6 transform transition-all duration-1000 ease-out ${
-          isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+        className={`text-4xl md:text-5xl font-extrabold leading-tight mb-6 transition-all duration-1000 ease-out ${
+          isLoaded ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
         }`}
       >
-        <span className="text-black">Welcome to </span>
-        <span className="hover:text-orange-700 text-orange-500 transition-colors duration-300">SHREE PADMAKSHI GLOBAL SCHOOL</span>
+        <span className="text-gray-800">Welcome to </span>
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-red-500 to-yellow-500 hover:from-pink-500 hover:to-orange-400 transition-all duration-500">
+          SHREE PADMAKSHI GLOBAL SCHOOL
+        </span>
       </h3>
-      
-      <p 
-        className={`text-gray-600 text-lg md:text-xl max-w-2xl mb-8 transition-all duration-1000 ease-out delay-300 ${
-          isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+
+      {/* Subheading */}
+      <p
+        className={`text-gray-600 text-lg md:text-xl max-w-2xl mb-10 transition-all duration-1000 ease-out delay-300 ${
+          isLoaded ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
         }`}
       >
-        Where curiosity meets excellence, and every student's potential is
-        unleashed. Join us in creating tomorrow's leaders, today.
+        Where curiosity meets excellence 🌟 and every student&apos;s potential
+        is unleashed.
+        <br className="hidden md:block" /> Join us in creating tomorrow&apos;s
+        leaders, today.{" "}
       </p>
-      
-      <div 
+
+      {/* CTA Buttons */}
+      <div
         className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 ease-out delay-500 ${
-          isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          isLoaded ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
         }`}
       >
-        <button 
-          className={`bg-gradient-to-r from-orange-200 to-orange-600 hover:bg-blue-700 text-gray-800 px-6 py-3 rounded-md font-medium transition-all duration-300 transform ${isHovered1 ? 'scale-105 shadow-lg' : ''}`}
+        {/* Apply Now Button */}
+        <button
+          className={`flex items-center gap-2 bg-gradient-to-r from-orange-400 to-red-500 hover:from-orange-500 hover:to-red-600 text-white px-6 py-3 rounded-full font-semibold shadow-md hover:shadow-xl transition-transform duration-300 ${
+            isHovered1 ? "scale-105" : ""
+          }`}
           onMouseEnter={() => setIsHovered1(true)}
           onMouseLeave={() => setIsHovered1(false)}
         >
           Apply Now
-          <span className={`ml-2 transition-transform duration-300 inline-block ${isHovered1 ? 'translate-x-1' : ''}`}>→</span>
+          <MoveRight
+            className={`transition-transform duration-300 ${
+              isHovered1 ? "translate-x-1" : ""
+            }`}
+            size={18}
+          />
         </button>
-        
-        <button 
-          className={`bg-transparent border border-red-600 text-gray-600 hover:bg-blue-50 px-6 py-3 rounded-md font-medium transition-all duration-300 ${isHovered2 ? 'shadow-lg' : ''}`}
+
+        {/* Virtual Tour Button */}
+        <button
+          className={`flex items-center gap-2 border-2 border-gray-400 text-gray-700 hover:bg-gray-100 px-6 py-3 rounded-full font-medium transition-shadow duration-300 ${
+            isHovered2 ? "shadow-lg" : ""
+          }`}
           onMouseEnter={() => setIsHovered2(true)}
           onMouseLeave={() => setIsHovered2(false)}
         >
           Take a Virtual Tour
-          <span className={`ml-2 transition-opacity duration-300 inline-block ${isHovered2 ? 'opacity-100' : 'opacity-0'}`}>🔍</span>
+          <Search
+            className={`transition-opacity duration-300 ${
+              isHovered2 ? "opacity-100" : "opacity-50"
+            }`}
+            size={18}
+          />
         </button>
       </div>
     </div>
