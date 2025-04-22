@@ -114,6 +114,7 @@ const Carousal = () => {
             { title: "Pre-Primary", subtitle: "Playgroup to Sr.KG" },
             { title: "Primary", subtitle: "Grade 1 to 5" },
             { title: "Middle School", subtitle: "Grade 6 to 8" },
+            { title: "Upper School", subtitle: "Grade 10 to 12" },
           ].map((section, index) => (
             <div key={index} className="flex flex-col items-center">
               <h3 className="text-black font-extrabold text-lg md:text-2xl">

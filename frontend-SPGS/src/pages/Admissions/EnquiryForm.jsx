@@ -1,12 +1,14 @@
-import React from 'react'
+"use client"; // for Next.js App Router
 
+import { useEffect } from "react";
 
 const EnquiryForm = () => {
-  return (
-    <>
-    
-    </>
-  )
-}
+  useEffect(() => {
+    window.location.href =
+      "https://entab.online/Registration/RegistrationGroupClass";
+  }, []);
 
-export default EnquiryForm
+  return <p>Redirecting to Enquiry Form...</p>;
+};
+
+export default EnquiryForm;

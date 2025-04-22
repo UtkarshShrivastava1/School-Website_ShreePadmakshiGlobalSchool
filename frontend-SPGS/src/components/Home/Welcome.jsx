@@ -46,21 +46,28 @@ const WelcomeBanner = () => {
         }`}
       >
         {/* Apply Now Button */}
-        <button
-          className={`flex items-center gap-2 bg-gradient-to-r from-orange-400 to-red-500 hover:from-orange-500 hover:to-red-600 text-white px-6 py-3 rounded-full font-semibold shadow-md hover:shadow-xl transition-transform duration-300 ${
-            isHovered1 ? "scale-105" : ""
-          }`}
-          onMouseEnter={() => setIsHovered1(true)}
-          onMouseLeave={() => setIsHovered1(false)}
+        <a
+          href="https://entab.online/Registration/RegistrationGroupClass"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block"
         >
-          Apply Now
-          <MoveRight
-            className={`transition-transform duration-300 ${
-              isHovered1 ? "translate-x-1" : ""
+          <button
+            className={`flex items-center gap-2 bg-gradient-to-r from-orange-400 to-red-500 hover:from-orange-500 hover:to-red-600 text-white px-6 py-3 rounded-full font-semibold shadow-md hover:shadow-xl transition-transform duration-300 cursor-pointer ${
+              isHovered1 ? "scale-105" : ""
             }`}
-            size={18}
-          />
-        </button>
+            onMouseEnter={() => setIsHovered1(true)}
+            onMouseLeave={() => setIsHovered1(false)}
+          >
+            Apply Now
+            <MoveRight
+              className={`transition-transform duration-300 ${
+                isHovered1 ? "translate-x-1" : ""
+              }`}
+              size={18}
+            />
+          </button>
+        </a>
 
         {/* Virtual Tour Button */}
         <button
