@@ -54,7 +54,7 @@ const PrincipalWelcome = () => {
           {/* Image Section */}
           {/* Image Section */}
           <div className="w-full lg:w-1/2 mt-8 lg:mt-0 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-sm lg:max-w-sm overflow-hidden rounded-3xl shadow-lg group">
+            <div className="relative w-full max-w-[250px] overflow-hidden rounded-3xl shadow-lg group">
               <img
                 src={image4}
                 alt="Principal portrait"
