@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { BookOpen, Users, Award, Heart, Lightbulb, ChevronDown, ChevronUp } from 'lucide-react';
-import {Link }from 'react-router-dom';
+
 export default function SchoolValuesPage() {
   const [activeValue, setActiveValue] = useState(null);
 
@@ -158,10 +158,8 @@ export default function SchoolValuesPage() {
         <p className="text-xl max-w-2xl mx-auto mb-8">
           We invite you to visit our campus and see our values in action. Schedule a tour, attend an event, or speak with our community members.
         </p>
-        <button className="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-lg text-lg transition-colors cursor-pointer">
-          <Link to="/contact" className="text-white">
+        <button className="bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-lg text-lg transition-colors">
           Schedule a Visit
-          </Link>
         </button>
       </div>
 

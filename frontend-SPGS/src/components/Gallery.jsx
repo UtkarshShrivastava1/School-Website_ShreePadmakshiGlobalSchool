@@ -14,9 +14,8 @@ const Gallery = () => {
     const fetchImages = async () => {
       try {
         const { data } = await api.get("/posts");
-       
+
         setImages(data.data || []);
-       
       } catch (error) {
         console.error(error);
         setError("Unable to load images.");
@@ -29,7 +28,7 @@ const Gallery = () => {
 
   // const handleClick = (card) => {
   //   setLastSelected(selected?._id );
-    
+
   //   {console.log(`Selected details :  ${selected} `)}
 
   //   setSelected(card?._id);
@@ -41,7 +40,6 @@ const Gallery = () => {
     // console.log("Now selecting:", card._id);
     setSelected(card);
   };
-  
 
   const handleOutsideClick = () => {
     setLastSelected(selected);
@@ -50,44 +48,45 @@ const Gallery = () => {
 
   return (
     <div>
-       <div className="flex items-center justify-center mb-8 md:mb-10">
-      <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
-      <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-3 md:px-6 text-center">
-        Our Gallery
-      </h2>
-      <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
-    </div>
-      
+      <div className="flex items-center justify-center mb-8 md:mb-10">
+        <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-3 md:px-6 text-center">
+          Our Gallery a
+        </h2>
+        <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
+      </div>
 
-             
       <div className="w-full h-full p-10 grid grid-cols-1 md:grid-cols-3 max-w-7xl mx-auto gap-4 relative mb-2.5">
         {loading ? (
-          <p className="text-center text-gray-500 bg-amber-400">Loading images...</p>
+          <p className="text-center text-gray-500 bg-amber-400">
+            Loading images...
+          </p>
         ) : error ? (
           <p className="text-center text-red-500">{error}</p>
         ) : (
           images.map((card) => (
-            <div key={card._id} className="relative overflow-hidden mb-[460px] h-full  bg-amber-600">
+            <div
+              key={card._id}
+              className="relative overflow-hidden mb-[460px] h-full  bg-amber-600"
+            >
               <motion.div
                 onClick={() => handleClick(card)}
                 className={cn(
                   "relative overflow-hidden bg-white rounded-xl cursor-pointer h-full ",
                   selected?._id === card._id && "z-50"
                 )}
-               
                 layoutId={`card-${card._id}`}
               >
-                
-                {selected?._id === card._id && <SelectedCard selected={selected} />}
+                {selected?._id === card._id && (
+                  <SelectedCard selected={selected} />
+                )}
                 <ImageComponent card={card} />
-               {/* {console.log("Card details:", {
+                {/* {console.log("Card details:", {
   cardId: card._id,
   selectedId: selected?._id ,
 })}  */}
 
-
                 {/* {console.log("Seleced image id : "+selected?._id)} */}
-                
               </motion.div>
             </div>
           ))
@@ -106,17 +105,15 @@ const Gallery = () => {
 const ImageComponent = ({ card }) => {
   return (
     <>
-     <motion.img
-      layoutId={`image-${card._id}-image`}
-      src={card.image?.url}
-      height="600"
-      width="600"
-      className="object-cover object-top absolute inset-0 h-full w-full transition duration-200  bg-amber-400"
-      alt={card?.title || "thumbnail"}
-    />
-     
+      <motion.img
+        layoutId={`image-${card._id}-image`}
+        src={card.image?.url}
+        height="600"
+        width="600"
+        className="object-cover object-top absolute inset-0 h-full w-full transition duration-200  bg-amber-400"
+        alt={card?.title || "thumbnail"}
+      />
     </>
-   
   );
 };
 

@@ -219,9 +219,7 @@ const ValuesPage = () => {
             Visit our campus to see how we integrate values education throughout our curriculum and nurture well-rounded individuals.
           </p>
           <button className="bg-white hover:bg-orange-500 hover:text-white text-blue-900 font-bold py-3 px-8 rounded-lg transition duration-300 shadow-lg">
-          <NavLink to="/contact" className="text-blue-900 hover:text-white">
             Schedule a Visit
-            </NavLink>
           </button>
         </div>
       </section>

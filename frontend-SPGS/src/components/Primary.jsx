@@ -1,7 +1,6 @@
 import School from "../assets/School.jpg"
 import { ArrowRight, BookOpen, Brain, Users, Award, Calendar } from "lucide-react"
-import classRoom from "../assets/Classroom/ClassN1.jpg"
-import { Link } from "react-router-dom"
+import Classsroom from "../assets/Classroom/ClassN3.jpg"
 
 export default function PrimarySchoolProgram() {
   return (
@@ -48,7 +47,7 @@ export default function PrimarySchoolProgram() {
               src={School}
               alt="Students engaged in learning activities"
               fill
-              className="object-cover h-[100%] w-full"
+              className="object-cover h-[100%]"
             />
           </div>
         </div>
@@ -89,7 +88,7 @@ export default function PrimarySchoolProgram() {
               <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
                 <Brain className="h-6 w-6 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Inquiry Based Approach</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Litera Octave Approach</h3>
               <p className="text-gray-600">
                 A unique teaching methodology that enhances the child's intellectual capabilities.
               </p>
@@ -123,7 +122,7 @@ export default function PrimarySchoolProgram() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1 relative h-[400px] rounded-xl overflow-hidden shadow-xl">
             <img
-              src={classRoom}
+              src={Classsroom}
               alt="Interactive classroom learning"
               fill
               className="object-cover"
@@ -174,17 +173,11 @@ export default function PrimarySchoolProgram() {
             designed to nurture young minds and develop their full potential.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="px-8 py-3 bg-white text-orange-500 font-semibold rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
-              <Link to="https://entab.online/Registration/RegistrationGroupClass">
-                Enroll Now
-              </Link>
-          
+            <button className="px-8 py-3 bg-white text-orange-500 font-semibold rounded-md hover:bg-gray-100 transition-colors">
+              Enroll Now
             </button>
-            <button className="px-8 py-3 bg-transparent border-2 border-white font-semibold rounded-md hover:bg-red-700 transition-colors cursor-pointer ">
-              <Link to="/about">
-               Learn More
-              </Link>
-             
+            <button className="px-8 py-3 bg-transparent border-2 border-white font-semibold rounded-md hover:bg-red-700 transition-colors">
+              Learn More
             </button>
           </div>
         </div>
@@ -196,7 +189,7 @@ export default function PrimarySchoolProgram() {
           <div className="flex items-center justify-center mb-10">
               <div className="w-1/4 h-px bg-gray-300"></div>
               <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
-             
+                {" "}
                 Upcoming Events
               </h2>
               <div className="w-1/4 h-px bg-gray-300"></div>
@@ -257,7 +250,7 @@ export default function PrimarySchoolProgram() {
             <div className="flex items-center justify-center mb-10">
               <div className="w-1/4 h-px bg-gray-300"></div>
               <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
-             
+                {" "}
                 What Parents Say
               </h2>
               <div className="w-1/4 h-px bg-gray-300"></div>
@@ -309,7 +302,7 @@ export default function PrimarySchoolProgram() {
                 </div>
               </div>
               <p className="text-gray-600 italic">
-                "What sets SPGS-Bilaspur apart is their holistic approach to education. My son not only excels
+                "What sets MLZS-Bilaspur apart is their holistic approach to education. My son not only excels
                 academically but has also discovered his passion for music through their co-curricular activities."
               </p>
             </div>
@@ -348,9 +341,7 @@ export default function PrimarySchoolProgram() {
             Contact us today to learn more about our Primary School Program and admission process.
           </p>
           <button className="px-8 py-3 bg-orange-500 text-white font-semibold rounded-md hover:bg-red-700 transition-colors">
-            <Link to="/contact">
             Contact Us
-            </Link>
           </button>
         </div>
       </section>

@@ -57,7 +57,6 @@ import Policy from './pages/Terms&Policy/PrivacyPolicy';
 import GalleryDashboard from './pages/Admin/GalleryDashboard';
 import AcademicUpper from './pages/WhyUs/AcademicUpper';
 import SchoolValuesPage from './components/AboutUs/ValuesInAction';
-import Extracurricular from './pages/Facilites/Extracurricular';
 
 function App() {
   return (
@@ -97,13 +96,11 @@ function AppContent() {
         <Route path="/academics-upper" element={<AcademicUpper />} />
         <Route path="/beyond-academics" element={<BeyondAcademics />} />
 
-        {/* ADMISSION  */}
+
         <Route path="/guidelines-procedures" element={<GuidelinesProcedures />} />
         <Route path="/school-rules-regulations" element={<SchoolRulesRegulations />} />
         <Route path="/withdrawal-policy" element={<WithdrawalPolicy />} />
         <Route path="/enquiry-form" element={<EnquiryForm />} />
-
-        {/* OUR CAMPUS  */}
         <Route path="/our-campus" element={<OurCampus />} />
         <Route path="/hi-tech-classes" element={<HiTechClasses />} />
         <Route path="/faculty" element={<Faculty />} />
@@ -111,9 +108,6 @@ function AppContent() {
         <Route path="/sport-facilities" element={<SportFacilities />} />
         <Route path="/transport-facilities" element={<TransportFacilities />} />
         <Route path="/it-infrastructure" element={<ITInfrastructure />} />
-        <Route path="/extracurricular" element={<Extracurricular />} />
-
-        {/* PARENTS CORNER  */}
         <Route path="/school-calendar" element={<SchoolCalendar />} />
         <Route path="/fee-structure" element={<FeeStructure />} />
         <Route path="/gallery" element={<Gallery />} />
@@ -125,28 +119,19 @@ function AppContent() {
         <Route path="/house-system" element={<HouseSystem />} />
         <Route path="/view-issued-tcs" element={<ViewIssuedTcs />} />
         <Route path="/guidelines-for-parents" element={<GuidelinesForParents />} />
-
-        {/* STUDENT CORNER  */}
         <Route path="/student-guidelines" element={<StudentGuidelines />} />
         <Route path="/school-uniform" element={<SchoolUniform />} />
         <Route path="/school-timing" element={<SchoolTiming />} />
         <Route path="/attendance-policy" element={<AttendancePolicyS />} />
-
-        {/* CONTACT */}
         <Route path="/contact" element={<Contact />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/our-location" element={<OurLocation />} />
-
         <Route path="/mandatory-disclosure" element={<MandatoryDisclosure />} />
-
-        {/* ADMIN {/* ADMIN SECTION */}  
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin/dashboard" element={<AdminDasboard />} />
         <Route path="/admin/gallery-dashboard" element={<GalleryDashboard />} />
         <Route path="/school-calendar" element={<SchoolCalendar />} />
         <Route path="/school-notifications" element={<SchoolNotification />} />
-
-
         <Route path="/terms" element={<Terms />} />
         <Route path="/policy" element={<Policy />} />
       </Routes>

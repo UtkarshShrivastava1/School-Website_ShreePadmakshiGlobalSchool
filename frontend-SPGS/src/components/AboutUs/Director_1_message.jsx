@@ -1,6 +1,5 @@
 import React from 'react';
 import picture from '../../assets/director1.jpg';
-import { Link } from 'react-router-dom';
 
 const Directors_1_message = () => {
   return (
@@ -141,11 +140,11 @@ const Directors_1_message = () => {
             Visit our campus to see how we're creating a nurturing environment for your child's education and development.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-           
+            <button className="bg-white hover:bg-orange-400 hover:text-white text-blue-900 font-bold py-3 px-8 rounded-lg transition duration-300 shadow-lg">
+              Schedule a Visit
+            </button>
             <button className="bg-transparent hover:bg-blue-600 border-2 border-white text-white font-bold py-3 px-8 rounded-lg transition duration-300">
-              <Link to="/contact" className="text-white">
               Contact Us
-              </Link>
             </button>
           </div>
         </div>

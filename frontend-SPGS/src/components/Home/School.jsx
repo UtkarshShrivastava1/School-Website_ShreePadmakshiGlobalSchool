@@ -1,115 +1,110 @@
-import React from 'react';
-import image1 from '../../assets/c-1.png';
-import image2 from '../../assets/c-2.png';
-import image3 from '../../assets/school.jpg';
-import image4 from '../../assets/c-4.png';
-import { NavLink } from 'react-router-dom';
+import Primary_School from "../../assets/c-2.jpg";
+import Lower_School from "../../assets/c-1.jpg";
+import Middle_School from "../../assets/c-3.jpg";
+import Upper_School from "../../assets/c-4.jpg";
+import { NavLink } from "react-router-dom";
 
 const CommunityVoices = () => {
   const sections = [
     {
-      title: "Pre-Primary School",
-      imgSrc:"https://images.pexels.com/photos/5530484/pexels-photo-5530484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      alt: "Lower School Students",
-      description: "Experience the joy of early learning in our nurturing Pre-Primary School environment where young minds flourish through discovery and play.",
-      class:"Nursery to kg-2",
-      link:"/academics-pre-primary"
+      title: "Primary School",
+      imgSrc: Primary_School,
+      alt: "Primary School Students",
+      description:
+        "Experience the joy of early learning in our nurturing environment where young minds flourish through discovery and play.",
+      class: "Nursery to KG-2",
+      link: "/academics-pre-primary",
     },
     {
-      title: "Primary School",
-      imgSrc: "https://images.pexels.com/photos/4486783/pexels-photo-4486783.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2  ",
-      alt: "Primary School Students",
-      description: "A primary class is the main or foundational class in a program that defines core properties and behaviors from which other classes may inherit or interact."
-    ,
-      class:"1 to 5",
-        link:"/academics-primary"
+      title: "Lower School",
+      imgSrc: Lower_School,
+      alt: "Lower School Students",
+      description:
+        "Lower School fosters curiosity and growth through personalized learning, supportive relationships, and joyful discovery.",
+      class: "1 to 5",
+      link: "/academics-primary",
     },
     {
       title: "Middle School",
-      imgSrc:"https://images.pexels.com/photos/5212700/pexels-photo-5212700.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" ,
+      imgSrc: Middle_School,
       alt: "Middle School Students",
-      description: "Our Middle School program empowers students to explore their interests while developing critical thinking and leadership skills.",
-      class:"6 to 8",
-        link:"/academics-middle"
+      description:
+        "Our Middle School empowers students to explore their passions, develop independence, and grow as young leaders.",
+      class: "6 to 8",
+      link: "/academics-middle",
     },
     {
-      title: "Secondary School ",
-      imgSrc:"https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" ,
-      alt: "Upper School",
-      description: "Upper School students engage in rigorous academics, innovative research, and meaningful community engagement.",
-      class:"9 to 12",
-        link:"/academics-upper"
-    }
+      title: "Upper School",
+      imgSrc: Upper_School,
+      alt: "Upper School Students",
+      description:
+        "Upper School students thrive in a rigorous academic environment that prepares them for college and life beyond.",
+      class: "9 to 12",
+      link: "/academics-upper",
+    },
   ];
 
   return (
     <div className="bg-amber-50 min-h-screen py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        {/* Practice Areas Badge */}
-       
-        
-        {/* Main Heading */}
-         {/* Heading with decorative lines */}
-         <div className="flex items-center justify-center mb-8 md:mb-10">
-      <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
-      <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-3 md:px-6 text-center">
-       Our Educational Programs
-      </h2>
-      <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
-    </div>
-       
-        
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-  {sections.map((service, index) => (
-    <div key={index} className="bg-white rounded-lg shadow-sm overflow-hidden flex flex-col md:flex-row">
-      <div className="p-8 flex-1">
-        <h2 className="text-2xl font-serif font-bold text-gray-800 mb-3">
-          {service.title}
-        </h2>
-        <p className="text-gray-600 mb-2">
-          {service.description}
-        </p>
-        <div className="flex items-center space-x-2 mb-6">  
-          <label className="text-gray-600 text-lg font-bold">Class:</label>
-          <p className="text-gray-600 text-md font-bold">
-            {service.class}
-          </p>
+        <div className="flex items-center justify-center mb-12">
+          <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
+          <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6 text-center">
+            Our Educational Programs
+          </h2>
+          <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
         </div>
-        
-        <NavLink 
-          to={service.link} 
-          className="inline-flex items-center text-red-700 font-medium hover:text-amber-600"
-        >
-          Learn More
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            className="h-4 w-4 ml-1" 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            stroke="currentColor"
-          >
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth={2} 
-              d="M14 5l7 7m0 0l-7 7m7-7H3" 
-            />
-          </svg>
-        </NavLink>
-      </div>
-      <div className="md:w-2/5 relative">
-        <div className="w-full h-full overflow-hidden rounded-r-lg">
-          <img 
-            src={service.imgSrc}
-            alt={service.alt}
-            className="w-full h-full object-cover"
-          />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {sections.map((section, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden group"
+            >
+              <div className="md:flex">
+                <div className="md:w-2/5 relative">
+                  <img
+                    src={section.imgSrc}
+                    alt={section.alt}
+                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-6 md:p-8 flex flex-col justify-between flex-1">
+                  <div>
+                    <h3 className="text-2xl font-serif font-bold text-gray-800 mb-2">
+                      {section.title}
+                    </h3>
+                    <p className="text-gray-600 mb-3">{section.description}</p>
+                    <p className="text-sm font-semibold text-gray-700 mb-5">
+                      <span className="text-orange-700">Class:</span>{" "}
+                      {section.class}
+                    </p>
+                  </div>
+                  <NavLink
+                    to={section.link}
+                    className="inline-flex items-center text-red-700 font-medium hover:text-amber-600 transition-all duration-200"
+                  >
+                    Learn More
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 ml-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
+                    </svg>
+                  </NavLink>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-      </div>
-    </div>
-  ))}
-</div>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 import School from "../../assets/School.jpg";
 import FancyDress from "../../assets/P_And_H/FancyDress.jpeg"
 import classroom from "../../assets/Classroom/ClassN1.jpg"
-import { Link } from 'react-router-dom';
+
 const OurVisionAndMission= () => {
   // Animation for vision/mission items on scroll
   React.useEffect(() => {
@@ -142,15 +142,10 @@ const OurVisionAndMission= () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button className="bg-orange-500 hover:bg-orange-900 text-white font-medium py-3 px-8 rounded-lg transition duration-300">
-              <Link to="/contact" className="text-white no-underline">
-
               Schedule a Visit
-              </Link>
             </button>
             <button className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-3 px-8 rounded-lg transition duration-300">
-              <Link to="/about" className="text-gray-800 no-underline">
               Learn More
-              </Link>
             </button>
           </div>
         </div>

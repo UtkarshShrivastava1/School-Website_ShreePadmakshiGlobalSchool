@@ -49,12 +49,12 @@ const ContactPage = () => {
           <h2 className="text-3xl font-bold mb-4 text-[#191f5d]">Have Questions?</h2>
 
           <p className="text-gray-600 mb-8">
-            Our team is here to help you with any questions about careers at
+            Our HR team is here to help you with any questions about careers at
             Shree Padmakshi Global School 
           </p>
 
           <div className="space-y-6">
-            {/* <div className="flex items-center gap-4 p-4 border border-gray-100 rounded-lg hover:bg-[#f25811]/5 transition duration-300">
+            <div className="flex items-center gap-4 p-4 border border-gray-100 rounded-lg hover:bg-[#f25811]/5 transition duration-300">
               <div className="w-10 h-10 bg-[#f25811]/10 rounded-full flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -71,13 +71,13 @@ const ContactPage = () => {
                   />
                 </svg>
               </div>
-             <div>
+              <div>
                 <h3 className="font-medium text-lg text-[#191f5d]">
-                  Shree Padmakshi Global School
+                  Human Resources Department
                 </h3>
-                <p className="text-gray-600"></p>
-              </div>  
-            </div>*/}
+                <p className="text-gray-600">Shree Padmakshi Global School</p>
+              </div>
+            </div>
 
             <div className="flex items-center gap-4 p-4 border border-gray-100 rounded-lg hover:bg-[#f25811]/5 transition duration-300">
               <div className="w-10 h-10 bg-[#f25811]/10 rounded-full flex items-center justify-center">
