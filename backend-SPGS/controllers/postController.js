@@ -1,54 +1,45 @@
-const Post = require("../models/Post.js");
-const cloudinary = require("../config/cloudinary");
+const Post = require('../models/Post.js');
+const cloudinary = require('../config/cloudinary');
 
 // Helper function to handle Cloudinary uploads
 const uploadToCloudinary = async (file) => {
   try {
-    const fileStr = file.buffer.toString("base64");
+    const fileStr = file.buffer.toString('base64');
     const uploadResponse = await cloudinary.uploader.upload(
       `data:${file.mimetype};base64,${fileStr}`,
       {
-        resource_type: "auto",
-        folder: "post_images",
-        quality: "auto:good",
-        fetch_format: "auto",
+        resource_type: 'auto',
+        folder: 'post_images',
+        quality: 'auto:good',
+        fetch_format: 'auto'
       }
     );
     return {
       public_id: uploadResponse.public_id,
-      url: uploadResponse.secure_url,
+      url: uploadResponse.secure_url
     };
   } catch (error) {
-    console.error("Cloudinary upload failed:", error);
-    throw new Error("Failed to process image upload");
+    console.error('Cloudinary upload failed:', error);
+    throw new Error('Failed to process image upload');
   }
 };
 
 const getAllPosts = async (req, res) => {
   try {
-    const limit = parseInt(req.query.limit); // read optional limit from query
-
-    let query = Post.find().sort("-createdAt").lean();
-
-    if (!isNaN(limit)) {
-      query = query.limit(limit);
-    }
-
-    const posts = await query;
-
+    const posts = await Post.find().sort('-createdAt').lean();
     res.status(200).json({
       success: true,
       count: posts.length,
-      data: posts.map((post) => ({
+      data: posts.map(post => ({
         ...post,
-        content: post.content.substring(0, 500), // limit preview content
-      })),
+        content: post.content.substring(0, 500) // Limit preview content
+      }))
     });
   } catch (error) {
-    console.error("Error fetching posts:", error);
+    console.error('Error fetching posts:', error);
     res.status(500).json({
       success: false,
-      message: "Server error fetching posts",
+      message: 'Server error fetching posts'
     });
   }
 };
@@ -59,18 +50,18 @@ const getPostById = async (req, res) => {
     if (!post) {
       return res.status(404).json({
         success: false,
-        message: "Post not found",
+        message: 'Post not found'
       });
     }
     res.status(200).json({
       success: true,
-      data: post,
+      data: post
     });
   } catch (error) {
-    console.error("Error fetching post:", error);
+    console.error('Error fetching post:', error);
     res.status(500).json({
       success: false,
-      message: "Server error fetching post",
+      message: 'Server error fetching post'
     });
   }
 };
@@ -83,7 +74,7 @@ const createPost = async (req, res) => {
     if (!title?.trim() || !content?.trim()) {
       return res.status(400).json({
         success: false,
-        message: "Title and content are required",
+        message: 'Title and content are required'
       });
     }
 
@@ -95,7 +86,7 @@ const createPost = async (req, res) => {
       } catch (uploadError) {
         return res.status(500).json({
           success: false,
-          message: uploadError.message,
+          message: uploadError.message
         });
       }
     }
@@ -104,7 +95,7 @@ const createPost = async (req, res) => {
     const newPost = await Post.create({
       title: title.trim(),
       content: content.trim(),
-      image: imageData,
+      image: imageData
     });
 
     res.status(201).json({
@@ -114,14 +105,15 @@ const createPost = async (req, res) => {
         title: newPost.title,
         content: newPost.content,
         image: newPost.image?.url || null,
-        createdAt: newPost.createdAt,
-      },
+        createdAt: newPost.createdAt
+      }
     });
+
   } catch (error) {
-    console.error("Error creating post:", error);
+    console.error('Error creating post:', error);
     res.status(500).json({
       success: false,
-      message: "Server error creating post",
+      message: 'Server error creating post'
     });
   }
 };
@@ -134,7 +126,7 @@ const updatePost = async (req, res) => {
     if (!post) {
       return res.status(404).json({
         success: false,
-        message: "Post not found",
+        message: 'Post not found'
       });
     }
 
@@ -142,7 +134,7 @@ const updatePost = async (req, res) => {
     if (!title?.trim() && !content?.trim() && !req.file) {
       return res.status(400).json({
         success: false,
-        message: "No valid fields to update",
+        message: 'No valid fields to update'
       });
     }
 
@@ -157,7 +149,7 @@ const updatePost = async (req, res) => {
       } catch (uploadError) {
         return res.status(500).json({
           success: false,
-          message: uploadError.message,
+          message: uploadError.message
         });
       }
     }
@@ -175,14 +167,15 @@ const updatePost = async (req, res) => {
         title: updatedPost.title,
         content: updatedPost.content,
         image: updatedPost.image?.url || null,
-        updatedAt: updatedPost.updatedAt,
-      },
+        updatedAt: updatedPost.updatedAt
+      }
     });
+
   } catch (error) {
-    console.error("Error updating post:", error);
+    console.error('Error updating post:', error);
     res.status(500).json({
       success: false,
-      message: "Server error updating post",
+      message: 'Server error updating post'
     });
   }
 };
@@ -193,7 +186,7 @@ const deletePost = async (req, res) => {
     if (!post) {
       return res.status(404).json({
         success: false,
-        message: "Post not found",
+        message: 'Post not found'
       });
     }
 
@@ -202,7 +195,7 @@ const deletePost = async (req, res) => {
       try {
         await cloudinary.uploader.destroy(post.image.public_id);
       } catch (deleteError) {
-        console.error("Error deleting image:", deleteError);
+        console.error('Error deleting image:', deleteError);
         // Continue with post deletion even if image deletion fails
       }
     }
@@ -211,13 +204,14 @@ const deletePost = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      message: "Post deleted successfully",
+      message: 'Post deleted successfully'
     });
+
   } catch (error) {
-    console.error("Error deleting post:", error);
+    console.error('Error deleting post:', error);
     res.status(500).json({
       success: false,
-      message: "Server error deleting post",
+      message: 'Server error deleting post'
     });
   }
 };
@@ -227,5 +221,5 @@ module.exports = {
   getPostById,
   createPost,
   updatePost,
-  deletePost,
+  deletePost
 };

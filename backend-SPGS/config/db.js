@@ -1,23 +1,19 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+const { initializeAdmin } = require('../models/admin');
+
 
 const connectDB = async () => {
-  try {
-    // Determine the correct Mongo URI
-    const mongoURI =
-      process.env.MONGO_URI || "mongodb://localhost:27017/school-management";
+    try {
+      await mongoose.connect(process.env.MONGO_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      });
+      initializeAdmin();
+      console.log('MongoDB connected...');
+    } catch (err) {
+      console.error(err.message);
+      process.exit(1);
+    }
+  };
 
-    // Connect to MongoDB
-    await mongoose.connect(mongoURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-
-    console.log("✅ MongoDB connected successfully" /* .green */);
-  } catch (err) {
-    console.error("❌ MongoDB Connection Error:", err.message);
-    console.log(`👉 Attempted Mongo URI: ${process.env.MONGO_URI}` /* .cyan */);
-    process.exit(1);
-  }
-};
-
-module.exports = connectDB;
+    module.exports = connectDB;

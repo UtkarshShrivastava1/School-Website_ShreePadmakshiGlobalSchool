@@ -30,14 +30,12 @@ const LocationSection = () => {
             </p>
 
             <p className="text-base md:text-lg">
-              For directions, please contact{" "}
-              <a
-                href="tel:9406430027"
-                className="text-teal-600 hover:text-teal-700 font-medium"
-              >
-                9111777295, 9424130028
-              </a>{" "}
-              or please refer to the map.
+              For directions, please contact 
+              <a href="tel:9406430027"
+                className="text-teal-600 hover:text-teal-700 font-medium">
+                 9111777295, 9424130028 
+              </a>
+               or please refer to the map.
             </p>
           </div>
         </div>

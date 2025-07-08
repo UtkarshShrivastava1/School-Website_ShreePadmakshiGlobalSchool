@@ -1,5 +1,5 @@
-import React from 'react';
-import transport from '../../assets/transport.jpg';
+// import React from 'react';
+import Busses from '../../assets/Transport/busses.jpg';
 
 const TransportFacilities = () => {
   return (
@@ -17,7 +17,7 @@ const TransportFacilities = () => {
         {/* Left section */}
         <div className="bg-white rounded-lg shadow-md overflow-hidden md:w-1/2">
           <div className="w-full p-8">
-            <img src={transport} alt="School Bus" className="w-full h-auto rounded" />
+            <img src={Busses} alt="School Bus" className="w-full h-auto rounded" />
           </div>
           
           <div className="p-6">
@@ -61,14 +61,7 @@ const TransportFacilities = () => {
                 </div>
                 <span>Regular maintenance and safety inspections</span>
               </li>
-              <li className="flex items-start">
-                <div className="bg-yellow-100 p-1 rounded-full mr-3 mt-1">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-amber-500" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <span>Comfortable seating with seat belts for all students</span>
-              </li>
+            
             </ul>
           </div>
         </div>

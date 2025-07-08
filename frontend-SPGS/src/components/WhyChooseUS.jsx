@@ -7,6 +7,10 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/WhyCards";
+
+import Drumbs from "../assets/Drumb.jpg";
+import Class from '../assets/Classroom/ClassN1.jpg';
+import { Link } from "react-router-dom";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/tabs";
 import {
   Music,
@@ -16,6 +20,7 @@ import {
   GraduationCap,
   ClipboardCheck,
   Heart,
+  
 } from "lucide-react";
 
 export default function WhyChooseUs() {
@@ -72,8 +77,7 @@ export default function WhyChooseUs() {
               </h1>
               <p className="max-w-[600px] text-white/90 md:text-xl">
                 At SHREE PADMAKSHI GLOBAL SCHOOL,BILASPUR we focus on all-round
-                development of students. Our emerging student profile (ESP) puts
-                equal emphasis on knowledge, life skills and values.
+                development of students.We offer a balanced blend of academics, sports, arts, and leadership activities to build strong minds and compassionate hearts.
               </p>
             </div>
             <div className="flex justify-center">
@@ -128,7 +132,7 @@ export default function WhyChooseUs() {
             value="esp"
             className="data-[state=active]:bg-blue-600 data-[state=active]:text-white cursor-pointer whitespace-nowrap px-3 py-2"
           >
-            ESP
+            OPP
           </TabsTrigger>
           
           <TabsTrigger
@@ -137,7 +141,7 @@ export default function WhyChooseUs() {
             value="octave"
             className="data-[state=active]:bg-blue-600 data-[state=active]:text-white cursor-pointer whitespace-nowrap px-3 py-2"
           >
-            PADMAKSHI Octave
+            PADMAKSHI (IBA)
           </TabsTrigger>
           
           <TabsTrigger
@@ -204,12 +208,12 @@ export default function WhyChooseUs() {
                         activities.
                       </p>
                     </div>
-                    <div className="relative h-[250px] rounded-lg overflow-hidden">
+                    <div className="relative h-[350px] rounded-lg overflow-hidden">
                       <img
-                        src={School}
+                        src={Drumbs}
                         alt="Trained Teachers"
                         fill
-                        className="object-cover"
+                        className="object-cover h-[350px] w-full  rounded-lg overflow-hidden"
                       />
                     </div>
                   </div>
@@ -251,9 +255,9 @@ export default function WhyChooseUs() {
                         working.
                       </p>
                     </div>
-                    <div className="relative h-[250px] rounded-lg overflow-hidden">
+                    <div className="relative h-[350px] rounded-lg overflow-hidden">
                       <img
-                        src={School}
+                        src={Class}
                         alt="Trained Teachers"
                         fill
                         className="object-cover"
@@ -275,7 +279,7 @@ export default function WhyChooseUs() {
                     <div className="bg-blue-600 p-3 rounded-full text-white">
                       <UserRound className="h-6 w-6" />
                     </div>
-                    <CardTitle>ESP-Emerging Student Profile</CardTitle>
+                    <CardTitle> OPP - Our Protfolio Program </CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-6">
@@ -284,7 +288,7 @@ export default function WhyChooseUs() {
                       <p className="text-gray-700">
                         We have a vision of the child we aim to graduate and
                         everything in our schools is designed around that
-                        vision. Emerging Student Profile (ESP) is the vision
+                        vision. Our Protfolio Program  (OPP) is the vision
                         that SHREE PADMAKSHI GLOBAL SCHOOL promises.
                       </p>
                       <p className="mt-4 text-gray-700">
@@ -295,14 +299,14 @@ export default function WhyChooseUs() {
                         children to be leaders of the 21st century.
                       </p>
                       <p className="mt-4 text-gray-700">
-                        The ESP comprises three essential faculties: life
+                        The OPP comprises three essential faculties: life
                         skills, knowledge and core values.
                       </p>
                     </div>
-                    <div className="relative h-[250px] rounded-lg overflow-hidden">
+                    <div className="relative h-[350px] rounded-lg overflow-hidden">
                       <img
                         src={School}
-                        alt="Emerging Student Profile"
+                        alt="Our Protfolio Program "
                         fill
                         className="object-cover"
                       />
@@ -323,14 +327,14 @@ export default function WhyChooseUs() {
                     <div className="bg-blue-600 p-3 rounded-full text-white">
                       <Octagon className="h-6 w-6" />
                     </div>
-                    <CardTitle> PADMAKSHI Octave</CardTitle>
+                    <CardTitle> PADMAKSHI (Inquiry Based Approach)</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <p className="text-gray-700">
-                        PADMAKSHI Octave is the core belief of every SPGS school.
+                        PADMAKSHI (IBA) is the core belief of every SPGS school.
                         It is a proprietary pedagogical model that has been
                         honed over years of research and development. It
                         integrates the various pillars that impact the children
@@ -347,10 +351,10 @@ export default function WhyChooseUs() {
                         Enrichment
                       </p>
                     </div>
-                    <div className="relative h-[250px] rounded-lg overflow-hidden">
+                    <div className="relative h-[350px] rounded-lg overflow-hidden">
                       <img
                         src={School}
-                        alt=" PADMAKSHI  Octave"
+                        alt=" PADMAKSHI (Inquiry Based Approach)"
                         fill
                         className="object-cover"
                       />
@@ -388,7 +392,7 @@ export default function WhyChooseUs() {
                         that students get the best learning environment.
                       </p>
                     </div>
-                    <div className="relative h-[250px] rounded-lg overflow-hidden">
+                    <div className="relative h-[350px] rounded-lg overflow-hidden">
                       <img
                         src={School}
                         alt="Trained Teachers"
@@ -437,7 +441,7 @@ export default function WhyChooseUs() {
                         multiple intelligences, and child abuse prevention etc.
                       </p>
                     </div>
-                    <div className="relative h-[250px] rounded-lg overflow-hidden">
+                    <div className="relative h-[350px] rounded-lg overflow-hidden">
                       <img
                         src={School}
                         alt="Trained Teachers"
@@ -484,7 +488,7 @@ export default function WhyChooseUs() {
                         inhabitants.
                       </p>
                     </div>
-                    <div className="relative h-[250px] rounded-lg overflow-hidden">
+                    <div className="relative h-[350px] rounded-lg overflow-hidden">
                       <img
                         src={School}
                         alt="Trained Teachers"
@@ -545,10 +549,14 @@ export default function WhyChooseUs() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white hover:text-white text-black hover:bg-orange-500 px-6 py-3 rounded-md font-medium cursor-pointer">
+              <Link to ='/contact'>
               Schedule a Visit
+              </Link>
             </button>
             <button className="bg-transparent border border-white hover:bg-white/10 px-6 py-3 rounded-md font-medium cursor-pointer">
+            <Link to='/brochure'>
               Download Brochure
+              </Link>
             </button>
           </div>
         </div>

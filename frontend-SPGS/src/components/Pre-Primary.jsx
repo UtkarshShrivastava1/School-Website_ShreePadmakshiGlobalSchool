@@ -1,9 +1,15 @@
 import img from "../assets/P_And_H/FancyDress.jpeg"
 import SportsRoom from "../assets/SportsRoom.jpeg"
+import kidspark from "../assets/kids-park.jpg"
+import  Piano  from "../assets/Piano.jpg"
+import fancyDress from "../assets/P_And_H/FancyDress2.jpeg"
+import student from "../assets/P_And_H/Students.jpeg"
+import school from "../assets/ArtRoom.jpeg"
+
 // import { Button } from "../components/button"
 import { Card, CardContent } from "../components/WhyCards"
 import { BookOpen, Users, Brain, Music, Clock, Calendar, PlayCircle, CheckCircle, Star } from "lucide-react"
-
+import { Link } from "react-router-dom";
 export default function PrePrimaryPage() {
   return (
     <div className="min-h-screen bg-blue-50">
@@ -11,32 +17,41 @@ export default function PrePrimaryPage() {
 
       {/* Hero Section */}
       <section id="program" className="py-12 md:py-20 bg-gradient-to-r from-blue-100 to-teal-100">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="md:w-1/2 space-y-6">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">Pre-Primary School Program</h1>
-              <p className="text-lg text-gray-700">
-                The Pre-Primary School Program at Shree Padmakshi Global School, Bilaspur comprises
-                <span className="font-semibold"> Nursery, Jr.kg & Sr.kg</span>.
-              </p>
-              <p className="text-gray-600">
-                Early childhood education serves as the foundation for all future learning. These are the formative
-                years of learning which play vital role in the life a child.
-              </p>
-              <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-              Learn More</button>
-            </div>
-            <div className="md:w-1/2 relative h-64 md:h-96 rounded-lg overflow-hidden shadow-lg">
-              <img
-                src={img}
-                alt="Shree Padmakshi Global School Pre-Primary Program"
-                fill
-                className="object-cover rounded-lg"
-              />
-            </div>
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col md:flex-row items-center gap-8">
+          
+          {/* Text Section */}
+          <div className="md:w-1/2 space-y-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
+              Pre-Primary School Program
+            </h1>
+            <p className="text-lg text-gray-700">
+              The Pre-Primary School Program at Shree Padmakshi Global School, Bilaspur comprises
+              <span className="font-semibold"> Nursery, Jr.kg & Sr.kg</span>.
+            </p>
+            <p className="text-gray-600">
+              Early childhood education serves as the foundation for all future learning. These are the formative
+              years of learning which play a vital role in the life of a child.
+            </p>
+            <Link to="/our-school">
+              <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                Learn More
+              </button>
+            </Link>
           </div>
+
+          {/* Image Section */}
+          <div className="md:w-1/2 relative h-64 md:h-96 rounded-lg overflow-hidden shadow-lg">
+            <img
+              src={img}
+              alt="Shree Padmakshi Global School Pre-Primary Program"
+              className="object-cover w-full h-full rounded-lg"
+            />
+          </div>
+          
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* ILLUME Approach Section */}
       <section id="illume" className="py-16 bg-white">
@@ -45,7 +60,6 @@ export default function PrePrimaryPage() {
             <div className="flex items-center justify-center mb-10">
               <div className="w-1/4 h-px bg-gray-300"></div>
               <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
-                {" "}
                 The 'ILLUME' Approach
               </h2>
               <div className="w-1/4 h-px bg-gray-300"></div>
@@ -104,7 +118,7 @@ export default function PrePrimaryPage() {
           <div className="flex flex-col md:flex-row gap-6 items-center">
             <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
               <img
-                src="http://mlzsbilaspur.com/Assets/Images/pp-program.jpg"
+                src={student}
                 alt="Shree padhnakshi global school Bilaspur Primary"
                 fill
                 className="w-full object-cover rounded-lg"
@@ -112,10 +126,10 @@ export default function PrePrimaryPage() {
             </div>
             <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
               <img
-                src="http://mlzsbilaspur.com/Assets/Images/prePrimaryClass.jpg"
+                src={school}
                 alt="Shree padhnakshi global school Bilaspur Primary"
                 fill
-                className="object-cover rounded-lg"
+                className="object-full rounded-lg"
               />
             </div>
           </div>
@@ -153,7 +167,7 @@ export default function PrePrimaryPage() {
             </div>
             <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
               <img
-                src="http://mlzsbilaspur.com/Assets/Images/pp1.jpg"
+                src= {kidspark}
                 alt="Shree padhnakshi global school Bilaspur Play"
                 fill
                 className="w-full h-auto object-cover rounded-lg"
@@ -165,7 +179,7 @@ export default function PrePrimaryPage() {
           <div className="flex flex-col md:flex-row items-center gap-8 mb-16">
             <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md order-1 md:order-1">
               <img
-                src="http://mlzsbilaspur.com/Assets/Images/pp2.jpg"
+                src={fancyDress}
                 alt="Shree padhnakshi global school Bilaspur Play"
                 className="w-full h-auto object-cover rounded-lg"
               />
@@ -188,7 +202,7 @@ export default function PrePrimaryPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
               <img
-                src="http://mlzsbilaspur.com/Assets/Images/pp2.jpg"
+                src={Piano}
                 alt="Shree padhnakshi global school Bilaspur Play"
                 fill
                 className="w-full h-auto object-cover rounded-lg"

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Menu, X, Calendar, Bell, User, Icon, icons } from "lucide-react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../assets/Media.jpg";
 import {
   School,
@@ -27,6 +27,7 @@ import {
   Newspaper,
   Bug,
   Braces,
+  Trophy
 } from "lucide-react";
 
 const Navbar = () => {
@@ -43,7 +44,12 @@ const Navbar = () => {
   };
 
   const handleNavigation = (path) => {
-    navigate(path);
+    // Check if the path is an external URL
+    if (path.startsWith('http')) {
+      window.open(path, '_blank');
+    } else {
+      navigate(path);
+    }
     setIsMenuOpen(false); // Close menu on mobile when navigating
   };
 
@@ -54,27 +60,21 @@ const Navbar = () => {
       link: "#",
       dropdown: true,
       dropdownItems: [
-        {
-          name: "Our School",
-          link: "/our-school",
-          icon: <School className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-        },
-
-        {
-          name: "Our Vision and Mission",
-          link: "/our-vision",
-          icon: <Eye className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-        },
+        { name: "Our School", link: "/our-school", icon: <School className="sm:h-5 sm:w-5 md:h-6 md:w-6"/> },
+       
+        { name: "Our Vision and Mission",
+           link: "/our-vision",
+           icon: <Eye className="sm:h-5 sm:w-5 md:h-6 md:w-6" /> },
 
         {
           name: "Director Message",
           link: "/director-message",
-          icon: <MessageCircle className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <MessageCircle className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
         {
           name: "Director Message",
           link: "/director-message_1",
-          icon: <MessageCircle className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <MessageCircle className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
         {
           name: "Principal Message",
@@ -84,7 +84,7 @@ const Navbar = () => {
         {
           name: "Value Education",
           link: "/value-education",
-          icon: <MessageCircle className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <MessageCircle className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
       ],
     },
@@ -93,11 +93,7 @@ const Navbar = () => {
       link: "#",
       dropdown: true,
       dropdownItems: [
-        {
-          name: "Why SPGS",
-          link: "/why-mlzs",
-          icon: <CircleHelp className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-        },
+        { name: "Why SPGS", link: "/why-mlzs", icon: <CircleHelp  className="sm:h-5 sm:w-5 md:h-6 md:w-6"/> },
         {
           name: "Academics Pre-Primary",
           link: "/academics-pre-primary",
@@ -106,22 +102,22 @@ const Navbar = () => {
         {
           name: "Academics: Primary",
           link: "/academics-primary",
-          icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
         {
           name: "Academics: Middle",
           link: "/academics-middle",
-          icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
         {
-          name: "Academics: Upper",
+          name: "Academics: Secondary",
           link: "/academics-upper",
-          icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
         {
           name: "Beyond Academics",
           link: "/beyond-academics",
-          icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
       ],
     },
@@ -133,22 +129,22 @@ const Navbar = () => {
         {
           name: "Guidelines & Procedures",
           link: "/guidelines-procedures",
-          icon: <NotebookText className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <NotebookText className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
         {
           name: "School Rules & Regulations",
           link: "/school-rules-regulations",
-          icon: <Scale className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <Scale className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
         {
           name: "Withdrawal Policy",
           link: "/withdrawal-policy",
-          icon: <ReceiptText className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <ReceiptText className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
-        {
+        { 
           name: "Enquiry Form",
-          link: "/enquiry-form",
-          icon: <ReceiptText className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          link: "https://entab.online/Registration/RegistrationGroupClass", 
+          icon: <ReceiptText className="sm:h-5 sm:w-5 md:h-6 md:w-6"/> 
         },
       ],
     },
@@ -157,17 +153,9 @@ const Navbar = () => {
       link: "#",
       dropdown: true,
       dropdownItems: [
-        {
-          name: "Our Campus",
-          link: "/our-campus",
-          icon: <School className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-        },
+        { name: "Our Campus", link: "/our-campus", icon: <School className="sm:h-5 sm:w-5 md:h-6 md:w-6" /> },
         // { name: "Hi-Tech Classes", link: "/hi-tech-classes", icon: <Wifi className="sm:h-5 sm:w-5 md:h-6 md:w-6"/> },
-        {
-          name: "Faculty",
-          link: "/faculty",
-          icon: <SquareUserRound className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-        },
+        { name: "Faculty", link: "/faculty", icon: <SquareUserRound className="sm:h-5 sm:w-5 md:h-6 md:w-6"/> },
         // {
         //   name: "Security & CCTV Surveillance",
         //   link: "/security-cctv-surveillance",
@@ -176,18 +164,23 @@ const Navbar = () => {
         {
           name: "Sport Facilities",
           link: "/sport-facilities",
-          icon: <Medal className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <Medal className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
         {
           name: "Transport Facilities",
           link: "/transport-facilities",
-          icon: <CircleGauge className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <CircleGauge className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
         {
           name: "IT Infrastructure",
           link: "/it-infrastructure",
-          icon: <HouseWifi className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <HouseWifi className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
+        {
+          name: "Extracurricular",
+          link: "/extracurricular",
+          icon: <Trophy className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
+        }
       ],
     },
     {
@@ -198,45 +191,33 @@ const Navbar = () => {
         {
           name: "School Calendar",
           link: "/school-calendar",
-          icon: <Calendar1 className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <Calendar1 className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
         {
           name: "Fee Structure",
           link: "/fee-structure",
-          icon: <ReceiptText className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <ReceiptText className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
-        {
-          name: "Gallery",
-          link: "/gallery",
-          icon: <Image className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-        },
-        {
-          name: "News & Events",
-          link: "/news-events",
-          icon: <Mails className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-        },
+        { name: "Gallery", link: "/gallery", icon: <Image className="sm:h-5 sm:w-5 md:h-6 md:w-6"/> },
+        { name: "News & Events", link: "/news-events", icon: <Mails className="sm:h-5 sm:w-5 md:h-6 md:w-6"/> },
         {
           name: "School Notification",
           link: "/school-notification",
-          icon: <Bell className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <Bell className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
         // { name: "EPFUTURE", link: "/epfuture", icon: <Braces className="sm:h-5 sm:w-5 md:h-6 md:w-6"/> },
         {
           name: "Parent Visiting Hours",
           link: "/parent-visiting-hours",
-          icon: <Clock6 className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <Clock6 className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
         // { name: "Accolades", link: "/accolades", icon: <Medal className="sm:h-5 sm:w-5 md:h-6 md:w-6"/> },
-        {
-          name: "House System",
-          link: "/house-system",
-          icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-        },
+        { name: "House System", link: "/house-system", icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6"/> },
         // { name: "View Issued Tcs", link: "/view-issued-tcs", icon: <Bug className="sm:h-5 sm:w-5 md:h-6 md:w-6"/> },
         {
           name: "Guidelines For Parents",
           link: "/guidelines-for-parents",
-          icon: <NotebookText className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <NotebookText className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
       ],
     },
@@ -248,22 +229,18 @@ const Navbar = () => {
         {
           name: "Student Guidelines",
           link: "/student-guidelines",
-          icon: <NotebookText className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <NotebookText className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
         {
           name: "School Uniform",
           link: "/school-uniform",
-          icon: <ShieldMinus className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <ShieldMinus className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
-        {
-          name: "School Timing",
-          link: "/school-timing",
-          icon: <Clock6 className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-        },
+        { name: "School Timing", link: "/school-timing", icon: <Clock6 className="sm:h-5 sm:w-5 md:h-6 md:w-6"/> },
         {
           name: "Attendance Policy",
           link: "/attendance-policy",
-          icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+          icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
         },
       ],
     },
@@ -272,21 +249,9 @@ const Navbar = () => {
       link: "#",
       dropdown: true,
       dropdownItems: [
-        {
-          name: "Contact",
-          link: "/contact",
-          icon: <Phone className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-        },
-        {
-          name: "Careers",
-          link: "/careers",
-          icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-        },
-        {
-          name: "Our Location",
-          link: "/our-location",
-          icon: <MapPin className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-        },
+        { name: "Contact", link: "/contact", icon: <Phone className="sm:h-5 sm:w-5 md:h-6 md:w-6"/> },
+        { name: "Careers", link: "/careers", icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6"/> },
+        { name: "Our Location", link: "/our-location", icon: <MapPin className="sm:h-5 sm:w-5 md:h-6 md:w-6"/> },
       ],
     },
     {
@@ -303,6 +268,8 @@ const Navbar = () => {
         <div className="container mx-auto flex justify-between items-center">
           {/* Logo and Title */}
           <div className="flex items-center space-x-3">
+            <Link to='/'>
+           
             <img
               src={Logo}
               alt="School Logo"
@@ -310,16 +277,17 @@ const Navbar = () => {
             />
             <div className="hidden md:block">
               <h1 className="text-2xl md:text-3xl font-serif ">
-                SHREE PADMAKSHI GLOBAL SCHOOL,BILASPUR
+              SHREE PADMAKSHI GLOBAL SCHOOL, BILASPUR
               </h1>
               <p className="text-sm ">CBSE Affiliation No: 3330519</p>
             </div>
+             </Link>
           </div>
 
           {/* Mobile Title - Shown only on smallest screens */}
           <div className="md:hidden text-center  absolute left-1/2 transform -translate-x-1/2">
             <p className="text-sm  font-serif">
-              SHREE PADMAKSHI GLOBAL SCHOOL,BILASPUR
+            SHREE PADMAKSHI GLOBAL SCHOOL,BILASPUR
             </p>
             <p className="text-xs text-gray-200">
               CBSE Affiliation No: 3330519
@@ -351,12 +319,12 @@ const Navbar = () => {
               {/* Directory Icon */}
               <div className="flex flex-col items-center cursor-pointer">
                 <User className="h-5 w-5 text-yellow-200" />
-                <NavLink
-                  to="https://entab.online/Registration/RegistrationGroupClass"
+                <button 
+                  onClick={() => handleNavigation("https://entab.online/Registration/RegistrationGroupClass")}
                   className="text-xs text-yellow-200 mt-1"
                 >
                   ADMISSION
-                </NavLink>
+                </button>
               </div>
             </div>
 
@@ -437,15 +405,24 @@ const Navbar = () => {
           <div className="md:hidden bg-white border-t">
             {/* Mobile Quick Icons */}
             <div className="flex justify-around py-4 border-b">
-              <div className="flex flex-col items-center">
+              <div 
+                className="flex flex-col items-center"
+                onClick={() => handleNavigation("/school-notifications")}
+              >
                 <Bell size={20} className="text-red-900" />
                 <span className="text-xs mt-1">NEWS</span>
               </div>
-              <div className="flex flex-col items-center">
+              <div 
+                className="flex flex-col items-center"
+                onClick={() => handleNavigation("/school-calendar")}
+              >
                 <Calendar size={20} className="text-red-900" />
                 <span className="text-xs mt-1">CALENDAR</span>
               </div>
-              <div className="flex flex-col items-center">
+              <div 
+                className="flex flex-col items-center"
+                onClick={() => handleNavigation("https://entab.online/Registration/RegistrationGroupClass")}
+              >
                 <User size={20} className="text-red-900" />
                 <span className="text-xs mt-1">ADMISSION</span>
               </div>
@@ -464,21 +441,19 @@ const Navbar = () => {
                       }
                     }}
                     className={`w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 uppercase
-          ${
-            activeDropdown === index
-              ? "text-blue-700 bg-gray-50"
-              : "text-gray-700"
-          } 
-          hover:text-blue-700 hover:bg-gray-50`}
+                      ${
+                        activeDropdown === index
+                          ? "text-blue-700 bg-gray-50"
+                          : "text-gray-700"
+                      } 
+                      hover:text-blue-700 hover:bg-gray-50`}
                   >
                     <div className="flex justify-between items-center">
                       {item.name}
                       {item.dropdown && (
                         <svg
                           className={`h-4 w-4 transition-transform duration-200 ${
-                            activeDropdown === index
-                              ? "transform rotate-90"
-                              : ""
+                            activeDropdown === index ? "transform rotate-90" : ""
                           }`}
                           fill="none"
                           viewBox="0 0 24 24"
@@ -503,9 +478,9 @@ const Navbar = () => {
                           key={dropdownIndex}
                           onClick={() => handleNavigation(dropdownItem.link)}
                           className="w-full flex flex-row gap-2 items-center   
-                px-4 py-3 md:hover:bg-gray-200 sm:hover:bg-gray-200  
-                text-sm text-black hover:text-black hover:bg-gray-200 border-b
-                border-gray-600"
+                            px-4 py-3 md:hover:bg-gray-200 sm:hover:bg-gray-200  
+                            text-sm text-black hover:text-black hover:bg-gray-200 border-b
+                            border-gray-600"
                         >
                           {dropdownItem.icon}
                           {dropdownItem.name}

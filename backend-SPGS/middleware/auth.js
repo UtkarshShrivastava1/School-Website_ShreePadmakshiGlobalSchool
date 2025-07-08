@@ -1,70 +1,66 @@
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
+const { Admin } = require('../models/admin');
 
-// Middleware to verify JWT and attach admin info to request
 exports.protect = async (req, res, next) => {
   try {
     let token;
 
-    // Get token from Authorization header
-    if (
-      req.headers.authorization &&
-      req.headers.authorization.startsWith("Bearer")
-    ) {
-      token = req.headers.authorization.split(" ")[1];
+    // Get token from header
+    if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
+      token = req.headers.authorization.split(' ')[1];
     }
 
     if (!token) {
       return res.status(401).json({
         success: false,
-        message: "Not authorized to access this route",
+        message: 'Not authorized to access this route'
       });
     }
 
     try {
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      req.admin = decoded;
 
-      // Optional: check if token user matches hardcoded admin
-      if (decoded.username !== process.env.ADMIN_USERNAME) {
+      // Verify admin existence
+      const adminExists = await Admin.findById(decoded.id);
+      if (!adminExists) {
         return res.status(401).json({
           success: false,
-          message: "Invalid token credentials",
+          message: 'Admin no longer exists'
         });
       }
 
-      // Attach decoded admin info to request object
-      req.admin = decoded;
       next();
     } catch (error) {
       return res.status(401).json({
         success: false,
-        message: "Token verification failed",
+        message: 'Not authorized to access this route'
       });
     }
   } catch (error) {
-    console.error("Auth middleware error:", error);
+    console.error('Auth middleware error:', error);
     res.status(500).json({
       success: false,
-      message: "Server error, please try again later",
+      message: 'Server error, please try again later'
     });
   }
 };
 
-// Middleware to check if user is admin (in this case, if token is valid and username matches)
+// Simplified admin check without role field
 exports.isAdmin = (req, res, next) => {
   try {
-    if (!req.admin || req.admin.username !== process.env.ADMIN_USERNAME) {
+    if (!req.admin) {
       return res.status(403).json({
         success: false,
-        message: "Admin privileges required",
+        message: 'Admin privileges required'
       });
     }
-
     next();
   } catch (error) {
-    console.error("Admin check error:", error);
+    console.error('Admin check error:', error);
     res.status(500).json({
       success: false,
-      message: "Server error during admin verification",
+      message: 'Server error during admin verification'
     });
   }
 };

@@ -1,20 +1,22 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import { useNavigate } from "react-router-dom";
 import { Clock, Calendar as CalendarIcon, BookOpen, User } from "lucide-react";
+import api from "../../services/api";
+
+
 
 const thoughts = [
   "Stay positive, work hard, make it happen! 💪",
   "Every day is a fresh start. 🌅",
   "Believe in yourself and all that you are. ✨",
   "Success is the sum of small efforts, repeated daily. 🔄",
-  "The only way to do great work is to love what you do. ❤️",
+  "The only way to do great work is to love what you do. ❤️"
 ];
 
-const getRandomThought = () =>
-  thoughts[Math.floor(Math.random() * thoughts.length)];
+const getRandomThought = () => thoughts[Math.floor(Math.random() * thoughts.length)];
 
 const SchoolCalendar = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -23,10 +25,9 @@ const SchoolCalendar = () => {
   const [events, setEvents] = useState({});
   const [leaves, setLeaves] = useState({});
   const [loading, setLoading] = useState(true);
-  const [currentMonth, setCurrentMonth] = useState(
-    new Date().toLocaleString("default", { month: "long" })
-  );
+  const [currentMonth, setCurrentMonth] = useState(new Date().toLocaleString('default', { month: 'long' }));
   const navigate = useNavigate();
+
 
   useEffect(() => {
     if (selectedDate) {
@@ -34,11 +35,7 @@ const SchoolCalendar = () => {
     }
   }, [selectedDate]);
 
-  const URI = `${
-    import.meta.env.VITE_NODE_ENV === "development"
-      ? import.meta.env.VITE_DEVELOPMENT_URL
-      : import.meta.env.VITE_PRODUCTION_URL
-  }`;
+  const URI = `${ import.meta.env.VITE_NODE_ENV === "development" ? import.meta.env.VITE_DEVELOPMENT_URL : import.meta.env.VITE_PRODUCTION_URL }`;
 
   const fetchData = async (date) => {
     if (!date) {
@@ -47,15 +44,16 @@ const SchoolCalendar = () => {
     }
 
     setLoading(true);
-
+    
     try {
-      const formattedDate = new Date(
-        date.getTime() - date.getTimezoneOffset() * 60000
-      )
+      const formattedDate = new Date(date.getTime() - date.getTimezoneOffset() * 60000)
         .toISOString()
         .split("T")[0];
 
+
       const response = await axios.get(`${URI}/details/${formattedDate}`);
+
+      
 
       setEvent(response.data.event || null);
       setLeave(response.data.leave || null);
@@ -67,7 +65,12 @@ const SchoolCalendar = () => {
       setLoading(false);
     }
   };
-  // const response = await axios.get(`http://localhost:5000/`);
+      // const response = await axios.get(`http://localhost:5000/`);
+
+      
+
+     
+   
 
   const handleDateChange = (date) => {
     if (!date) {
@@ -79,27 +82,21 @@ const SchoolCalendar = () => {
     setSelectedDate(date);
     fetchData(date);
   };
-
+  
   const onActiveStartDateChange = ({ activeStartDate }) => {
     if (activeStartDate) {
-      setCurrentMonth(
-        activeStartDate.toLocaleString("default", { month: "long" })
-      );
+      setCurrentMonth(activeStartDate.toLocaleString('default', { month: 'long' }));
     }
   };
-
+  
   // Get day ordinal (1st, 2nd, 3rd, etc.)
   const getDayOrdinal = (day) => {
     if (day > 3 && day < 21) return `${day}th`;
     switch (day % 10) {
-      case 1:
-        return `${day}st`;
-      case 2:
-        return `${day}nd`;
-      case 3:
-        return `${day}rd`;
-      default:
-        return `${day}th`;
+      case 1: return `${day}st`;
+      case 2: return `${day}nd`;
+      case 3: return `${day}rd`;
+      default: return `${day}th`;
     }
   };
 
@@ -130,23 +127,21 @@ const SchoolCalendar = () => {
             Track your schedule, manage events, and plan your academic journey
           </p>
         </div> */}
-        <div className="flex items-center justify-center mb-8 md:mb-10">
-          <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-3 md:px-6 text-center">
-            Academic Calendar
-          </h2>
-          <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+ <div className="flex items-center justify-center mb-8 md:mb-10">
+      <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
+      <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-3 md:px-6 text-center">
+      Academic Calendar
+      </h2>
+      <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
+    </div>
+<div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {/* Calendar Column */}
           <div className="lg:col-span-2">
             <div className="bg-white border border-teal-100 rounded-xl overflow-hidden shadow-md">
               <div className="px-4 sm:px-6 py-4 sm:py-5 flex flex-col sm:flex-row items-center justify-between border-b border-teal-100">
                 <div className="flex items-center gap-2 mb-2 sm:mb-0">
                   <div className="w-3 h-3 bg-teal-500 rounded-full"></div>
-                  <h3 className="font-medium">
-                    {currentMonth} {selectedDate.getFullYear()}
-                  </h3>
+                  <h3 className="font-medium">{currentMonth} {selectedDate.getFullYear()}</h3>
                 </div>
                 <div className="flex items-center text-xs text-slate-500">
                   <span className="inline-block w-2 h-2 rounded-full bg-teal-500 mr-1"></span>
@@ -155,7 +150,7 @@ const SchoolCalendar = () => {
                   <span>Leave</span>
                 </div>
               </div>
-
+              
               <div className="p-4 sm:p-6">
                 {/* Custom styling for the calendar */}
                 <style jsx>{`
@@ -268,10 +263,10 @@ const SchoolCalendar = () => {
                   <h3 className="font-medium">Details</h3>
                 </div>
                 <div className="px-3 py-1 bg-teal-50 rounded-full text-xs text-teal-700">
-                  {selectedDate.toLocaleDateString("en-US", {
-                    weekday: "short",
-                    month: "short",
-                    day: "numeric",
+                  {selectedDate.toLocaleDateString('en-US', {
+                    weekday: 'short',
+                    month: 'short',
+                    day: 'numeric'
                   })}
                 </div>
               </div>
@@ -280,12 +275,11 @@ const SchoolCalendar = () => {
                 <div className="flex items-center gap-1.5 mb-2 text-sm text-slate-500">
                   <CalendarIcon size={14} />
                   <span>
-                    {selectedDate.toLocaleDateString("en-US", {
-                      weekday: "long",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                    , {getDayOrdinal(selectedDate.getDate())}
+                    {selectedDate.toLocaleDateString('en-US', { 
+                      weekday: 'long', 
+                      month: 'long', 
+                      year: 'numeric' 
+                    })}, {getDayOrdinal(selectedDate.getDate())}
                   </span>
                 </div>
 
@@ -299,12 +293,10 @@ const SchoolCalendar = () => {
                       <div className="p-4 bg-teal-50 rounded-lg border border-teal-100">
                         <div className="flex items-center mb-3">
                           <div className="w-2 h-2 bg-teal-500 rounded-full mr-2"></div>
-                          <h4 className="text-lg font-semibold text-teal-700">
-                            {event.title}
-                          </h4>
+                          <h4 className="text-lg font-semibold text-teal-700">{event.title}</h4>
                         </div>
                         <p className="text-slate-700">{event.description}</p>
-
+                        
                         <div className="mt-4 pt-4 border-t border-teal-100 flex items-center gap-2 text-sm text-slate-500">
                           <BookOpen size={14} />
                           <span>School Event</span>
@@ -316,12 +308,10 @@ const SchoolCalendar = () => {
                       <div className="p-4 bg-amber-50 rounded-lg border border-amber-100">
                         <div className="flex items-center mb-3">
                           <div className="w-2 h-2 bg-amber-500 rounded-full mr-2"></div>
-                          <h4 className="text-lg font-semibold text-amber-700">
-                            {leave.title}
-                          </h4>
+                          <h4 className="text-lg font-semibold text-amber-700">{leave.title}</h4>
                         </div>
                         <p className="text-slate-700">{leave.description}</p>
-
+                        
                         <div className="mt-4 pt-4 border-t border-amber-100 flex items-center gap-2 text-sm text-slate-500">
                           <User size={14} />
                           <span>School Holiday</span>
@@ -333,13 +323,9 @@ const SchoolCalendar = () => {
                       <div className="p-4 bg-gradient-to-r from-teal-50 to-amber-50 rounded-lg border border-teal-100">
                         <div className="flex items-center mb-3">
                           <div className="w-2 h-2 bg-teal-500 rounded-full mr-2"></div>
-                          <h4 className="text-lg font-semibold text-teal-700">
-                            Daily Inspiration
-                          </h4>
+                          <h4 className="text-lg font-semibold text-teal-700">Daily Inspiration</h4>
                         </div>
-                        <p className="text-slate-700 font-medium text-lg italic">
-                          {getRandomThought()}
-                        </p>
+                        <p className="text-slate-700 font-medium text-lg italic">{getRandomThought()}</p>
                       </div>
                     </div>
                   )}

@@ -31,14 +31,14 @@ const SchoolPortal = () => {
   const schoolInformation = {
     basicInfo: {
       schoolName: "Shree Padmakshi Global School",
-      established: "1985",
+      established: "2022",
       affiliation: "Central Board of Secondary Education (CBSE)",
       affiliationNumber: "3330519",
       address:
         "Main Road, Near Over Bridge Uslapur, Bilaspur C.G., Bilaspur Chhattisgarh, India 495001",
       contact: "+91 9111777295",
       email: "spgsbilaspur@gmail.com",
-      website: "www.mlzsbilaspur.edu",
+      website: " www.spgsbilaspur.com ",
     },
     infrastructure: {
       totalCampusArea: "6179.83 SQ.MTR",
@@ -49,17 +49,17 @@ const SchoolPortal = () => {
       boysToilets: "18",
     },
     facultyInfo: {
-      teachers: "55",
-      administrativeStaff: "Not Available",
+      teachers: "48",
+      administrativeStaff: "6",
       nonTeachingStaff: "5",
       peons: "5",
       g4Staff: "14",
-      sweepers: "Not Available",
+      sweepers: "2",
     },
     importantDates: {
-      academicSession: "2024-25",
-      sessionStartDate: "April 1, 2024",
-      admissionPeriod: "January 15 - March 15, 2024",
+      academicSession: "2025-26",
+      sessionStartDate: "April 1, 2025",
+      admissionPeriod: "Nov 15,2024 to june 15 2025 ",
       examinationSchedule: "As per academic calendar",
     },
   };
