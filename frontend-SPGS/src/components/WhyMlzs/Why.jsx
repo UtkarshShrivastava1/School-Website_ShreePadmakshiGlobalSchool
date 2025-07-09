@@ -15,13 +15,13 @@ const WhyMountLetraZee = () => {
       image: "c2.jpg"
     },
     {
-      title: "ESP - Emerging Student Profile",
+      title: "OPP - Our Portfolio Program",
       description: "Our personalized approach identifies and nurtures each student's unique talents, abilities, and potential through customized learning paths.",
       icon: "👤",
       image: "c3.jpg"
     },
     {
-      title: "Litera Octave",
+      title: " Inquiry Base Method",
       description: "Our holistic educational framework harmonizes academic excellence with creative expression, physical development, and emotional intelligence.",
       icon: "🎵",
       image: "c4.jpg"
@@ -110,20 +110,20 @@ const WhyMountLetraZee = () => {
           ))}
         </div>
 
-        {/* Litera Octave Feature Section */}
+        {/* INquiry Base Feature Section */}
         <div className="bg-indigo-50 rounded-xl p-8 md:p-12 mb-16">
           <div className="flex flex-col md:flex-row items-center gap-8 mb-8">
             <div className="md:w-1/3">
               <img 
                 src="/api/placeholder/400/400" 
-                alt="Litera Octave Program" 
+                alt="Inquiry Based Program" 
                 className="rounded-lg shadow-md w-full"
               />
             </div>
             <div className="md:w-2/3">
-              <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-indigo-800">The Litera Octave Advantage</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-4 text-indigo-800">The Inquiry Advantage</h2>
               <p className="text-lg text-gray-700">
-                Our signature Litera Octave program balances eight key dimensions of student development, creating a harmonious educational experience that nurtures the whole child.
+                Our signature Inquiry Based program balances eight key dimensions of student development, creating a harmonious educational experience that nurtures the whole child.
               </p>
             </div>
           </div>

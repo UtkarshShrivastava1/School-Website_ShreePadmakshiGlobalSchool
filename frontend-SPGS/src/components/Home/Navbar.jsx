@@ -27,6 +27,7 @@ import {
   Newspaper,
   Bug,
   Braces,
+  Trophy
 } from "lucide-react";
 
 const Navbar = () => {
@@ -188,6 +189,12 @@ const Navbar = () => {
           link: "/it-infrastructure",
           icon: <HouseWifi className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
         },
+
+        {
+          name: "Extracurricular activities",
+          link: "/extracurricular-activities",
+           icon: <Trophy className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
+        },
       ],
     },
     {
@@ -310,7 +317,7 @@ const Navbar = () => {
             />
             <div className="hidden md:block">
               <h1 className="text-2xl md:text-3xl font-serif ">
-                SHREE PADMAKSHI GLOBAL SCHOOL,BILASPUR
+                SHREE PADMAKSHI GLOBAL SCHOOL, BILASPUR
               </h1>
               <p className="text-sm ">CBSE Affiliation No: 3330519</p>
             </div>

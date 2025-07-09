@@ -8,7 +8,7 @@ export default function ITInfrastructure() {
           School IT Infrastructure
         </h1>
         <p className="text-gray-700 text-lg text-center mb-8">
-          At <span className="font-bold">Mount Litera Zee School, Bilaspur</span>, we offer the best facilities that today's education system can deliver. We pride ourselves in bringing the latest tools and techniques to augment the academic and overall development of your child. Here are some of the premier facilities that are offered.
+          At <span className="font-bold">SHREE PADMAKSHI GLOBAL SCHOOL, BILASPUR</span>, we offer the best facilities that today's education system can deliver. We pride ourselves in bringing the latest tools and techniques to augment the academic and overall development of your child. Here are some of the premier facilities that are offered.
         </p>
         <div className="grid md:grid-cols-3 gap-8">
           {/* WiFi Campus */}

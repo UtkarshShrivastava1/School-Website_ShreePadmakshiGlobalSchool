@@ -25,7 +25,7 @@ const Directors_1_message = () => {
                   className="rounded-full h-64 w-64 object-cover border-4 border-white shadow-xl justify-center"
                 />
                 <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white py-2 px-6 rounded-full shadow-lg">
-                  <p className="text-orange-500  text-sm font-bold">Since 2014</p>
+                  <p className="text-orange-500  text-sm font-bold">Since 2022</p>
                 </div>
               </div>
             </div>

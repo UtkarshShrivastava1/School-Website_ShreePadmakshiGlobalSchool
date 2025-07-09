@@ -57,6 +57,8 @@ import Policy from './pages/Terms&Policy/PrivacyPolicy';
 import GalleryDashboard from './pages/Admin/GalleryDashboard';
 import AcademicUpper from './pages/WhyUs/AcademicUpper';
 import SchoolValuesPage from './components/AboutUs/ValuesInAction';
+import Extracurricular from './pages/Facilites/Extracurricular_activities';
+
 
 function App() {
   return (
@@ -101,6 +103,8 @@ function AppContent() {
         <Route path="/school-rules-regulations" element={<SchoolRulesRegulations />} />
         <Route path="/withdrawal-policy" element={<WithdrawalPolicy />} />
         <Route path="/enquiry-form" element={<EnquiryForm />} />
+
+        <Route path='/extracurricular-activities' element={<Extracurricular/>}/>
         <Route path="/our-campus" element={<OurCampus />} />
         <Route path="/hi-tech-classes" element={<HiTechClasses />} />
         <Route path="/faculty" element={<Faculty />} />

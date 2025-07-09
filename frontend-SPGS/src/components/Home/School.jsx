@@ -1,13 +1,13 @@
 import Primary_School from "../../assets/c-2.jpg";
 import Lower_School from "../../assets/c-1.jpg";
-import Middle_School from "../../assets/c-3.jpg";
-import Upper_School from "../../assets/c-4.jpg";
+import Middle_School from "../../assets/c-4.jpg" ;
+import Upper_School from "../../assets/c-3.jpg";
 import { NavLink } from "react-router-dom";
 
 const CommunityVoices = () => {
   const sections = [
     {
-      title: "Primary School",
+      title: "Pre-Primary School",
       imgSrc: Primary_School,
       alt: "Primary School Students",
       description:
@@ -16,7 +16,7 @@ const CommunityVoices = () => {
       link: "/academics-pre-primary",
     },
     {
-      title: "Lower School",
+      title: "Primary School",
       imgSrc: Lower_School,
       alt: "Lower School Students",
       description:
@@ -34,7 +34,7 @@ const CommunityVoices = () => {
       link: "/academics-middle",
     },
     {
-      title: "Upper School",
+      title: "Secondary School",
       imgSrc: Upper_School,
       alt: "Upper School Students",
       description:

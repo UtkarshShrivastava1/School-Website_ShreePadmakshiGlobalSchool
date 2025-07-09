@@ -24,7 +24,7 @@ const LocationSection = () => {
             </p>
 
             <p className="text-base md:text-lg">
-              You can find{" "}
+              You can find
               <span className="font-semibold">Shree Padmakshi Global School</span> at
               Main road, near over bridge, Uslapur, Bilaspur C.G., Pincode- 495001..
             </p>
@@ -36,7 +36,7 @@ const LocationSection = () => {
                 className="text-teal-600 hover:text-teal-700 font-medium"
               >
                 9111777295, 9424130028
-              </a>{" "}
+              </a>
               or please refer to the map.
             </p>
           </div>

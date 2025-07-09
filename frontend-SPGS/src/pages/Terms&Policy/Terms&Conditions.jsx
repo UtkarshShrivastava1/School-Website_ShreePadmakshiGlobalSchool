@@ -36,7 +36,7 @@ const AttendanceMatters = () => {
           </div>
        
         <p className="text-gray-600 max-w-full mx-auto">
-        The following is a partial list of the kind of User Content that is illegal or prohibited on “www.mountliteragzb.com”. SPGS-Bilaspur reserves the right to investigate and take appropriate legal action in its sole discretion against anyone who violates this provision, including without limitation, removing the offending User Content from the website and terminating the accounts of such violators. Prohibited User Content includes content that you should not host, display, upload, modify, publish, transmit, update or share including information that:
+        The following is a partial list of the kind of User Content that is illegal or prohibited on “www.spgsbilaspur.com”. SPGS-Bilaspur reserves the right to investigate and take appropriate legal action in its sole discretion against anyone who violates this provision, including without limitation, removing the offending User Content from the website and terminating the accounts of such violators. Prohibited User Content includes content that you should not host, display, upload, modify, publish, transmit, update or share including information that:
         </p>
       </div>
       

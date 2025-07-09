@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
 import Class from '../../assets/Classroom/ClassN3.jpg'
+import { Link } from 'react-router-dom';
+import image from "../../assets/c-2.png";
 
 const AcademicUpper = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -9,7 +11,7 @@ const AcademicUpper = () => {
     { title: "Advanced Placement (AP)", description: "We offer over 15 AP courses including Calculus, Biology, Chemistry, Physics, Literature, History, and Computer Science." },
     { title: "Honors Courses", description: "Challenging courses designed for students who excel academically and seek deeper understanding of subject matter." },
     { title: "STEM Program", description: "Specialized curriculum focusing on robotics, programming, engineering, and advanced mathematics." },
-    { title: "Liberal Arts Focus", description: "Comprehensive humanities offerings including advanced literature, philosophy, art history, and world languages." },
+    
     { title: "Dual Enrollment", description: "Partnership with local colleges allowing students to earn college credits while completing high school." }
   ];
 
@@ -28,18 +30,32 @@ const AcademicUpper = () => {
   return (
     <div>
        <div className="min-h-screen bg-gray-50">
+         
       {/* Hero Section */}
-      <div className="relative bg-[#191f5d] text-white">
-        <div className="container mx-auto px-6 py-20">
-          <h1 className="text-5xl font-bold mb-4">Upper School</h1>
-          <h2 className="text-2xl mb-8">Grades 9-12: Preparing Students for College and Beyond</h2>
-          <p className="text-xl max-w-2xl">
-            Our Upper School provides a rigorous college preparatory experience in a supportive 
-            environment, empowering students to develop academic excellence, leadership skills, 
-            and personal growth.
-          </p>
-        </div>
+      {/* <div className="relative bg-[#191f5d] text-white"> */}
+        {/* Background Image Wrapper */}
+       <div
+  className="w-full h-[60vh] md:h-[70vh] lg:h-[80vh] bg-cover bg-center bg-no-repeat flex items-center"
+  style={{ backgroundImage: `url(${image})` }}
+>
+  <div className="w-full h-full bg-black/50 flex items-center">
+    <div className="container mx-auto px-4 sm:px-6 md:px-8 text-white text-center sm:text-left">
+      <div className="max-w-3xl mx-auto sm:mx-0">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Secondary School</h1>
+        <h2 className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6">
+          Grades 9-12: Preparing Students for College and Beyond
+        </h2>
+        <p className="text-sm sm:text-base md:text-lg max-w-xl mx-auto sm:mx-0">
+          Our Secondary School provides a rigorous college preparatory experience in a supportive
+          environment, empowering students to develop academic excellence, leadership skills,
+          and personal growth.
+        </p>
       </div>
+    </div>
+  </div>
+</div>
+
+
 
       {/* Navigation Tabs */}
       <div className="bg-white shadow">
@@ -57,7 +73,8 @@ const AcademicUpper = () => {
               >
                 {tab === 'overview' ? 'Overview' : 
                  tab === 'academics' ? 'Academic Program' : 
-                 tab === 'extracurricular' ? 'Extracurricular' :
+                 tab === 'faculty' ? 'Faculty & Staff' :
+                 tab === 'extracurricular' ? '' :
                  'College Prep'}
               </button>
             ))}
@@ -71,9 +88,9 @@ const AcademicUpper = () => {
         {activeTab === 'overview' && (
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold mb-6 text-gray-800">Welcome to the Upper School</h2>
+              <h2 className="text-3xl font-bold mb-6 text-gray-800">Welcome to the Secondary School</h2>
               <p className="text-gray-600 mb-4">
-                Our Upper School serves students in grades 9-12, offering a challenging academic program 
+                Our Secondary School serves students in grades 9-12, offering a challenging academic program 
                 designed to prepare graduates for success in college and beyond. With a focus on academic 
                 excellence, character development, and leadership skills, we create a transformative 
                 educational experience.
@@ -120,7 +137,7 @@ const AcademicUpper = () => {
 
             <div className="space-y-6">
               <div className="rounded-lg overflow-hidden shadow-lg">
-                <img src={Class} alt="Students in classroom" className="w-full h-64 object-cover" />
+                <img src={Class} alt="Students in classroom" className="w-full h-81  object-full" />
               </div>
               
               <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
@@ -136,10 +153,12 @@ const AcademicUpper = () => {
               <div className="bg-green-50 rounded-lg p-6 border border-green-100">
                 <h3 className="text-xl font-bold mb-4 text-green-800">Schedule a Visit</h3>
                 <p className="text-gray-600 mb-4">
-                  Experience our Upper School firsthand by scheduling a campus tour or shadow day.
+                  Experience our Secondary School firsthand by scheduling a campus tour or shadow day.
                 </p>
                 <button className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition">
+                  <Link to='/contact'>
                   Request Information
+                  </Link>
                 </button>
               </div>
             </div>
@@ -426,14 +445,20 @@ const AcademicUpper = () => {
           <h2 className="text-3xl font-bold mb-4">Ready to Join Our Community?</h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
             Schedule a campus visit, attend an open house, or speak with our admissions team 
-            to learn more about our Upper School program.
+            to learn more about our Secondary School program.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-md font-medium transition">
-              Apply Now
+              <Link to="https://entab.online/Registration/RegistrationGroupClass">
+               Apply Now
+              </Link>
+             
             </button>
             <button className="bg-transparent border border-white hover:bg-white hover:text-gray-900 px-8 py-3 rounded-md font-medium transition">
-              Request Information
+              <Link to="/contact">
+                Request Information
+              </Link>
+           
             </button>
           </div>
         </div>

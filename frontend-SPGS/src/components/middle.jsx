@@ -1,6 +1,7 @@
 import ArtRoom from "../assets/LabAndLibrary/ArtRoom2.jpg";
 import classRoom from "../assets/Classroom/ClassN1.jpg";
 import image from "../assets/c-2.png";
+import{Link} from 'react-router-dom'
 import {
   ArrowRight,
   BookOpen,
@@ -10,6 +11,7 @@ import {
   Trophy,
   Target,
   Lightbulb,
+  
 } from "lucide-react";
 
 export default function MiddleSchoolProgram() {
@@ -49,7 +51,7 @@ export default function MiddleSchoolProgram() {
             <p className="text-lg text-gray-700 mb-6">
               At this age, children begin to connect themselves with the
               community in a larger sense. An integrated package of teaching,
-              learning and assessment is delivered through the Litera Octave
+              learning and assessment is delivered through the Experiential Learning 
               approach; the child is directed towards independent learning and
               is guided to take on more responsibility.
             </p>
@@ -103,7 +105,7 @@ export default function MiddleSchoolProgram() {
 
               <p className="text-gray-600">
                 A comprehensive approach that combines teaching, learning, and
-                assessment through the Litera Octave method.
+                assessment through the art and subject integration method.
               </p>
             </div>
 
@@ -322,7 +324,7 @@ export default function MiddleSchoolProgram() {
 
           <div className="mt-12 text-center">
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              All the students are divided into four clubs and four houses and
+              All the students are divided into four houses and
               they are given opportunities to compete in Inter-house
               Competitions. Every child has the opportunity to compete against
               other children in the school.
@@ -332,76 +334,62 @@ export default function MiddleSchoolProgram() {
       </section>
 
       {/* House System */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+     <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center mb-10">
-            <div className="w-1/4 h-px bg-gray-300"></div>
-            <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
-              {" "}
-              Our House System
-            </h2>
-            <div className="w-1/4 h-px bg-gray-300"></div>
-          </div>
+              <div className="w-1/4 h-px bg-gray-300"></div>
+              <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
+           
+                Our House System
+              </h2>
+              <div className="w-1/4 h-px bg-gray-300"></div>
+            </div>
 
           <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-            Students are divided into four houses, fostering a sense of
-            belonging and healthy competition
+            Students are divided into four houses, fostering a sense of belonging and healthy competition
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* House 1 */}
-          <div className="bg-red-50 p-6 rounded-lg shadow-md border border-red-100">
-            <div className="h-24 w-24 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl font-bold text-red-600">House 1</span>
+          <div className="bg-blue-50 p-6 rounded-lg shadow-md border border-red-100">
+            <div className="h-24 w-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl font-bold text-blue-600">House 1</span>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">
-              Red House
-            </h3>
-            <p className="text-gray-600 text-center">
-              Representing courage, determination, and leadership
-            </p>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">Samveda House</h3>
+             <p className="text-gray-600 text-center">Blue is the color</p>
+              <p className="text-gray-600 text-center font-semibold">The veda of medlodies</p>
+           
           </div>
 
           {/* House 2 */}
-          <div className="bg-yellow-50 p-6 rounded-lg shadow-md border border-yellow-100">
-            <div className="h-24 w-24 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl font-bold text-yellow-600">
-                House 2
-              </span>
+          <div className="bg-green-50 p-6 rounded-lg shadow-md border border-green-100">
+            <div className="h-24 w-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl font-bold text-green-600">House 2</span>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">
-              Yellow House
-            </h3>
-            <p className="text-gray-600 text-center">
-              Representing wisdom, intellect, and creativity
-            </p>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">Yajurveda House</h3>
+            <p className="text-gray-600 text-center">Green is the color </p>
+             <p className="text-gray-600 text-center font-semibold">The veda of rituals.  </p>
           </div>
 
           {/* House 3 */}
-          <div className="bg-green-50 p-6 rounded-lg shadow-md border border-green-100">
-            <div className="h-24 w-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl font-bold text-green-600">House 3</span>
+          <div className="bg-yellow-50 p-6 rounded-lg shadow-md border border-yellow-100">
+            <div className="h-24 w-24 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl font-bold text-yellow-600">House 3</span>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">
-              Green House
-            </h3>
-            <p className="text-gray-600 text-center">
-              Representing growth, harmony, and perseverance
-            </p>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">Rigveda House</h3>
+            <p className="text-gray-600 text-center">Yellow is the color </p>
+            <p className="text-gray-600 text-center font-semibold">The veda of Praise </p>
           </div>
 
           {/* House 4 */}
-          <div className="bg-blue-50 p-6 rounded-lg shadow-md border border-blue-100">
-            <div className="h-24 w-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl font-bold text-blue-600">House 4</span>
+          <div className="bg-red-50 p-6 rounded-lg shadow-md border border-red-100">
+            <div className="h-24 w-24 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <span className="text-2xl font-bold text-red-600">House 4</span>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">
-              Blue House
-            </h3>
-            <p className="text-gray-600 text-center">
-              Representing loyalty, integrity, and excellence
-            </p>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">Athrvaveda House</h3>
+            <p className="text-gray-600 text-center">Red is the color </p>
+            <p className="text-gray-600 text-center font-semibold">The veda of chants</p>
           </div>
         </div>
       </section>
@@ -470,7 +458,7 @@ export default function MiddleSchoolProgram() {
             <div className="flex items-center justify-center mb-10">
               <div className="w-1/4 h-px bg-gray-300"></div>
               <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
-                {" "}
+            
                 What Students & Parents Say
               </h2>
               <div className="w-1/4 h-px bg-gray-300"></div>
@@ -586,7 +574,10 @@ export default function MiddleSchoolProgram() {
               Apply Now
             </a>
             <button className="px-8 py-3 bg-white border border-[#191f5d] text-[#191f5d] font-semibold rounded-md hover:bg-indigo-50 transition-colors">
+             <Link to="/contact">
+                <ArrowRight className=" visibility:hidden hover:visibility:visible inline mr-2" />
               Schedule a Visit
+              </Link>
             </button>
           </div>
         </div>

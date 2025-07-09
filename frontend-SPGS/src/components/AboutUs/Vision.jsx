@@ -69,7 +69,7 @@ const MissionPage = () => {
                 </div>
                 <h2 className="text-xl md:text-2xl font-bold mb-4 text-center text-gray-800">Real Understanding through an Integrated Approach</h2>
                 <p className="text-gray-600 text-center">
-                A school is a micro-system where different factors have an effect on the child. The teachers, the curriculum, the examinations, the environment, the infrastructure, the activities, all come together to nurture the unique potential of the child. Our philosophy of ‘Real Understanding through an Integrated Approach’ is implemented through our Litera Octave approach towards education. We aim to blend technology into the teaching method of the students in a manner that they learn to consider it as an aid /tool for development and productivity, rather as an asset or object of luxury
+                A school is a micro-system where different factors have an effect on the child. The teachers, the curriculum, the examinations, the environment, the infrastructure, the activities, all come together to nurture the unique potential of the child. Our philosophy of ‘Real Understanding through an Integrated Approach’ is implemented through our Inquiry based approach towards education. We aim to blend technology into the teaching method of the students in a manner that they learn to consider it as an aid /tool for development and productivity, rather as an asset or object of luxury
                 </p>
               </div>
             </div>

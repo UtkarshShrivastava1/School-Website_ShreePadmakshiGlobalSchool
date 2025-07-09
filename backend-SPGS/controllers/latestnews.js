@@ -1,5 +1,5 @@
 // import News from '../models/News.js';
-const News = require('../models/latestNews.js');
+const News = require('../models/latestnews.js');
 
 // Create news
 exports.createNews = async (req, res) => {

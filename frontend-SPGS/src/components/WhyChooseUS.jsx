@@ -72,7 +72,7 @@ export default function WhyChooseUs() {
               </h1>
               <p className="max-w-[600px] text-white/90 md:text-xl">
                 At SHREE PADMAKSHI GLOBAL SCHOOL,BILASPUR we focus on all-round
-                development of students. Our emerging student profile (ESP) puts
+                development of students. Our  our protfolio program (OPP) puts
                 equal emphasis on knowledge, life skills and values.
               </p>
             </div>

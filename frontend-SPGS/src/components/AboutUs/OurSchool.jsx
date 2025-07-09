@@ -24,7 +24,7 @@ const AboutPage = () => {
           {/* Sidebar */}
           <div className="lg:col-span-1">
             <div className="bg-blue-50 p-6 rounded-lg shadow-md">
-              <h3 className="text-2xl font-bold text-orange-500 mb-4">Est. 2014</h3>
+              <h3 className="text-2xl font-bold text-orange-500 mb-4">Est. 2022</h3>
               <div className="border-l-4 border-orange-500 pl-4 mb-6">
                 <p className="italic text-gray-700">
                   "We believe that there is no activity more self-rewarding than service to the child."
@@ -33,10 +33,7 @@ const AboutPage = () => {
               
               <h4 className="font-bold text-lg text-orange-500 mb-2">Quick Facts</h4>
               <ul className="space-y-2 text-gray-700">
-                <li className="flex items-start">
-                  <span className="text-orange-500 font-bold mr-2">•</span>
-                  <span>Pan India Chain of K12 Schools</span>
-                </li>
+                
                 <li className="flex items-start">
                   <span className="text-orange-500 font-bold mr-2">•</span>
                   <span>Universal Learning System</span>
@@ -71,10 +68,11 @@ const AboutPage = () => {
             <section>
               <h2 className="text-3xl font-bold text-orange-500 mb-4">Our Legacy</h2>
               <p className="text-gray-700 mb-4 leading-relaxed">
-                Shree Padmakshi Global School Bilaspur is a member of the K12 Pan India chain of Shree Padmakshi Global Schools under the aegis of SPGS Learn Limited. The Shree Padmakshi Global School chain has many laurels in its cap for exemplary achievements in the Education sector. SPGS has a Pan India presence and a Universal learning system where the divide of big and small cities is bridged as all the students study the same curricula at the same time and the same pace.
+                    Shree Padmakshi Global School Bilaspur is an K12 school under aegis of Auro 
+                      Educational Foundation. The Shree Padmakshi Global School chain has many laurels in its cap for exemplary achievements in the Education sector. SPGS has a Pan India presence and a Universal learning system where the divide of big and small cities is bridged as all the students study the same curricula at the same time and the same pace.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                Founded in 2014, Shree Padmakshi Global School Bilaspur is a visionary attempt to empower children - the BUILDERS OF HUMANITY. The school aims at providing holistic development and nurturing the unique potential of every child.
+                Founded in 2022, Shree Padmakshi Global School Bilaspur is a visionary attempt to empower children - the BUILDERS OF HUMANITY. The school aims at providing holistic development and nurturing the unique potential of every child.
               </p>
             </section>
             

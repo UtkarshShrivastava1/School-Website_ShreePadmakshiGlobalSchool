@@ -10,7 +10,7 @@ const CampusFeatures = () => {
         </svg>
       ),
       title: "Hi-Tech Classrooms",
-      description: "Spacious and well-lit classrooms equipped with Interactive Whiteboards (IWB) and advanced educational software to enhance the learning experience.",
+      description: "Spacious and well-lit classrooms equipped with Interactive Smart Panels  (ISP) and advanced educational software to enhance the learning experience.",
       bgColor: "bg-blue-100",
     },
     {

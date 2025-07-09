@@ -283,73 +283,7 @@ export default function PrePrimaryPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      {/* <footer className="bg-gray-800 text-white py-8">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-teal-500 flex items-center justify-center">
-                  <BookOpen className="h-4 w-4 text-white" />
-                </div>
-                <h3 className="text-lg font-bold">Mount Litera Zee School</h3>
-              </div>
-              <p className="text-gray-300">
-                Shaping young minds through holistic education and innovative learning approaches.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-4">Quick Links</h3>
-              <ul className="space-y-2">
-                <li>
-                  <a href="#program" className="text-gray-300 hover:text-white">
-                    Program
-                  </a>
-                </li>
-                <li>
-                  <a href="#illume" className="text-gray-300 hover:text-white">
-                    ILLUME Approach
-                  </a>
-                </li>
-                <li>
-                  <a href="#curriculum" className="text-gray-300 hover:text-white">
-                    Curriculum
-                  </a>
-                </li>
-                <li>
-                  <a href="#schedule" className="text-gray-300 hover:text-white">
-                    Daily Schedule
-                  </a>
-                </li>
-                <li>
-                  <a href="#assessment" className="text-gray-300 hover:text-white">
-                    Assessment
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-4">Contact Us</h3>
-              <address className="text-gray-300 not-italic">
-                Mount Litera Zee School
-                <br />
-                Bilaspur
-                <br />
-                <a href="tel:+911234567890" className="hover:text-white">
-                  Phone: 123-456-7890
-                </a>
-                <br />
-                <a href="mailto:info@mlzsbilaspur.com" className="hover:text-white">
-                  Email: info@mlzsbilaspur.com
-                </a>
-              </address>
-            </div>
-          </div>
-          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; {new Date().getFullYear()} Mount Litera Zee School, Bilaspur. All rights reserved.</p>
-          </div>
-        </div>
-      </footer> */}
+    
     </div>
   )
 }
