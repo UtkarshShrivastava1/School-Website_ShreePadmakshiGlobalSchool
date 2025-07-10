@@ -76,7 +76,7 @@ const initializeAdmin = async () => {
     const adminCount = await Admin.countDocuments();
     if (adminCount === 0) {
       await Admin.create({
-      
+        // Use environment variables for default admin credentials      
         username: process.env.ADMIN_USERNAME,
         password: process.env.ADMIN_PASSWORD,
         name: "Default Administrator",
