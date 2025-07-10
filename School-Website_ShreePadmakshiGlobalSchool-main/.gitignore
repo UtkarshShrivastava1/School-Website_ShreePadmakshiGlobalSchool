@@ -1,0 +1,54 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+*.log
+npm-debug.log
+yarn-debug.log
+pnpm-debug.log
+lerna-debug.log
+.log
+
+# Editor & OS Files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build files
+/dist/
+/build/
+/out/
+/.next/
+/.vercel/
+
+# backend-SPGSspecific ignores
+/backend-SPGS/node_modules/
+/backend-SPGS/dist/
+/backend-SPGS/.env
+/backend-SPGS/.cache
+/backend-SPGS/.DS_Store
+
+# Frontend-specific ignores
+/frontend-SPGS/node_modules/
+/frontend-SPGS/dist/
+/frontend-SPGS/.env
+/frontend-SPGS/.next
+/frontend-SPGS/.DS_Store
+
+# Git-specific
+.git/
