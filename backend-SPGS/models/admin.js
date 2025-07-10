@@ -76,8 +76,6 @@ const initializeAdmin = async () => {
     const adminCount = await Admin.countDocuments();
     if (adminCount === 0) {
       await Admin.create({
-        // username: 'mlzsadmin',
-        // password: 'admin@123', // This will be hashed by the pre-save hook
         username: process.env.ADMIN_USERNAME,
         password: process.env.ADMIN_PASSWORD,
         name: "Default Administrator",
