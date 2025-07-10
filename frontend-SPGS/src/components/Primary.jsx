@@ -1,6 +1,6 @@
 import School from "../assets/School.jpg"
 import { ArrowRight, BookOpen, Brain, Users, Award, Calendar } from "lucide-react"
-import Classsroom from "../assets/Classroom/ClassN3.jpg"
+import Classsroom from "../assets/Classroom/ClassN1.jpg"
 import {Link} from 'react-router-dom'
 
 export default function PrimarySchoolProgram() {

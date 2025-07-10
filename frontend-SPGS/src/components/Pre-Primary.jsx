@@ -1,9 +1,14 @@
 import img from "../assets/P_And_H/FancyDress.jpeg"
 import SportsRoom from "../assets/SportsRoom.jpeg"
+import { Link } from "react-router-dom"
 // import { Button } from "../components/button"
 import { Card, CardContent } from "../components/WhyCards"
-import { BookOpen, Users, Brain, Music, Clock, Calendar, PlayCircle, CheckCircle, Star } from "lucide-react"
-
+import { BookOpen, Users, Brain, Music, Clock, Calendar, PlayCircle, CheckCircle, Star} from "lucide-react"
+import FancyDress from "../assets/P_And_H/Fancy Dress1.jpeg"
+import FancyDress2 from "../assets/P_And_H/Fancy Dress2.jpeg"
+import ground from "../assets/P_And_H/Ground.jpeg"
+import school from "../assets/P_And_H/School.jpeg"
+import Piano from "../assets/Piano.jpg"
 export default function PrePrimaryPage() {
   return (
     <div className="min-h-screen bg-blue-50">
@@ -24,7 +29,11 @@ export default function PrePrimaryPage() {
                 years of learning which play vital role in the life a child.
               </p>
               <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
-              Learn More</button>
+                {/* <Link to="/about" className="flex items-center gap-2"> */}
+                  <Link to="/about">
+                  <span className="text-blue-700 hover:text-white">Learn More</span>
+                </Link>
+              </button>
             </div>
             <div className="md:w-1/2 relative h-64 md:h-96 rounded-lg overflow-hidden shadow-lg">
               <img
@@ -45,7 +54,6 @@ export default function PrePrimaryPage() {
             <div className="flex items-center justify-center mb-10">
               <div className="w-1/4 h-px bg-gray-300"></div>
               <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
-                {" "}
                 The 'ILLUME' Approach
               </h2>
               <div className="w-1/4 h-px bg-gray-300"></div>
@@ -104,7 +112,7 @@ export default function PrePrimaryPage() {
           <div className="flex flex-col md:flex-row gap-6 items-center">
             <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
               <img
-                src="http://mlzsbilaspur.com/Assets/Images/pp-program.jpg"
+                src={FancyDress}
                 alt="Shree padhnakshi global school Bilaspur Primary"
                 fill
                 className="w-full object-cover rounded-lg"
@@ -112,7 +120,7 @@ export default function PrePrimaryPage() {
             </div>
             <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
               <img
-                src="http://mlzsbilaspur.com/Assets/Images/prePrimaryClass.jpg"
+                src={FancyDress2}
                 alt="Shree padhnakshi global school Bilaspur Primary"
                 fill
                 className="object-cover rounded-lg"
@@ -151,12 +159,12 @@ export default function PrePrimaryPage() {
                 corners of the class rooms.
               </p>
             </div>
-            <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
+            <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-y-clip shadow-md">
               <img
-                src="http://mlzsbilaspur.com/Assets/Images/pp1.jpg"
+                src={Piano}
                 alt="Shree padhnakshi global school Bilaspur Play"
                 fill
-                className="w-full h-auto object-cover rounded-lg"
+                className="w-full h-auto object-center rounded-lg"
 
               />
             </div>
@@ -165,7 +173,7 @@ export default function PrePrimaryPage() {
           <div className="flex flex-col md:flex-row items-center gap-8 mb-16">
             <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md order-1 md:order-1">
               <img
-                src="http://mlzsbilaspur.com/Assets/Images/pp2.jpg"
+                src={school}
                 alt="Shree padhnakshi global school Bilaspur Play"
                 className="w-full h-auto object-cover rounded-lg"
               />
@@ -186,12 +194,12 @@ export default function PrePrimaryPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
+            <div className="relative h-64 md:h-80 rounded-lg overflow-y-hidden shadow-md">
               <img
-                src="http://mlzsbilaspur.com/Assets/Images/pp2.jpg"
+                src={ground}
                 alt="Shree padhnakshi global school Bilaspur Play"
                 fill
-                className="w-full h-auto object-cover rounded-lg"
+                className="w-full h-auto object-right-top rounded-lg "
               />
             </div>
             <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
