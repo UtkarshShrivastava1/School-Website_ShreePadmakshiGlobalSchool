@@ -37,7 +37,7 @@ const adminSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
+//Now ready 
 // Hash password before saving
 adminSchema.pre("save", async function (next) {
   // Only hash the password if it has been modified (or is new)
