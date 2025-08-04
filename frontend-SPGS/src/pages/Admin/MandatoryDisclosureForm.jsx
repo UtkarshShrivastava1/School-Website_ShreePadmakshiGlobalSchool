@@ -20,93 +20,72 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const data = new FormData();
     data.append("type", formData.type);
     data.append("title", formData.title);
     data.append("description", formData.description);
-    if (file) data.append("file", file);
+    if (file) data.append("file", file); // Important: 'file' matches multer field name
 
     try {
-      console.log(data)
       await addDisclosure(data);
       setMessage("Disclosure added successfully!");
       setFormData({ type: "", title: "", description: "" });
       setFile(null);
-      
-      // Reset file input field
-      const fileInput = document.querySelector('input[type="file"]');
-      if (fileInput) fileInput.value = "";
+      document.getElementById("file").value = "";
+
+      if (refreshNotices) refreshNotices();
     } catch (error) {
-      console.error("Error adding notice:", error);
-      const errorMsg = error.response?.data?.error || error.message || "Unknown error";
-      setMessage(`Failed to add notice: ${errorMsg}`);
+      console.error("Error adding disclosure:", error);
+      const errorMsg = error?.response?.data?.message || error.message;
+      setMessage(`Failed to add disclosure: ${errorMsg}`);
     }
   };
 
   return (
     <div className="p-6 bg-white shadow-lg rounded-lg w-[50%] mx-auto mt-3">
-      <h2 className="text-3xl font-bold mb-2 text-center">Create Mandatory Disclosure</h2>
-      <hr className='text-gray-400 mb-2'/>
+      <h2 className="text-3xl font-bold mb-2 text-center">
+        Create Mandatory Disclosure
+      </h2>
+      <hr className="text-gray-400 mb-2" />
       {message && <p className="text-green-600">{message}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="type">
-            Type:
-          </label>
-          <input 
-            id="type"
-            type="text" 
-            name="type" 
-            placeholder="Type" 
-            value={formData.type} 
-            onChange={handleChange} 
-            className="w-full p-2 border rounded" 
-            required 
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
-            Title:
-          </label>
-          <input 
-            id="title"
-            type="text" 
-            name="title" 
-            placeholder="Title" 
-            value={formData.title} 
-            onChange={handleChange} 
-            className="w-full p-2 border rounded" 
-            required 
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="description">
-            Description:
-          </label>
-          <textarea 
-            id="description"
-            name="description" 
-            placeholder="Description" 
-            value={formData.description} 
-            onChange={handleChange} 
-            className="w-full p-2 border rounded" 
-            required 
-          />
-        </div>
-        <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="file">
-            File:
-          </label>
-          <input
-            id="file"
-            type="file"
-            onChange={handleFileChange}
-            className="w-full border rounded p-1 text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-          />
-        </div>
-        <button 
-          type="submit" 
-          className="font-bold px-4 bg-[#f25811] text-white py-2 rounded-lg hover:bg-[rgb(242,88,17)] transition-all ease-in-out cursor-pointer"
+        <input
+          type="text"
+          name="type"
+          value={formData.type}
+          onChange={handleChange}
+          placeholder="Type"
+          required
+          className="w-full p-2 border rounded"
+        />
+        <input
+          type="text"
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+          placeholder="Title"
+          required
+          className="w-full p-2 border rounded"
+        />
+        <textarea
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          placeholder="Description"
+          required
+          className="w-full p-2 border rounded"
+        />
+        <input
+          id="file"
+          type="file"
+          accept=".pdf,.doc,.docx,.png,.jpeg,.jpg,.gif,.webp"
+          onChange={handleFileChange}
+          className="w-full border rounded p-1 text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+        />
+        <button
+          type="submit"
+          className="font-bold px-4 bg-[#f25811] text-white py-2 rounded-lg hover:bg-orange-600"
         >
           Add Mandatory Disclosure
         </button>

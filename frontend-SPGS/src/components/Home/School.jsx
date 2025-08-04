@@ -1,6 +1,6 @@
 import Primary_School from "../../assets/c-2.jpg";
 import Lower_School from "../../assets/c-1.jpg";
-import Middle_School from "../../assets/c-4.jpg" ;
+import Middle_School from "../../assets/c-4.jpg";
 import Upper_School from "../../assets/c-3.jpg";
 import { NavLink } from "react-router-dom";
 

@@ -1,20 +1,30 @@
 import axios from "axios";
-import api from "./api";
-// import api from "./api";
 
-const API_BASE_URL = "http://localhost:5000";
+// Get the correct base URL depending on environment
+const baseURL =
+  import.meta.env.VITE_NODE_ENV === "development"
+    ? import.meta.env.VITE_DEVELOPMENT_URL
+    : import.meta.env.VITE_PRODUCTION_URL;
 
-export const addDisclosure = async(formData) =>{
-    console.log
-    try{
-        const response = await api.post(`/disclosure/addDisclosure`, formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-           });
-        console.log("Response:", response.data);
-        return response.data;
-    } catch(error){
-        throw new Error('Error adding disclosure');
-    }
-}
+const API = `${baseURL}/api/disclosure`;
+
+// POST - Add Disclosure
+export const addDisclosure = async (formData) => {
+  return axios.post(`${API}/addDisclosure`, formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+};
+
+// GET - Get All Disclosures
+export const getAllDisclosures = async () => {
+  return axios.get(API);
+};
+
+// GET - Download Disclosure
+export const downloadDisclosure = async (fileName) => {
+  return axios.get(`${API}/download?file=${fileName}`, {
+    responseType: "blob",
+  });
+};
