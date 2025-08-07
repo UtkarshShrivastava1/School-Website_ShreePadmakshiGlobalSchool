@@ -64,6 +64,7 @@ const CommunityVoices = () => {
               <div className="md:flex">
                 <div className="md:w-2/5 relative">
                   <img
+                  lazyLoading="lazy"
                     src={section.imgSrc}
                     alt={section.alt}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"

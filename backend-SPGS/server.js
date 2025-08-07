@@ -63,6 +63,9 @@ if (isProduction) {
   console.log("📦 Compression enabled.".cyan);
 }
 
+// ✅ Serve static files from the 'uploads' folder
+app.use('/uploads', express.static('uploads'));
+
 // 🧭 Routes
 app.use("/api/auth", require("./Routes/AuthRoutes"));
 app.use("/events", require("./Routes/EventRoutes"));
@@ -71,7 +74,7 @@ app.use("/api/leaves", require("./Routes/LeaveRoutes"));
 app.use("/api/notices", require("./Routes/NoticeRoutes"));
 app.use("/api/posts", require("./Routes/postRoutes"));
 app.use("/api/disclosure", require("./Routes/disclosureRoutes"));
-app.use("/api/latestnews",require("./Routes/latestnews"));
+app.use("",require("./Routes/latestnews"));
 
 // Health check endpoint
 app.get("/health", (req, res) => {

@@ -17,6 +17,8 @@ import {
   ClipboardCheck,
   Heart,
 } from "lucide-react";
+import Teacher from "../assets/Classroom/ClassN3.jpg"; // Assuming you have a teacher image
+// import smartlab from "../assets/Pictures/"; // Assuming you have a smart lab image
 
 export default function WhyChooseUs() {
   const [activeTab, setActiveTab] = useState("tab1");
@@ -68,17 +70,17 @@ export default function WhyChooseUs() {
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
             <div className="space-y-4">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                WHY CHOOSE SHREE PADMAKSHI GLOBAL SCHOOL,BILASPUR
+                WHY CHOOSE SHREE PADMAKSHI GLOBAL SCHOOL, BILASPUR
               </h1>
               <p className="max-w-[600px] text-white/90 md:text-xl">
-                At SHREE PADMAKSHI GLOBAL SCHOOL,BILASPUR we focus on all-round
-                development of students. Our  our protfolio program (OPP) puts
+                At SHREE PADMAKSHI GLOBAL SCHOOL, BILASPUR we focus on all-round
+                development of students. Our protfolio program (OPP) puts
                 equal emphasis on knowledge, life skills and values.
               </p>
             </div>
             <div className="flex justify-center">
               <div className="relative h-[400px] w-[300px] md:h-[400px] md:w-[400px] rounded-full overflow-hidden border-4 border-white/20">
-                <img
+                <img   lazyLoad="true"
                   src={School}
                   alt="SPGS School"
                   fill
@@ -122,14 +124,6 @@ export default function WhyChooseUs() {
             Technology
           </TabsTrigger>
 
-          <TabsTrigger
-            isActive={activeTab === "tab3"}
-            onClick={() => setActiveTab("tab3")}
-            value="esp"
-            className="data-[state=active]:bg-blue-600 data-[state=active]:text-white cursor-pointer whitespace-nowrap px-3 py-2"
-          >
-            ESP
-          </TabsTrigger>
           
           <TabsTrigger
             isActive={activeTab === "tab4"}
@@ -137,7 +131,7 @@ export default function WhyChooseUs() {
             value="octave"
             className="data-[state=active]:bg-blue-600 data-[state=active]:text-white cursor-pointer whitespace-nowrap px-3 py-2"
           >
-            PADMAKSHI Octave
+            Inquery Base Approach
           </TabsTrigger>
           
           <TabsTrigger
@@ -204,9 +198,9 @@ export default function WhyChooseUs() {
                         activities.
                       </p>
                     </div>
-                    <div className="relative h-[250px] rounded-lg overflow-hidden">
-                      <img
-                        src={School}
+                    <div className="relative h-[400px] rounded-lg overflow-hidden">
+                      <img   lazyLoad="true"
+                        src={Teacher}
                         alt="Trained Teachers"
                         fill
                         className="object-cover"
@@ -251,8 +245,8 @@ export default function WhyChooseUs() {
                         working.
                       </p>
                     </div>
-                    <div className="relative h-[250px] rounded-lg overflow-hidden">
-                      <img
+                    <div className="relative h-[400px] rounded-lg overflow-hidden">
+                      <img    lazyLoad="true"
                         src={School}
                         alt="Trained Teachers"
                         fill
@@ -264,53 +258,7 @@ export default function WhyChooseUs() {
               </Card>
             </TabsContent>
 
-            <TabsContent
-              isActive={activeTab === "tab3"}
-              value="esp"
-              className="space-y-4"
-            >
-              <Card>
-                <CardHeader className="bg-blue-50">
-                  <div className="flex items-center gap-4">
-                    <div className="bg-blue-600 p-3 rounded-full text-white">
-                      <UserRound className="h-6 w-6" />
-                    </div>
-                    <CardTitle>ESP-Emerging Student Profile</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="pt-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <p className="text-gray-700">
-                        We have a vision of the child we aim to graduate and
-                        everything in our schools is designed around that
-                        vision. Emerging Student Profile (ESP) is the vision
-                        that SHREE PADMAKSHI GLOBAL SCHOOL promises.
-                      </p>
-                      <p className="mt-4 text-gray-700">
-                        Everything we do in the school strives to achieve this
-                        profile for each child. While each child will take a
-                        different path to this profile, we run the schools with
-                        the firm belief that this profile will enable our
-                        children to be leaders of the 21st century.
-                      </p>
-                      <p className="mt-4 text-gray-700">
-                        The ESP comprises three essential faculties: life
-                        skills, knowledge and core values.
-                      </p>
-                    </div>
-                    <div className="relative h-[250px] rounded-lg overflow-hidden">
-                      <img
-                        src={School}
-                        alt="Emerging Student Profile"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </TabsContent>
+           
 
             <TabsContent
               isActive={activeTab === "tab4"}
@@ -323,14 +271,14 @@ export default function WhyChooseUs() {
                     <div className="bg-blue-600 p-3 rounded-full text-white">
                       <Octagon className="h-6 w-6" />
                     </div>
-                    <CardTitle> PADMAKSHI Octave</CardTitle>
+                    <CardTitle> Inqury Base Approch</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <p className="text-gray-700">
-                        PADMAKSHI Octave is the core belief of every SPGS school.
+                        Inqury Base Approch is the core belief of every SPGS school.
                         It is a proprietary pedagogical model that has been
                         honed over years of research and development. It
                         integrates the various pillars that impact the children
@@ -347,7 +295,7 @@ export default function WhyChooseUs() {
                         Enrichment
                       </p>
                     </div>
-                    <div className="relative h-[250px] rounded-lg overflow-hidden">
+                    <div className="relative h-[400px] rounded-lg overflow-hidden">
                       <img
                         src={School}
                         alt=" PADMAKSHI  Octave"
@@ -388,7 +336,7 @@ export default function WhyChooseUs() {
                         that students get the best learning environment.
                       </p>
                     </div>
-                    <div className="relative h-[250px] rounded-lg overflow-hidden">
+                    <div className="relative h-[400px] rounded-lg overflow-hidden">
                       <img
                         src={School}
                         alt="Trained Teachers"
@@ -437,7 +385,7 @@ export default function WhyChooseUs() {
                         multiple intelligences, and child abuse prevention etc.
                       </p>
                     </div>
-                    <div className="relative h-[250px] rounded-lg overflow-hidden">
+                    <div className="relative h-[400px] rounded-lg overflow-hidden">
                       <img
                         src={School}
                         alt="Trained Teachers"
@@ -484,7 +432,7 @@ export default function WhyChooseUs() {
                         inhabitants.
                       </p>
                     </div>
-                    <div className="relative h-[250px] rounded-lg overflow-hidden">
+                    <div className="relative h-[400px] rounded-lg overflow-hidden">
                       <img
                         src={School}
                         alt="Trained Teachers"
@@ -548,7 +496,14 @@ export default function WhyChooseUs() {
               Schedule a Visit
             </button>
             <button className="bg-transparent border border-white hover:bg-white/10 px-6 py-3 rounded-md font-medium cursor-pointer">
-              Download Brochure
+             <a
+      href="/Padmakshi School Brochure-new.pdf" // Path to your brochure file
+      download="MySchoolBrochure.pdf" // Suggested filename for the downloaded file
+      className="download-button" // Optional: for styling
+    >
+      Download Brochure
+    </a>
+  
             </button>
           </div>
         </div>

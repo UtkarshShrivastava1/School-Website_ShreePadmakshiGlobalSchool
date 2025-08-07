@@ -2,33 +2,53 @@ const Disclosure = require("../models/disclosure");
 const path = require('path');
 const fs = require('fs');
 
-const addDisclosure = async (req, res) => {
-    try {
-        console.log(req.body);
-        const { type, title, description } = req.body;
-        const fileUrl = req.file ? `/uploads/${req.file.filename}` : null;
-        const fileSizeInKB = req.file ? (req.file.size / 1024).toFixed(2) + " KB" : null;
 
-        console.log("Uploaded file URL:", fileUrl);
-        
-        const newDisclosure = new Disclosure({
-            type,
-            title,
-            description,
-            fileUrl,
-            size: fileSizeInKB,
-            date: new Date()
-        });
-        
-        await newDisclosure.save();
-        res.status(201).json({
-            message: "Disclosure added successfully",
-            disclosure: newDisclosure
-        });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
+
+const createDisclosure = async (req, res) => {
+  try {
+    const { type, title, description} = req.body;
+    console.log(req.body);
+    console.log(req.file);
+    // console.log(req.file.filename);
+
+    if (!req.file) {
+      return res.status(400).json({ error: "File is required" });
     }
+
+    const fileUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
+    const size = req.file.size;
+
+    const newDisclosure = new Disclosure({
+      type,
+      title,
+      description,
+      fileUrl,
+      size,
+      date: new Date(),
+    });
+
+    await newDisclosure.save();
+
+    res.status(201).json({ message: "Disclosure created successfully", disclosure: newDisclosure });
+  } catch (error) {
+    console.error("Error creating disclosure:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 };
+
+// const createDisclosure = async (req, res) => {
+//   try {
+//     const { type, title, description, fileUrl, size, date } = req.body;
+//     const disclosure = new Disclosure({ type, title, description, fileUrl, size, date });
+
+//     const savedDisclosure = await disclosure.save();
+//     res.status(201).json(savedDisclosure);
+//   } catch (error) {
+//     console.error('Error creating disclosure:', error);
+//     res.status(500).json({ message: 'Server error creating disclosure' });
+//   }
+// };
+
 
 const getAllDisclosure = async (req, res) => {
     try {
@@ -75,4 +95,4 @@ const downloadDisclosure = async (req, res) => {
 };
 
 
-module.exports = { addDisclosure, getAllDisclosure,downloadDisclosure };
+module.exports = {createDisclosure, getAllDisclosure,downloadDisclosure };

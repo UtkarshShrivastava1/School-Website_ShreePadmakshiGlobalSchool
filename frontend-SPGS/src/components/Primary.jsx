@@ -2,14 +2,19 @@ import School from "../assets/School.jpg"
 import { ArrowRight, BookOpen, Brain, Users, Award, Calendar } from "lucide-react"
 import Classsroom from "../assets/Classroom/ClassN1.jpg"
 import {Link} from 'react-router-dom'
+import SPGS04 from "../assets/Testimonial/SPGS04.jpg" 
+import { useEffect } from "react"
 
 export default function PrimarySchoolProgram() {
+     useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' }); // or 'auto'
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative">
         <div className="absolute inset-0 z-0">
-          <img
+          <img   lazyLoad="true"
             src="https://images.pexels.com/photos/159844/cellular-education-classroom-159844.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=2"
             alt="Primary School Children Learning"
             fill
@@ -44,7 +49,7 @@ export default function PrimarySchoolProgram() {
             </p>
           </div>
           <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
-            <img
+            <img   lazyLoad="true"
               src={School}
               alt="Students engaged in learning activities"
               fill
@@ -122,7 +127,7 @@ export default function PrimarySchoolProgram() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1 relative h-[400px] rounded-xl overflow-hidden shadow-xl">
-            <img
+            <img   lazyLoad="true"
               src={Classsroom}
               alt="Interactive classroom learning"
               fill
@@ -268,8 +273,8 @@ export default function PrimarySchoolProgram() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
-                  <img
-                    src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=600"
+                  <img   lazyLoad="true"
+                    src={SPGS04}
                     alt="Parent"
                     width={48}
                     height={48}
@@ -277,13 +282,18 @@ export default function PrimarySchoolProgram() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Priya Sharma</h4>
-                  <p className="text-sm text-gray-500">Parent of Grade 3 student</p>
+                  <h4 className="font-semibold text-gray-900">Pradeep Jaiswal</h4>
+                  <p className="text-sm text-gray-500">F/O Amay Jaiswal</p>
                 </div>
               </div>
               <p className="text-gray-600 italic">
-                "The primary program has been transformative for my child. The teachers are dedicated and the curriculum
-                is engaging. I've seen remarkable improvement in both academic skills and confidence."
+                "I would like to extend my heartfelt appreciation to the school management,
+                  teachers, and students for organizing such a wonderful annual function yesterday. The efforts
+                  put into the performances, decorations, and overall coordination were truly commendable.
+                  Each act showcased the immense talent and hard work of the students and staff. It was a joy
+                  to witness such creativity and enthusiasm. Thank you for making it a memorable event!"
+                   -Thanks and Regards
+
               </p>
             </div>
 
@@ -291,8 +301,8 @@ export default function PrimarySchoolProgram() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
-                  <img
-                    src="https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=600"
+                  <img   lazyLoad="true"
+                    src={SPGS04}
                     alt="Parent"
                     width={48}
                     height={50}
@@ -300,13 +310,16 @@ export default function PrimarySchoolProgram() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Rajesh Kumar</h4>
+                  <h4 className="font-semibold text-gray-900"> MR AND MRS ASHISH SHUKLA
+                </h4>
                   <p className="text-sm text-gray-500">Parent of Grade 4 student</p>
                 </div>
               </div>
               <p className="text-gray-600 italic">
-                "What sets MLZS-Bilaspur apart is their holistic approach to education. My son not only excels
-                academically but has also discovered his passion for music through their co-curricular activities."
+                "Dear all Teacher, Thank you so much for organizing such an amazing annual function, Thanks to the teacher for guiding him and motivating him. I hope in feture also my son will be motivate like thsi ,,,
+                Regards, 
+                <br />
+               
               </p>
             </div>
 
@@ -314,8 +327,8 @@ export default function PrimarySchoolProgram() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
-                  <img
-                    src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=600"
+                <img   lazyLoad="true"
+                    src={SPGS04}
                     alt="Parent"
                     width={48}
                     height={48}
@@ -328,8 +341,8 @@ export default function PrimarySchoolProgram() {
                 </div>
               </div>
               <p className="text-gray-600 italic">
-                "The continuous evaluation system has helped my daughter stay motivated throughout the year. The
-                teachers provide detailed feedback which has been instrumental in her growth."
+                "We just wanted to take a moment to express our heartfelt gratitude for the wonderful annual function that was organized. From the  vibrant performances to the flawless execution, it was a
+                clear that so much love,efforts and passion went into making this event truly sepcial"
               </p>
             </div>
           </div>

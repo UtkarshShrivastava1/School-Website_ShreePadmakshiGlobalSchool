@@ -1,20 +1,36 @@
-import axios from "axios";
 import api from "./api";
 // import api from "./api";
 
-const API_BASE_URL = "http://localhost:5000";
 
 export const addDisclosure = async(formData) =>{
-    console.log
+
     try{
-        const response = await api.post(`/disclosure/addDisclosure`, formData, {
+        const response = await api.post(`/disclosure/createDisclosure`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
            });
         console.log("Response:", response.data);
         return response.data;
-    } catch(error){
-        throw new Error('Error adding disclosure');
-    }
+    }catch (error) {
+    console.error("Error adding disclosure:", error);
+    throw error; // or throw new Error(`Error adding disclosure: ${error.message}`);
+  }
 }
+
+// import api from "./api";
+
+// export const addDisclosure = async (formData) => {
+//   try {
+//     const response = await api.post(`/disclosure/createDisclosure`, formData, {
+//       headers: {
+//         'Content-Type': 'multipart/form-data',
+//       },
+//     });
+//     console.log("Response:", response.data);
+//     return response.data;
+//   } catch (error) {
+//     console.error("Error adding disclosure:", error);
+//     throw error; // or throw new Error(`Error adding disclosure: ${error.message}`);
+//   }
+// };

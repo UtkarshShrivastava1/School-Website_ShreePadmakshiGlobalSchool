@@ -1,7 +1,7 @@
 import React from 'react';
 import School from "../../assets/School.jpg";
 import FancyDress from "../../assets/P_And_H/FancyDress.jpeg"
-import classroom from "../../assets/Classroom/ClassN1.jpg"
+import classroom from "../../assets/Classroom/ClassN3.jpg"
 
 const OurVisionAndMission= () => {
   // Animation for vision/mission items on scroll

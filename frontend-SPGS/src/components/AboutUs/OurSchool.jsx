@@ -1,5 +1,5 @@
 import React from 'react';
-import school from '../../assets/c-3.png';
+import school from '../../assets/school.jpg';
 import Count from './Count';
 import { NavLink } from 'react-router-dom';
 const AboutPage = () => {

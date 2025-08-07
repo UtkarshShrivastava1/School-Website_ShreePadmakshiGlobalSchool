@@ -1,7 +1,10 @@
 import ArtRoom from "../assets/LabAndLibrary/ArtRoom2.jpg";
 // import classRoom from "../assets/Classroom/ClassN1.jpg";
-import classRoom from "../../assets/Classroom/ClassN3.jpg";
+import classRoom from "../assets/Classroom/ClassN3.jpg";
 import image from "../assets/c-2.png";
+import SPGS07 from "../assets/Testimonial/SPGS07.jpg";
+import SPGS10 from "../assets/Testimonial/SPGS10.jpg";
+import SPGS06 from "../assets/Testimonial/SPGS06.jpg";
 import{Link} from 'react-router-dom'
 import {
   ArrowRight,
@@ -14,15 +17,19 @@ import {
   Lightbulb,
   
 } from "lucide-react";
+import { useEffect } from "react";
 
 export default function MiddleSchoolProgram() {
+     useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' }); // or 'auto'
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative">
         {/* Background Image Wrapper */}
         <div className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh]">
-          <img
+          <img   lazyLoad="true"
             src={image}
             alt="Middle School Students Learning"
             className="absolute inset-0 w-full h-[60vh] object-cover brightness-[0.7]"
@@ -64,7 +71,7 @@ export default function MiddleSchoolProgram() {
             </p>
           </div>
           <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
-            <img
+            <img   lazyLoad="true"
               src={ArtRoom}
               alt="Middle school students engaged in learning"
               fill
@@ -159,7 +166,8 @@ export default function MiddleSchoolProgram() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1 relative h-[400px] rounded-xl overflow-hidden shadow-xl">
-            <img
+            <img   
+              lazyLoad="true"
               src={classRoom}
               alt="Students taking assessments"
               fill
@@ -441,7 +449,7 @@ export default function MiddleSchoolProgram() {
               </ul>
             </div>
             <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
-              <img
+              <img   lazyLoad="true"
                 src={ArtRoom}
                 alt="Students preparing for secondary school"
                 fill
@@ -476,8 +484,8 @@ export default function MiddleSchoolProgram() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
-                  <img
-                    src="/placeholder.svg?height=48&width=48"
+                  <img   lazyLoad="true"
+                    src={SPGS10}
                     alt="Student"
                     width={48}
                     height={48}
@@ -485,14 +493,17 @@ export default function MiddleSchoolProgram() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Arjun Singh</h4>
-                  <p className="text-sm text-gray-500">Class VIII Student</p>
+                  <h4 className="font-semibold text-gray-900">Pooja Pandey </h4>
+                  <p className="text-sm text-gray-500">Mother of - Prisha Pandey</p>
                 </div>
               </div>
               <p className="text-gray-600 italic">
-                "The inter-house competitions have helped me discover my talents
-                in debating and public speaking. I've gained so much confidence
-                and made great friends across different houses."
+                "Good evening ma’am.
+                  Thank you so much for organising such an amazing show yesterday. We were left awestruck
+                  with the entire performance. We can clearly see how much hard work, organising and
+                  coordinating must have gone into it by all the teachers and staffs. The whole show was
+                  breathtaking!❤
+                  Many many congratulations to you and entire school team"
               </p>
             </div>
 
@@ -500,8 +511,8 @@ export default function MiddleSchoolProgram() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
-                  <img
-                    src="/placeholder.svg?height=48&width=48"
+                  <img  lazyLoad="true"
+                    src={SPGS07}
                     alt="Parent"
                     width={48}
                     height={48}
@@ -509,17 +520,25 @@ export default function MiddleSchoolProgram() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Meera Kapoor</h4>
+                  <h4 className="font-semibold text-gray-900">Satya prakash pandey</h4>
                   <p className="text-sm text-gray-500">
-                    Parent of Class VII student
+                    Father of - Shravya Pandey
                   </p>
                 </div>
               </div>
               <p className="text-gray-600 italic">
-                "The CCE system has been excellent for my daughter's
-                development. The regular feedback helps us understand her
-                progress, and the project-based learning has made her more
-                independent and responsible."
+                "Good evening everyone.
+I would like to take a moment to Thank The principal Mam, Teachers and All the staff for
+organizing such a wonderful annual function.
+It is evident that a lot of effort, Time & Dedication have gone into making this event
+successful.
+
+These kinds of events provide a great platform for our children to showcase their talents and
+build their confidence.
+As a parent,it fills my heart with immense Pride to see my daughter participating with such
+enthusiasm.
+The constant support and encouragement from her teachers brought out the best in her .
+Thanks & Regards"
               </p>
             </div>
 
@@ -527,8 +546,8 @@ export default function MiddleSchoolProgram() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
-                  <img
-                    src="/placeholder.svg?height=48&width=48"
+                  <img lazyLoad="true"
+                    src={SPGS06}
                     alt="Teacher"
                     width={48}
                     height={48}
@@ -537,18 +556,22 @@ export default function MiddleSchoolProgram() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900">
-                    Mr. Ravi Verma
+                    Sourabh Todekar
                   </h4>
                   <p className="text-sm text-gray-500">
-                    Middle School Coordinator
+                    F/O Aadvik Todekar
                   </p>
                 </div>
               </div>
               <p className="text-gray-600 italic">
-                "Our middle school program focuses on developing the whole
-                child. We see remarkable transformations as students discover
-                their strengths and develop the skills they'll need for
-                secondary education and beyond."
+                "The Annual Function at Shree Padmakshi Global Mount Litera School was a fantastic
+                event! My Son, Aadvik Todekar, had an incredible time performing alongside his friends. The
+                performances were well-organized. showcasing the students' talents and creativity. The
+                inspiring theme and vibrant decorations added to the excitement. It was wonderful to see
+                Aadvik shine on stage, reflecting the hard work and dedication of both students and teachers.
+                Kudos to the entire staff for making it such a memorable and enjoyable experience for
+                everyone. A proud moment for us parents!
+                Thanks And Regards"
               </p>
             </div>
           </div>

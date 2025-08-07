@@ -1,5 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
+import studens from '../../assets/c-3.jpg';
+import football from '../../assets/football.jpg';
+import student_plant from '../../assets/P_And_H/student_plant.jpeg';
+import SPGS09 from "../../assets/Testimonial/SPGS09.jpg";
 
 const ValuesPage = () => {
   const valuesRef = useRef([]);
@@ -102,7 +106,8 @@ const ValuesPage = () => {
               <div className="absolute inset-0 bg-blue-200 rounded-lg transform rotate-3"></div>
               <div className="absolute inset-0 bg-blue-300 rounded-lg transform -rotate-3"></div>
               <img 
-                src="https://i.pinimg.com/736x/3f/16/0d/3f160d3769fa93ab619b4102d944cf4a.jpg" 
+              lazyLoad="true"
+                src={studens}
                 alt="Students engaged in values-based learning" 
                 className="relative rounded-lg shadow-lg z-10"
               />
@@ -170,13 +175,19 @@ const ValuesPage = () => {
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
             </svg>
             <p className="text-2xl font-light italic mb-8">
-              "The values education at this school has helped my child develop not just academically, but as a thoughtful, principled individual with the courage to stand by their convictions."
+              `Hello , I would
+like to share my experience about the 3rd annual function of SPGMLS ... The function was
+very well organized
+The kids performed really beautifully and confidently...The enthusiasm, dedication and efforts
+of the teachers and students was clearly seen... I enjoyed alot... I like each n every act
+specially swachh Bharat act .... Saraswati n mahishasur song....Mobile act.... Horror act... Cg
+state dance .. south dance... Mahabharat act... Raj kapoor songs... Etc...`
             </p>
             <div className="flex items-center justify-center">
-              <img src="https://images.pexels.com/photos/6635041/pexels-photo-6635041.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Parent" className="rounded-full w-16 h-16 mr-4" />
+              <img src={SPGS09} alt="Parent" className="rounded-full w-16 h-16 mr-4" />
               <div className="text-left">
-                <p className="font-medium">Parent of Class 9 Student</p>
-                <p className="text-blue-300">Mother of Arjun S.</p>
+                <p className="font-medium">Parent of Aadya Sharma ,Class 4th A..</p>
+                <p className="text-blue-300">Dr Smriti Ojha Sharma  </p>
               </div>
             </div>
           </div>
@@ -188,7 +199,7 @@ const ValuesPage = () => {
         <h2 className="text-3xl font-bold text-orange-500 mb-12 text-center">Values in Action</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <img src="https://i.pinimg.com/736x/1c/f2/1e/1cf21e2dd3a9fece42bfe54c065c5ddb.jpg" alt="Community service" className="w-full h-48 object-cover" />
+            <img lazyLoad="true" src={student_plant}alt="Community service" className="w-full h-48 object-cover" />
             <div className="p-6">
               <h3 className="text-xl font-bold text-orange-500 mb-3">Community Engagement</h3>
               <p className="text-gray-600 mb-4">
@@ -199,7 +210,8 @@ const ValuesPage = () => {
           </div>
           
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <img src="https://i.pinimg.com/736x/08/42/0a/08420a20017446fdda37f5d3f132dc88.jpg" alt="Leadership programs" className="w-full h-48 object-cover" />
+            <img lazyLoad="true" src= {football}
+            alt="Leadership programs" className="w-full h-48 object-top" />
             <div className="p-6">
               <h3 className="text-xl font-bold text-orange-500 mb-3">Leadership Development</h3>
               <p className="text-gray-600 mb-4">

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { addDisclosure } from "../../services/DisclosureService";
 
 const MandatoryDisclosureForm = ({ refreshNotices }) => {
@@ -9,6 +9,7 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
   });
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState("");
+  const fileInputRef = useRef();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -20,26 +21,29 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!file) {
+      setMessage("Please select a file to upload.");
+      return;
+    }
+
     const data = new FormData();
     data.append("type", formData.type);
     data.append("title", formData.title);
     data.append("description", formData.description);
-    if (file) data.append("file", file);
+    data.append("file", file);
 
     try {
-      console.log(data)
       await addDisclosure(data);
       setMessage("Disclosure added successfully!");
       setFormData({ type: "", title: "", description: "" });
       setFile(null);
-      
-      // Reset file input field
-      const fileInput = document.querySelector('input[type="file"]');
-      if (fileInput) fileInput.value = "";
+      if (fileInputRef.current) fileInputRef.current.value = "";
+
+      refreshNotices?.();
     } catch (error) {
-      console.error("Error adding notice:", error);
-      const errorMsg = error.response?.data?.error || error.message || "Unknown error";
-      setMessage(`Failed to add notice: ${errorMsg}`);
+      const errorMsg = error.response?.data?.error || "Something went wrong. Please try again.";
+      setMessage(`Failed to add disclosure: ${errorMsg}`);
     }
   };
 
@@ -47,68 +51,71 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
     <div className="p-6 bg-white shadow-lg rounded-lg w-[50%] mx-auto mt-3">
       <h2 className="text-3xl font-bold mb-2 text-center">Create Mandatory Disclosure</h2>
       <hr className='text-gray-400 mb-2'/>
-      {message && <p className="text-green-600">{message}</p>}
+      {message && (
+        <p className={`text-sm mb-2 ${message.startsWith("Failed") ? "text-red-600" : "text-green-600"}`}>
+          {message}
+        </p>
+      )}
+
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="type">
-            Type:
-          </label>
-          <input 
+        <div>
+          <label className="block text-sm font-bold text-gray-700 mb-1" htmlFor="type">Type:</label>
+          <input
             id="type"
-            type="text" 
-            name="type" 
-            placeholder="Type" 
-            value={formData.type} 
-            onChange={handleChange} 
-            className="w-full p-2 border rounded" 
-            required 
+            name="type"
+            type="text"
+            value={formData.type}
+            onChange={handleChange}
+            placeholder="e.g. Annual Report"
+            required
+            className="w-full p-2 border rounded"
           />
         </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
-            Title:
-          </label>
-          <input 
+
+        <div>
+          <label className="block text-sm font-bold text-gray-700 mb-1" htmlFor="title">Title:</label>
+          <input
             id="title"
-            type="text" 
-            name="title" 
-            placeholder="Title" 
-            value={formData.title} 
-            onChange={handleChange} 
-            className="w-full p-2 border rounded" 
-            required 
+            name="title"
+            type="text"
+            value={formData.title}
+            onChange={handleChange}
+            placeholder="Enter document title"
+            required
+            className="w-full p-2 border rounded"
           />
         </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="description">
-            Description:
-          </label>
-          <textarea 
+
+        <div>
+          <label className="block text-sm font-bold text-gray-700 mb-1" htmlFor="description">Description:</label>
+          <textarea
             id="description"
-            name="description" 
-            placeholder="Description" 
-            value={formData.description} 
-            onChange={handleChange} 
-            className="w-full p-2 border rounded" 
-            required 
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            placeholder="Brief description of the disclosure"
+            required
+            className="w-full p-2 border rounded"
           />
         </div>
-        <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="file">
-            File:
-          </label>
+
+        <div>
+          <label className="block text-sm font-bold text-gray-700 mb-1" htmlFor="file">Upload File:</label>
           <input
             id="file"
             type="file"
+            ref={fileInputRef}
             onChange={handleFileChange}
             className="w-full border rounded p-1 text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+            required
           />
         </div>
-        <button 
-          type="submit" 
-          className="font-bold px-4 bg-[#f25811] text-white py-2 rounded-lg hover:bg-[rgb(242,88,17)] transition-all ease-in-out cursor-pointer"
+
+        <button
+          type="submit"
+          className="font-bold px-4 bg-[#f25811] text-white py-2 rounded-lg hover:bg-orange-600 transition-all ease-in-out cursor-pointer"
         >
-          Add Mandatory Disclosure
+          Add Disclosure
         </button>
       </form>
     </div>

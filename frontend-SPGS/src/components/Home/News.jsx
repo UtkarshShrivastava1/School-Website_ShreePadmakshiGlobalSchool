@@ -12,8 +12,10 @@ const NewsSection = () => {
 
   const fetchNews = async () => {
     try {
+      const response = await api.get("/api/latestnews/");
       const { data } = await api.get("/latestnews/");
-      console.log("Fetched news data:", data);
+
+      console.log("Fetched news data:", response);
       setNews(data);
 
       // Handle structure like [{ data: [...] }]
@@ -21,6 +23,9 @@ const NewsSection = () => {
       // setNews(newsArray);
     } catch (error) {
       console.error("Failed to fetch news:", error.message);
+      console.error("Error details:", error);
+      console.error("Response data:", error.response?.data);
+      console.error("Response status:", error.response?.status);
     }
   };
 

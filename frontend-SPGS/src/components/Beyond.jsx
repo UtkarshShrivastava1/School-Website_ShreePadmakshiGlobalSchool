@@ -1,8 +1,18 @@
 import React, { useState } from 'react';
 import School from '../assets/School.jpg';
+import ScienceLab from '../assets/Pictures/ScienceLab.jpg';
+import ArtRoom from '../assets/Pictures/ArtRoom.jpg';
+import MusicRoom from '../assets/Pictures/MusicRoom.jpg';
+import Library from '../assets/LabAndLibrary/Library_2.jpg';
+import MathLab from '../assets/Pictures/MathLab.jpg';
+import LanguageLAb from '../assets/Pictures/LanguageLab.jpg';
+import { useEffect } from 'react';
 
 const BeyondAcademic = () => {
   const [activeTab, setActiveTab] = useState('campus');
+     useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' }); // or 'auto'
+  }, []);
   
   const facilities = [
     {
@@ -16,42 +26,42 @@ const BeyondAcademic = () => {
       id: 'language-lab',
       title: 'Language Lab',
       icon: '🗣️',
-      image: 'http://mlzsbilaspur.com/Assets/Images/beyound/Lang-Lab.jpg',
+      image: LanguageLAb ,
       description: 'Language is the torch that enlightens the way to knowledge. An indispensable part of the students training, our language labs are well- equipped with polished study material, smart-interactive boards, headphones and projectors for a splendid experience. Learning language enables a child to understand the world in a much better manner. The child is thus exposed to unfamiliar cultures and traditions, comes to know about the variations of ethnicities around the globe and interacts with people with a wider assortment of knowledge and awareness. The language faculty with innovative active sessions and motivating guidance instill the love for languages in our students. Technological assistance helps the child to not only understand the language but also to experience it a never-happened-before mode.'
     },
     {
       id: 'science-lab',
       title: 'Science Lab',
       icon: '🧪',
-      image: 'http://mlzsbilaspur.com/Assets/Images/beyound/science.jpg',
+      image: ScienceLab,
       description: 'Young students always relish being exposed to miracles of scientific experimentation. Science is always better learnt when the knowledge acquired in theory classes is realized in laboratories. Exploration and discovery are the mainstay for scientific development in todays world. They can only be accomplished if the child is open to the elements of both, the classroom drill along with experimentation in the laboratories. Our laboratories are well designed and follow all international norms and rules to enable a child to explore and dazzle the world with her discovery.'
     },
     {
       id: 'math-lab',
       title: 'Math Lab',
       icon: '🔢',
-      image: 'http://mlzsbilaspur.com/Assets/Images/beyound/math-Lab.jpg',
+      image:MathLab,
       description: 'From time immemorial, mathematics has been the tool to decode greatest mysteries of the world and the universe. With development in teaching methods, which have become more and more experimental, learning mathematical concepts requires special training. This intricate puzzle needs to be solved outside the classroom, away from mere theoretical approach. SPGS makes this work even easier with its math lab which endows the child with insight into mathematical formulae, collection of data and rectifying errors through experimentation. The math lab consists of all the required material for a fascinating experience of the subject making mathematical studies a piece of cake.'
     },
     {
       id: 'music-room',
       title: 'Music Room',
       icon: '🎵',
-      image: 'http://mlzsbilaspur.com/Assets/Images/beyound/music.jpg',
+      image: MusicRoom,
       description: 'Music rejuvenates the mind and soul and refreshes it. At SPGS, we encourage students to express themselves in the language of melody. With a fully equipped music room with all instruments intact, we push the bar higher and higher. Our skilled vocals and instrumental trainers make sure that music in the heart never ceases to enthrall the world.'
     },
     {
       id: 'library',
       title: 'Library',
       icon: '📚',
-      image: 'http://mlzsbilaspur.com/Assets/Images/beyound/library.jpg',
+      image: Library,
       description: 'A book is a mans best friend. The library is a place where imagination is let loose to fly. Believing in this philosophy, we have created a stock-pile of books by eminent authors on various subjects to enlighten our young students. Newspapers and national and regional periodicals are readily available. The students develop a great habit of reading which inevitably improves their skills in language and reasoning.'
     },
     {
       id: 'art-craft',
       title: 'Art & Craft',
       icon: '🎨',
-      image: 'http://mlzsbilaspur.com/Assets/Images/beyound/Art.jpg',
+      image:ArtRoom ,
       description: 'At SPGS, we encourage students to be creative and imaginative. It is said that a childs world is best understood when he carves out his imagination with tints of his selection. The students love to play with colours and act like demigods, creating something new every day. Support and technical guidance helps them to appreciate art work by great artists and insists them to generate new art works and then take pride in it.'
     }
   ];
@@ -104,6 +114,7 @@ const BeyondAcademic = () => {
               <div className="md:w-1/2">
                 <div className="h-64 md:h-full bg-indigo-100 relative overflow-hidden">
                   <img 
+                    lazyLoad="true"
                     src={activeFacility.image} 
                     alt={activeFacility.title} 
                     className="w-full h-[100%] object-cover object-center transition-transform hover:scale-105 duration-700"
@@ -141,7 +152,7 @@ const BeyondAcademic = () => {
                 onClick={() => setActiveTab(facility.id)}
               >
                 <div className="h-48 overflow-hidden">
-                  <img 
+                  <img  lazyLoad="true"
                     src={facility.image} 
                     alt={facility.title} 
                     className="w-full h-full object-cover transition-transform hover:scale-110 duration-500"
@@ -180,39 +191,7 @@ const BeyondAcademic = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      {/* <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-2xl font-bold mb-4">SPGS</h3>
-              <p className="text-gray-400">
-                Providing exceptional education and facilities to nurture the leaders of tomorrow.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-4">Quick Links</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Admissions</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Academics</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Campus Life</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-bold mb-4">Contact</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>Email: info@SPGS.edu</li>
-                <li>Phone: +91 1234567890</li>
-                <li>Address: SPGS Campus, Education City</li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
-            <p>&copy; {new Date().getFullYear()} SPGS. All rights reserved.</p>
-          </div>
-        </div>
-      </footer> */}
+  
     </div>
   );
 };

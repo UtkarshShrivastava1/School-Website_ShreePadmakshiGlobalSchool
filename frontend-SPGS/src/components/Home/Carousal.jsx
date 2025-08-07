@@ -4,7 +4,7 @@ import School from "../../assets/School.jpg";
 import SchoolFront from "../../assets/SchoolFront.jpg";
 import Bus from "../../assets/Transport/Bus.jpg";
 import BioLab from "../../assets/LabAndLibrary/BioLab.jpeg";
-import Classroom from "../../assets/Classroom/ClassN1.jpg";
+// import Classroom from "../../assets/Classroom/ClassN1.jpg";
 import Library from "../../assets/LabAndLibrary/Library_2.jpg";
 import PhyLab from "../../assets/LabAndLibrary/PhyLab.jpeg";
 import ChemLab from "../../assets/LabAndLibrary/ChemLab.jpeg";
@@ -14,7 +14,7 @@ const Carousal = () => {
     { image: School, text: "Modern Secure and Safe Infrastructure" },
     { image: Bus, text: "Bus Facility Available" },
     { image: SchoolFront, text: "Students at Our Campus" },
-    { image: Classroom, text: "State-of-the-Art Classrooms" },
+    // { image: Classroom, text: "State-of-the-Art Classrooms" },
     { image: Library, text: "A Well-Stocked Library" },
     { image: BioLab, text: "Exploring Life Sciences" },
     { image: PhyLab, text: "Hands-On Learning in Physics" },
@@ -76,6 +76,7 @@ const Carousal = () => {
           {extendedImages.map((item, index) => (
             <div
               key={index}
+              lazyload="true"
               className="min-w-full h-[400px] md:h-[600px] relative bg-cover bg-center"
               style={{ backgroundImage: `url(${item.image})` }}
             >

@@ -7,9 +7,15 @@ import { BookOpen, Users, Brain, Music, Clock, Calendar, PlayCircle, CheckCircle
 import FancyDress from "../assets/P_And_H/Fancy Dress1.jpeg"
 import FancyDress2 from "../assets/P_And_H/Fancy Dress2.jpeg"
 import ground from "../assets/P_And_H/Ground.jpeg"
-import school from "../assets/P_And_H/School.jpeg"
+import school from "../assets/SchoolFront.jpg"
 import Piano from "../assets/Piano.jpg"
+import { useEffect } from "react";
 export default function PrePrimaryPage() {
+
+    useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' }); // or 'auto'
+  }, []);
+
   return (
     <div className="min-h-screen bg-blue-50">
       
@@ -36,11 +42,11 @@ export default function PrePrimaryPage() {
               </button>
             </div>
             <div className="md:w-1/2 relative h-64 md:h-96 rounded-lg overflow-hidden shadow-lg">
-              <img
+              <img   lazyLoad="true"
                 src={img}
                 alt="Shree Padmakshi Global School Pre-Primary Program"
                 fill
-                className="object-cover rounded-lg"
+                className="object-cover w-full h-full rounded-lg"
               />
             </div>
           </div>
@@ -106,24 +112,24 @@ export default function PrePrimaryPage() {
         </div>
       </section>
 
-      {/* img Gallery 1 */}
+      {/* <img Gallery 1 */}
       <section className="py-8 bg-gray-100">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-6 items-center">
-            <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
-              <img
+            <div className="md:w-1/2 relative w-full h-full md:h-80 rounded-lg overflow-hidden shadow-md">
+              <img   lazyLoad="true"
                 src={FancyDress}
                 alt="Shree padhnakshi global school Bilaspur Primary"
                 fill
-                className="w-full object-cover rounded-lg"
+                className="w-full h-full object-cover rounded-lg"
               />
             </div>
             <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
-              <img
+              <img   lazyLoad="true"
                 src={FancyDress2}
                 alt="Shree padhnakshi global school Bilaspur Primary"
                 fill
-                className="object-cover rounded-lg"
+                className="object-cover w-full h-full rounded-lg"
               />
             </div>
           </div>
@@ -160,24 +166,26 @@ export default function PrePrimaryPage() {
               </p>
             </div>
             <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-y-clip shadow-md">
-              <img
+              <img   lazyLoad="true"
                 src={Piano}
                 alt="Shree padhnakshi global school Bilaspur Play"
                 fill
-                className="w-full h-auto object-center rounded-lg"
+                className="w-full h-full object-center rounded-lg"
 
               />
             </div>
           </div>
 
           <div className="flex flex-col md:flex-row items-center gap-8 mb-16">
-            <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md order-1 md:order-1">
-              <img
-                src={school}
-                alt="Shree padhnakshi global school Bilaspur Play"
-                className="w-full h-auto object-cover rounded-lg"
-              />
-            </div>
+            <div className="md:w-1/2 relative h-auto md:h-80 rounded-lg overflow-hidden shadow-md order-1 md:order-1">
+                <img
+                  src={school}
+                  alt="Shree Padmakshi Global School Bilaspur Play"
+                  className="w-full h-full object-cover rounded-lg"
+                  loading="lazy"
+                />
+              </div>
+
             <div className="md:w-1/2 space-y-6 order-2 md:order-2">
               <div className="flex items-center gap-3">
                 <Calendar className="h-8 w-8 text-blue-500" />
@@ -195,19 +203,19 @@ export default function PrePrimaryPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <div className="relative h-64 md:h-80 rounded-lg overflow-y-hidden shadow-md">
-              <img
+              <img   lazyLoad="true"
                 src={ground}
                 alt="Shree padhnakshi global school Bilaspur Play"
                 fill
-                className="w-full h-auto object-right-top rounded-lg "
+                className="w-full h-full object-cover rounded-lg "
               />
             </div>
             <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
-              <img
+              <img   lazyLoad="true"
                 src={SportsRoom}
                 alt="Shree padhnakshi global school Bilaspur Play"
                 fill
-                className="w-full h-auto object-cover rounded-lg"
+                className="w-full h-full object-cover rounded-lg"
               />
             </div>
           </div>

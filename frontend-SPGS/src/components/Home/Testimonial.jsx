@@ -1,42 +1,81 @@
 import AnimatedTestimonials from "../ui/animated-testimonial";
+import SPGS16 from "../../assets/Testimonial/SPGS16.jpg";
+import SPGS07 from "../../assets/Testimonial/SPGS07.jpg";
+import SPGS10 from "../../assets/Testimonial/SPGS10.jpg";
+import SPGS06 from "../../assets/Testimonial/SPGS06.jpg";
+import SPGS18 from "../../assets/Testimonial/SPGS18.jpg";
 
 function Testimonial() {
   const testimonials = [
     {
-      quote:
-        "Ever since my son joined this school, I've seen remarkable growth in his confidence and discipline. Truly a nurturing environment.",
-      name: "Anita Verma",
-      designation: "Parent of Class 6 Student",
-      src: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3",
+      quote:      
+      `It was really an entertaining program. Enthusiastic efforts show by all the 
+participants and the fecilitators.as it was my daughter's first performance on the stage we got 
+overwhelmed to see her performing on the stage without any  hesitation our deepest thanks 
+to lekhni mam for grooming her in this way .The time will remain memorable in our life as she 
+got her first recognition on this platform.`,
+      name: "ISHANVI SRIWASTAV ",
+      designation: "Nursery Student",
+      src: SPGS16,
     },
     {
       quote:
-        "We love how the teachers are so involved and genuinely care about the kids’ progress. A wonderful place for learning and growing.",
-      name: "Ramesh Iyer",
-      designation: "Parent of Class 4 Student",
-      src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3",
+        ` 
+The teachers at the school are excellent.
+My son receives excellent support beyond what I expected at the outset.
+Yesterday excellent annual function
+Thanks `,
+      name: " Harsh Ratre",
+      designation: "Class – Nursery",
+      src: SPGS18,
     },
     {
       quote:
-        "The school's focus on values and life skills is exactly what we were looking for. My daughter is thriving here.",
-      name: "Meena Sharma",
-      designation: "Parent of Class 8 Student",
-      src: "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3",
+        `Good evening everyone.
+I would like to take a moment to Thank The principal Mam, Teachers and All the staff for
+organizing such a wonderful annual function.
+It is evident that a lot of effort, Time & Dedication have gone into making this event
+successful.
+
+These kinds of events provide a great platform for our children to showcase their talents and
+build their confidence.
+As a parent,it fills my heart with immense Pride to see my daughter participating with such
+enthusiasm.
+The constant support and encouragement from her teachers brought out the best in her .
+Thanks & Regards`,
+      name: `Satya prakash pandey`,
+      designation: "Father of - Shravya Pandey",
+      src: SPGS07,
     },
     {
       quote:
-        "Excellent infrastructure, great academics, and a strong support system for students. I'm proud to be part of this school community.",
-      name: "Amit Desai",
-      designation: "Parent of Class 10 Student",
-      src: "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3",
+       `Good evening ma’am.
+Thank you so much for organising such an amazing show yesterday. We were left awestruck
+with the entire performance. We can clearly see how much hard work, organising and
+coordinating must have gone into it by all the teachers and staffs. The whole show was
+breathtaking!❤
+Many many congratulations to you and entire school team
+ `,
+      name: "Prisha Pandey",
+      designation: "Parent of Prisha Pandey",
+      src: SPGS10,
     },
     {
       quote:
-        "This school has helped shape my child into a responsible and curious learner. Couldn't have asked for better teachers.",
-      name: "Kavita Patel",
-      designation: "Parent of Class 2 Student",
-      src: "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3",
+        `The Annual Function at Shree Padmakshi Global Mount Litera School was a fantastic
+event! My Son, Aadvik Todekar, had an incredible time performing alongside his friends. The
+performances were well-organized. showcasing the students' talents and creativity. The
+inspiring theme and vibrant decorations added to the excitement. It was wonderful to see
+Aadvik shine on stage, reflecting the hard work and dedication of both students and teachers.
+Kudos to the entire staff for making it such a memorable and enjoyable experience for
+everyone. A proud moment for us parents!
+Thanks And Regards
+`,
+      name: "Sourabh Todekar",
+      designation: "F/O Aadvik Todekar Class 5 B",
+      src: SPGS06,
     },
+    
   ];
 
   return (

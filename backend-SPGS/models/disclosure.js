@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const disclosureSchema = new mongoose.Schema({
-    type:{
+    type: {
         type: String,
         required: true,
     },
@@ -16,13 +16,13 @@ const disclosureSchema = new mongoose.Schema({
     fileUrl: {
         type: String,
         required: true,
-    },size: {
+    },
+    size: {
         type: String,
     },
     date: {
-        type: Date, default: Date.now
+        type: Date,
+        default: Date.now,
     }
 }, { timestamps: true });
-
-
 module.exports = mongoose.model('Disclosure', disclosureSchema);
