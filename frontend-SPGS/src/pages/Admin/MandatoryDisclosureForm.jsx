@@ -22,33 +22,50 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+<<<<<<< HEAD
     if (!file) {
       setMessage("Please select a file to upload.");
       return;
     }
 
+=======
+>>>>>>> cbdd66aaae07f5c8c05374282cc22b411a36a1db
     const data = new FormData();
     data.append("type", formData.type);
     data.append("title", formData.title);
     data.append("description", formData.description);
+<<<<<<< HEAD
     data.append("file", file);
+=======
+    if (file) data.append("file", file); // Important: 'file' matches multer field name
+>>>>>>> cbdd66aaae07f5c8c05374282cc22b411a36a1db
 
     try {
       await addDisclosure(data);
       setMessage("Disclosure added successfully!");
       setFormData({ type: "", title: "", description: "" });
       setFile(null);
+<<<<<<< HEAD
       if (fileInputRef.current) fileInputRef.current.value = "";
 
       refreshNotices?.();
     } catch (error) {
       const errorMsg = error.response?.data?.error || "Something went wrong. Please try again.";
+=======
+      document.getElementById("file").value = "";
+
+      if (refreshNotices) refreshNotices();
+    } catch (error) {
+      console.error("Error adding disclosure:", error);
+      const errorMsg = error?.response?.data?.message || error.message;
+>>>>>>> cbdd66aaae07f5c8c05374282cc22b411a36a1db
       setMessage(`Failed to add disclosure: ${errorMsg}`);
     }
   };
 
   return (
     <div className="p-6 bg-white shadow-lg rounded-lg w-[50%] mx-auto mt-3">
+<<<<<<< HEAD
       <h2 className="text-3xl font-bold mb-2 text-center">Create Mandatory Disclosure</h2>
       <hr className='text-gray-400 mb-2'/>
       {message && (
@@ -114,6 +131,50 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
         <button
           type="submit"
           className="font-bold px-4 bg-[#f25811] text-white py-2 rounded-lg hover:bg-orange-600 transition-all ease-in-out cursor-pointer"
+=======
+      <h2 className="text-3xl font-bold mb-2 text-center">
+        Create Mandatory Disclosure
+      </h2>
+      <hr className="text-gray-400 mb-2" />
+      {message && <p className="text-green-600">{message}</p>}
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <input
+          type="text"
+          name="type"
+          value={formData.type}
+          onChange={handleChange}
+          placeholder="Type"
+          required
+          className="w-full p-2 border rounded"
+        />
+        <input
+          type="text"
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+          placeholder="Title"
+          required
+          className="w-full p-2 border rounded"
+        />
+        <textarea
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          placeholder="Description"
+          required
+          className="w-full p-2 border rounded"
+        />
+        <input
+          id="file"
+          type="file"
+          accept=".pdf,.doc,.docx,.png,.jpeg,.jpg,.gif,.webp"
+          onChange={handleFileChange}
+          className="w-full border rounded p-1 text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+        />
+        <button
+          type="submit"
+          className="font-bold px-4 bg-[#f25811] text-white py-2 rounded-lg hover:bg-orange-600"
+>>>>>>> cbdd66aaae07f5c8c05374282cc22b411a36a1db
         >
           Add Disclosure
         </button>

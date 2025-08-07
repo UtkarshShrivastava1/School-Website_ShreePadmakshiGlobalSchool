@@ -64,56 +64,116 @@ const SchoolPortal = () => {
     },
   };
 
+  // Helper function to format file size
+  const formatFileSize = (bytes) => {
+    if (!bytes || bytes === 0) return "0 Bytes";
+
+    const k = 1024;
+    const sizes = ["Bytes", "KB", "MB", "GB"];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
+  };
+
   useEffect(() => {
-    // Fetch documents
     const fetchDocuments = async () => {
       try {
         setIsLoading((prev) => ({ ...prev, documents: true }));
-        const response = await axios.get("http://localhost:5000/api/disclosure");
-        console.log(response.data);
 
-        // if (!response.ok) {
-        //   throw new Error("Failed to fetch documents");
-        // }
+        const baseUrl =
+          import.meta.env.VITE_NODE_ENV === "development"
+            ? import.meta.env.VITE_DEVELOPMENT_URL
+            : import.meta.env.VITE_PRODUCTION_URL;
 
-        const data = await response.data;
-        // console.log(data)
-        setDocuments(data);
-        console.log(data);
+        const response = await axios.get(`${baseUrl}/api/disclosure`);
+        console.log("API Response:", response.data);
+
+        const data = response.data;
+
+        const transformedData = data.map((doc, index) => ({
+          id: doc.id || doc._id || index,
+          title: doc.originalName || doc.fileName || "Untitled Document",
+          description: `File: ${doc.fileName || "Unknown"}`,
+          type: doc.type || "general",
+          date: doc.uploadDate || doc.modifiedDate || new Date(),
+          size: formatFileSize(doc.fileSize),
+          fileName: doc.fileName,
+          originalName: doc.originalName,
+          fileSize: doc.fileSize,
+          uploadDate: doc.uploadDate,
+          _id: doc._id || doc.id,
+        }));
+
+        setDocuments(transformedData);
+        console.log("Transformed data:", transformedData);
         setIsLoading((prev) => ({ ...prev, documents: false }));
       } catch (err) {
         console.error("Error fetching documents:", err);
         setError((prev) => ({ ...prev, documents: err.message }));
         setIsLoading((prev) => ({ ...prev, documents: false }));
+        setDocuments([]);
       }
     };
 
     fetchDocuments();
   }, []);
 
-  const handleDownload = (documentId) => {
-    const downloadUrl = `${api.defaults.baseURL.replace('/api', '')}/disclosure/download?id=${documentId}`;
-    window.open(downloadUrl, "_blank");
+  const handleDownload = async (fileName, originalName) => {
+    try {
+      const baseUrl =
+        import.meta.env.VITE_NODE_ENV === "development"
+          ? import.meta.env.VITE_DEVELOPMENT_URL
+          : import.meta.env.VITE_PRODUCTION_URL;
+
+      const response = await axios.get(
+        `${baseUrl}/api/disclosure/download?file=${fileName}`,
+        {
+          responseType: "blob",
+        }
+      );
+
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+
+      const downloadName = originalName || fileName;
+      link.setAttribute("download", downloadName);
+
+      document.body.appendChild(link);
+      link.click();
+
+      link.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Error downloading file:", error);
+      alert("Download failed. Please try again.");
+    }
   };
-  
 
-  // const filteredDocuments = documents.filter((doc) => {
-  //   const matchesFilter = activeFilter === "all" || doc.type === activeFilter;
-  //   const matchesSearch =
-  //     doc.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-  //     doc.description.toLowerCase().includes(searchQuery.toLowerCase());
-  //   return matchesFilter && matchesSearch;
-  // });
-
+  // Fixed filtering with proper null checks
   const filteredDocuments = documents
-  .filter((doc) => {
-    const matchesFilter = activeFilter === "all" || doc.type === activeFilter;
-    const matchesSearch =
-      doc.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      doc.description.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesFilter && matchesSearch;
-  })
-  .sort((a, b) => new Date(b.date) - new Date(a.date));
+    .filter((doc) => {
+      if (!doc) return false; // Skip if doc is null/undefined
+
+      const matchesFilter =
+        activeFilter === "all" || (doc.type || "general") === activeFilter;
+
+      // Safe search with null checks
+      const title = (doc.title || "").toLowerCase();
+      const description = (doc.description || "").toLowerCase();
+      const search = (searchQuery || "").toLowerCase();
+
+      const matchesSearch =
+        !searchQuery || title.includes(search) || description.includes(search);
+
+      return matchesFilter && matchesSearch;
+    })
+    .sort((a, b) => {
+      // Safe date sorting
+      const dateA = new Date(a.date || 0);
+      const dateB = new Date(b.date || 0);
+      return dateB - dateA;
+    });
 
   const toggleSection = (section) => {
     setExpandedSection(expandedSection === section ? null : section);
@@ -268,7 +328,7 @@ const SchoolPortal = () => {
         <h1 className="text-3xl font-bold mb-4">Mandatory Disclosure</h1>
         <p className="text-gray-600 max-w-3xl mx-auto">
           In compliance with regulatory requirements, we provide complete
-          transparency regarding our school's information, results, and academic
+          transparency regarding our schools information, results, and academic
           details.
         </p>
       </div>
@@ -386,55 +446,55 @@ const SchoolPortal = () => {
             <div className="text-center py-12 text-red-500">
               {error.documents}
             </div>
+          ) : filteredDocuments.length === 0 ? (
+            <div className="text-center py-12 text-gray-500">
+              No documents found
+            </div>
           ) : (
             <div className="space-y-4">
-              {filteredDocuments
-                .map((doc) => (
-                  <div
-                    key={doc.id}
-                    className="border rounded-lg p-6 flex flex-col md:flex-row justify-between"
-                  >
-                    <div>
-                      <div className="flex items-center space-x-2 text-sm text-gray-500 mb-1">
-                        {doc.type === "results" && (
-                          <FileText size={16} className="text-red-500" />
-                        )}
-                        {doc.type === "academic" && (
-                          <School size={16} className="text-blue-500" />
-                        )}
-                        <span className="capitalize">{doc.type}</span>
-                        {/* <span className="capitalize">{doc.fileUrl}</span> */}
-                      </div>
-                      <h3 className="font-medium text-lg mb-1">{doc.title}</h3>
-                      <p className="text-gray-600">{doc.description}</p>
-                      <div className="flex items-center mt-3 text-sm text-gray-500 space-x-6">
-                        <div className="flex items-center space-x-1">
-                          <Clock size={14} />
-                          <span>
-                            Created: {new Date(doc.date).toLocaleString()}
-                          </span>
-                        </div>
-                        <div className="flex items-center space-x-1">
-                          <File size={14} />
-                          <span>Size: {doc.size}</span>
-                        </div>
-                      </div>
+              {filteredDocuments.map((doc) => (
+                <div
+                  key={doc.id}
+                  className="border rounded-lg p-6 flex flex-col md:flex-row justify-between"
+                >
+                  <div>
+                    <div className="flex items-center space-x-2 text-sm text-gray-500 mb-1">
+                      {doc.type === "results" && (
+                        <FileText size={16} className="text-red-500" />
+                      )}
+                      {doc.type === "academic" && (
+                        <School size={16} className="text-blue-500" />
+                      )}
+                      <span className="capitalize">{doc.type}</span>
                     </div>
-                    <div className="mt-4 md:mt-0 md:ml-6 flex items-center">
-                      <button
-                        onClick={() => handleDownload(doc._id)}
-                        className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
-                      >
-                        <Download size={18} />
-                        <span>Download</span>
-                      </button>
-                      {/* <a href={`http://localhost:5000${doc.fileUrl}`}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    >sgs</a> */}
+                    <h3 className="font-medium text-lg mb-1">{doc.title}</h3>
+                    <p className="text-gray-600">{doc.description}</p>
+                    <div className="flex items-center mt-3 text-sm text-gray-500 space-x-6">
+                      <div className="flex items-center space-x-1">
+                        <Clock size={14} />
+                        <span>
+                          Created: {new Date(doc.date).toLocaleString()}
+                        </span>
+                      </div>
+                      <div className="flex items-center space-x-1">
+                        <File size={14} />
+                        <span>Size: {doc.size}</span>
+                      </div>
                     </div>
                   </div>
-                ))}
+                  <div className="mt-4 md:mt-0 md:ml-6 flex items-center">
+                    <button
+                      onClick={() =>
+                        handleDownload(doc.fileName, doc.originalName)
+                      }
+                      className="flex items-center space-x-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
+                    >
+                      <Download size={18} />
+                      <span>Download</span>
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
           )}
         </div>

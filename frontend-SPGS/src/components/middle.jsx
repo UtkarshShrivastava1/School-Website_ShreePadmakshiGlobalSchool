@@ -2,10 +2,14 @@ import ArtRoom from "../assets/LabAndLibrary/ArtRoom2.jpg";
 // import classRoom from "../assets/Classroom/ClassN1.jpg";
 import classRoom from "../assets/Classroom/ClassN3.jpg";
 import image from "../assets/c-2.png";
+<<<<<<< HEAD
 import SPGS07 from "../assets/Testimonial/SPGS07.jpg";
 import SPGS10 from "../assets/Testimonial/SPGS10.jpg";
 import SPGS06 from "../assets/Testimonial/SPGS06.jpg";
 import{Link} from 'react-router-dom'
+=======
+import { Link } from "react-router-dom";
+>>>>>>> cbdd66aaae07f5c8c05374282cc22b411a36a1db
 import {
   ArrowRight,
   BookOpen,
@@ -15,7 +19,6 @@ import {
   Trophy,
   Target,
   Lightbulb,
-  
 } from "lucide-react";
 import { useEffect } from "react";
 
@@ -59,9 +62,9 @@ export default function MiddleSchoolProgram() {
             <p className="text-lg text-gray-700 mb-6">
               At this age, children begin to connect themselves with the
               community in a larger sense. An integrated package of teaching,
-              learning and assessment is delivered through the Experiential Learning 
-              approach; the child is directed towards independent learning and
-              is guided to take on more responsibility.
+              learning and assessment is delivered through the Experiential
+              Learning approach; the child is directed towards independent
+              learning and is guided to take on more responsibility.
             </p>
             <p className="text-lg text-gray-700">
               The main objective of this stage is to help the children make
@@ -333,29 +336,29 @@ export default function MiddleSchoolProgram() {
 
           <div className="mt-12 text-center">
             <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              All the students are divided into four houses and
-              they are given opportunities to compete in Inter-house
-              Competitions. Every child has the opportunity to compete against
-              other children in the school.
+              All the students are divided into four houses and they are given
+              opportunities to compete in Inter-house Competitions. Every child
+              has the opportunity to compete against other children in the
+              school.
             </p>
           </div>
         </div>
       </section>
 
       {/* House System */}
-     <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center mb-10">
-              <div className="w-1/4 h-px bg-gray-300"></div>
-              <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
-           
-                Our House System
-              </h2>
-              <div className="w-1/4 h-px bg-gray-300"></div>
-            </div>
+            <div className="w-1/4 h-px bg-gray-300"></div>
+            <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
+              Our House System
+            </h2>
+            <div className="w-1/4 h-px bg-gray-300"></div>
+          </div>
 
           <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-            Students are divided into four houses, fostering a sense of belonging and healthy competition
+            Students are divided into four houses, fostering a sense of
+            belonging and healthy competition
           </p>
         </div>
 
@@ -365,10 +368,13 @@ export default function MiddleSchoolProgram() {
             <div className="h-24 w-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl font-bold text-blue-600">House 1</span>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">Samveda House</h3>
-             <p className="text-gray-600 text-center">Blue is the color</p>
-              <p className="text-gray-600 text-center font-semibold">The veda of medlodies</p>
-           
+            <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">
+              Samveda House
+            </h3>
+            <p className="text-gray-600 text-center">Blue is the color</p>
+            <p className="text-gray-600 text-center font-semibold">
+              The veda of medlodies
+            </p>
           </div>
 
           {/* House 2 */}
@@ -376,19 +382,29 @@ export default function MiddleSchoolProgram() {
             <div className="h-24 w-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl font-bold text-green-600">House 2</span>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">Yajurveda House</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">
+              Yajurveda House
+            </h3>
             <p className="text-gray-600 text-center">Green is the color </p>
-             <p className="text-gray-600 text-center font-semibold">The veda of rituals.  </p>
+            <p className="text-gray-600 text-center font-semibold">
+              The veda of rituals.{" "}
+            </p>
           </div>
 
           {/* House 3 */}
           <div className="bg-yellow-50 p-6 rounded-lg shadow-md border border-yellow-100">
             <div className="h-24 w-24 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <span className="text-2xl font-bold text-yellow-600">House 3</span>
+              <span className="text-2xl font-bold text-yellow-600">
+                House 3
+              </span>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">Rigveda House</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">
+              Rigveda House
+            </h3>
             <p className="text-gray-600 text-center">Yellow is the color </p>
-            <p className="text-gray-600 text-center font-semibold">The veda of Praise </p>
+            <p className="text-gray-600 text-center font-semibold">
+              The veda of Praise{" "}
+            </p>
           </div>
 
           {/* House 4 */}
@@ -396,9 +412,13 @@ export default function MiddleSchoolProgram() {
             <div className="h-24 w-24 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <span className="text-2xl font-bold text-red-600">House 4</span>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">Athrvaveda House</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">
+              Athrvaveda House
+            </h3>
             <p className="text-gray-600 text-center">Red is the color </p>
-            <p className="text-gray-600 text-center font-semibold">The veda of chants</p>
+            <p className="text-gray-600 text-center font-semibold">
+              The veda of chants
+            </p>
           </div>
         </div>
       </section>
@@ -467,7 +487,6 @@ export default function MiddleSchoolProgram() {
             <div className="flex items-center justify-center mb-10">
               <div className="w-1/4 h-px bg-gray-300"></div>
               <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
-            
                 What Students & Parents Say
               </h2>
               <div className="w-1/4 h-px bg-gray-300"></div>
@@ -598,9 +617,9 @@ Thanks & Regards"
               Apply Now
             </a>
             <button className="px-8 py-3 bg-white border border-[#191f5d] text-[#191f5d] font-semibold rounded-md hover:bg-indigo-50 transition-colors">
-             <Link to="/contact">
+              <Link to="/contact">
                 <ArrowRight className=" visibility:hidden hover:visibility:visible inline mr-2" />
-              Schedule a Visit
+                Schedule a Visit
               </Link>
             </button>
           </div>
