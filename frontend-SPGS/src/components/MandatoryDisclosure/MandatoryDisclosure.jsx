@@ -76,23 +76,25 @@ const SchoolPortal = () => {
   };
 
   useEffect(() => {
-    // Fetch documents
     const fetchDocuments = async () => {
       try {
         setIsLoading((prev) => ({ ...prev, documents: true }));
-        const response = await axios.get(
-          "http://localhost:5000/api/disclosure"
-        );
+
+        const baseUrl =
+          import.meta.env.VITE_NODE_ENV === "development"
+            ? import.meta.env.VITE_DEVELOPMENT_URL
+            : import.meta.env.VITE_PRODUCTION_URL;
+
+        const response = await axios.get(`${baseUrl}/api/disclosure`);
         console.log("API Response:", response.data);
 
         const data = response.data;
 
-        // Transform the data to match your component's expected structure
         const transformedData = data.map((doc, index) => ({
           id: doc.id || doc._id || index,
           title: doc.originalName || doc.fileName || "Untitled Document",
           description: `File: ${doc.fileName || "Unknown"}`,
-          type: doc.type || "general", // Set default type
+          type: doc.type || "general",
           date: doc.uploadDate || doc.modifiedDate || new Date(),
           size: formatFileSize(doc.fileSize),
           fileName: doc.fileName,
@@ -109,7 +111,7 @@ const SchoolPortal = () => {
         console.error("Error fetching documents:", err);
         setError((prev) => ({ ...prev, documents: err.message }));
         setIsLoading((prev) => ({ ...prev, documents: false }));
-        setDocuments([]); // Fallback to empty array
+        setDocuments([]);
       }
     };
 
@@ -118,26 +120,28 @@ const SchoolPortal = () => {
 
   const handleDownload = async (fileName, originalName) => {
     try {
+      const baseUrl =
+        import.meta.env.VITE_NODE_ENV === "development"
+          ? import.meta.env.VITE_DEVELOPMENT_URL
+          : import.meta.env.VITE_PRODUCTION_URL;
+
       const response = await axios.get(
-        `http://localhost:5000/api/disclosure/download?file=${fileName}`,
+        `${baseUrl}/api/disclosure/download?file=${fileName}`,
         {
           responseType: "blob",
         }
       );
 
-      // Create download link
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
 
-      // Use original name if provided, otherwise use fileName
       const downloadName = originalName || fileName;
       link.setAttribute("download", downloadName);
 
       document.body.appendChild(link);
       link.click();
 
-      // Cleanup
       link.remove();
       window.URL.revokeObjectURL(url);
     } catch (error) {
