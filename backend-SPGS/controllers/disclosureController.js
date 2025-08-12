@@ -1,63 +1,6 @@
 const fs = require("fs");
 const path = require("path");
 
-<<<<<<< HEAD
-
-
-const createDisclosure = async (req, res) => {
-  try {
-    const { type, title, description} = req.body;
-    console.log(req.body);
-    console.log(req.file);
-    // console.log(req.file.filename);
-
-    if (!req.file) {
-      return res.status(400).json({ error: "File is required" });
-    }
-
-    const fileUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
-    const size = req.file.size;
-
-    const newDisclosure = new Disclosure({
-      type,
-      title,
-      description,
-      fileUrl,
-      size,
-      date: new Date(),
-    });
-
-    await newDisclosure.save();
-
-    res.status(201).json({ message: "Disclosure created successfully", disclosure: newDisclosure });
-  } catch (error) {
-    console.error("Error creating disclosure:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-};
-
-// const createDisclosure = async (req, res) => {
-//   try {
-//     const { type, title, description, fileUrl, size, date } = req.body;
-//     const disclosure = new Disclosure({ type, title, description, fileUrl, size, date });
-
-//     const savedDisclosure = await disclosure.save();
-//     res.status(201).json(savedDisclosure);
-//   } catch (error) {
-//     console.error('Error creating disclosure:', error);
-//     res.status(500).json({ message: 'Server error creating disclosure' });
-//   }
-// };
-
-
-const getAllDisclosure = async (req, res) => {
-    try {
-        const disclosures = await Disclosure.find().sort({ date: -1 });
-        res.status(200).json(disclosures);
-    } catch (error) {
-        console.error(error.message);
-        res.status(500).json({ message: "Server Error" });
-=======
 // Controller to add disclosure
 exports.addDisclosure = async (req, res) => {
   try {
@@ -106,7 +49,6 @@ exports.getAllDisclosure = async (req, res) => {
 
     if (!fs.existsSync(uploadsDir)) {
       return res.json([]);
->>>>>>> cbdd66aaae07f5c8c05374282cc22b411a36a1db
     }
 
     const files = fs.readdirSync(uploadsDir);
@@ -137,9 +79,6 @@ exports.downloadDisclosure = async (req, res) => {
   try {
     const { file } = req.query;
 
-<<<<<<< HEAD
-module.exports = {createDisclosure, getAllDisclosure,downloadDisclosure };
-=======
     if (!file) {
       return res.status(400).json({ error: "File parameter is required" });
     }
@@ -180,4 +119,3 @@ module.exports = {createDisclosure, getAllDisclosure,downloadDisclosure };
     res.status(500).json({ error: "Failed to download file" });
   }
 };
->>>>>>> cbdd66aaae07f5c8c05374282cc22b411a36a1db

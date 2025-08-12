@@ -37,11 +37,7 @@ const fileFilter = (req, file, cb) => {
   cb(null, true);
 };
 
-<<<<<<< HEAD
 // Set up multer with memory storage and file size limit
-=======
-// Upload config
->>>>>>> cbdd66aaae07f5c8c05374282cc22b411a36a1db
 const upload = multer({
   storage,
   limits: {

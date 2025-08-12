@@ -1,41 +1,3 @@
-<<<<<<< HEAD
-import api from "./api";
-// import api from "./api";
-
-
-export const addDisclosure = async(formData) =>{
-
-    try{
-        const response = await api.post(`/disclosure/createDisclosure`, formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-           });
-        console.log("Response:", response.data);
-        return response.data;
-    }catch (error) {
-    console.error("Error adding disclosure:", error);
-    throw error; // or throw new Error(`Error adding disclosure: ${error.message}`);
-  }
-}
-
-// import api from "./api";
-
-// export const addDisclosure = async (formData) => {
-//   try {
-//     const response = await api.post(`/disclosure/createDisclosure`, formData, {
-//       headers: {
-//         'Content-Type': 'multipart/form-data',
-//       },
-//     });
-//     console.log("Response:", response.data);
-//     return response.data;
-//   } catch (error) {
-//     console.error("Error adding disclosure:", error);
-//     throw error; // or throw new Error(`Error adding disclosure: ${error.message}`);
-//   }
-// };
-=======
 import axios from "axios";
 
 // Get the correct base URL depending on environment
@@ -118,4 +80,3 @@ export const formatDate = (dateString) => {
   const date = new Date(dateString);
   return date.toLocaleDateString() + " " + date.toLocaleTimeString();
 };
->>>>>>> cbdd66aaae07f5c8c05374282cc22b411a36a1db
