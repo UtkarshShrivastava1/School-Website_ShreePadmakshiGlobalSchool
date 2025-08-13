@@ -7,12 +7,9 @@ import { useEffect } from "react";
 
 const AcademicUpper = () => {
   const [activeTab, setActiveTab] = useState("overview");
-<<<<<<< HEAD
      useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' }); // or 'auto'
   }, []);
-=======
->>>>>>> cbdd66aaae07f5c8c05374282cc22b411a36a1db
 
   const academicPrograms = [
     {
@@ -63,7 +60,6 @@ const AcademicUpper = () => {
 
   const testimonials = [
     {
-<<<<<<< HEAD
       quote: `Good Evening.....This annual day celebration is truly special. I want to express my gratitude for organizing,School for their hard work and dedication in making this event a success. Especially
 mentioning Human pyramid ,Save Tree Swachha Bharat dance that delivers a valuable
 messages.Also include folk dances to showcase ,, Diversity of India"alongwith fun and
@@ -83,16 +79,6 @@ The opportunity you provided for the children to showcase their talents on stage
 Thank you and best wishes!
 `,
       author: "Ajit Mishra , Avijeet Mishra – Class 9th B ",
-=======
-      quote:
-        "The rigorous curriculum and supportive teachers helped me secure admission to my dream Ivy League university.",
-      author: "Emma J., Class of 2024",
-    },
-    {
-      quote:
-        "The STEM program provided hands-on experience that prepared me for my engineering major in college.",
-      author: "David L., Class of 2023",
->>>>>>> cbdd66aaae07f5c8c05374282cc22b411a36a1db
     },
   ];
   return (
@@ -247,11 +233,7 @@ Thank you and best wishes!
 
                 <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
                   <h3 className="text-xl font-bold mb-4 text-gray-800">
-<<<<<<< HEAD
                     Testimonials
-=======
-                    Student Testimonials
->>>>>>> cbdd66aaae07f5c8c05374282cc22b411a36a1db
                   </h3>
                   {testimonials.map((testimonial, index) => (
                     <div key={index} className="mb-4 last:mb-0">

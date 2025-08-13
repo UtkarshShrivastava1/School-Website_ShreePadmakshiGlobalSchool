@@ -2,14 +2,10 @@ import ArtRoom from "../assets/LabAndLibrary/ArtRoom2.jpg";
 // import classRoom from "../assets/Classroom/ClassN1.jpg";
 import classRoom from "../assets/Classroom/ClassN3.jpg";
 import image from "../assets/c-2.png";
-<<<<<<< HEAD
 import SPGS07 from "../assets/Testimonial/SPGS07.jpg";
 import SPGS10 from "../assets/Testimonial/SPGS10.jpg";
 import SPGS06 from "../assets/Testimonial/SPGS06.jpg";
 import{Link} from 'react-router-dom'
-=======
-import { Link } from "react-router-dom";
->>>>>>> cbdd66aaae07f5c8c05374282cc22b411a36a1db
 import {
   ArrowRight,
   BookOpen,
