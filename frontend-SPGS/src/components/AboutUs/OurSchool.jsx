@@ -1,5 +1,6 @@
 import React from 'react';
-import school from '../../assets/school.jpg';
+// import school from '../../assets/School.jpg';
+import school from '../../assets/SchoolFront.jpg'
 import Count from './Count';
 import { NavLink } from 'react-router-dom';
 const AboutPage = () => {
