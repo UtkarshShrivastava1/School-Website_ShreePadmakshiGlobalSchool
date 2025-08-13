@@ -3,38 +3,39 @@ import image4 from "../../assets/Pictures/principal.JPG";
 
 const PrincipalWelcome = () => {
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
       <div className="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100">
-        <div className="flex flex-col lg:flex-row items-center">
+        <div className="flex flex-col lg:flex-row items-center lg:items-stretch">
+          
           {/* Content Section */}
-          <div className="w-full lg:w-1/2 p-8 md:p-12 text-center lg:text-left">
-            <div className="border-l-4 border-orange-500 pl-4 mb-4">
-              <p className="text-orange-500 font-semibold uppercase tracking-wide text-sm">
+          <div className="w-full lg:w-1/2 p-6 sm:p-8 lg:p-12 text-center lg:text-left flex flex-col justify-center">
+            <div className="border-l-4 border-orange-500 pl-3 sm:pl-4 mb-4 sm:mb-6">
+              <p className="text-orange-500 font-semibold uppercase tracking-wide text-xs sm:text-sm">
                 Welcome Message
               </p>
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mt-1">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-1">
                 From the Principal
               </h1>
             </div>
 
             <div>
-              <h2 className="text-lg font-semibold text-gray-800">
+              <h2 className="text-base sm:text-lg font-semibold text-gray-800">
                 Mrs. Sweta Singh
               </h2>
-              <p className="mt-4 text-gray-600 leading-relaxed text-base md:text-lg">
-                On behalf of the SPGS community, I warmly welcome all our new
-                families. SPGS is a place where each student is nurtured and
-                inspired to thrive academically and personally...
+              <p className="mt-3 sm:mt-4 text-gray-600 leading-relaxed text-sm sm:text-base lg:text-lg">
+                On behalf of the SPGS community, I warmly welcome all our new families. 
+                SPGS is a place where each student is nurtured and inspired to thrive 
+                academically and personally...
               </p>
 
-              <div className="mt-6">
+              <div className="mt-5 sm:mt-6 flex justify-center lg:justify-start">
                 <Link
                   to="/principal-message"
-                  className="group inline-flex items-center text-gray-800 border border-gray-800 px-6 py-2 rounded-full font-medium transition-all duration-300 hover:bg-orange-500 hover:text-white"
+                  className="group inline-flex items-center text-gray-800 border border-gray-800 px-5 sm:px-6 py-2 sm:py-3 rounded-full font-medium text-sm sm:text-base transition-all duration-300 hover:bg-orange-500 hover:text-white"
                 >
                   READ MORE
                   <svg
-                    className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1"
+                    className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -52,9 +53,8 @@ const PrincipalWelcome = () => {
           </div>
 
           {/* Image Section */}
-          {/* Image Section */}
-          <div className="w-full lg:w-1/2 mt-8 lg:mt-0 flex justify-center lg:justify-evenly">
-            <div className="relative w-full max-w-[250px] overflow-hidden rounded-3xl shadow-lg group">
+          <div className="w-full lg:w-1/2 mt-6 sm:mt-8 lg:mt-0 flex justify-center lg:justify-center p-4 sm:p-6 lg:p-8">
+            <div className="relative w-3/4 sm:w-2/3 md:w-1/2 xl:max-w-[350px] overflow-hidden rounded-3xl shadow-lg group">
               <img
                 src={image4}
                 alt="Principal portrait"
@@ -63,6 +63,7 @@ const PrincipalWelcome = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-3xl"></div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
