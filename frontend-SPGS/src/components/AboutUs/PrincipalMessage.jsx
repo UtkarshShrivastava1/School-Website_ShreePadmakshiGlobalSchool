@@ -1,6 +1,6 @@
 // import image4 from "../assets/";
 import { User, BookOpen, GraduationCap, Users } from "lucide-react";
-import Principal from "../../assets/Pictures/principal.jpg"; // Adjust the path as necessary
+import Principal from "../../assets/Pictures/principal.JPG"; // Adjust the path as necessary
 
 const PrincipalWelcome = () => {
   return (
