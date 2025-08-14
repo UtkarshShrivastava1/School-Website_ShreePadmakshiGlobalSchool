@@ -94,7 +94,7 @@ const WhyMountLetraZee = () => {
             >
               <div className="h-48 overflow-hidden">
                 <img 
-                  src={`/api/placeholder/400/300`} 
+                  src={reason.image} 
                   alt={reason.title} 
                   className="w-full h-full object-cover"
                 />

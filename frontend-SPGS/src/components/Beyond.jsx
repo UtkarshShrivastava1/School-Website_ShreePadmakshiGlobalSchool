@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import School from '../assets/School.jpg';
 import ScienceLab from '../assets/Pictures/ScienceLab.jpg';
-import ArtRoom from '../assets/Pictures/ArtRoom.jpg';
+// import ArtRoom from '../assets/Pictures/ArtRoom_1.jpg';
 import MusicRoom from '../assets/Pictures/MusicRoom.jpg';
 import Library from '../assets/LabAndLibrary/Library_2.jpg';
-import MathLab from '../assets/Pictures/MathLab.jpg';
+// import MathLab from '../../public/c-1.png';
 import LanguageLAb from '../assets/Pictures/LanguageLab.jpg';
 import { useEffect } from 'react';
 
@@ -13,6 +13,8 @@ const BeyondAcademic = () => {
      useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' }); // or 'auto'
   }, []);
+
+  // console.log('MathLab' , MathLab)
   
   const facilities = [
     {
@@ -40,7 +42,7 @@ const BeyondAcademic = () => {
       id: 'math-lab',
       title: 'Math Lab',
       icon: '🔢',
-      image:MathLab,
+      imageUrl: '../DSC_8664.jpg',
       description: 'From time immemorial, mathematics has been the tool to decode greatest mysteries of the world and the universe. With development in teaching methods, which have become more and more experimental, learning mathematical concepts requires special training. This intricate puzzle needs to be solved outside the classroom, away from mere theoretical approach. SPGS makes this work even easier with its math lab which endows the child with insight into mathematical formulae, collection of data and rectifying errors through experimentation. The math lab consists of all the required material for a fascinating experience of the subject making mathematical studies a piece of cake.'
     },
     {
@@ -61,7 +63,7 @@ const BeyondAcademic = () => {
       id: 'art-craft',
       title: 'Art & Craft',
       icon: '🎨',
-      image:ArtRoom ,
+      imageUrl:'../ArtRoom_1.jpg' ,
       description: 'At SPGS, we encourage students to be creative and imaginative. It is said that a childs world is best understood when he carves out his imagination with tints of his selection. The students love to play with colours and act like demigods, creating something new every day. Support and technical guidance helps them to appreciate art work by great artists and insists them to generate new art works and then take pride in it.'
     }
   ];
@@ -114,8 +116,8 @@ const BeyondAcademic = () => {
               <div className="md:w-1/2">
                 <div className="h-64 md:h-full bg-indigo-100 relative overflow-hidden">
                   <img 
-                    lazyLoad="true"
-                    src={activeFacility.image} 
+                   loading='lazy'
+                    src={activeFacility.imageUrl || activeFacility.image} 
                     alt={activeFacility.title} 
                     className="w-full h-[100%] object-cover object-center transition-transform hover:scale-105 duration-700"
                   />
@@ -152,7 +154,7 @@ const BeyondAcademic = () => {
                 onClick={() => setActiveTab(facility.id)}
               >
                 <div className="h-48 overflow-hidden">
-                  <img  lazyLoad="true"
+                  <img   loading='lazy'
                     src={facility.image} 
                     alt={facility.title} 
                     className="w-full h-full object-cover transition-transform hover:scale-110 duration-500"

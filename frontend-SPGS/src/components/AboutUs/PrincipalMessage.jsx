@@ -1,6 +1,6 @@
 // import image4 from "../assets/";
 import { User, BookOpen, GraduationCap, Users } from "lucide-react";
-import Principal from "../../assets/Pictures/principal.JPG"; // Adjust the path as necessary
+// import Principal from "../../assets/Pictures/principal.JPG"; // Adjust the path as necessary
 
 const PrincipalWelcome = () => {
   return (
@@ -57,7 +57,7 @@ const PrincipalWelcome = () => {
                 <div className="w-48 h-48 rounded-full bg-gray-200 flex items-center justify-center mb-6 border-4 border-primary/20 overflow-hidden shadow-md">
                   {/* Principal's photo */}
                   <img
-                    src={Principal}
+                    src='../principal.JPG'
                     alt="Mrs. Sweta Singh"
                     className="w-full h-full object-cover"
                     onError={(e) => {

@@ -106,7 +106,7 @@ const ValuesPage = () => {
               <div className="absolute inset-0 bg-blue-200 rounded-lg transform rotate-3"></div>
               <div className="absolute inset-0 bg-blue-300 rounded-lg transform -rotate-3"></div>
               <img 
-              lazyLoad="true"
+               loading='lazy'
                 src={studens}
                 alt="Students engaged in values-based learning" 
                 className="relative rounded-lg shadow-lg z-10"
@@ -199,7 +199,7 @@ state dance .. south dance... Mahabharat act... Raj kapoor songs... Etc...`
         <h2 className="text-3xl font-bold text-orange-500 mb-12 text-center">Values in Action</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <img lazyLoad="true" src={student_plant}alt="Community service" className="w-full h-48 object-cover" />
+            <img  loading='lazy' src={student_plant}alt="Community service" className="w-full h-48 object-cover" />
             <div className="p-6">
               <h3 className="text-xl font-bold text-orange-500 mb-3">Community Engagement</h3>
               <p className="text-gray-600 mb-4">
@@ -210,7 +210,7 @@ state dance .. south dance... Mahabharat act... Raj kapoor songs... Etc...`
           </div>
           
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <img lazyLoad="true" src= {football}
+            <img  loading='lazy' src= {football}
             alt="Leadership programs" className="w-full h-48 object-top" />
             <div className="p-6">
               <h3 className="text-xl font-bold text-orange-500 mb-3">Leadership Development</h3>

@@ -80,7 +80,7 @@ export default function WhyChooseUs() {
             </div>
             <div className="flex justify-center">
               <div className="relative h-[400px] w-[300px] md:h-[400px] md:w-[400px] rounded-full overflow-hidden border-4 border-white/20">
-                <img   lazyLoad="true"
+                <img    loading='lazy'
                   src={School}
                   alt="SPGS School"
                   fill
@@ -199,7 +199,7 @@ export default function WhyChooseUs() {
                       </p>
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden">
-                      <img   lazyLoad="true"
+                      <img    loading='lazy'
                         src={Teacher}
                         alt="Trained Teachers"
                         fill
@@ -246,7 +246,7 @@ export default function WhyChooseUs() {
                       </p>
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden">
-                      <img    lazyLoad="true"
+                      <img     loading='lazy'
                         src={School}
                         alt="Trained Teachers"
                         fill

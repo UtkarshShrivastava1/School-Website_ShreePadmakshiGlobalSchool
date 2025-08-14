@@ -28,7 +28,7 @@ export default function MiddleSchoolProgram() {
       <section className="relative">
         {/* Background Image Wrapper */}
         <div className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh]">
-          <img   lazyLoad="true"
+          <img    loading='lazy'
             src={image}
             alt="Middle School Students Learning"
             className="absolute inset-0 w-full h-[60vh] object-cover brightness-[0.7]"
@@ -70,7 +70,7 @@ export default function MiddleSchoolProgram() {
             </p>
           </div>
           <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
-            <img   lazyLoad="true"
+            <img    loading='lazy'
               src={ArtRoom}
               alt="Middle school students engaged in learning"
               fill
@@ -166,7 +166,7 @@ export default function MiddleSchoolProgram() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1 relative h-[400px] rounded-xl overflow-hidden shadow-xl">
             <img   
-              lazyLoad="true"
+               loading='lazy'
               src={classRoom}
               alt="Students taking assessments"
               fill
@@ -465,7 +465,7 @@ export default function MiddleSchoolProgram() {
               </ul>
             </div>
             <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
-              <img   lazyLoad="true"
+              <img    loading='lazy'
                 src={ArtRoom}
                 alt="Students preparing for secondary school"
                 fill
@@ -499,7 +499,7 @@ export default function MiddleSchoolProgram() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
-                  <img   lazyLoad="true"
+                  <img    loading='lazy'
                     src={SPGS10}
                     alt="Student"
                     width={48}
@@ -526,7 +526,7 @@ export default function MiddleSchoolProgram() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
-                  <img  lazyLoad="true"
+                  <img   loading='lazy'
                     src={SPGS07}
                     alt="Parent"
                     width={48}
@@ -561,7 +561,7 @@ Thanks & Regards"
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
-                  <img lazyLoad="true"
+                  <img  loading='lazy'
                     src={SPGS06}
                     alt="Teacher"
                     width={48}

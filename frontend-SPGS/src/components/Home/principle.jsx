@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import image4 from "../../assets/Pictures/principal.JPG";
+
 
 const PrincipalWelcome = () => {
   return (
@@ -56,7 +56,7 @@ const PrincipalWelcome = () => {
           <div className="w-full lg:w-1/2 mt-6 sm:mt-8 lg:mt-0 flex justify-center lg:justify-center p-4 sm:p-6 lg:p-8">
             <div className="relative w-3/4 sm:w-2/3 md:w-1/2 xl:max-w-[350px] overflow-hidden rounded-3xl shadow-lg group">
               <img
-                src={image4}
+                src='../principal.JPG'
                 alt="Principal portrait"
                 className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105"
               />

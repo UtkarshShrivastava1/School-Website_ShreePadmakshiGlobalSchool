@@ -76,7 +76,7 @@ const Carousal = () => {
           {extendedImages.map((item, index) => (
             <div
               key={index}
-              lazyload="true"
+               loading='lazy'
               className="min-w-full h-[400px] md:h-[600px] relative bg-cover bg-center"
               style={{ backgroundImage: `url(${item.image})` }}
             >

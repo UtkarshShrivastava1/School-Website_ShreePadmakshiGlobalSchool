@@ -14,7 +14,7 @@ export default function PrimarySchoolProgram() {
       {/* Hero Section */}
       <section className="relative">
         <div className="absolute inset-0 z-0">
-          <img   lazyLoad="true"
+          <img    loading='lazy'
             src="https://images.pexels.com/photos/159844/cellular-education-classroom-159844.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=2"
             alt="Primary School Children Learning"
             fill
@@ -49,7 +49,7 @@ export default function PrimarySchoolProgram() {
             </p>
           </div>
           <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
-            <img   lazyLoad="true"
+            <img    loading='lazy'
               src={School}
               alt="Students engaged in learning activities"
               fill
@@ -127,7 +127,7 @@ export default function PrimarySchoolProgram() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1 relative h-[400px] rounded-xl overflow-hidden shadow-xl">
-            <img   lazyLoad="true"
+            <img    loading='lazy'
               src={Classsroom}
               alt="Interactive classroom learning"
               fill
@@ -273,7 +273,7 @@ export default function PrimarySchoolProgram() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
-                  <img   lazyLoad="true"
+                  <img    loading='lazy'
                     src={SPGS04}
                     alt="Parent"
                     width={48}
@@ -301,7 +301,7 @@ export default function PrimarySchoolProgram() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
-                  <img   lazyLoad="true"
+                  <img    loading='lazy'
                     src={SPGS04}
                     alt="Parent"
                     width={48}
@@ -327,7 +327,7 @@ export default function PrimarySchoolProgram() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
-                <img   lazyLoad="true"
+                <img    loading='lazy'
                     src={SPGS04}
                     alt="Parent"
                     width={48}

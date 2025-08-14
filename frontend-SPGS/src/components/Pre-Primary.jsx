@@ -4,9 +4,9 @@ import { Link } from "react-router-dom"
 // import { Button } from "../components/button"
 import { Card, CardContent } from "../components/WhyCards"
 import { BookOpen, Users, Brain, Music, Clock, Calendar, PlayCircle, CheckCircle, Star} from "lucide-react"
-import FancyDress from "../assets/P_And_H/Fancy Dress1.jpeg"
-import FancyDress2 from "../assets/P_And_H/Fancy Dress2.jpeg"
-import ground from "../assets/P_And_H/Ground.jpeg"
+// import FancyDress from "../assets/P_And_H/Fancy Dress1.jpeg"
+// import FancyDress2 from "../assets/P_And_H/Fancy Dress2.jpeg"
+// import ground from "../assets/P_And_H/Ground.jpeg"
 import school from "../assets/SchoolFront.jpg"
 import Piano from "../assets/Piano.jpg"
 import { useEffect } from "react";
@@ -42,7 +42,7 @@ export default function PrePrimaryPage() {
               </button>
             </div>
             <div className="md:w-1/2 relative h-64 md:h-96 rounded-lg overflow-hidden shadow-lg">
-              <img   lazyLoad="true"
+              <img    loading='lazy'
                 src={img}
                 alt="Shree Padmakshi Global School Pre-Primary Program"
                 fill
@@ -117,16 +117,16 @@ export default function PrePrimaryPage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row gap-6 items-center">
             <div className="md:w-1/2 relative w-full h-full md:h-80 rounded-lg overflow-hidden shadow-md">
-              <img   lazyLoad="true"
-                src={FancyDress}
+              <img    loading='lazy'
+                src='../Fancy Dress1.jpeg'
                 alt="Shree padhnakshi global school Bilaspur Primary"
                 fill
                 className="w-full h-full object-cover rounded-lg"
               />
             </div>
             <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
-              <img   lazyLoad="true"
-                src={FancyDress2}
+              <img    loading='lazy'
+                src='../Fancy Dress2.jpeg'
                 alt="Shree padhnakshi global school Bilaspur Primary"
                 fill
                 className="object-cover w-full h-full rounded-lg"
@@ -166,7 +166,7 @@ export default function PrePrimaryPage() {
               </p>
             </div>
             <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-y-clip shadow-md">
-              <img   lazyLoad="true"
+              <img    loading='lazy'
                 src={Piano}
                 alt="Shree padhnakshi global school Bilaspur Play"
                 fill
@@ -203,15 +203,15 @@ export default function PrePrimaryPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             <div className="relative h-64 md:h-80 rounded-lg overflow-y-hidden shadow-md">
-              <img   lazyLoad="true"
-                src={ground}
+              <img    loading='lazy'
+                src='../Ground.jpeg'
                 alt="Shree padhnakshi global school Bilaspur Play"
                 fill
                 className="w-full h-full object-cover rounded-lg "
               />
             </div>
             <div className="relative h-64 md:h-80 rounded-lg overflow-hidden shadow-md">
-              <img   lazyLoad="true"
+              <img    loading='lazy'
                 src={SportsRoom}
                 alt="Shree padhnakshi global school Bilaspur Play"
                 fill
