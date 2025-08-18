@@ -18,7 +18,7 @@ import {
   Heart,
 } from "lucide-react";
 import Teacher from "../assets/Classroom/ClassN3.jpg"; // Assuming you have a teacher image
-// import smartlab from "../assets/Pictures/"; // Assuming you have a smart lab image
+
 
 export default function WhyChooseUs() {
   const [activeTab, setActiveTab] = useState("tab1");
@@ -81,7 +81,7 @@ export default function WhyChooseUs() {
             <div className="flex justify-center">
               <div className="relative h-[400px] w-[300px] md:h-[400px] md:w-[400px] rounded-full overflow-hidden border-4 border-white/20">
                 <img    loading='lazy'
-                  src={School}
+                  src='/Images/School.jpg'
                   alt="SPGS School"
                   fill
                   className="object-cover h-[400px]"
@@ -200,7 +200,7 @@ export default function WhyChooseUs() {
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden">
                       <img    loading='lazy'
-                        src={Teacher}
+                        src='/Classroom/ClassN3.jpg'
                         alt="Trained Teachers"
                         fill
                         className="object-cover"
@@ -271,7 +271,7 @@ export default function WhyChooseUs() {
                     <div className="bg-blue-600 p-3 rounded-full text-white">
                       <Octagon className="h-6 w-6" />
                     </div>
-                    <CardTitle> Inqury Base Approch</CardTitle>
+                    <CardTitle> Inquiry Base Approch</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-6">
@@ -338,7 +338,7 @@ export default function WhyChooseUs() {
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden">
                       <img
-                        src={School}
+                        src='/Classroom/ClassN3.jpg'
                         alt="Trained Teachers"
                         fill
                         className="object-cover"

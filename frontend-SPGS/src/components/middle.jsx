@@ -1,10 +1,6 @@
 import ArtRoom from "../assets/LabAndLibrary/ArtRoom2.jpg";
-// import classRoom from "../assets/Classroom/ClassN1.jpg";
 import classRoom from "../assets/Classroom/ClassN3.jpg";
 import image from "../assets/c-2.png";
-import SPGS07 from "../assets/Testimonial/SPGS07.jpg";
-import SPGS10 from "../assets/Testimonial/SPGS10.jpg";
-import SPGS06 from "../assets/Testimonial/SPGS06.jpg";
 import{Link} from 'react-router-dom'
 import {
   ArrowRight,
@@ -29,7 +25,7 @@ export default function MiddleSchoolProgram() {
         {/* Background Image Wrapper */}
         <div className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh]">
           <img    loading='lazy'
-            src={image}
+            src='/Images/c-2.png'
             alt="Middle School Students Learning"
             className="absolute inset-0 w-full h-[60vh] object-cover brightness-[0.7]"
             priority
@@ -71,7 +67,7 @@ export default function MiddleSchoolProgram() {
           </div>
           <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
             <img    loading='lazy'
-              src={ArtRoom}
+              src='/LabAndLibrary/ArtRoom2.jpg'
               alt="Middle school students engaged in learning"
               fill
               className="object-cover"
@@ -167,7 +163,7 @@ export default function MiddleSchoolProgram() {
           <div className="order-2 lg:order-1 relative h-[400px] rounded-xl overflow-hidden shadow-xl">
             <img   
                loading='lazy'
-              src={classRoom}
+              src='/Classroom/ClassN3.jpg'
               alt="Students taking assessments"
               fill
               className="object-cover"
@@ -466,7 +462,7 @@ export default function MiddleSchoolProgram() {
             </div>
             <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
               <img    loading='lazy'
-                src={ArtRoom}
+                src='/LabAndLibrary/ArtRoom1.jpeg'
                 alt="Students preparing for secondary school"
                 fill
                 className="object-cover"
@@ -500,7 +496,7 @@ export default function MiddleSchoolProgram() {
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
                   <img    loading='lazy'
-                    src={SPGS10}
+                    src='/Testimonial/SPGS10.jpg'
                     alt="Student"
                     width={48}
                     height={48}
@@ -527,7 +523,7 @@ export default function MiddleSchoolProgram() {
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
                   <img   loading='lazy'
-                    src={SPGS07}
+                    src='/Testimonial/SPGS07.jpg'
                     alt="Parent"
                     width={48}
                     height={48}
@@ -543,17 +539,17 @@ export default function MiddleSchoolProgram() {
               </div>
               <p className="text-gray-600 italic">
                 "Good evening everyone.
-I would like to take a moment to Thank The principal Mam, Teachers and All the staff for
-organizing such a wonderful annual function.
-It is evident that a lot of effort, Time & Dedication have gone into making this event
-successful.
+                I would like to take a moment to Thank The principal Mam, Teachers and All the staff for
+                organizing such a wonderful annual function.
+                It is evident that a lot of effort, Time & Dedication have gone into making this event
+                successful.
 
-These kinds of events provide a great platform for our children to showcase their talents and
-build their confidence.
-As a parent,it fills my heart with immense Pride to see my daughter participating with such
-enthusiasm.
-The constant support and encouragement from her teachers brought out the best in her .
-Thanks & Regards"
+                These kinds of events provide a great platform for our children to showcase their talents and
+                build their confidence.
+                As a parent,it fills my heart with immense Pride to see my daughter participating with such
+                enthusiasm.
+                The constant support and encouragement from her teachers brought out the best in her .
+                Thanks & Regards"
               </p>
             </div>
 
@@ -562,7 +558,7 @@ Thanks & Regards"
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
                   <img  loading='lazy'
-                    src={SPGS06}
+                    src='/Testimonial/SPGS06.jpg'
                     alt="Teacher"
                     width={48}
                     height={48}
