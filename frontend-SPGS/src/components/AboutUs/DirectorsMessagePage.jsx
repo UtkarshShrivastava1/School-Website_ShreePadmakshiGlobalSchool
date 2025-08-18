@@ -1,5 +1,5 @@
 import React from 'react';
-import picture from '../../assets/Picture1.jpg';
+// import picture from '../../assets/Picture1.jpg';
 const DirectorsMessagePage = () => {
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
@@ -19,7 +19,7 @@ const DirectorsMessagePage = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-t from-red-100 to-transparent opacity-30 rounded-full"></div>
                 <img 
-                  src={picture} 
+                  src='/Picture1.jpg'
                   alt="Dr. Sanjana Tiwari" 
                   className="rounded-full h-64 w-64 object-cover border-4 border-white shadow-xl"
                 />
@@ -112,7 +112,7 @@ const DirectorsMessagePage = () => {
                 </p>
                 <div className="mt-4 flex items-center">
                   <div className="h-14 w-14 bg-blue-100 rounded-full flex items-center justify-center">
-                    <img src={picture} alt="Signature" className="rounded-full" />
+                    <img src='/Picture1.jpg' alt="Signature" className="rounded-full" />
                   </div>
                   <div className="ml-4">
                     <p className="font-bold text-orange-500 ">Dr. Sanjana Tiwari</p>

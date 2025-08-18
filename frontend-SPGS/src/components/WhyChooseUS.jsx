@@ -1,4 +1,3 @@
-import School from "../assets/School.jpg";
 import { useState } from "react";
 import {
   Card,
@@ -246,7 +245,7 @@ export default function WhyChooseUs() {
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden">
                       <img     loading='lazy'
-                        src={School}
+                        src='/Images/School.jpg'
                         alt="Trained Teachers"
                         fill
                         className="object-cover"
@@ -296,7 +295,7 @@ export default function WhyChooseUs() {
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden">
                       <img
-                        src={School}
+                        src='/Images/School.jpg'
                         alt=" PADMAKSHI  Octave"
                         fill
                         className="object-cover"
