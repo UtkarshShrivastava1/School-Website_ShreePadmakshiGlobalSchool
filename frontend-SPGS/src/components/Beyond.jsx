@@ -1,11 +1,4 @@
 import React, { useState } from 'react';
-import School from '../assets/School.jpg';
-import ScienceLab from '../assets/Pictures/ScienceLab.jpg';
-// import ArtRoom from '../assets/Pictures/ArtRoom_1.jpg';
-import MusicRoom from '../assets/Pictures/MusicRoom.jpg';
-import Library from '../assets/LabAndLibrary/Library_2.jpg';
-// import MathLab from '../../public/c-1.png';
-import LanguageLAb from '../assets/Pictures/LanguageLab.jpg';
 import { useEffect } from 'react';
 
 const BeyondAcademic = () => {

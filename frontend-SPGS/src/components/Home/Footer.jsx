@@ -1,6 +1,5 @@
 import React from "react";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
-import Logo from "../../assets/Media.jpg";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -37,7 +36,7 @@ const Footer = () => {
 
             <div className="mt-8">
               <img
-                src={Logo}
+                src='/Images/Media.jpg'
                 alt="GEMS Education Logo"
                 className="w-16 md:w-20 rounded-full"
               />

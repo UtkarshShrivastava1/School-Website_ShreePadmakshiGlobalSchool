@@ -55,7 +55,7 @@ const AboutPage = () => {
             
             <div className="mt-8">
               <img 
-                src={school} 
+                src='/Images/SchoolFront.jpg'
                 alt="School Campus" 
                 className="rounded-lg shadow-md w-full"
               />

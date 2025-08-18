@@ -1,10 +1,4 @@
-import React from 'react';
-import football from '../../assets/football.jpg';
-import basketball from '../../assets/basketball.jpg';
-import kidsPark from '../../assets/kids-park.jpg';
-import racingTrack from '../../assets/racing-track.jpg';
-import sketing from '../../assets/sketing.jpg';
-import swimming from '../../assets/swimming.jpg';
+
 
 const SportsFacilities = () => {
   return (
@@ -29,7 +23,7 @@ const SportsFacilities = () => {
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <div className="h-48 w-full overflow-hidden">
             <img 
-              src={basketball}
+              src='/Images/basketball.jpg'
               alt="Basketball Courts" 
               className="w-full h-full object-cover"
             />
@@ -55,7 +49,7 @@ const SportsFacilities = () => {
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <div className="h-48 w-full overflow-hidden">
             <img 
-              src={racingTrack}
+              src='/Images/racing-track.jpg'
               alt="Racing Track" 
               className="w-full h-full object-cover"
             />
@@ -80,7 +74,7 @@ const SportsFacilities = () => {
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <div className="h-48 w-full overflow-hidden">
             <img 
-              src={swimming} 
+              src='/Images/swimming.jpg'
               alt="Swimming Pool" 
               className="w-full h-full object-cover"
             />
@@ -105,7 +99,7 @@ const SportsFacilities = () => {
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <div className="h-48 w-full overflow-hidden">
             <img 
-              src={sketing}
+              src="/Images/sketing.jpg"
               alt="Skating Rink" 
               className="w-full h-full object-cover"
             />
@@ -132,7 +126,7 @@ const SportsFacilities = () => {
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <div className="h-48 w-full overflow-hidden">
             <img 
-              src={football}
+              src='/Images/football.jpg'
               alt="Football Field" 
               className="w-full h-full object-cover"
             />
@@ -157,7 +151,7 @@ const SportsFacilities = () => {
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
           <div className="h-48 w-full overflow-hidden">
             <img 
-              src={kidsPark}
+              src='/Images/kids-park.jpg'
               alt="Kids Park" 
               className="w-full h-full object-cover"
             />

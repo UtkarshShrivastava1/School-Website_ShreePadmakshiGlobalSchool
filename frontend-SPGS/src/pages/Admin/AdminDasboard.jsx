@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import Logo from '../../assets/Media.jpg';
 import {  Calendar, Bell, User } from 'lucide-react';
 import { LogOut, Menu, X } from "lucide-react"
-// import Logo from '../../assets/logo.jpg';
 import { FaCalendarAlt } from "react-icons/fa";
 import { IoMdNotifications } from "react-icons/io";
 import { MdPhotoLibrary } from "react-icons/md";
@@ -45,7 +43,7 @@ function AdminDashboard() {
                     {/* Logo and Title */}
                     <div className="flex items-center space-x-3 w-full md:w-auto justify-between">
                         <div className="flex items-center space-x-3">
-                            <img src={Logo} alt="School Logo" className="w-12 h-12 md:w-15 md:h-full rounded-full bg-white" />
+                            <img src='/Images/Media.jpg' alt="School Logo" className="w-12 h-12 md:w-15 md:h-full rounded-full bg-white" />
                             <div className="hidden md:block">
                                 <h1 className="text-2xl md:text-4xl font-serif">Admin Dashboard</h1>
                             </div>

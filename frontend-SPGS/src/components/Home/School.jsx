@@ -1,14 +1,11 @@
-import Primary_School from "../../assets/c-2.jpg";
-import Lower_School from "../../assets/c-1.jpg";
-import Middle_School from "../../assets/c-4.jpg";
-import Upper_School from "../../assets/c-3.jpg";
+
 import { NavLink } from "react-router-dom";
 
 const CommunityVoices = () => {
   const sections = [
     {
       title: "Pre-Primary School",
-      imgSrc: Primary_School,
+      imgSrc: '/Images/c-2.jpg',
       alt: "Primary School Students",
       description:
         "Experience the joy of early learning in our nurturing environment where young minds flourish through discovery and play.",
@@ -17,7 +14,7 @@ const CommunityVoices = () => {
     },
     {
       title: "Primary School",
-      imgSrc: Lower_School,
+      imgSrc: '/Images/c-1.jpg',
       alt: "Lower School Students",
       description:
         "Lower School fosters curiosity and growth through personalized learning, supportive relationships, and joyful discovery.",
@@ -26,7 +23,7 @@ const CommunityVoices = () => {
     },
     {
       title: "Middle School",
-      imgSrc: Middle_School,
+      imgSrc: '/Images/c-4.jpg',
       alt: "Middle School Students",
       description:
         "Our Middle School empowers students to explore their passions, develop independence, and grow as young leaders.",
@@ -35,7 +32,7 @@ const CommunityVoices = () => {
     },
     {
       title: "Secondary School",
-      imgSrc: Upper_School,
+      imgSrc: '/Images/c-3.jpg',
       alt: "Upper School Students",
       description:
         "Upper School students thrive in a rigorous academic environment that prepares them for college and life beyond.",

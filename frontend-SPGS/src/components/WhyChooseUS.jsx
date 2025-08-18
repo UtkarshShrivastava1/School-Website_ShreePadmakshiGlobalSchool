@@ -17,7 +17,6 @@ import {
   ClipboardCheck,
   Heart,
 } from "lucide-react";
-import Teacher from "../assets/Classroom/ClassN3.jpg"; // Assuming you have a teacher image
 
 
 export default function WhyChooseUs() {
@@ -387,7 +386,7 @@ export default function WhyChooseUs() {
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden">
                       <img
-                        src={School}
+                        src='/Classroom/ClassN3.jpg'
                         alt="Trained Teachers"
                         fill
                         className="object-cover"
@@ -434,7 +433,7 @@ export default function WhyChooseUs() {
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden">
                       <img
-                        src={School}
+                        src='/Classroom/ClassN3.jpg'
                         alt="Trained Teachers"
                         fill
                         className="object-cover"

@@ -1,8 +1,8 @@
-import School from "../assets/School.jpg"
+// import School from "../assets/School.jpg"
 import { ArrowRight, BookOpen, Brain, Users, Award, Calendar } from "lucide-react"
-import Classsroom from "../assets/Classroom/ClassN1.jpg"
+// import Classsroom from "../assets/Classroom/ClassN1.jpg"
 import {Link} from 'react-router-dom'
-import SPGS04 from "../assets/Testimonial/SPGS04.jpg" 
+// import SPGS04 from "../assets/Testimonial/SPGS04.jpg" 
 import { useEffect } from "react"
 
 export default function PrimarySchoolProgram() {
@@ -50,7 +50,7 @@ export default function PrimarySchoolProgram() {
           </div>
           <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
             <img    loading='lazy'
-              src={School}
+              src='/Images/School.jpg'
               alt="Students engaged in learning activities"
               fill
               className="object-cover h-[100%]"
@@ -128,7 +128,7 @@ export default function PrimarySchoolProgram() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1 relative h-[400px] rounded-xl overflow-hidden shadow-xl">
             <img    loading='lazy'
-              src={Classsroom}
+              src='/Classroom/ClassN3.jpg'
               alt="Interactive classroom learning"
               fill
               className="object-cover"
@@ -274,7 +274,7 @@ export default function PrimarySchoolProgram() {
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
                   <img    loading='lazy'
-                    src={SPGS04}
+                    src='/Testimonial/SPGS04.jpg'
                     alt="Parent"
                     width={48}
                     height={48}
@@ -302,7 +302,7 @@ export default function PrimarySchoolProgram() {
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
                   <img    loading='lazy'
-                    src={SPGS04}
+                    src='/Testimonial/SPGS22.jpg'
                     alt="Parent"
                     width={48}
                     height={50}
@@ -328,7 +328,7 @@ export default function PrimarySchoolProgram() {
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
                 <img    loading='lazy'
-                    src={SPGS04}
+                    src='/Testimonial/SPGS22.jpg'
                     alt="Parent"
                     width={48}
                     height={48}

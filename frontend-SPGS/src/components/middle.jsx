@@ -1,6 +1,4 @@
-import ArtRoom from "../assets/LabAndLibrary/ArtRoom2.jpg";
-import classRoom from "../assets/Classroom/ClassN3.jpg";
-import image from "../assets/c-2.png";
+
 import{Link} from 'react-router-dom'
 import {
   ArrowRight,

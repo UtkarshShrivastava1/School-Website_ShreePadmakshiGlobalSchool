@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
-import Image from "../../assets/c-4.png";
+
+
 const statsData = [
   { label: "Students", value: 1200 },
   { label: "Teachers", value: 120 },
@@ -47,7 +48,7 @@ const SchoolHeroSection = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src={Image}
+          src='/Images/c-4.png'
           alt="School campus background"
           className="w-full h-full object-cover"
         />

@@ -1,5 +1,3 @@
-import fee from '../../assets/image.png';
-
 
 const FeeStructure = () => {
   return (
@@ -37,7 +35,7 @@ const FeeStructure = () => {
         }}
       >
         <img
-          src={fee}
+          src='/Images/image.png'
           alt="Office Fee List"
           style={{ display: 'block', maxWidth: '100%', height: 'auto' }}
         />

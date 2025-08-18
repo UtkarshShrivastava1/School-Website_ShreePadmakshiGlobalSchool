@@ -1,24 +1,16 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronRight, ChevronLeft } from "lucide-react";
-import School from "../../assets/School.jpg";
-import SchoolFront from "../../assets/SchoolFront.jpg";
-import Bus from "../../assets/Transport/Bus.jpg";
-import BioLab from "../../assets/LabAndLibrary/BioLab.jpeg";
-// import Classroom from "../../assets/Classroom/ClassN1.jpg";
-import Library from "../../assets/LabAndLibrary/Library_2.jpg";
-import PhyLab from "../../assets/LabAndLibrary/PhyLab.jpeg";
-import ChemLab from "../../assets/LabAndLibrary/ChemLab.jpeg";
+
 
 const Carousal = () => {
   const images = [
-    { image: School, text: "Modern Secure and Safe Infrastructure" },
-    { image: Bus, text: "Bus Facility Available" },
-    { image: SchoolFront, text: "Students at Our Campus" },
-    // { image: Classroom, text: "State-of-the-Art Classrooms" },
-    { image: Library, text: "A Well-Stocked Library" },
-    { image: BioLab, text: "Exploring Life Sciences" },
-    { image: PhyLab, text: "Hands-On Learning in Physics" },
-    { image: ChemLab, text: "Experimenting with Science" },
+    { image: '/Images/School.jpg', text: "Modern Secure and Safe Infrastructure" },
+    { image: '/Transport/Bus.jpg', text: "Bus Facility Available" },
+    { image: '/Images/SchoolFront.jpg', text: "Students at Our Campus" },
+    { image: '/LabAndLibrary/Library_2.jpg', text: "A Well-Stocked Library" },
+    { image: "/LabAndLibrary/BioLab.jpeg", text: "Exploring Life Sciences" },
+    { image: "/LabAndLibrary/PhyLab.jpeg", text: "Hands-On Learning in Physics" },
+    { image: "/LabAndLibrary/ChemLab.jpeg", text: "Experimenting with Science" },
   ];
 
   const [current, setCurrent] = useState(0);

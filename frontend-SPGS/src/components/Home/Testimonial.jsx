@@ -1,9 +1,4 @@
 import AnimatedTestimonials from "../ui/animated-testimonial";
-import SPGS16 from "../../assets/Testimonial/SPGS16.jpg";
-import SPGS07 from "../../assets/Testimonial/SPGS07.jpg";
-import SPGS10 from "../../assets/Testimonial/SPGS10.jpg";
-import SPGS06 from "../../assets/Testimonial/SPGS06.jpg";
-import SPGS18 from "../../assets/Testimonial/SPGS18.jpg";
 
 function Testimonial() {
   const testimonials = [
@@ -16,7 +11,7 @@ to lekhni mam for grooming her in this way .The time will remain memorable in ou
 got her first recognition on this platform.`,
       name: "ISHANVI SRIWASTAV ",
       designation: "Nursery Student",
-      src: SPGS16,
+      src: '/Testimonial/SPGS16.jpg',
     },
     {
       quote:
@@ -27,7 +22,7 @@ Yesterday excellent annual function
 Thanks `,
       name: " Harsh Ratre",
       designation: "Class – Nursery",
-      src: SPGS18,
+      src: '/Testimonial/SPGS18.jpg',
     },
     {
       quote:
@@ -45,7 +40,7 @@ The constant support and encouragement from her teachers brought out the best in
 Thanks & Regards`,
       name: `Satya prakash pandey`,
       designation: "Father of - Shravya Pandey",
-      src: SPGS07,
+      src: '/Testimonial/SPGS07.jpg',
     },
     {
       quote:
@@ -58,7 +53,7 @@ Many many congratulations to you and entire school team
  `,
       name: "Prisha Pandey",
       designation: "Parent of Prisha Pandey",
-      src: SPGS10,
+      src: '/Testimonial/SPGS10.jpg',
     },
     {
       quote:
@@ -73,7 +68,7 @@ Thanks And Regards
 `,
       name: "Sourabh Todekar",
       designation: "F/O Aadvik Todekar Class 5 B",
-      src: SPGS06,
+      src: '/Testimonial/SPGS06.jpg',
     },
     
   ];

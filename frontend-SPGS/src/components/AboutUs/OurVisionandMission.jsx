@@ -1,7 +1,4 @@
 import React from 'react';
-import School from "../../assets/School.jpg";
-import FancyDress from "../../assets/P_And_H/FancyDress.jpeg"
-import classroom from "../../assets/Classroom/ClassN3.jpg"
 
 const OurVisionAndMission= () => {
   // Animation for vision/mission items on scroll
@@ -156,13 +153,13 @@ const OurVisionAndMission= () => {
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-12">Our Campus Life</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="relative overflow-hidden rounded-lg shadow-md h-64">
-            <img src={School} alt="Campus" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
+            <img src='/Images/School.jpg' alt="Campus" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
           </div>
           <div className="relative overflow-hidden rounded-lg shadow-md h-64">
-            <img src={classroom} alt="Classroom" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
+            <img src='/Classroom/ClassN3.jpg' alt="Classroom" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
           </div>
           <div className="relative overflow-hidden rounded-lg shadow-md h-64">
-            <img src={FancyDress} alt="Activities" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
+            <img src='/P_And_H/FancyDress.jpeg' alt="Activities" className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"/>
           </div>
         </div>
       </div>

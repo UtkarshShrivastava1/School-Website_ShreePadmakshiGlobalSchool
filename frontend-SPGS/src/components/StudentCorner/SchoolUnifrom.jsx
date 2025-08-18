@@ -1,7 +1,5 @@
-import summerUnifrom from "../../assets/Summer_uniform.jpg";
-import winterUniform from "../../assets/Winter_uniform.jpg";
-import sportUnifrom from "../../assets/Sport_uniform.jpg";
-import React, { useState } from 'react';
+
+import  { useState } from 'react';
 
 const UniformGuidelines = () => {
   const [activeTab, setActiveTab] = useState(null);
@@ -11,19 +9,19 @@ const UniformGuidelines = () => {
       id: 'sports', 
       name: 'Sports Uniform', 
       icon: '🏅',
-      image: sportUnifrom
+      image: '/Images/Sport_uniform.jpg'
     },
     { 
       id: 'summer', 
       name: 'Summer Uniform', 
       icon: '☀️',
-      image: summerUnifrom
+      image: '/Images/Summer_uniform.jpg'
     },
     { 
       id: 'winter', 
       name: 'Winter Uniform', 
       icon: '❄️',
-      image: winterUniform
+      image: '/Images/Winter_uniform.jpg'
     },
     
   ];

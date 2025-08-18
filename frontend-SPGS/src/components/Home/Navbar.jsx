@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Menu, X, Calendar, Bell, User, Icon, icons } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
-import Logo from "../../assets/Media.jpg";
+
 import {
   School,
   MessageCircle,
@@ -311,7 +311,7 @@ const Navbar = () => {
           {/* Logo and Title */}
           <div className="flex items-center space-x-3">
             <img
-              src={Logo}
+              src='/Images/Media.jpg'
               alt="School Logo"
               className="w-15 h-full rounded-full bg-white"
             />

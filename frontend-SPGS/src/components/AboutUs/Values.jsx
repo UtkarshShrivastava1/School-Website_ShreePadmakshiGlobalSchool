@@ -1,10 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
-import studens from '../../assets/c-3.jpg';
-import football from '../../assets/football.jpg';
-import student_plant from '../../assets/P_And_H/student_plant.jpeg';
-import SPGS09 from "../../assets/Testimonial/SPGS09.jpg";
-
 const ValuesPage = () => {
   const valuesRef = useRef([]);
   
@@ -107,7 +102,7 @@ const ValuesPage = () => {
               <div className="absolute inset-0 bg-blue-300 rounded-lg transform -rotate-3"></div>
               <img 
                loading='lazy'
-                src={studens}
+                src='/Images/c-3.jpg'
                 alt="Students engaged in values-based learning" 
                 className="relative rounded-lg shadow-lg z-10"
               />
@@ -176,15 +171,15 @@ const ValuesPage = () => {
             </svg>
             <p className="text-2xl font-light italic mb-8">
               `Hello , I would
-like to share my experience about the 3rd annual function of SPGMLS ... The function was
-very well organized
-The kids performed really beautifully and confidently...The enthusiasm, dedication and efforts
-of the teachers and students was clearly seen... I enjoyed alot... I like each n every act
-specially swachh Bharat act .... Saraswati n mahishasur song....Mobile act.... Horror act... Cg
-state dance .. south dance... Mahabharat act... Raj kapoor songs... Etc...`
+                like to share my experience about the 3rd annual function of SPGMLS ... The function was
+                very well organized
+                The kids performed really beautifully and confidently...The enthusiasm, dedication and efforts
+                of the teachers and students was clearly seen... I enjoyed alot... I like each n every act
+                specially swachh Bharat act .... Saraswati n mahishasur song....Mobile act.... Horror act... Cg
+                state dance .. south dance... Mahabharat act... Raj kapoor songs... Etc...`
             </p>
             <div className="flex items-center justify-center">
-              <img src={SPGS09} alt="Parent" className="rounded-full w-16 h-16 mr-4" />
+              <img src='Testimonial/SPGS09.jpg' alt="Parent" className="rounded-full w-16 h-16 mr-4" />
               <div className="text-left">
                 <p className="font-medium">Parent of Aadya Sharma ,Class 4th A..</p>
                 <p className="text-blue-300">Dr Smriti Ojha Sharma  </p>
@@ -199,7 +194,7 @@ state dance .. south dance... Mahabharat act... Raj kapoor songs... Etc...`
         <h2 className="text-3xl font-bold text-orange-500 mb-12 text-center">Values in Action</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <img  loading='lazy' src={student_plant}alt="Community service" className="w-full h-48 object-cover" />
+            <img  loading='lazy' src='/P_And_H/Student_plant.jpeg' alt="student_plant" className="w-full h-48 object-cover" />
             <div className="p-6">
               <h3 className="text-xl font-bold text-orange-500 mb-3">Community Engagement</h3>
               <p className="text-gray-600 mb-4">
@@ -210,7 +205,7 @@ state dance .. south dance... Mahabharat act... Raj kapoor songs... Etc...`
           </div>
           
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <img  loading='lazy' src= {football}
+            <img  loading='lazy' src= '/Images/football.jpg'
             alt="Leadership programs" className="w-full h-48 object-top" />
             <div className="p-6">
               <h3 className="text-xl font-bold text-orange-500 mb-3">Leadership Development</h3>

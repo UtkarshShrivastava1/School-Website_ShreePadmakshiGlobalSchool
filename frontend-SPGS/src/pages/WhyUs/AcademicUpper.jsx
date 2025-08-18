@@ -1,8 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import Class from "../../assets/Classroom/ClassN3.jpg";
 import { Link } from "react-router-dom";
-import image from "../../assets/c-2.png";
 import { useEffect } from "react";
 
 const AcademicUpper = () => {
@@ -89,7 +87,7 @@ Thank you and best wishes!
         {/* Background Image Wrapper */}
         <div
           className="w-full h-[60vh] md:h-[70vh] lg:h-[80vh] bg-cover bg-center bg-no-repeat flex items-center"
-          style={{ backgroundImage: `url(${image})` }}
+          style={{ backgroundImage: `url(/Images/c-2.png)` }}
         >
           <div className="w-full h-full bg-black/50 flex items-center">
             <div className="container mx-auto px-4 sm:px-6 md:px-8 text-white text-center sm:text-left">
@@ -225,7 +223,7 @@ Thank you and best wishes!
               <div className="space-y-6">
                 <div className="rounded-lg overflow-hidden shadow-lg">
                   <img
-                    src={Class}
+                    src='/Classroom/ClassN3.jpg'
                     alt="Students in classroom"
                     className="w-full h-81  object-full"
                   />
