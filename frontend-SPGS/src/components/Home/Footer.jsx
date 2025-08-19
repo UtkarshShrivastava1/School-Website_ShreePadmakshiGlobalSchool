@@ -36,7 +36,7 @@ const Footer = () => {
 
             <div className="mt-8">
               <img
-                src='/Images/Media.jpg'
+                src="/Images/Media.jpg"
                 alt="GEMS Education Logo"
                 className="w-16 md:w-20 rounded-full"
               />
@@ -54,27 +54,42 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/our-school" className="text-gray-600 hover:text-blue-700">
+                <Link
+                  to="/our-school"
+                  className="text-gray-600 hover:text-blue-700"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/our-campus" className="text-gray-600 hover:text-blue-700">
+                <Link
+                  to="/our-campus"
+                  className="text-gray-600 hover:text-blue-700"
+                >
                   Facilities and Campus
                 </Link>
               </li>
               <li>
-                <Link to="/our-location" className="text-gray-600 hover:text-blue-700">
+                <Link
+                  to="/our-location"
+                  className="text-gray-600 hover:text-blue-700"
+                >
                   Our Location
                 </Link>
               </li>
               <li>
-                <Link to="/faculty" className="text-gray-600 hover:text-blue-700">
+                <Link
+                  to="/faculty"
+                  className="text-gray-600 hover:text-blue-700"
+                >
                   Our Faculty
                 </Link>
               </li>
               <li>
-                <Link to="/transport-facilities" className="text-gray-600 hover:text-blue-700">
+                <Link
+                  to="/transport-facilities"
+                  className="text-gray-600 hover:text-blue-700"
+                >
                   School Transportation
                 </Link>
               </li>
@@ -88,22 +103,34 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="/fee-structure" className="text-gray-600 hover:text-blue-700">
+                <Link
+                  to="/fee-structure"
+                  className="text-gray-600 hover:text-blue-700"
+                >
                   Fees and Payments
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-600 hover:text-blue-700">
+                <Link
+                  to="/contact"
+                  className="text-gray-600 hover:text-blue-700"
+                >
                   Book a tour
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-600 hover:text-blue-700">
+                <Link
+                  to="/contact"
+                  className="text-gray-600 hover:text-blue-700"
+                >
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-gray-600 hover:text-blue-700">
+                <Link
+                  to="/contact"
+                  className="text-gray-600 hover:text-blue-700"
+                >
                   Enroll Online
                 </Link>
               </li>
@@ -117,22 +144,34 @@ const Footer = () => {
             </h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <Link to="why-mlzs" className="text-gray-600 hover:text-blue-700">
+                <Link
+                  to="why-spgs"
+                  className="text-gray-600 hover:text-blue-700"
+                >
                   Learning Overview
                 </Link>
               </li>
               <li>
-                <Link to="/house-system" className="text-gray-600 hover:text-blue-700">
+                <Link
+                  to="/house-system"
+                  className="text-gray-600 hover:text-blue-700"
+                >
                   Extra Curricular Activities
                 </Link>
               </li>
               <li>
-                <Link to="/school-calendar" className="text-gray-600 hover:text-blue-700">
+                <Link
+                  to="/school-calendar"
+                  className="text-gray-600 hover:text-blue-700"
+                >
                   Academic Calendar
                 </Link>
               </li>
               <li>
-                <Link to="/school-notification" className="text-gray-600 hover:text-blue-700">
+                <Link
+                  to="/school-notification"
+                  className="text-gray-600 hover:text-blue-700"
+                >
                   SPGS Newsletter
                 </Link>
               </li>
@@ -151,8 +190,8 @@ const Footer = () => {
                   size={20}
                 />
                 <span className="text-gray-600">
-                  Shree Padmakshi Global School Main road, near over bridge, Uslapur, Bilaspur C.G., Pincode-
-                  495001.
+                  Shree Padmakshi Global School Main road, near over bridge,
+                  Uslapur, Bilaspur C.G., Pincode- 495001.
                 </span>
               </li>
               <li className="flex items-center">
@@ -161,7 +200,7 @@ const Footer = () => {
                   to="mailto:spgsbilaspur@gmail.com"
                   className="text-gray-600 hover:text-blue-700"
                 >
-                 spgsbilaspur@gmail.com
+                  spgsbilaspur@gmail.com
                 </Link>
               </li>
               <li className="flex items-center">
@@ -170,7 +209,7 @@ const Footer = () => {
                   to="tel:9111777295"
                   className="text-gray-600 hover:text-blue-700"
                 >
-                   9111777295
+                  9111777295
                 </Link>
               </li>
               <li className="flex items-center">
@@ -204,16 +243,19 @@ const Footer = () => {
               >
                 Admin
               </Link> */}
-              <Link to="/admin-login" className="text-gray-600 hover:text-blue-700">
+              <Link
+                to="/admin-login"
+                className="text-gray-600 hover:text-blue-700"
+              >
                 Admin
               </Link>
             </div>
             <div className="text-gray-500 text-xs sm:text-sm mt-2 sm:mt-0 sm:ml-4">
-              Powered by 
-              <Link 
-                to="https://www.zager.in/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              Powered by
+              <Link
+                to="https://www.zager.in/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="ml-1 text-blue-700 hover:underline transition-colors duration-300 ease-in-out hover:text-blue-900 font-semibold"
               >
                 Zager Digital Services

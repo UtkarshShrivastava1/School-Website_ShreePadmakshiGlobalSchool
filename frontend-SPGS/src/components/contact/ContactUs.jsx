@@ -4,15 +4,13 @@ const LocationSection = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="text-center mb-12">
-   <div className="flex items-center justify-center mb-6 md:mb-10 px-4 md:px-0">
-  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
-  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-2 sm:px-4 md:px-6 text-center">
-  Our Location
-  </h2>
-  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
-</div>
-
-       
+        <div className="flex items-center justify-center mb-6 md:mb-10 px-4 md:px-0">
+          <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-2 sm:px-4 md:px-6 text-center">
+            Our Location
+          </h2>
+          <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -20,13 +18,16 @@ const LocationSection = () => {
         <div>
           <div className="space-y-6 border-2 border-red-600 rounded-lg p-6 shadow-md">
             <p className="text-xl md:text-3xl font-medium text-[#f25811]">
-            Shree Padmakshi Global School
+              Shree Padmakshi Global School
             </p>
 
             <p className="text-base md:text-lg">
               You can find
-              <span className="font-semibold">Shree Padmakshi Global School</span> at
-              Main road, near over bridge, Uslapur, Bilaspur C.G., Pincode- 495001..
+              <span className="font-semibold">
+                Shree Padmakshi Global School
+              </span>{" "}
+              at Main road, near over bridge, Uslapur, Bilaspur C.G., Pincode-
+              495001..
             </p>
 
             <p className="text-base md:text-lg">
@@ -35,7 +36,7 @@ const LocationSection = () => {
                 href="tel:9406430027"
                 className="text-teal-600 hover:text-teal-700 font-medium"
               >
-                9111777295, 9424130028
+                9111777295, 9424130028{" "}
               </a>
               or please refer to the map.
             </p>

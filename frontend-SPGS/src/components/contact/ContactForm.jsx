@@ -1,44 +1,56 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    subject: '',
-    message: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    subject: "",
+    message: "",
   });
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [id]: value
+      [id]: value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add form submission logic
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
   };
+
+  const handleRegistrationClick = () => {
+    window.open(
+      "https://entab.online/Registration/RegistrationGroupClass",
+      "_blank"
+    );
+  };
+
+  // Add useEffect to scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <div className="min-h-screen p-15">
       {/* Page Title Section */}
- <div className="flex items-center justify-center mb-6 md:mb-10 px-4 md:px-0">
-  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
-  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-2 sm:px-4 md:px-6 text-center">
-  Contact Us
-  </h2>
-  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
-</div>
-
-     
+      <div className="flex items-center justify-center mb-6 md:mb-10 px-4 md:px-0">
+        <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-2 sm:px-4 md:px-6 text-center">
+          Contact Us
+        </h2>
+        <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+      </div>
 
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8">
-        {/* Left Column with Border */}
+        {/* Left Column with Contact Information */}
         <div className="lg:w-1/2 border-2 border-[#f25811]/20 rounded-lg p-6 bg-white shadow-lg">
           <div className="mb-6">
             <button className="bg-[#f25811]/10 text-[#f25811] px-4 py-2 rounded-full text-sm font-medium">
@@ -46,16 +58,16 @@ const ContactPage = () => {
             </button>
           </div>
 
-          <h2 className="text-3xl font-bold mb-4 text-[#191f5d]">Have Questions?</h2>
+          <h2 className="text-3xl font-bold mb-4 text-[#191f5d]">
+            Have Questions?
+          </h2>
 
           <p className="text-gray-600 mb-8">
-            Our  team is here to help you with any questions about careers at
-            Shree Padmakshi Global School 
+            Our team is here to help you with any questions about admissions and
+            academics at Shree Padmakshi Global School
           </p>
 
           <div className="space-y-6">
-            
-
             <div className="flex items-center gap-4 p-4 border border-gray-100 rounded-lg hover:bg-[#f25811]/5 transition duration-300">
               <div className="w-10 h-10 bg-[#f25811]/10 rounded-full flex items-center justify-center">
                 <svg
@@ -80,7 +92,7 @@ const ContactPage = () => {
                 </svg>
               </div>
               <div>
-                <h3 className="font-medium text-lg text-[#191f5d]">Shree Padmakshi Global School</h3>
+                <h3 className="font-medium text-lg text-[#191f5d]">Visit Us</h3>
                 <p className="text-gray-600">
                   near over bridge, Uslapur, Bilaspur C.G., Pincode- 495001.
                 </p>
@@ -106,118 +118,79 @@ const ContactPage = () => {
               </div>
               <div>
                 <h3 className="font-medium text-lg text-[#191f5d]">
-                  admin@SPGSbilaspur.com
+                  Contact Info
                 </h3>
+                <p className="text-gray-600">admin@spgsbilaspur.com</p>
                 <p className="text-gray-600">9111777295, 9424130028</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Right Column - Modern Contact Form */}
+        {/* Right Column - Registration Section */}
         <div className="lg:w-1/2">
           <div className="bg-white rounded-xl shadow-2xl overflow-hidden">
             <div className="p-8 bg-gradient-to-r from-[#f25811] to-[#f25811]">
-              <h2 className="text-3xl font-bold text-white mb-2">Send a Message</h2>
+              <h2 className="text-3xl font-bold text-white mb-2">
+                Get Started
+              </h2>
               <p className="text-white text-opacity-80">
-                Fill out the form and we'll get back to you within 24 hours.
+                Start your journey with Shree Padmakshi Global School
               </p>
             </div>
-            
-            <form onSubmit={handleSubmit} className="p-8 space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <label 
-                    htmlFor="firstName" 
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    id="firstName"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300"
-                  />
+
+            <div className="p-8 space-y-6">
+              <div className="text-center space-y-4">
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <h3 className="text-xl font-semibold text-[#191f5d] mb-3">
+                    Connect with us{" "}
+                  </h3>
+                  <ul className="text-gray-600 space-y-2">
+                    <li>
+                      Have questions about admissions? Fill in the form and
+                      we’ll guide you.
+                    </li>
+                    <li>
+                      Looking for the right start for your child’s future?
+                      Connect with us today
+                    </li>
+                    <li>
+                      Want to explore our curriculum and facilities? Just drop
+                      your information below
+                    </li>
+                    <li>
+                      We’re here to answer all your admission-related
+                      queries—tell us how we can help
+                    </li>
+                  </ul>
                 </div>
-                <div>
-                  <label 
-                    htmlFor="lastName" 
-                    className="block text-sm font-medium text-gray-700 mb-2"
+
+                <button
+                  onClick={handleRegistrationClick}
+                  className="w-full bg-gradient-to-r from-[#f25811] to-[#f25811] text-white py-4 px-6 rounded-lg hover:from-red-700 hover:to-red-800 transition duration-300 transform hover:-translate-y-1 hover:scale-105 shadow-lg flex items-center justify-center space-x-2"
+                >
+                  <span className="text-lg font-semibold">Register Now</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
                   >
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300"
-                  />
-                </div>
-              </div>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </button>
 
-              <div>
-                <label 
-                  htmlFor="email" 
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300"
-                />
+                <p className="text-sm text-gray-500">
+                  By registering, you agree to our terms and conditions
+                </p>
               </div>
-
-              <div>
-                <label 
-                  htmlFor="subject" 
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300"
-                />
-              </div>
-
-              <div>
-                <label 
-                  htmlFor="message" 
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Your Message
-                </label>
-                <textarea
-                  id="message"
-                  rows={5}
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-300"
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-[#f25811] to-[#f25811] text-white py-3 rounded-lg hover:from-red-700 hover:to-red-800 transition duration-300 transform hover:-translate-y-1 hover:scale-105 shadow-lg"
-              >
-                Send Message
-              </button>
-            </form>
+            </div>
           </div>
         </div>
       </div>

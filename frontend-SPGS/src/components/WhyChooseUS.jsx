@@ -16,7 +16,7 @@ import {
   ClipboardCheck,
   Heart,
 } from "lucide-react";
-
+import { Link } from "react-router-dom";
 
 export default function WhyChooseUs() {
   const [activeTab, setActiveTab] = useState("tab1");
@@ -72,14 +72,15 @@ export default function WhyChooseUs() {
               </h1>
               <p className="max-w-[600px] text-white/90 md:text-xl">
                 At SHREE PADMAKSHI GLOBAL SCHOOL, BILASPUR we focus on all-round
-                development of students. Our protfolio program (OPP) puts
-                equal emphasis on knowledge, life skills and values.
+                development of students. Our protfolio program (OPP) puts equal
+                emphasis on knowledge, life skills and values.
               </p>
             </div>
             <div className="flex justify-center">
               <div className="relative h-[400px] w-[300px] md:h-[400px] md:w-[400px] rounded-full overflow-hidden border-4 border-white/20">
-                <img    loading='lazy'
-                  src='/Images/School.jpg'
+                <img
+                  loading="lazy"
+                  src="/Images/School.jpg"
                   alt="SPGS School"
                   fill
                   className="object-cover h-[400px]"
@@ -91,77 +92,76 @@ export default function WhyChooseUs() {
         <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
       </section>
 
-   {/* Programs Section */}
-<section className="py-10 md:py-16 px-4 md:px-6">
-  <div className="container mx-auto">
-    <div className="flex items-center justify-center mb-8 md:mb-10">
-      <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
-      <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-3 md:px-6 text-center">
-        Our Program
-      </h2>
-      <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
-    </div>
-    <Tabs defaultValue="skills" className="w-full">
-      <div className="overflow-x-auto pb-2">
-        <TabsList className="flex md:grid md:grid-cols-4 lg:grid-cols-7 mb-6 md:mb-8 min-w-max">
-          <TabsTrigger
-            isActive={activeTab === "tab1"}
-            onClick={() => setActiveTab("tab1")}
-            value="skills"
-            className="data-[state=active]:bg-blue-600 data-[state=active]:text-white cursor-pointer whitespace-nowrap px-3 py-2"
-          >
-            Skills
-          </TabsTrigger>
+      {/* Programs Section */}
+      <section className="py-10 md:py-16 px-4 md:px-6">
+        <div className="container mx-auto">
+          <div className="flex items-center justify-center mb-8 md:mb-10">
+            <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-3 md:px-6 text-center">
+              Our Program
+            </h2>
+            <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
+          </div>
+          <Tabs defaultValue="skills" className="w-full">
+            <div className="overflow-x-auto pb-2">
+              <TabsList className="flex md:grid md:grid-cols-4 lg:grid-cols-7 mb-6 md:mb-8 min-w-max">
+                <TabsTrigger
+                  isActive={activeTab === "tab1"}
+                  onClick={() => setActiveTab("tab1")}
+                  value="skills"
+                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-white cursor-pointer whitespace-nowrap px-3 py-2"
+                >
+                  Skills
+                </TabsTrigger>
 
-          <TabsTrigger
-            isActive={activeTab === "tab2"}
-            onClick={() => setActiveTab("tab2")}
-            value="technology"
-            className="data-[state=active]:bg-blue-600 data-[state=active]:text-white cursor-pointer whitespace-nowrap px-3 py-2"
-          >
-            Technology
-          </TabsTrigger>
+                <TabsTrigger
+                  isActive={activeTab === "tab2"}
+                  onClick={() => setActiveTab("tab2")}
+                  value="technology"
+                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-white cursor-pointer whitespace-nowrap px-3 py-2"
+                >
+                  Technology
+                </TabsTrigger>
 
-          
-          <TabsTrigger
-            isActive={activeTab === "tab4"}
-            onClick={() => setActiveTab("tab4")}
-            value="octave"
-            className="data-[state=active]:bg-blue-600 data-[state=active]:text-white cursor-pointer whitespace-nowrap px-3 py-2"
-          >
-            Inquery Base Approach
-          </TabsTrigger>
-          
-          <TabsTrigger
-            isActive={activeTab === "tab5"}
-            onClick={() => setActiveTab("tab5")}
-            value="teachers"
-            className="data-[state=active]:bg-blue-600 data-[state=active]:text-white cursor-pointer whitespace-nowrap px-3 py-2"
-          >
-            Teachers
-          </TabsTrigger>
+                <TabsTrigger
+                  isActive={activeTab === "tab4"}
+                  onClick={() => setActiveTab("tab4")}
+                  value="octave"
+                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-white cursor-pointer whitespace-nowrap px-3 py-2"
+                >
+                  Inquery Base Approach
+                </TabsTrigger>
 
-          <TabsTrigger
-            isActive={activeTab === "tab6"}
-            onClick={() => setActiveTab("tab6")}
-            value="assessment"
-            className="data-[state=active]:bg-blue-600 data-[state=active]:text-white cursor-pointer whitespace-nowrap px-3 py-2"
-          >
-            Assessment
-          </TabsTrigger>
-          
-          <TabsTrigger
-            isActive={activeTab === "tab7"}
-            onClick={() => setActiveTab("tab7")}
-            value="community"
-            className="data-[state=active]:bg-blue-600 data-[state=active]:text-white cursor-pointer whitespace-nowrap px-3 py-2"
-          >
-            Community
-          </TabsTrigger>
-        </TabsList>
-      </div>
+                <TabsTrigger
+                  isActive={activeTab === "tab5"}
+                  onClick={() => setActiveTab("tab5")}
+                  value="teachers"
+                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-white cursor-pointer whitespace-nowrap px-3 py-2"
+                >
+                  Teachers
+                </TabsTrigger>
 
-      <TabsContent
+                <TabsTrigger
+                  isActive={activeTab === "tab6"}
+                  onClick={() => setActiveTab("tab6")}
+                  value="assessment"
+                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-white cursor-pointer whitespace-nowrap px-3 py-2"
+                >
+                  Assessment
+                </TabsTrigger>
+
+                <TabsTrigger
+                  isActive={activeTab === "tab7"}
+                  onClick={() => setActiveTab("tab7")}
+                  value="community"
+                  className="data-[state=active]:bg-blue-600 data-[state=active]:text-white cursor-pointer whitespace-nowrap px-3 py-2"
+                >
+                  Community
+                </TabsTrigger>
+              </TabsList>
+            </div>
+
+            <TabsContent
               isActive={activeTab === "tab1"}
               value="skills"
               className="space-y-4"
@@ -197,8 +197,9 @@ export default function WhyChooseUs() {
                       </p>
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden">
-                      <img    loading='lazy'
-                        src='/Classroom/ClassN3.jpg'
+                      <img
+                        loading="lazy"
+                        src="/Classroom/ClassN3.jpg"
                         alt="Trained Teachers"
                         fill
                         className="object-cover"
@@ -244,8 +245,9 @@ export default function WhyChooseUs() {
                       </p>
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden">
-                      <img     loading='lazy'
-                        src='/Images/School.jpg'
+                      <img
+                        loading="lazy"
+                        src="/Images/School.jpg"
                         alt="Trained Teachers"
                         fill
                         className="object-cover"
@@ -255,8 +257,6 @@ export default function WhyChooseUs() {
                 </CardContent>
               </Card>
             </TabsContent>
-
-           
 
             <TabsContent
               isActive={activeTab === "tab4"}
@@ -276,9 +276,9 @@ export default function WhyChooseUs() {
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <p className="text-gray-700">
-                        Inqury Base Approch is the core belief of every SPGS school.
-                        It is a proprietary pedagogical model that has been
-                        honed over years of research and development. It
+                        Inqury Base Approch is the core belief of every SPGS
+                        school. It is a proprietary pedagogical model that has
+                        been honed over years of research and development. It
                         integrates the various pillars that impact the children
                         during their learning and development in school.
                       </p>
@@ -295,7 +295,7 @@ export default function WhyChooseUs() {
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden">
                       <img
-                        src='/Images/School.jpg'
+                        src="/Images/School.jpg"
                         alt=" PADMAKSHI  Octave"
                         fill
                         className="object-cover"
@@ -336,7 +336,7 @@ export default function WhyChooseUs() {
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden">
                       <img
-                        src='/Classroom/ClassN3.jpg'
+                        src="/Classroom/ClassN3.jpg"
                         alt="Trained Teachers"
                         fill
                         className="object-cover"
@@ -385,7 +385,7 @@ export default function WhyChooseUs() {
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden">
                       <img
-                        src='/Classroom/ClassN3.jpg'
+                        src="/Classroom/ClassN3.jpg"
                         alt="Trained Teachers"
                         fill
                         className="object-cover"
@@ -432,7 +432,7 @@ export default function WhyChooseUs() {
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden">
                       <img
-                        src='/Classroom/ClassN3.jpg'
+                        src="/Classroom/ClassN3.jpg"
                         alt="Trained Teachers"
                         fill
                         className="object-cover"
@@ -442,41 +442,43 @@ export default function WhyChooseUs() {
                 </CardContent>
               </Card>
             </TabsContent>
-    </Tabs>
-  </div>
-</section>
+          </Tabs>
+        </div>
+      </section>
 
-{/* Features Grid */}
-<section className="py-10 md:py-16 px-4 md:px-6 bg-gray-50">
-  <div className="container mx-auto">
-    <div className="flex items-center justify-center mb-8 md:mb-10">
-      <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
-      <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-3 md:px-6 text-center">
-        Our Key Features
-      </h2>
-      <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
-    </div>
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-      {features.map((feature, index) => (
-        <Card key={index} className="border-t-4 border-orange-600">
-          <CardHeader className="px-4 py-4 md:px-6">
-            <div className="flex items-center gap-2 md:gap-3">
-              <div className="bg-blue-100 p-2 rounded-full text-blue-600">
-                {feature.icon}
-              </div>
-              <CardTitle className="text-base md:text-lg">{feature.title}</CardTitle>
-            </div>
-          </CardHeader>
-          <CardContent className="px-4 md:px-6 pb-4 md:pb-6">
-            <CardDescription className="text-gray-700 text-sm md:text-base">
-              {feature.description}
-            </CardDescription>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-  </div>
-</section>
+      {/* Features Grid */}
+      <section className="py-10 md:py-16 px-4 md:px-6 bg-gray-50">
+        <div className="container mx-auto">
+          <div className="flex items-center justify-center mb-8 md:mb-10">
+            <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-3 md:px-6 text-center">
+              Our Key Features
+            </h2>
+            <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {features.map((feature, index) => (
+              <Card key={index} className="border-t-4 border-orange-600">
+                <CardHeader className="px-4 py-4 md:px-6">
+                  <div className="flex items-center gap-2 md:gap-3">
+                    <div className="bg-blue-100 p-2 rounded-full text-blue-600">
+                      {feature.icon}
+                    </div>
+                    <CardTitle className="text-base md:text-lg">
+                      {feature.title}
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="px-4 md:px-6 pb-4 md:pb-6">
+                  <CardDescription className="text-gray-700 text-sm md:text-base">
+                    {feature.description}
+                  </CardDescription>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="py-16 px-4 md:px-6 bg-[#191f5d] text-white">
@@ -490,18 +492,19 @@ export default function WhyChooseUs() {
             education.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white hover:text-white text-black hover:bg-orange-500 px-6 py-3 rounded-md font-medium cursor-pointer">
-              Schedule a Visit
-            </button>
+            <Link to="/contact">
+              <button className="bg-white hover:text-white text-black hover:bg-orange-500 px-6 py-3 rounded-md font-medium cursor-pointer">
+                Schedule a Visit
+              </button>
+            </Link>
             <button className="bg-transparent border border-white hover:bg-white/10 px-6 py-3 rounded-md font-medium cursor-pointer">
-             <a
-      href="/Padmakshi School Brochure-new.pdf" // Path to your brochure file
-      download="MySchoolBrochure.pdf" // Suggested filename for the downloaded file
-      className="download-button" // Optional: for styling
-    >
-      Download Brochure
-    </a>
-  
+              <a
+                href="/Padmakshi School Brochure-new.pdf" // Path to your brochure file
+                download="MySchoolBrochure.pdf" // Suggested filename for the downloaded file
+                className="download-button" // Optional: for styling
+              >
+                Download Brochure
+              </a>
             </button>
           </div>
         </div>

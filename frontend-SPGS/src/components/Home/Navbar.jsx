@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { Menu, X, Calendar, Bell, User, Icon, icons } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
 
@@ -27,7 +27,7 @@ import {
   Newspaper,
   Bug,
   Braces,
-  Trophy
+  Trophy,
 } from "lucide-react";
 
 const Navbar = () => {
@@ -96,7 +96,7 @@ const Navbar = () => {
       dropdownItems: [
         {
           name: "Why SPGS",
-          link: "/why-mlzs",
+          link: "/why-spgs",
           icon: <CircleHelp className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
         },
         {
@@ -164,11 +164,11 @@ const Navbar = () => {
           icon: <School className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
         },
         // { name: "Hi-Tech Classes", link: "/hi-tech-classes", icon: <Wifi className="sm:h-5 sm:w-5 md:h-6 md:w-6"/> },
-        {
-          name: "Faculty",
-          link: "/faculty",
-          icon: <SquareUserRound className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-        },
+        // {
+        //   name: "Faculty",
+        //   link: "/faculty",
+        //   icon: <SquareUserRound className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+        // },
         // {
         //   name: "Security & CCTV Surveillance",
         //   link: "/security-cctv-surveillance",
@@ -193,7 +193,7 @@ const Navbar = () => {
         {
           name: "Extracurricular activities",
           link: "/extracurricular-activities",
-           icon: <Trophy className="sm:h-5 sm:w-5 md:h-6 md:w-6"/>,
+          icon: <Trophy className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
         },
       ],
     },
@@ -311,7 +311,7 @@ const Navbar = () => {
           {/* Logo and Title */}
           <div className="flex items-center space-x-3">
             <img
-              src='/Images/Media.jpg'
+              src="/Images/Media.jpg"
               alt="School Logo"
               className="w-15 h-full rounded-full bg-white"
             />

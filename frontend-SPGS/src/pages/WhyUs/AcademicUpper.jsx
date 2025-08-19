@@ -5,8 +5,8 @@ import { useEffect } from "react";
 
 const AcademicUpper = () => {
   const [activeTab, setActiveTab] = useState("overview");
-     useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' }); // or 'auto'
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" }); // or 'auto'
   }, []);
 
   const academicPrograms = [
@@ -24,12 +24,6 @@ const AcademicUpper = () => {
       title: "STEM Program",
       description:
         "Specialized curriculum focusing on robotics, programming, engineering, and advanced mathematics.",
-    },
-
-    {
-      title: "Dual Enrollment",
-      description:
-        "Partnership with local colleges allowing students to earn college credits while completing high school.",
     },
   ];
 
@@ -223,7 +217,7 @@ Thank you and best wishes!
               <div className="space-y-6">
                 <div className="rounded-lg overflow-hidden shadow-lg">
                   <img
-                    src='/Classroom/ClassN3.jpg'
+                    src="/Classroom/ClassN3.jpg"
                     alt="Students in classroom"
                     className="w-full h-81  object-full"
                   />
