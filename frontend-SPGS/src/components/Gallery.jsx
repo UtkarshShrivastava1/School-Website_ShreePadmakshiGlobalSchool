@@ -51,7 +51,7 @@ const Gallery = () => {
       <div className="flex items-center justify-center mb-8 md:mb-10">
         <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-3 md:px-6 text-center">
-          Our Gallery a
+          Our Gallery
         </h2>
         <div className="w-1/5 md:w-1/4 h-px bg-gray-300"></div>
       </div>

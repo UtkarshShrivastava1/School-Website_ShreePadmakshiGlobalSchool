@@ -1,5 +1,4 @@
-
-import{Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import {
   ArrowRight,
   BookOpen,
@@ -11,10 +10,11 @@ import {
   Lightbulb,
 } from "lucide-react";
 import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function MiddleSchoolProgram() {
-     useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' }); // or 'auto'
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" }); // or 'auto'
   }, []);
   return (
     <div className="min-h-screen bg-white">
@@ -22,8 +22,9 @@ export default function MiddleSchoolProgram() {
       <section className="relative">
         {/* Background Image Wrapper */}
         <div className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh]">
-          <img    loading='lazy'
-            src='/Images/c-2.png'
+          <img
+            loading="lazy"
+            src="/Images/c-2.png"
             alt="Middle School Students Learning"
             className="absolute inset-0 w-full h-[60vh] object-cover brightness-[0.7]"
             priority
@@ -64,8 +65,9 @@ export default function MiddleSchoolProgram() {
             </p>
           </div>
           <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
-            <img    loading='lazy'
-              src='/LabAndLibrary/ArtRoom2.jpg'
+            <img
+              loading="lazy"
+              src="/LabAndLibrary/ArtRoom2.jpg"
               alt="Middle school students engaged in learning"
               fill
               className="object-cover"
@@ -159,9 +161,9 @@ export default function MiddleSchoolProgram() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1 relative h-[400px] rounded-xl overflow-hidden shadow-xl">
-            <img   
-               loading='lazy'
-              src='/Classroom/ClassN3.jpg'
+            <img
+              loading="lazy"
+              src="/Classroom/ClassN3.jpg"
               alt="Students taking assessments"
               fill
               className="object-cover"
@@ -459,8 +461,9 @@ export default function MiddleSchoolProgram() {
               </ul>
             </div>
             <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
-              <img    loading='lazy'
-                src='/LabAndLibrary/ArtRoom1.jpeg'
+              <img
+                loading="lazy"
+                src="/LabAndLibrary/ArtRoom1.jpeg"
                 alt="Students preparing for secondary school"
                 fill
                 className="object-cover"
@@ -493,8 +496,9 @@ export default function MiddleSchoolProgram() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
-                  <img    loading='lazy'
-                    src='/Testimonial/SPGS10.jpg'
+                  <img
+                    loading="lazy"
+                    src="/Testimonial/SPGS10.jpg"
                     alt="Student"
                     width={48}
                     height={48}
@@ -503,16 +507,18 @@ export default function MiddleSchoolProgram() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900">Pooja Pandey </h4>
-                  <p className="text-sm text-gray-500">Mother of - Prisha Pandey</p>
+                  <p className="text-sm text-gray-500">
+                    Mother of - Prisha Pandey
+                  </p>
                 </div>
               </div>
               <p className="text-gray-600 italic">
-                "Good evening ma’am.
-                  Thank you so much for organising such an amazing show yesterday. We were left awestruck
-                  with the entire performance. We can clearly see how much hard work, organising and
-                  coordinating must have gone into it by all the teachers and staffs. The whole show was
-                  breathtaking!❤
-                  Many many congratulations to you and entire school team"
+                "Good evening ma’am. Thank you so much for organising such an
+                amazing show yesterday. We were left awestruck with the entire
+                performance. We can clearly see how much hard work, organising
+                and coordinating must have gone into it by all the teachers and
+                staffs. The whole show was breathtaking!❤ Many many
+                congratulations to you and entire school team"
               </p>
             </div>
 
@@ -520,8 +526,9 @@ export default function MiddleSchoolProgram() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
-                  <img   loading='lazy'
-                    src='/Testimonial/SPGS07.jpg'
+                  <img
+                    loading="lazy"
+                    src="/Testimonial/SPGS07.jpg"
                     alt="Parent"
                     width={48}
                     height={48}
@@ -529,25 +536,25 @@ export default function MiddleSchoolProgram() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Satya prakash pandey</h4>
+                  <h4 className="font-semibold text-gray-900">
+                    Satya prakash pandey
+                  </h4>
                   <p className="text-sm text-gray-500">
                     Father of - Shravya Pandey
                   </p>
                 </div>
               </div>
               <p className="text-gray-600 italic">
-                "Good evening everyone.
-                I would like to take a moment to Thank The principal Mam, Teachers and All the staff for
-                organizing such a wonderful annual function.
-                It is evident that a lot of effort, Time & Dedication have gone into making this event
-                successful.
-
-                These kinds of events provide a great platform for our children to showcase their talents and
-                build their confidence.
-                As a parent,it fills my heart with immense Pride to see my daughter participating with such
-                enthusiasm.
-                The constant support and encouragement from her teachers brought out the best in her .
-                Thanks & Regards"
+                "Good evening everyone. I would like to take a moment to Thank
+                The principal Mam, Teachers and All the staff for organizing
+                such a wonderful annual function. It is evident that a lot of
+                effort, Time & Dedication have gone into making this event
+                successful. These kinds of events provide a great platform for
+                our children to showcase their talents and build their
+                confidence. As a parent,it fills my heart with immense Pride to
+                see my daughter participating with such enthusiasm. The constant
+                support and encouragement from her teachers brought out the best
+                in her . Thanks & Regards"
               </p>
             </div>
 
@@ -555,8 +562,9 @@ export default function MiddleSchoolProgram() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
-                  <img  loading='lazy'
-                    src='/Testimonial/SPGS06.jpg'
+                  <img
+                    loading="lazy"
+                    src="/Testimonial/SPGS06.jpg"
                     alt="Teacher"
                     width={48}
                     height={48}
@@ -567,20 +575,20 @@ export default function MiddleSchoolProgram() {
                   <h4 className="font-semibold text-gray-900">
                     Sourabh Todekar
                   </h4>
-                  <p className="text-sm text-gray-500">
-                    F/O Aadvik Todekar
-                  </p>
+                  <p className="text-sm text-gray-500">F/O Aadvik Todekar</p>
                 </div>
               </div>
               <p className="text-gray-600 italic">
-                "The Annual Function at Shree Padmakshi Global Mount Litera School was a fantastic
-                event! My Son, Aadvik Todekar, had an incredible time performing alongside his friends. The
-                performances were well-organized. showcasing the students' talents and creativity. The
-                inspiring theme and vibrant decorations added to the excitement. It was wonderful to see
-                Aadvik shine on stage, reflecting the hard work and dedication of both students and teachers.
-                Kudos to the entire staff for making it such a memorable and enjoyable experience for
-                everyone. A proud moment for us parents!
-                Thanks And Regards"
+                "The Annual Function at Shree Padmakshi Global Mount Litera
+                School was a fantastic event! My Son, Aadvik Todekar, had an
+                incredible time performing alongside his friends. The
+                performances were well-organized. showcasing the students'
+                talents and creativity. The inspiring theme and vibrant
+                decorations added to the excitement. It was wonderful to see
+                Aadvik shine on stage, reflecting the hard work and dedication
+                of both students and teachers. Kudos to the entire staff for
+                making it such a memorable and enjoyable experience for
+                everyone. A proud moment for us parents! Thanks And Regards"
               </p>
             </div>
           </div>
@@ -599,7 +607,7 @@ export default function MiddleSchoolProgram() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
-              href="https://entab.online/Registration/RegistrationGroupClass"
+              href="https://entab.online/Logon/Index"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 bg-[#191f5d] text-white font-semibold rounded-md hover:bg-indigo-700 transition-colors text-center"

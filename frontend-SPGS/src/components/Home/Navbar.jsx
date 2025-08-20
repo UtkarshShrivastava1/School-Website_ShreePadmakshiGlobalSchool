@@ -115,8 +115,8 @@ const Navbar = () => {
           icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
         },
         {
-          name: "Academics: Upper",
-          link: "/academics-upper",
+          name: "Academics: Secondary",
+          link: "/academics-secondary",
           icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
         },
         {
@@ -131,21 +131,21 @@ const Navbar = () => {
       link: "#",
       dropdown: true,
       dropdownItems: [
-        {
-          name: "Guidelines & Procedures",
-          link: "/guidelines-procedures",
-          icon: <NotebookText className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-        },
-        {
-          name: "School Rules & Regulations",
-          link: "/school-rules-regulations",
-          icon: <Scale className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-        },
-        {
-          name: "Withdrawal Policy",
-          link: "/withdrawal-policy",
-          icon: <ReceiptText className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-        },
+        // {
+        //   name: "Guidelines & Procedures",
+        //   link: "/guidelines-procedures",
+        //   icon: <NotebookText className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+        // },
+        // {
+        //   name: "School Rules & Regulations",
+        //   link: "/school-rules-regulations",
+        //   icon: <Scale className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+        // },
+        // {
+        //   name: "Withdrawal Policy",
+        //   link: "/withdrawal-policy",
+        //   icon: <ReceiptText className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+        // },
         {
           name: "Enquiry Form",
           link: "/enquiry-form",
@@ -222,11 +222,11 @@ const Navbar = () => {
           link: "/news-events",
           icon: <Mails className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
         },
-        {
-          name: "School Notification",
-          link: "/school-notification",
-          icon: <Bell className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-        },
+        // {
+        //   name: "School Notification",
+        //   link: "/news-events",
+        //   icon: <Bell className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+        // },
         // { name: "EPFUTURE", link: "/epfuture", icon: <Braces className="sm:h-5 sm:w-5 md:h-6 md:w-6"/> },
         {
           name: "Parent Visiting Hours",
@@ -340,7 +340,7 @@ const Navbar = () => {
               {/* News Icon */}
               <div
                 className="flex flex-col items-center cursor-pointer"
-                onClick={() => handleNavigation("/school-notifications")}
+                onClick={() => handleNavigation("/news-eventss")}
               >
                 <Bell className="h-5 w-5 text-yellow-200" />
                 <span className="text-xs text-yellow-200 mt-1">NEWS</span>
@@ -359,7 +359,7 @@ const Navbar = () => {
               <div className="flex flex-col items-center cursor-pointer">
                 <User className="h-5 w-5 text-yellow-200" />
                 <NavLink
-                  to="https://entab.online/Registration/RegistrationGroupClass"
+                  to="https://entab.online/Logon/Index"
                   className="text-xs text-yellow-200 mt-1"
                 >
                   ADMISSION

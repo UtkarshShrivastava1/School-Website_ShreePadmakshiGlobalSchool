@@ -1,20 +1,29 @@
 // import School from "../assets/School.jpg"
-import { ArrowRight, BookOpen, Brain, Users, Award, Calendar } from "lucide-react"
+import {
+  ArrowRight,
+  BookOpen,
+  Brain,
+  Users,
+  Award,
+  Calendar,
+} from "lucide-react";
 // import Classsroom from "../assets/Classroom/ClassN1.jpg"
-import {Link} from 'react-router-dom'
-// import SPGS04 from "../assets/Testimonial/SPGS04.jpg" 
-import { useEffect } from "react"
+import { Link } from "react-router-dom";
+// import SPGS04 from "../assets/Testimonial/SPGS04.jpg"
+import { useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 export default function PrimarySchoolProgram() {
-     useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' }); // or 'auto'
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" }); // or 'auto'
   }, []);
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative">
         <div className="absolute inset-0 z-0">
-          <img    loading='lazy'
+          <img
+            loading="lazy"
             src="https://images.pexels.com/photos/159844/cellular-education-classroom-159844.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=2"
             alt="Primary School Children Learning"
             fill
@@ -23,10 +32,12 @@ export default function PrimarySchoolProgram() {
           />
         </div>
         <div className="relative z-10 px-4 py-24 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center text-white">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">Primary School Program</h1>
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+            Primary School Program
+          </h1>
           <p className="mt-6 max-w-2xl text-xl">
-            Focusing on the child's potential both inside and outside the classroom, delivered using the Inquiry based
-            Approach.
+            Focusing on the child's potential both inside and outside the
+            classroom, delivered using the Inquiry based Approach.
           </p>
         </div>
       </section>
@@ -35,22 +46,27 @@ export default function PrimarySchoolProgram() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">SPGS-Bilaspur Primary</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              SPGS-Bilaspur Primary
+            </h2>
             <p className="text-lg text-gray-700 mb-6">
-              At the second phase of schooling, as the I.Q. level of the child increases, the teaching-learning
-              methodology takes a step ahead. Our purpose is to make these years as exciting as the previous years and
-              at the same time fulfilling & productive too.
+              At the second phase of schooling, as the I.Q. level of the child
+              increases, the teaching-learning methodology takes a step ahead.
+              Our purpose is to make these years as exciting as the previous
+              years and at the same time fulfilling & productive too.
             </p>
             <p className="text-lg text-gray-700">
-              The children are encouraged to participate in the broad spectrum of co-curricular activities. The
-              evaluation procedure is named CCE i.e. Continuous & Comprehensive Evaluation. Activities and projects are
-              conducted from time to time. This makes the child constantly alert about his performance without any
-              laxity.
+              The children are encouraged to participate in the broad spectrum
+              of co-curricular activities. The evaluation procedure is named CCE
+              i.e. Continuous & Comprehensive Evaluation. Activities and
+              projects are conducted from time to time. This makes the child
+              constantly alert about his performance without any laxity.
             </p>
           </div>
           <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
-            <img    loading='lazy'
-              src='/Images/School.jpg'
+            <img
+              loading="lazy"
+              src="/Images/School.jpg"
               alt="Students engaged in learning activities"
               fill
               className="object-cover h-[100%]"
@@ -63,7 +79,6 @@ export default function PrimarySchoolProgram() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-
             <div className="flex items-center justify-center mb-10">
               <div className="w-1/4 h-px bg-gray-300"></div>
               <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
@@ -72,8 +87,10 @@ export default function PrimarySchoolProgram() {
               <div className="w-1/4 h-px bg-gray-300"></div>
             </div>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-              Teachers create all learning experiences covering a range of learning needs. By the time children move
-              from the Primary School Program to the Middle School Program, they will have 'learnt to learn'.
+              Teachers create all learning experiences covering a range of
+              learning needs. By the time children move from the Primary School
+              Program to the Middle School Program, they will have 'learnt to
+              learn'.
             </p>
           </div>
 
@@ -83,9 +100,12 @@ export default function PrimarySchoolProgram() {
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
                 <BookOpen className="h-6 w-6 text-orange-500" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Comprehensive Curriculum</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Comprehensive Curriculum
+              </h3>
               <p className="text-gray-600">
-                A well-rounded curriculum designed to develop academic excellence and practical skills.
+                A well-rounded curriculum designed to develop academic
+                excellence and practical skills.
               </p>
             </div>
 
@@ -94,9 +114,12 @@ export default function PrimarySchoolProgram() {
               <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
                 <Brain className="h-6 w-6 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Inqury Based Approach</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Inqury Based Approach
+              </h3>
               <p className="text-gray-600">
-                A unique teaching methodology that enhances the child's intellectual capabilities.
+                A unique teaching methodology that enhances the child's
+                intellectual capabilities.
               </p>
             </div>
 
@@ -105,8 +128,13 @@ export default function PrimarySchoolProgram() {
               <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
                 <Users className="h-6 w-6 text-purple-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Co-curricular Activities</h3>
-              <p className="text-gray-600">Broad spectrum of activities to develop talents beyond academics.</p>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Co-curricular Activities
+              </h3>
+              <p className="text-gray-600">
+                Broad spectrum of activities to develop talents beyond
+                academics.
+              </p>
             </div>
 
             {/* Feature 4 */}
@@ -114,9 +142,12 @@ export default function PrimarySchoolProgram() {
               <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-4">
                 <Award className="h-6 w-6 text-orange-600" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Continuous Evaluation</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                Continuous Evaluation
+              </h3>
               <p className="text-gray-600">
-                CCE methodology ensures consistent monitoring and improvement of performance.
+                CCE methodology ensures consistent monitoring and improvement of
+                performance.
               </p>
             </div>
           </div>
@@ -127,43 +158,56 @@ export default function PrimarySchoolProgram() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="order-2 lg:order-1 relative h-[400px] rounded-xl overflow-hidden shadow-xl">
-            <img    loading='lazy'
-              src='/Classroom/ClassN3.jpg'
+            <img
+              loading="lazy"
+              src="/Classroom/ClassN3.jpg"
               alt="Interactive classroom learning"
               fill
               className="object-cover"
             />
           </div>
           <div className="order-1 lg:order-2">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Learning Methodology</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              Learning Methodology
+            </h2>
             <p className="text-lg text-gray-700 mb-6">
-              Our teaching-learning methodology is designed to make these formative years exciting, fulfilling, and
-              productive. We focus on creating an environment where children develop a love for learning.
+              Our teaching-learning methodology is designed to make these
+              formative years exciting, fulfilling, and productive. We focus on
+              creating an environment where children develop a love for
+              learning.
             </p>
             <ul className="space-y-4">
               <li className="flex items-start">
                 <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-1">
                   <ArrowRight className="h-4 w-4 text-orange-500" />
                 </div>
-                <p className="text-gray-700">Interactive classroom sessions that encourage participation</p>
+                <p className="text-gray-700">
+                  Interactive classroom sessions that encourage participation
+                </p>
               </li>
               <li className="flex items-start">
                 <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-1">
                   <ArrowRight className="h-4 w-4 text-orange-500" />
                 </div>
-                <p className="text-gray-700">Project-based learning to develop practical skills</p>
+                <p className="text-gray-700">
+                  Project-based learning to develop practical skills
+                </p>
               </li>
               <li className="flex items-start">
                 <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-1">
                   <ArrowRight className="h-4 w-4 text-orange-500" />
                 </div>
-                <p className="text-gray-700">Regular activities that make learning enjoyable</p>
+                <p className="text-gray-700">
+                  Regular activities that make learning enjoyable
+                </p>
               </li>
               <li className="flex items-start">
                 <div className="flex-shrink-0 h-6 w-6 rounded-full bg-blue-100 flex items-center justify-center mr-3 mt-1">
                   <ArrowRight className="h-4 w-4 text-orange-500" />
                 </div>
-                <p className="text-gray-700">Continuous assessment to track and improve performance</p>
+                <p className="text-gray-700">
+                  Continuous assessment to track and improve performance
+                </p>
               </li>
             </ul>
           </div>
@@ -173,22 +217,21 @@ export default function PrimarySchoolProgram() {
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-r from-red-700 to-[#800000] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Join Our Primary School Program</h2>
+          <h2 className="text-3xl font-bold mb-6">
+            Join Our Primary School Program
+          </h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Give your child the foundation they need for a successful academic journey. Our Primary School Program is
-            designed to nurture young minds and develop their full potential.
+            Give your child the foundation they need for a successful academic
+            journey. Our Primary School Program is designed to nurture young
+            minds and develop their full potential.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button className="px-8 py-3 bg-white text-orange-500 font-semibold rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
-              <Link to="https://entab.online/Registration/RegistrationGroupClass">
-              Enroll Now
-              </Link>
+              <Link to="https://entab.online/Logon/Index">Enroll Now</Link>
             </button>
-            <button className="px-8 py-3 bg-transparent border-2 border-white font-semibold rounded-md hover:bg-red-700 transition-colors cursor-pointer">
-               <Link to="/about">
-               Learn More
-              </Link>
-            </button>
+            {/* <button className="px-8 py-3 bg-transparent border-2 border-white font-semibold rounded-md hover:bg-red-700 transition-colors cursor-pointer">
+              <Link to="/about">Learn More</Link>
+            </button> */}
           </div>
         </div>
       </section>
@@ -197,12 +240,12 @@ export default function PrimarySchoolProgram() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center mb-10">
-              <div className="w-1/4 h-px bg-gray-300"></div>
-              <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
-                Upcoming Events
-              </h2>
-              <div className="w-1/4 h-px bg-gray-300"></div>
-            </div>
+            <div className="w-1/4 h-px bg-gray-300"></div>
+            <h2 className="text-3xl md:text-4xl font-serif text-orange-700 px-6">
+              Upcoming Events
+            </h2>
+            <div className="w-1/4 h-px bg-gray-300"></div>
+          </div>
           <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
             Stay updated with our school activities and events
           </p>
@@ -215,11 +258,19 @@ export default function PrimarySchoolProgram() {
               <Calendar className="h-5 w-5 text-orange-500 mr-2" />
               <span className="text-sm text-gray-500">May 15, 2025</span>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Annual Science Exhibition</h3>
-            <p className="text-gray-600 mb-4">Students showcase their innovative science projects and experiments.</p>
-            <a href="#" className="text-orange-500 font-medium hover:text-blue-800 flex items-center">
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              Annual Science Exhibition
+            </h3>
+            <p className="text-gray-600 mb-4">
+              Students showcase their innovative science projects and
+              experiments.
+            </p>
+            {/* <a
+              href="#"
+              className="text-orange-500 font-medium hover:text-blue-800 flex items-center"
+            >
               Learn more <ArrowRight className="h-4 w-4 ml-1" />
-            </a>
+            </a> */}
           </div>
 
           {/* Event 2 */}
@@ -228,13 +279,19 @@ export default function PrimarySchoolProgram() {
               <Calendar className="h-5 w-5 text-orange-500 mr-2" />
               <span className="text-sm text-gray-500">June 5, 2025</span>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Parent-Teacher Meeting</h3>
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              Parent-Teacher Meeting
+            </h3>
             <p className="text-gray-600 mb-4">
-              Discuss your child's progress and development with our experienced teachers.
+              Discuss your child's progress and development with our experienced
+              teachers.
             </p>
-            <a href="#" className="text-orange-500 font-medium hover:text-orange-500 flex items-center">
+            {/* <a
+              href="#"
+              className="text-orange-500 font-medium hover:text-orange-500 flex items-center"
+            >
               Learn more <ArrowRight className="h-4 w-4 ml-1" />
-            </a>
+            </a> */}
           </div>
 
           {/* Event 3 */}
@@ -243,11 +300,18 @@ export default function PrimarySchoolProgram() {
               <Calendar className="h-5 w-5 text-orange-500 mr-2" />
               <span className="text-sm text-gray-500">July 10, 2025</span>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">Cultural Fest</h3>
-            <p className="text-gray-600 mb-4">A celebration of art, music, dance, and cultural diversity.</p>
-            <a href="#" className="text-orange-500 font-medium hover:text-blue-800 flex items-center">
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">
+              Cultural Fest
+            </h3>
+            <p className="text-gray-600 mb-4">
+              A celebration of art, music, dance, and cultural diversity.
+            </p>
+            {/* <a
+              href="#"
+              className="text-orange-500 font-medium hover:text-blue-800 flex items-center"
+            >
               Learn more <ArrowRight className="h-4 w-4 ml-1" />
-            </a>
+            </a> */}
           </div>
         </div>
       </section>
@@ -264,7 +328,8 @@ export default function PrimarySchoolProgram() {
               <div className="w-1/4 h-px bg-gray-300"></div>
             </div>
             <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
-              Hear from parents whose children have thrived in our Primary School Program
+              Hear from parents whose children have thrived in our Primary
+              School Program
             </p>
           </div>
 
@@ -273,8 +338,9 @@ export default function PrimarySchoolProgram() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
-                  <img    loading='lazy'
-                    src='/Testimonial/SPGS04.jpg'
+                  <img
+                    loading="lazy"
+                    src="/Testimonial/SPGS04.jpg"
                     alt="Parent"
                     width={48}
                     height={48}
@@ -282,18 +348,21 @@ export default function PrimarySchoolProgram() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Pradeep Jaiswal</h4>
+                  <h4 className="font-semibold text-gray-900">
+                    Pradeep Jaiswal
+                  </h4>
                   <p className="text-sm text-gray-500">F/O Amay Jaiswal</p>
                 </div>
               </div>
               <p className="text-gray-600 italic">
-                "I would like to extend my heartfelt appreciation to the school management,
-                  teachers, and students for organizing such a wonderful annual function yesterday. The efforts
-                  put into the performances, decorations, and overall coordination were truly commendable.
-                  Each act showcased the immense talent and hard work of the students and staff. It was a joy
-                  to witness such creativity and enthusiasm. Thank you for making it a memorable event!"
-                   -Thanks and Regards
-
+                "I would like to extend my heartfelt appreciation to the school
+                management, teachers, and students for organizing such a
+                wonderful annual function yesterday. The efforts put into the
+                performances, decorations, and overall coordination were truly
+                commendable. Each act showcased the immense talent and hard work
+                of the students and staff. It was a joy to witness such
+                creativity and enthusiasm. Thank you for making it a memorable
+                event!" -Thanks and Regards
               </p>
             </div>
 
@@ -301,8 +370,9 @@ export default function PrimarySchoolProgram() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
-                  <img    loading='lazy'
-                    src='/Testimonial/SPGS22.jpg'
+                  <img
+                    loading="lazy"
+                    src="/Testimonial/SPGS22.jpg"
                     alt="Parent"
                     width={48}
                     height={50}
@@ -310,16 +380,21 @@ export default function PrimarySchoolProgram() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900"> MR AND MRS ASHISH SHUKLA
-                </h4>
-                  <p className="text-sm text-gray-500">Parent of Grade 4 student</p>
+                  <h4 className="font-semibold text-gray-900">
+                    {" "}
+                    MR AND MRS ASHISH SHUKLA
+                  </h4>
+                  <p className="text-sm text-gray-500">
+                    Parent of Grade 4 student
+                  </p>
                 </div>
               </div>
               <p className="text-gray-600 italic">
-                "Dear all Teacher, Thank you so much for organizing such an amazing annual function, Thanks to the teacher for guiding him and motivating him. I hope in feture also my son will be motivate like thsi ,,,
-                Regards, 
+                "Dear all Teacher, Thank you so much for organizing such an
+                amazing annual function, Thanks to the teacher for guiding him
+                and motivating him. I hope in feture also my son will be
+                motivate like thsi ,,, Regards,
                 <br />
-               
               </p>
             </div>
 
@@ -327,8 +402,9 @@ export default function PrimarySchoolProgram() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="flex items-center mb-4">
                 <div className="h-12 w-12 rounded-full bg-gray-200 overflow-hidden mr-4">
-                <img    loading='lazy'
-                    src='/Testimonial/SPGS22.jpg'
+                  <img
+                    loading="lazy"
+                    src="/Testimonial/SPGS22.jpg"
                     alt="Parent"
                     width={48}
                     height={48}
@@ -337,12 +413,17 @@ export default function PrimarySchoolProgram() {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900">Anita Patel</h4>
-                  <p className="text-sm text-gray-500">Parent of Grade 2 student</p>
+                  <p className="text-sm text-gray-500">
+                    Parent of Grade 2 student
+                  </p>
                 </div>
               </div>
               <p className="text-gray-600 italic">
-                "We just wanted to take a moment to express our heartfelt gratitude for the wonderful annual function that was organized. From the  vibrant performances to the flawless execution, it was a
-                clear that so much love,efforts and passion went into making this event truly sepcial"
+                "We just wanted to take a moment to express our heartfelt
+                gratitude for the wonderful annual function that was organized.
+                From the vibrant performances to the flawless execution, it was
+                a clear that so much love,efforts and passion went into making
+                this event truly sepcial"
               </p>
             </div>
           </div>
@@ -352,18 +433,18 @@ export default function PrimarySchoolProgram() {
       {/* Footer CTA */}
       <section className="py-12 bg-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">Ready to give your child the best education?</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            Ready to give your child the best education?
+          </h2>
           <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
-            Contact us today to learn more about our Primary School Program and admission process.
+            Contact us today to learn more about our Primary School Program and
+            admission process.
           </p>
           <button className="px-8 py-3 bg-orange-500 text-white font-semibold rounded-md hover:bg-red-700 transition-colors cursor-pointer">
-             <Link to="/contact">
-            Contact Us
-            </Link>
+            <Link to="/contact">Contact Us</Link>
           </button>
         </div>
       </section>
     </div>
-  )
+  );
 }
-

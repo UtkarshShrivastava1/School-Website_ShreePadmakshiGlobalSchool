@@ -1,6 +1,7 @@
 import React from "react";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -78,12 +79,12 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link
+                {/* <Link
                   to="/faculty"
                   className="text-gray-600 hover:text-blue-700"
                 >
                   Our Faculty
-                </Link>
+                </Link> */}
               </li>
               <li>
                 <Link
@@ -169,10 +170,10 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/school-notification"
+                  to="/news-events"
                   className="text-gray-600 hover:text-blue-700"
                 >
-                  SPGS Newsletter
+                  SPGS Corner
                 </Link>
               </li>
             </ul>

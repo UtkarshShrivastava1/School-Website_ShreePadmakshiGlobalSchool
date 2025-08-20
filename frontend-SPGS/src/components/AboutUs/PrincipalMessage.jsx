@@ -1,7 +1,5 @@
 import { User, BookOpen, GraduationCap, Users } from "lucide-react";
 
-
-
 const PrincipalWelcome = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
@@ -57,7 +55,7 @@ const PrincipalWelcome = () => {
                 <div className="w-48 h-48 rounded-full bg-gray-200 flex items-center justify-center mb-6 border-4 border-primary/20 overflow-hidden shadow-md">
                   {/* Principal's photo */}
                   <img
-                    src='../principal.JPG'
+                    src="../principal.JPG"
                     alt="Mrs. Sweta Singh"
                     className="w-full h-full object-cover"
                     onError={(e) => {
@@ -134,11 +132,11 @@ const PrincipalWelcome = () => {
                 </div>
 
                 {/* Signature Image Placeholder */}
-                <div className="mt-6 border-t border-gray-200 pt-6">
+                {/* <div className="mt-6 border-t border-gray-200 pt-6">
                   <div className="h-16 w-48 bg-gray-100 rounded flex items-center justify-center text-gray-400 italic text-sm">
                     Signature
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 
@@ -150,7 +148,7 @@ const PrincipalWelcome = () => {
           </div>
 
           {/* Contact Button */}
-          <div className="text-center mt-8">
+          {/* <div className="text-center mt-8">
             <button className="bg-[#f25811] hover:bg-primary/90 text-white font-medium py-2 px-6 rounded-full shadow-md transition-all flex items-center mx-auto">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +166,7 @@ const PrincipalWelcome = () => {
               </svg>
               Contact the Principal
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

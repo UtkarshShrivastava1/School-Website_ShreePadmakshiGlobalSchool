@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Clock, Info, MapPin, ExternalLink, Phone } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 const VisitingHoursPage = () => {
   const [activeTab, setActiveTab] = useState("principal");
@@ -13,19 +14,19 @@ const VisitingHoursPage = () => {
   const staffInfo = {
     principal: {
       title: "Available Hours",
-      hours: "9:00 AM to 3:00 PM (Monday - Friday)",
+      hours: "9:00 AM to 3:00 PM (Monday - Saturday)",
       description:
         "The Principal is available to discuss academic policies, student performance, and school-wide initiatives.",
     },
     coordinator: {
       title: "Office Hours",
-      hours: "12:00 PM to 3:00 PM (Monday - Friday)",
+      hours: "12:00 PM to 3:00 PM (Monday - Saturday)",
       description:
         "The School Coordinator assists with program enrollment, curriculum questions, and parent-teacher coordination.",
     },
     administration: {
       title: "Front Desk Hours",
-      hours: "9:00 AM to 3:00 PM (Monday - Friday)",
+      hours: "9:00 AM to 3:00 PM (Monday - Saturday)",
       description:
         "Administration staff can help with general inquiries, forms, attendance, and scheduling appointments with other staff members.",
     },
@@ -56,13 +57,12 @@ const VisitingHoursPage = () => {
           </div>
 
           <div className="flex items-center justify-center mb-6 md:mb-10 px-4 md:px-0">
-  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
-  <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-2 sm:px-4 md:px-6 text-center">
-  Visiting Hours For Parents
-  </h2>
-  <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
-</div>
-
+            <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif text-orange-700 px-2 sm:px-4 md:px-6 text-center">
+              Visiting Hours For Parents
+            </h2>
+            <div className="w-12 md:w-1/5 lg:w-1/4 h-px bg-gray-300 flex-shrink-0"></div>
+          </div>
 
           {/* <h1 className="text-4xl font-bold text-slate-800 mb-4">
             Visiting Hours <span className="text-orange-600 hover:text-orange-800 transition-colors duration-300">For Parents</span>
@@ -80,18 +80,8 @@ const VisitingHoursPage = () => {
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <button
-              className="flex items-center bg-slate-900 text-white px-4 py-2 rounded-md
-              hover:bg-orange-700 transform hover:scale-105 transition-all duration-300 cursor-pointer"
-            >
-              Schedule Appointment
-            </button>
-            <button
-              className="flex items-center border border-slate-300 px-4 py-2 rounded-md
-              hover:bg-slate-100 transform hover:scale-105 transition-all duration-300 cursor-pointer"
-            >
-              <Phone className="w-5 h-5 mr-2" />
-              Contact Us
+            <button className="bg-white text-orange-500 font-bold py-3 px-8 rounded-full cursor-pointer hover:bg-red-100 transition duration-300">
+              <NavLink to="/contact"> Contact Us</NavLink>
             </button>
           </div>
         </div>

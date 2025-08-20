@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -24,10 +25,7 @@ const ContactPage = () => {
   };
 
   const handleRegistrationClick = () => {
-    window.open(
-      "https://entab.online/Registration/RegistrationGroupClass",
-      "_blank"
-    );
+    window.open("https://entab.online/Logon/Index", "_blank");
   };
 
   // Add useEffect to scroll to top when component mounts
@@ -94,7 +92,7 @@ const ContactPage = () => {
               <div>
                 <h3 className="font-medium text-lg text-[#191f5d]">Visit Us</h3>
                 <p className="text-gray-600">
-                  near over bridge, Uslapur, Bilaspur C.G., Pincode- 495001.
+                  Near over bridge, Uslapur, Bilaspur C.G., Pincode- 495001.
                 </p>
               </div>
             </div>

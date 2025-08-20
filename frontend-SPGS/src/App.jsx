@@ -189,7 +189,7 @@ function AppContent() {
           />
           <Route path="/academics-primary" element={<AcademicsPrimary />} />
           <Route path="/academics-middle" element={<AcademicsMiddle />} />
-          <Route path="/academics-upper" element={<AcademicUpper />} />
+          <Route path="/academics-secondary" element={<AcademicUpper />} />
           <Route path="/beyond-academics" element={<BeyondAcademics />} />
 
           <Route
@@ -224,7 +224,7 @@ function AppContent() {
           <Route path="/fee-structure" element={<FeeStructure />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/news-events" element={<NewsEvents />} />
-          <Route path="/school-notification" element={<SchoolNotification />} />
+          <Route path="/news-events" element={<SchoolNotification />} />
           <Route path="/epfuture" element={<EPFUTURE />} />
           <Route
             path="/parent-visiting-hours"
@@ -255,10 +255,7 @@ function AppContent() {
             element={<GalleryDashboard />}
           />
           <Route path="/school-calendar" element={<SchoolCalendar />} />
-          <Route
-            path="/school-notifications"
-            element={<SchoolNotification />}
-          />
+          <Route path="/news-eventss" element={<SchoolNotification />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/policy" element={<Policy />} />
         </Routes>

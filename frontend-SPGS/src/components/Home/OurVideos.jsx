@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 
-
 const statsData = [
   { label: "Students", value: 1200 },
   { label: "Teachers", value: 120 },
@@ -48,7 +47,7 @@ const SchoolHeroSection = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src='/Images/c-4.png'
+          src="/Images/c-4.png"
           alt="School campus background"
           className="w-full h-full object-cover"
         />
@@ -79,14 +78,14 @@ const SchoolHeroSection = () => {
               creative exploration, preparing students for success in a rapidly
               changing world.
             </p>
-            <div className="pt-4 flex flex-wrap gap-4">
+            {/* <div className="pt-4 flex flex-wrap gap-4">
               <button className="bg-orange-400 hover:bg-yellow-400 text-blue-900 font-bold py-3 px-6 rounded-md transition-colors">
                 Schedule a Tour
               </button>
               <button className="bg-transparent hover:bg-white/10 border-2 border-white text-white font-bold py-3 px-6 rounded-md transition-colors">
                 View Programs
               </button>
-            </div>
+            </div> */}
             <div className="flex items-center space-x-4 pt-6">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map((i) => (

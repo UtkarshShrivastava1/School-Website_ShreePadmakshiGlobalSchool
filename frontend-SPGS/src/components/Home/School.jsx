@@ -1,11 +1,10 @@
-
 import { NavLink } from "react-router-dom";
 
 const CommunityVoices = () => {
   const sections = [
     {
       title: "Pre-Primary School",
-      imgSrc: '/Images/c-2.jpg',
+      imgSrc: "/Images/c-2.jpg",
       alt: "Primary School Students",
       description:
         "Experience the joy of early learning in our nurturing environment where young minds flourish through discovery and play.",
@@ -14,7 +13,7 @@ const CommunityVoices = () => {
     },
     {
       title: "Primary School",
-      imgSrc: '/Images/c-1.jpg',
+      imgSrc: "/Images/c-1.jpg",
       alt: "Lower School Students",
       description:
         "Lower School fosters curiosity and growth through personalized learning, supportive relationships, and joyful discovery.",
@@ -23,7 +22,7 @@ const CommunityVoices = () => {
     },
     {
       title: "Middle School",
-      imgSrc: '/Images/c-4.jpg',
+      imgSrc: "/Images/c-4.jpg",
       alt: "Middle School Students",
       description:
         "Our Middle School empowers students to explore their passions, develop independence, and grow as young leaders.",
@@ -32,12 +31,12 @@ const CommunityVoices = () => {
     },
     {
       title: "Secondary School",
-      imgSrc: '/Images/c-3.jpg',
+      imgSrc: "/Images/c-3.jpg",
       alt: "Upper School Students",
       description:
         "Upper School students thrive in a rigorous academic environment that prepares them for college and life beyond.",
       class: "9 to 12",
-      link: "/academics-upper",
+      link: "/academics-secondary",
     },
   ];
 
@@ -61,7 +60,7 @@ const CommunityVoices = () => {
               <div className="md:flex">
                 <div className="md:w-2/5 relative">
                   <img
-                  lazyLoading="lazy"
+                    lazyLoading="lazy"
                     src={section.imgSrc}
                     alt={section.alt}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
