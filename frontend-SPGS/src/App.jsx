@@ -259,10 +259,10 @@ function AppContent() {
           <Route path="/terms" element={<Terms />} />
           <Route path="/policy" element={<Policy />} />
         </Routes>
+        {!isAdminRoute && <Footer />}
+
         <ScrollToTop />
       </Suspense>
-
-      {!isAdminRoute && <Footer />}
     </>
   );
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -57,6 +56,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/our-school"
+                  onClick={() => window.scrollTo(0, 0)}
                   className="text-gray-600 hover:text-blue-700"
                 >
                   About Us
@@ -65,6 +65,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/our-campus"
+                  onClick={() => window.scrollTo(0, 0)}
                   className="text-gray-600 hover:text-blue-700"
                 >
                   Facilities and Campus
@@ -73,22 +74,16 @@ const Footer = () => {
               <li>
                 <Link
                   to="/our-location"
+                  onClick={() => window.scrollTo(0, 0)}
                   className="text-gray-600 hover:text-blue-700"
                 >
                   Our Location
                 </Link>
               </li>
               <li>
-                {/* <Link
-                  to="/faculty"
-                  className="text-gray-600 hover:text-blue-700"
-                >
-                  Our Faculty
-                </Link> */}
-              </li>
-              <li>
                 <Link
                   to="/transport-facilities"
+                  onClick={() => window.scrollTo(0, 0)}
                   className="text-gray-600 hover:text-blue-700"
                 >
                   School Transportation
@@ -106,6 +101,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/fee-structure"
+                  onClick={() => window.scrollTo(0, 0)}
                   className="text-gray-600 hover:text-blue-700"
                 >
                   Fees and Payments
@@ -114,6 +110,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/contact"
+                  onClick={() => window.scrollTo(0, 0)}
                   className="text-gray-600 hover:text-blue-700"
                 >
                   Book a tour
@@ -122,6 +119,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/contact"
+                  onClick={() => window.scrollTo(0, 0)}
                   className="text-gray-600 hover:text-blue-700"
                 >
                   Contact Us
@@ -130,6 +128,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/contact"
+                  onClick={() => window.scrollTo(0, 0)}
                   className="text-gray-600 hover:text-blue-700"
                 >
                   Enroll Online
@@ -147,6 +146,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="why-spgs"
+                  onClick={() => window.scrollTo(0, 0)}
                   className="text-gray-600 hover:text-blue-700"
                 >
                   Learning Overview
@@ -154,7 +154,8 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/house-system"
+                  to="/extracurricular-activities"
+                  onClick={() => window.scrollTo(0, 0)}
                   className="text-gray-600 hover:text-blue-700"
                 >
                   Extra Curricular Activities
@@ -163,6 +164,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/school-calendar"
+                  onClick={() => window.scrollTo(0, 0)}
                   className="text-gray-600 hover:text-blue-700"
                 >
                   Academic Calendar
@@ -171,6 +173,7 @@ const Footer = () => {
               <li>
                 <Link
                   to="/news-events"
+                  onClick={() => window.scrollTo(0, 0)}
                   className="text-gray-600 hover:text-blue-700"
                 >
                   SPGS Corner
@@ -230,22 +233,25 @@ const Footer = () => {
         <div className="border-t border-gray-300 pt-4 flex flex-col sm:flex-row justify-between text-xs sm:text-sm">
           <div className="flex flex-col sm:flex-row gap-4 mb-2 sm:mb-0 items-center">
             <div className="flex items-center gap-4">
-              <Link to="/policy" className="text-gray-600 hover:text-blue-700">
+              <Link
+                to="/policy"
+                onClick={() => window.scrollTo(0, 0)}
+                className="text-gray-600 hover:text-blue-700"
+              >
                 Privacy Policy
               </Link>
               <span className="text-gray-400">•</span>
-              <Link to="/terms" className="text-gray-600 hover:text-blue-700">
+              <Link
+                to="/terms"
+                onClick={() => window.scrollTo(0, 0)}
+                className="text-gray-600 hover:text-blue-700"
+              >
                 Terms & Conditions
               </Link>
               <span className="text-gray-400">•</span>
-              {/* <Link
-                to="/admin-login"
-                className="text-gray-600 hover:text-blue-700"
-              >
-                Admin
-              </Link> */}
               <Link
                 to="/admin-login"
+                onClick={() => window.scrollTo(0, 0)}
                 className="text-gray-600 hover:text-blue-700"
               >
                 Admin

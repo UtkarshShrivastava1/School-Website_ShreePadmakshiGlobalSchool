@@ -24,7 +24,7 @@ export default function PrimarySchoolProgram() {
         <div className="absolute inset-0 z-0">
           <img
             loading="lazy"
-            src="https://images.pexels.com/photos/159844/cellular-education-classroom-159844.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=2"
+            src="/Images/c-1.jpg"
             alt="Primary School Children Learning"
             fill
             className="object-cover w-full h-[100%] brightness-[0.7]"
@@ -160,9 +160,8 @@ export default function PrimarySchoolProgram() {
           <div className="order-2 lg:order-1 relative h-[400px] rounded-xl overflow-hidden shadow-xl">
             <img
               loading="lazy"
-              src="/Classroom/ClassN3.jpg"
+              src="/Images/4Z2A4233.jpg"
               alt="Interactive classroom learning"
-              fill
               className="object-cover"
             />
           </div>
