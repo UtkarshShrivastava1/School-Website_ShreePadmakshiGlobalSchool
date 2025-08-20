@@ -32,7 +32,7 @@ const SchoolTourSection = () => {
 
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full sm:w-auto items-center justify-center">
           {/* NOW Button */}
-          <Link to="/contact" onClick={scrollToTop} className="flex">
+          {/* <Link to="/contact" onClick={scrollToTop} className="flex">
             <button
               className={`relative overflow-hidden bg-white text-yellow-600 px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-medium rounded shadow-lg transform transition-all duration-300 ${
                 isHovered ? "scale-105 shadow-xl" : ""
@@ -47,7 +47,7 @@ const SchoolTourSection = () => {
                 }`}
               ></span>
             </button>
-          </Link>
+          </Link> */}
 
           {/* BOOK A SCHOOL TOUR Button */}
           <Link to="/contact" onClick={scrollToTop} className="flex">
