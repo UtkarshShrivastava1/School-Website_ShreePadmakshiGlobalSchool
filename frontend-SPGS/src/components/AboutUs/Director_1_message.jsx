@@ -167,9 +167,8 @@ const Directors_1_message = () => {
           </div>
         </div>
       </div>
-
       {/* Call to Action */}
-      <div className="bg-gradient-to-r from-blue-700 to-blue-900 text-white py-16">
+      <div className="bg-[#191f5d] text-white py-16">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-6">
             Experience Our Vision In Person
@@ -179,13 +178,8 @@ const Directors_1_message = () => {
             for your child's education and development.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <NavLink to="/contact">
-              <button className="bg-white hover:text-white text-black hover:bg-orange-500 px-6 py-3 rounded-md font-medium cursor-pointer">
-                Schedule a Visit
-              </button>
-            </NavLink>
-            <button className="bg-transparent hover:bg-blue-600 border-2 border-white text-white font-bold py-3 px-8 rounded-lg transition duration-300">
-              Contact Us
+            <button className="bg-white text-orange-500 font-bold py-3 px-8 rounded-full cursor-pointer hover:bg-red-100 transition duration-300">
+              <NavLink to="/contact"> Contact Us</NavLink>
             </button>
           </div>
         </div>
