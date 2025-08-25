@@ -29,9 +29,9 @@ const DirectorsMessagePage = () => {
                   alt="Dr. Sanjana Tiwari"
                   className="rounded-full h-64 w-64 object-cover border-4 border-white shadow-xl"
                 />
-                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white py-2 px-6 rounded-full shadow-lg">
-                  <p className="text-orange-500 text-sm font-bold">
-                    Since 2022
+                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white py-2 px-6 rounded-full shadow-lg flex items-center justify-center">
+                  <p className="text-orange-500 text-sm font-bold leading-none text-center whitespace-nowrap">
+                    Dr. Sanjana Tiwari
                   </p>
                 </div>
               </div>

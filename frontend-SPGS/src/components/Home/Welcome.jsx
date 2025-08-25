@@ -47,7 +47,7 @@ const WelcomeBanner = () => {
       >
         {/* Apply Now Button */}
         <a
-          href="https://entab.online/Logon/Index"
+          href="https://entab.online/Registration/RegistrationGroupClass"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block"

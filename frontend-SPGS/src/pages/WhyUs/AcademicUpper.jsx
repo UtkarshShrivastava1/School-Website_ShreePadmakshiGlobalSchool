@@ -653,7 +653,9 @@ Thank you and best wishes!
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <button className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-md font-medium transition">
-                <Link to="https://entab.online/Logon/Index">Apply Now</Link>
+                <Link to="https://entab.online/Registration/RegistrationGroupClass">
+                  Apply Now
+                </Link>
               </button>
               <button className="bg-transparent border border-white hover:bg-white hover:text-gray-900 px-8 py-3 rounded-md font-medium transition">
                 <Link to="/contact">Request Information</Link>

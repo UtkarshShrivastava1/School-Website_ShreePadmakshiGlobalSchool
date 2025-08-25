@@ -25,7 +25,10 @@ const ContactPage = () => {
   };
 
   const handleRegistrationClick = () => {
-    window.open("https://entab.online/Logon/Index", "_blank");
+    window.open(
+      "https://entab.online/Registration/RegistrationGroupClass",
+      "_blank"
+    );
   };
 
   // Add useEffect to scroll to top when component mounts

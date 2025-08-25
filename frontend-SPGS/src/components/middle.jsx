@@ -607,7 +607,7 @@ export default function MiddleSchoolProgram() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
-              href="https://entab.online/Logon/Index"
+              href="https://entab.online/Registration/RegistrationGroupClass"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 bg-[#191f5d] text-white font-semibold rounded-md hover:bg-indigo-700 transition-colors text-center"

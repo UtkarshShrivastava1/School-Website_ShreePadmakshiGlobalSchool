@@ -26,12 +26,12 @@ const Directors_1_message = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-red-100 to-transparent opacity-30 rounded-full"></div>
                 <img
                   src="/director1.jpg"
-                  alt="Dr. Vinaod Tiwari"
+                  alt="Dr. Vinod Tiwari"
                   className="rounded-full h-64 w-64 object-cover border-4 border-white shadow-xl justify-center"
                 />
-                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white py-2 px-6 rounded-full shadow-lg">
-                  <p className="text-orange-500  text-sm font-bold">
-                    Since 2022
+                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-white py-2 px-8 rounded-full shadow-lg flex items-center justify-center">
+                  <p className="text-orange-500 text-sm font-bold whitespace-nowrap text-center">
+                    Dr. Vinod Tiwari
                   </p>
                 </div>
               </div>

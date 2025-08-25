@@ -4,7 +4,8 @@ import { useEffect } from "react";
 
 const EnquiryForm = () => {
   useEffect(() => {
-    window.location.href = "https://entab.online/Logon/Index";
+    window.location.href =
+      "https://entab.online/Registration/RegistrationGroupClass";
   }, []);
 
   return <p>Redirecting to Enquiry Form...</p>;

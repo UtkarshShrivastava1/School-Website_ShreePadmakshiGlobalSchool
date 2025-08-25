@@ -226,7 +226,9 @@ export default function PrimarySchoolProgram() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button className="px-8 py-3 bg-white text-orange-500 font-semibold rounded-md hover:bg-gray-100 transition-colors cursor-pointer">
-              <Link to="https://entab.online/Logon/Index">Enroll Now</Link>
+              <Link to="https://entab.online/Registration/RegistrationGroupClass">
+                Enroll Now
+              </Link>
             </button>
             {/* <button className="px-8 py-3 bg-transparent border-2 border-white font-semibold rounded-md hover:bg-red-700 transition-colors cursor-pointer">
               <Link to="/about">Learn More</Link>

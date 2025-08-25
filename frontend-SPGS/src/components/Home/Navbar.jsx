@@ -359,7 +359,7 @@ const Navbar = () => {
               <div className="flex flex-col items-center cursor-pointer">
                 <User className="h-5 w-5 text-yellow-200" />
                 <NavLink
-                  to="https://entab.online/Logon/Index"
+                  to="https://entab.online/Registration/RegistrationGroupClass"
                   className="text-xs text-yellow-200 mt-1"
                 >
                   ADMISSION
