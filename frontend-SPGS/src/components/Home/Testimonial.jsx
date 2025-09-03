@@ -3,30 +3,27 @@ import AnimatedTestimonials from "../ui/animated-testimonial";
 function Testimonial() {
   const testimonials = [
     {
-      quote:      
-      `It was really an entertaining program. Enthusiastic efforts show by all the 
+      quote: `It was really an entertaining program. Enthusiastic efforts show by all the 
 participants and the fecilitators.as it was my daughter's first performance on the stage we got 
 overwhelmed to see her performing on the stage without any  hesitation our deepest thanks 
 to lekhni mam for grooming her in this way .The time will remain memorable in our life as she 
 got her first recognition on this platform.`,
       name: "ISHANVI SRIWASTAV ",
       designation: "Nursery Student",
-      src: '/Testimonial/SPGS16.jpg',
+      src: "/Testimonial/SPGS16.jpg",
     },
     {
-      quote:
-        ` 
+      quote: ` 
 The teachers at the school are excellent.
 My son receives excellent support beyond what I expected at the outset.
 Yesterday excellent annual function
 Thanks `,
       name: " Harsh Ratre",
       designation: "Class – Nursery",
-      src: '/Testimonial/SPGS18.jpg',
+      src: "/Testimonial/SPGS18.jpg",
     },
     {
-      quote:
-        `Good evening everyone.
+      quote: `Good evening everyone.
 I would like to take a moment to Thank The principal Mam, Teachers and All the staff for
 organizing such a wonderful annual function.
 It is evident that a lot of effort, Time & Dedication have gone into making this event
@@ -39,25 +36,23 @@ enthusiasm.
 The constant support and encouragement from her teachers brought out the best in her .
 Thanks & Regards`,
       name: `Satya prakash pandey`,
-      designation: "Father of - Shravya Pandey",
-      src: '/Testimonial/SPGS07.jpg',
+      designation: "Father of  Shravya Pandey",
+      src: "/Testimonial/SPGS07.jpg",
     },
     {
-      quote:
-       `Good evening ma’am.
+      quote: `Good evening ma’am.
 Thank you so much for organising such an amazing show yesterday. We were left awestruck
 with the entire performance. We can clearly see how much hard work, organising and
 coordinating must have gone into it by all the teachers and staffs. The whole show was
 breathtaking!❤
 Many many congratulations to you and entire school team
  `,
-      name: "Prisha Pandey",
+      name: "Pooja Pandey",
       designation: "Parent of Prisha Pandey",
-      src: '/Testimonial/SPGS10.jpg',
+      src: "/Testimonial/SPGS10.jpg",
     },
     {
-      quote:
-        `The Annual Function at Shree Padmakshi Global Mount Litera School was a fantastic
+      quote: `The Annual Function at Shree Padmakshi Global Mount Litera School was a fantastic
 event! My Son, Aadvik Todekar, had an incredible time performing alongside his friends. The
 performances were well-organized. showcasing the students' talents and creativity. The
 inspiring theme and vibrant decorations added to the excitement. It was wonderful to see
@@ -68,9 +63,8 @@ Thanks And Regards
 `,
       name: "Sourabh Todekar",
       designation: "F/O Aadvik Todekar Class 5 B",
-      src: '/Testimonial/SPGS06.jpg',
+      src: "/Testimonial/SPGS06.jpg",
     },
-    
   ];
 
   return (
