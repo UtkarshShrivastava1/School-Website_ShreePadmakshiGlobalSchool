@@ -9,7 +9,7 @@ overwhelmed to see her performing on the stage without any  hesitation our deepe
 to lekhni mam for grooming her in this way .The time will remain memorable in our life as she 
 got her first recognition on this platform.`,
       name: "ISHANVI SRIWASTAV ",
-      designation: "Nursery Student",
+      designation: "Parent, Nursery Student",
       src: "/Testimonial/SPGS16.jpg",
     },
     {
@@ -19,7 +19,7 @@ My son receives excellent support beyond what I expected at the outset.
 Yesterday excellent annual function
 Thanks `,
       name: " Harsh Ratre",
-      designation: "Class – Nursery",
+      designation: "Parent, Nursery Student",
       src: "/Testimonial/SPGS18.jpg",
     },
     {
@@ -36,7 +36,7 @@ enthusiasm.
 The constant support and encouragement from her teachers brought out the best in her .
 Thanks & Regards`,
       name: `Satya prakash pandey`,
-      designation: "Father of  Shravya Pandey",
+      designation: "Parent of  Shravya Pandey",
       src: "/Testimonial/SPGS07.jpg",
     },
     {
@@ -62,7 +62,7 @@ everyone. A proud moment for us parents!
 Thanks And Regards
 `,
       name: "Sourabh Todekar",
-      designation: "F/O Aadvik Todekar Class 5 B",
+      designation: "Parent of Aadvik Todekar",
       src: "/Testimonial/SPGS06.jpg",
     },
   ];
