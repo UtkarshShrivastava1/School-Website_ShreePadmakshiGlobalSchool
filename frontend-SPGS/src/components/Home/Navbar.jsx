@@ -462,10 +462,12 @@ const Navbar = () => {
 
                 return (
                   <div key={index} className="relative group">
-                    {/* If it's a plain link, use a button that navigates */}
+                    {/* Added onClick toggle for dropdowns so touch devices can open/close */}
                     <button
                       onClick={() =>
-                        !item.dropdown && handleNavigation(item.link)
+                        item.dropdown
+                          ? toggleDropdown(index)
+                          : handleNavigation(item.link)
                       }
                       onKeyDown={(e) =>
                         item.dropdown && onDropdownButtonKeyDown(e, index)
