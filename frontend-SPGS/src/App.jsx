@@ -136,6 +136,8 @@ const Spinner = React.lazy(() => import("./components/ui/Spinner"));
 import ScrollToTop from "./components/ui/scrollOnTop";
 
 import { Suspense } from "react";
+import CandidateForm from "./components/contact/CandidateForm";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return <AppContent />;
@@ -147,6 +149,16 @@ function AppContent() {
 
   return (
     <>
+    <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="light"
+      />
       {!isAdminRoute && <Navbar />}
       {/* <ToastContainer /> */}
       {/* <React.Suspense fallback={<div>Loading...</div>}> */}
@@ -163,6 +175,7 @@ function AppContent() {
         <Routes>
           {/* All your <Route> elements remain the same */}
           {/* HOME  */}
+        
           <Route path="/" element={<Home />} />
 
           {/* OUR SCHOOL */}
@@ -243,6 +256,7 @@ function AppContent() {
           <Route path="/attendance-policy" element={<AttendancePolicyS />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<Careers />} />
+          <Route path="/candidate-form" element={<CandidateForm />} />
           <Route path="/our-location" element={<OurLocation />} />
           <Route
             path="/mandatory-disclosure"

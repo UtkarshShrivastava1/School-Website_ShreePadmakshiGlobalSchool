@@ -12,6 +12,7 @@ import EventForm from './EventForm';
 import GalleryForm from './GalleryForm';
 import HolidayForm from './HolidayForm';
 import MandatoryDisclosureForm from './MandatoryDisclosureForm';
+import CandidateList from './CandidateList';
 
 function AdminDashboard() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,6 +25,7 @@ function AdminDashboard() {
         { name: "gallery", icon: MdPhotoLibrary },
         { name: "holidays", icon: FaUmbrellaBeach },
         { name: "Mandatory Disclosure", icon: MdNotificationImportant },
+        {name:"candidate list", icon:User}
     ];
 
     const handlelogout = () => {
@@ -123,6 +125,7 @@ function AdminDashboard() {
                     {activeItem === "gallery" && <GalleryForm/>}
                     {activeItem === "holidays" && <HolidayForm/>}
                     {activeItem === "Mandatory Disclosure" && <MandatoryDisclosureForm/>}
+                    {activeItem === "candidate list" && <CandidateList/>}
                 </div>
             </div>
         </div>

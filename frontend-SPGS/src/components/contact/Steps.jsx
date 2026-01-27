@@ -1,5 +1,5 @@
 "use client";
-
+import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import { Button } from "../ui/button";
 import {
@@ -32,13 +32,13 @@ import {
 
 export default function CareersPage() {
   const [file, setFile] = useState(null);
-
+  
   const handleFileChange = (e) => {
     if (e.target.files && e.target.files[0]) {
       setFile(e.target.files[0]);
     }
   };
-
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted with file:", file);
@@ -69,6 +69,7 @@ export default function CareersPage() {
               <Button variant="outline" size="lg" className="border-orange-600 text-orange-600 hover:bg-orange-50">
                 Learn More
               </Button> */}
+            <button  onClick={() => navigate("/candidate-form")} className="text-white font-semibold bg-orange-600 hover:bg-orange-500 px-6 py-3 rounded-md cursor-pointer">Apply Now</button>
             </div>
           </div>
         </div>

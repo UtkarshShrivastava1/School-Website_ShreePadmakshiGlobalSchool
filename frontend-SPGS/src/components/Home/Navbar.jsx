@@ -342,11 +342,11 @@ const Navbar = () => {
           link: "/contact",
           icon: <Phone className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
         },
-        {
-          name: "Careers",
-          link: "/careers",
-          icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
-        },
+        // {
+        //   name: "Careers",
+        //   link: "/careers",
+        //   icon: <Users className="sm:h-5 sm:w-5 md:h-6 md:w-6" />,
+        // },
         {
           name: "Our Location",
           link: "/our-location",
@@ -354,6 +354,11 @@ const Navbar = () => {
         },
       ],
     },
+    {
+          name: "Careers",
+          link: "/careers",
+         
+        },
     {
       name: "Mandatory Disclosure",
       link: "/mandatory-disclosure",
