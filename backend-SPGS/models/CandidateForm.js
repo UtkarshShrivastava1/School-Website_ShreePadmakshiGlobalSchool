@@ -49,7 +49,7 @@ const CandidateFormSchema = new mongoose.Schema(
     },
     expectedSalary: {
       type: Number,
-      required: true,
+      
     },
     fatherName: {
       type: String,
