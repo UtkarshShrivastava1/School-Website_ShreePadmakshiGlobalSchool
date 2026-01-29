@@ -101,7 +101,7 @@ const CandidateList = () => {
   }
 
   return (
-    <div className="p-6 font-['Open_Sans']">
+    <div className="p-6">
       <h2 className="text-2xl font-bold mb-4">Candidate Management</h2>
 
       {/* Tabs */}

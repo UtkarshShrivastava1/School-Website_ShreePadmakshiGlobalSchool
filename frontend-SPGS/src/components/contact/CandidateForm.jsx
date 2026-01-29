@@ -2,6 +2,8 @@ import { useState, useRef } from "react";
 import api from "../../services/api";
 import { toast } from "react-toastify";
 
+
+
 export default function CandidateForm() {
   const [accepted, setAccepted] = useState(false);
   const [sameAsCorrespondence, setSameAsCorrespondence] = useState(false);
@@ -81,9 +83,9 @@ export default function CandidateForm() {
       },
     ],
     professionalReferences: [],
-    accepted: false,
+    
   };
-  const fileRef = useRef(null);
+ 
 
   const [formData, setFormData] = useState(initialFormState);
   const [errors, setErrors] = useState({});
@@ -361,11 +363,15 @@ export default function CandidateForm() {
 
       const res = await api.post("/candidateForm/submitCandidateForm", fd);
 
+      if (res.status === 201){
       toast.success("Form submitted successfully");
       setFormData(initialFormState);
+      setAccepted(false);
       setErrors({});
-      fileRef.current.value = "";
+      setSameAsCorrespondence(false);
+     
       console.log(res.data);
+      }
     } catch (err) {
       console.error(err);
       toast.error(err.response?.data?.message || "Submission failed");
@@ -435,13 +441,13 @@ export default function CandidateForm() {
               )}
             </div>
             <div className="flex flex-col">
-              <select className="input" name="religion" onChange={handleChange}>
+              <select value={formData.religion} className="input" name="religion" onChange={handleChange}>
                 <option value="">Select Religion</option>
-                <option>Hindu</option>
-                <option>Muslim</option>
-                <option>Christian</option>
-                <option>Sikh</option>
-                <option>Other</option>
+                <option value="Hindu">Hindu</option>
+                <option value="Muslim">Muslim</option>
+                <option value="Christian">Christian</option>
+                <option value="Sikh">Sikh</option>
+                <option value="Other">Other</option>
               </select>
               {errors.religion && (
                 <p className="text-red-500 text-sm mt-1">{errors.religion}</p>
@@ -466,14 +472,14 @@ export default function CandidateForm() {
             )}
 
             <div className="flex flex-col">
-              <select
+              <select value={formData.nationality}
                 className="input"
                 name="nationality"
                 onChange={handleChange}
               >
                 <option value="">Nationality</option>
-                <option>Indian</option>
-                <option>Other</option>
+                <option value="Indian">Indian</option>
+                <option value="Other">Other</option>
               </select>
               {errors.nationality && (
                 <p className="text-red-500 text-sm mt-1">
