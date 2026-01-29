@@ -2,9 +2,7 @@ const { safeUpload } = require("../config/cloudinary");
 const CandidateForm = require("../models/CandidateForm");
 const candidateForm = require("../models/CandidateForm");
 const PDFDocument = require("pdfkit");
-
 const axios = require("axios");
-
 
 exports.candidateFormSubmit = async (req, res) => {
   const parseJSON = (value, fallback) => {
@@ -42,17 +40,6 @@ exports.candidateFormSubmit = async (req, res) => {
       place,
     } = req.body;
    
-    if (!req.file) {
-      return res.status(400).json({ message: "Signature is required" });
-    }
-     // Cloudinary upload
-    const uploadedSignature = await safeUpload(req.file.path || req.file.buffer, {
-      folder: "signatures", 
-      resource_type: "image",
-     
-    });
-
-    const signatureUrl = uploadedSignature.secure_url; // ye DB me store hoga
    
     // 🔄 Parse arrays & objects
     const education = parseJSON(req.body.education, []);
@@ -91,7 +78,7 @@ exports.candidateFormSubmit = async (req, res) => {
       nationalityOther,
       otherRoles,
       date,
-      signature:signatureUrl,
+      
       place: place || null,
     });
     await newCandidateForm.save();
@@ -103,6 +90,7 @@ exports.candidateFormSubmit = async (req, res) => {
     res.status(500).json({ message: "Server error", error:error.message });
   }
 };
+
 
 
 exports.getPendingCandidateForms=async(req,res)=>{
@@ -121,6 +109,16 @@ exports.getShortlistedCandidates=async(req,res)=>{
     res.status(200).json({candidates});
   
   }catch(error){
+    res.status(500).json({ message: "Server error", error:error.message });
+  }
+}
+
+exports.getRejectedCandidates=async(req,res)=>{
+  try{
+    const candidates=await CandidateForm.find({status:"rejected"});
+    res.status(200).json({candidates});
+  }
+  catch(error){
     res.status(500).json({ message: "Server error", error:error.message });
   }
 }
@@ -170,24 +168,26 @@ exports.downloadCandidateForm = async (req, res) => {
 
     const sectionTitle = (doc, title) => {
       doc.moveDown(1); // top spacing before title
-      doc.font("Helvetica-Bold")
+      doc.font("OS-Bold")
          .fontSize(13)
          .fillColor("#1f2937")
          .text(title, { underline: true, lineGap: 2 });
       doc.moveDown(0.3); // spacing after title
-      doc.font("Helvetica").fontSize(10).fillColor("#000");
+      doc.font("OS-Regular").fontSize(12).fillColor("#000");
     };
 
     const row = (doc, key, value) => {
-      doc.font("Helvetica-Bold")
+      doc.font("OS-Bold")
          .text(`${key}: `, { continued: true })
-         .font("Helvetica")
+         .font("OS-Regular")
          .text(val(value), { lineGap: 2 });
       doc.moveDown(0.2); // consistent vertical spacing between rows
     };
 
     /* ---------------- PDF Setup ---------------- */
     const doc = new PDFDocument({ size: "A4", margin: 50 });
+    doc.registerFont("OS-Regular", "./fonts/OpenSans-Regular.ttf");
+doc.registerFont("OS-Bold", "./fonts/OpenSans-SemiBold.ttf");
 
     res.setHeader(
       "Content-Disposition",
@@ -197,7 +197,7 @@ exports.downloadCandidateForm = async (req, res) => {
     doc.pipe(res);
 
     /* ---------------- Header ---------------- */
-    doc.font("Helvetica-Bold").fontSize(18).fillColor("#111827")
+    doc.font("OS-Bold").fontSize(18).fillColor("#111827")
        .text("CANDIDATE APPLICATION FORM", { align: "center", lineGap: 4 });
     doc.moveDown(1.2);
     doc.fillColor("#000");
@@ -233,13 +233,16 @@ exports.downloadCandidateForm = async (req, res) => {
     sectionTitle(doc, "Educational Qualifications");
     if (candidate.education?.length) {
       candidate.education.forEach((edu, i) => {
-        doc.moveDown(0.3).font("Helvetica-Bold").text(`${i + 1}. ${val(edu.course)}`);
-        doc.font("Helvetica");
+        doc.moveDown(0.3).font("OS-Bold").text(`${i + 1}. ${val(edu.course)}`);
+        doc.moveDown(0.3);
+        doc.font("OS-Regular");
         row(doc, "Board / University", edu.boardOrUniversity);
+        
         row(doc, "Subject", edu.subject);
         row(doc, "Marks", `${val(edu.marksScored)} / ${val(edu.totalMarks)}`);
         row(doc, "Percentage / CGPA", edu.percentageOrCGPA);
         row(doc, "Year of Passing", edu.yearOfPassing);
+        doc.moveDown(0.5);
       });
     } else {
       doc.text("Not Provided");
@@ -249,8 +252,8 @@ exports.downloadCandidateForm = async (req, res) => {
     sectionTitle(doc, "Teaching / School Experience");
     if (candidate.teachingExperience?.length) {
       candidate.teachingExperience.forEach((exp, i) => {
-        doc.moveDown(0.3).font("Helvetica-Bold").text(`${i + 1}. ${val(exp.institutionName)}`);
-        doc.font("Helvetica");
+        doc.moveDown(0.3).font("OS-Bold").text(`${i + 1}. ${val(exp.institutionName)}`);
+        doc.font("OS-Regular");
         row(doc, "Designation", exp.designation);
         row(doc, "Subjects Taken", exp.subjectsTaken);
         row(doc, "Duration", `${formatDate(exp.dateOfJoining)} - ${formatDate(exp.dateOfLeaving)}`);
@@ -265,8 +268,8 @@ exports.downloadCandidateForm = async (req, res) => {
     sectionTitle(doc, "Trainings / Workshops");
     if (candidate.trainings?.length) {
       candidate.trainings.forEach((t, i) => {
-        doc.moveDown(0.3).font("Helvetica-Bold").text(`${i + 1}. ${val(t.trainingName)}`);
-        doc.font("Helvetica");
+        doc.moveDown(0.3).font("OS-Bold").text(`${i + 1}. ${val(t.trainingName)}`);
+        doc.font("OS-Regular");
         row(doc, "Agency", t.trainingAgency);
         row(doc, "Mode", t.mode);
         row(doc, "Date", formatDate(t.date));
@@ -281,8 +284,8 @@ exports.downloadCandidateForm = async (req, res) => {
     sectionTitle(doc, "Professional References");
     if (candidate.professionalReferences?.length) {
       candidate.professionalReferences.forEach((r, i) => {
-        doc.moveDown(0.3).font("Helvetica-Bold").text(`${i + 1}. ${val(r.name)}`);
-        doc.font("Helvetica");
+        doc.moveDown(0.3).font("OS-Bold").text(`${i + 1}. ${val(r.name)}`);
+        doc.font("OS-Regular");
         row(doc, "Designation", r.designation);
         row(doc, "Institution", r.institutionName);
         row(doc, "Contact Number", r.contactNumber);
@@ -293,39 +296,14 @@ exports.downloadCandidateForm = async (req, res) => {
 
     /* ---------------- Declaration ---------------- */
     sectionTitle(doc, "Declaration");
-    doc.font("Helvetica").text("I hereby declare that the information furnished above is true and correct to the best of my knowledge.");
+    doc.font("OS-Regular").text("All the above information provided by me is correct and to the best of my knowledge. Any wrong information or details can lead to the cancellation of my candidature/ selection/ appointment at any point of time.");
     doc.moveDown(0.5);
     row(doc, "Place", candidate.place);
     row(doc, "Date", formatDate(candidate.date));
 
-    /* ---------------- Signature ---------------- */
-    sectionTitle(doc, "Signature");
-    if (candidate.signature) {
-      let imageBuffer;
-      try {
-        if (candidate.signature.startsWith("http")) {
-          const response = await axios.get(candidate.signature, { responseType: "arraybuffer" });
-          imageBuffer = Buffer.from(response.data);
-        } else {
-          const localPath = path.join(__dirname, "..", candidate.signature);
-          if (fs.existsSync(localPath)) imageBuffer = fs.readFileSync(localPath);
-        }
+    
 
-        if (imageBuffer) {
-          try {
-            doc.image(imageBuffer, { width: 120 });
-          } catch {
-            doc.text("Signature image invalid");
-          }
-        } else {
-          doc.text("Not Provided");
-        }
-      } catch {
-        doc.text("Signature Not Provided");
-      }
-    } else {
-      doc.text("Not Provided");
-    }
+       
 
     doc.end();
   } catch (err) {

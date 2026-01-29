@@ -1,81 +1,89 @@
-import { useState,useRef } from "react";
+import { useState, useRef } from "react";
 import api from "../../services/api";
 import { toast } from "react-toastify";
 
 export default function CandidateForm() {
-  const[loading,setLoading]=useState(false);
+  const [accepted, setAccepted] = useState(false);
+  const [sameAsCorrespondence, setSameAsCorrespondence] = useState(false);
+  const educationEndRef = useRef(null);
+  const teachingEndRef = useRef(null);
+  const trainingEndRef = useRef(null);
+  const referenceEndRef = useRef(null);
+
+  const [loading, setLoading] = useState(false);
   const initialFormState = {
-  name: "",
-  dateOfBirth: "",
-  birthPlace: "",
-  religion: "",
-  religionOther: "",
-  nationality: "",
-  nationalityOther: "",
-  aadharNumber: "",
-  panNumber: "",
-  mobileNumber1: "",
-  mobileNumber2: "",
-  email: "",
-  expectedSalary: "",
-  fatherName: "",
-  motherName: "",
-  fatherOccupation: "",
-  motherOccupation: "",
-  fatherMobileNumber: "",
-  motherMobileNumber: "",
-  correspondenceAddress: {
-    address: "",
-    city: "",
-    district: "",
-    state: "",
-    pincode: "",
-  },
-  permanentAddress: {
-    addressLine: "",
-    city: "",
-    district: "",
-    state: "",
-    pincode: "",
-  },
-  otherRoles: "",
-  date: "",
-  place: "",
-  signature: null,
-  teachingExperience: [],
-  trainings: [],
-  education: [
-    {
-      course: "10th",
-      boardOrUniversity: "",
-      subject: "",
-      marksScored: "",
-      totalMarks: "",
-      percentageOrCGPA: "",
-      yearOfPassing: "",
+    name: "",
+    dateOfBirth: "",
+    birthPlace: "",
+    religion: "",
+    religionOther: "",
+    nationality: "",
+    nationalityOther: "",
+    aadharNumber: "",
+    panNumber: "",
+    mobileNumber1: "",
+    mobileNumber2: "",
+    email: "",
+    expectedSalary: "",
+    fatherName: "",
+    motherName: "",
+    fatherOccupation: "",
+    motherOccupation: "",
+    fatherMobileNumber: "",
+    motherMobileNumber: "",
+    correspondenceAddress: {
+      address: "",
+      city: "",
+      district: "",
+      state: "",
+      pincode: "",
     },
-    {
-      course: "12th",
-      boardOrUniversity: "",
-      subject: "",
-      marksScored: "",
-      totalMarks: "",
-      percentageOrCGPA: "",
-      yearOfPassing: "",
+    permanentAddress: {
+      addressLine: "",
+      city: "",
+      district: "",
+      state: "",
+      pincode: "",
     },
-    {
-      course: "Graduation",
-      boardOrUniversity: "",
-      subject: "",
-      marksScored: "",
-      totalMarks: "",
-      percentageOrCGPA: "",
-      yearOfPassing: "",
-    },
-  ],
-  professionalReferences: [],
-};
-const fileRef = useRef(null);
+    otherRoles: "",
+    date: "",
+    place: "",
+
+    teachingExperience: [],
+    trainings: [],
+    education: [
+      {
+        course: "10th",
+        boardOrUniversity: "",
+        subject: "",
+        marksScored: "",
+        totalMarks: "",
+        percentageOrCGPA: "",
+        yearOfPassing: "",
+      },
+      {
+        course: "12th",
+        boardOrUniversity: "",
+        subject: "",
+        marksScored: "",
+        totalMarks: "",
+        percentageOrCGPA: "",
+        yearOfPassing: "",
+      },
+      {
+        course: "Graduation",
+        boardOrUniversity: "",
+        subject: "",
+        marksScored: "",
+        totalMarks: "",
+        percentageOrCGPA: "",
+        yearOfPassing: "",
+      },
+    ],
+    professionalReferences: [],
+    accepted: false,
+  };
+  const fileRef = useRef(null);
 
   const [formData, setFormData] = useState(initialFormState);
   const [errors, setErrors] = useState({});
@@ -138,12 +146,18 @@ const fileRef = useRef(null);
         newErrors[`edu_${index}`] = "Education details incomplete";
     });
 
-    // Signature
-    if (!formData.signature) newErrors.signature = "Signature is required";
-
     setErrors(newErrors);
+    console.log("Errors:", newErrors);
 
     return Object.keys(newErrors).length === 0;
+  };
+  const scrollToSectionEnd = (ref) => {
+    setTimeout(() => {
+      ref.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }, 100);
   };
 
   const handleChange = (e) => {
@@ -159,10 +173,6 @@ const fileRef = useRef(null);
         [field]: value,
       },
     });
-  };
-
-  const handleFileChange = (e) => {
-    setFormData({ ...formData, signature: e.target.files[0] });
   };
 
   // Teaching Experience handlers
@@ -183,6 +193,7 @@ const fileRef = useRef(null);
         },
       ],
     });
+    scrollToSectionEnd(teachingEndRef);
   };
   const updateTeachingExperience = (index, field, value) => {
     const updated = [...formData.teachingExperience];
@@ -213,6 +224,7 @@ const fileRef = useRef(null);
         },
       ],
     });
+    scrollToSectionEnd(trainingEndRef);
   };
   const updateTraining = (index, field, value) => {
     const updated = [...formData.trainings];
@@ -243,6 +255,7 @@ const fileRef = useRef(null);
         },
       ],
     });
+    scrollToSectionEnd(educationEndRef);
   };
 
   const updateEducation = (index, field, value) => {
@@ -252,7 +265,7 @@ const fileRef = useRef(null);
   };
 
   const removeEducation = (index) => {
-    if (index < 3) return; // 10th, 12th, Graduation safe
+    if (index < 3) return; // 10th, 12th, Graduation 
     setFormData({
       ...formData,
       education: formData.education.filter((_, i) => i !== index),
@@ -271,6 +284,7 @@ const fileRef = useRef(null);
         },
       ],
     });
+    scrollToSectionEnd(referenceEndRef);
   };
 
   const updateReference = (index, field, value) => {
@@ -292,6 +306,7 @@ const fileRef = useRef(null);
     e.preventDefault();
 
     if (!validateForm()) {
+     
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
@@ -344,23 +359,17 @@ const fileRef = useRef(null);
       );
       fd.append("permanentAddress", JSON.stringify(formData.permanentAddress));
 
-      // file
-      fd.append("signature", formData.signature);
-
       const res = await api.post("/candidateForm/submitCandidateForm", fd);
 
-   toast.success("Form submitted successfully");
+      toast.success("Form submitted successfully");
       setFormData(initialFormState);
       setErrors({});
-      fileRef.current.value = ""; 
+      fileRef.current.value = "";
       console.log(res.data);
     } catch (err) {
       console.error(err);
-      toast.error(
-        err.response?.data?.message || "Submission failed"
-      );
-    }
-    finally{
+      toast.error(err.response?.data?.message || "Submission failed");
+    } finally {
       setLoading(false);
     }
   };
@@ -368,7 +377,6 @@ const fileRef = useRef(null);
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center py-10">
       <form
-      
         onSubmit={handleSubmit}
         className="bg-white w-full max-w-5xl rounded-2xl shadow-lg p-8 space-y-8"
       >
@@ -382,133 +390,175 @@ const fileRef = useRef(null);
             Personal Details
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input
-              className="input"
-              name="name"
-              placeholder="Full Name"
-              onChange={handleChange}
-              value={formData.name}
-            />
-            {errors.name && (
-              <p className="text-red-500 text-sm">{errors.name}</p>
-            )}
-            <div className="relative">
+            <div className="flex flex-col">
+              <input
+                className="input"
+                name="name"
+                placeholder="Full Name"
+                onChange={handleChange}
+                value={formData.name}
+              />
+              {errors.name && (
+                <p className="text-red-500 text-sm m-0.5">{errors.name}</p>
+              )}
+            </div>
+            <div className="relative w-full">
               <label className="absolute -top-2 left-3 bg-white px-1 text-xs text-gray-500">
                 Date of Birth
               </label>
               <input
                 type="date"
                 name="dateOfBirth"
-                className="input pt-4"
+                className="input pt-4 w-full"
                 onChange={handleChange}
                 value={formData.dateOfBirth}
+                onClick={(e) => e.target.showPicker && e.target.showPicker()}
               />
               {errors.dateOfBirth && (
-                <p className="text-red-500 text-sm">{errors.dateOfBirth}</p>
+                <p className="text-red-500 text-sm m-0.5">
+                  {errors.dateOfBirth}
+                </p>
+              )}
+            </div>
+            <div className="flex flex-col">
+              <input
+                className="input"
+                name="birthPlace"
+                placeholder="Birth Place"
+                onChange={handleChange}
+                value={formData.birthPlace}
+              />
+              {errors.birthPlace && (
+                <p className="text-red-500 text-sm m-0.5">
+                  {errors.birthPlace}
+                </p>
+              )}
+            </div>
+            <div className="flex flex-col">
+              <select className="input" name="religion" onChange={handleChange}>
+                <option value="">Select Religion</option>
+                <option>Hindu</option>
+                <option>Muslim</option>
+                <option>Christian</option>
+                <option>Sikh</option>
+                <option>Other</option>
+              </select>
+              {errors.religion && (
+                <p className="text-red-500 text-sm mt-1">{errors.religion}</p>
+              )}
+            </div>
+            {formData.religion === "Other" && (
+              <div className="mt-2 flex flex-col ">
+                <input
+                  className="input"
+                  name="religionOther"
+                  placeholder="Specify Religion"
+                  onChange={handleChange}
+                  value={formData.religionOther}
+                />
+
+                {errors.religion && (
+                  <p className="text-red-500 text-sm m-0.5">
+                    {errors.religion}
+                  </p>
+                )}
+              </div>
+            )}
+
+            <div className="flex flex-col">
+              <select
+                className="input"
+                name="nationality"
+                onChange={handleChange}
+              >
+                <option value="">Nationality</option>
+                <option>Indian</option>
+                <option>Other</option>
+              </select>
+              {errors.nationality && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.nationality}
+                </p>
+              )}
+            </div>
+            {formData.nationality === "Other" && (
+              <div className="mt-2 flex flex-col ">
+                <input
+                  className="input"
+                  name="nationalityOther"
+                  placeholder="Specify Nationality"
+                  onChange={handleChange}
+                  value={formData.nationalityOther}
+                />
+                {errors.nationality && (
+                  <p className="text-red-500 text-sm m-0.5">
+                    {errors.nationality}
+                  </p>
+                )}
+              </div>
+            )}
+
+            <div className="flex flex-col">
+              <input
+                className="input"
+                name="aadharNumber"
+                placeholder="Aadhar Number"
+                onChange={handleChange}
+                value={formData.aadharNumber}
+              />
+              {errors.aadharNumber && (
+                <p className="text-red-500 text-sm m-0.5">
+                  {errors.aadharNumber}
+                </p>
+              )}
+            </div>
+            <div className="flex flex-col">
+              <input
+                className="input"
+                name="panNumber"
+                placeholder="PAN Number"
+                value={formData.panNumber}
+                onChange={(e) =>
+                  setFormData({
+                    ...formData,
+                    panNumber: e.target.value.toUpperCase(),
+                  })
+                }
+              />
+
+              {errors.panNumber && (
+                <p className="text-red-500 text-sm m-0.5">{errors.panNumber}</p>
+              )}
+            </div>
+            <div className="flex flex-col">
+              <input
+                className="input"
+                name="mobileNumber1"
+                placeholder="Mobile Number 1"
+                onChange={handleChange}
+                value={formData.mobileNumber1}
+              />
+              {errors.mobileNumber1 && (
+                <p className="text-red-500 text-sm m-0.5">
+                  {errors.mobileNumber1}
+                </p>
+              )}
+            </div>
+            <div className="flex flex-col">
+              <input
+                className="input"
+                name="mobileNumber2"
+                placeholder="Mobile Number 2 (optional)"
+                onChange={handleChange}
+                value={formData.mobileNumber2}
+              />
+              {errors.mobileNumber2 && (
+                <p className="text-red-500 text-sm m-0.5">
+                  {errors.mobileNumber2}
+                </p>
               )}
             </div>
 
-            <input
-              className="input"
-              name="birthPlace"
-              placeholder="Birth Place"
-              onChange={handleChange}
-              value={formData.birthPlace}
-            />
-            {errors.birthPlace && (
-              <p className="text-red-500 text-sm">{errors.birthPlace}</p>
-            )}
-            <select className="input" name="religion"
-
-             onChange={handleChange}>
-              <option value="">Select Religion</option>
-              <option>Hindu</option>
-              <option>Muslim</option>
-              <option>Christian</option>
-              <option>Sikh</option>
-              <option>Other</option>
-            </select>
-            {formData.religion === "Other" && (
-              <input
-                className="input"
-                name="religionOther"
-                placeholder="Specify Religion"
-                onChange={handleChange}
-                value={formData.religionOther}
-              />
-            )}
-            {errors.religion && (
-              <p className="text-red-500 text-sm">{errors.religion}</p>
-            )}
-            <select
-              className="input"
-              name="nationality"
-              onChange={handleChange}
-            >
-              <option value="">Nationality</option>
-              <option>Indian</option>
-              <option>Other</option>
-            </select>
-            {formData.nationality === "Other" && (
-              <input
-
-                className="input"
-                name="nationalityOther"
-                placeholder="Specify Nationality"
-                onChange={handleChange}
-                value={formData.nationalityOther}
-              />
-            )}
-            {errors.nationality && (
-              <p className="text-red-500 text-sm">{errors.nationality}</p>
-            )}
-            <input
-              className="input"
-              name="aadharNumber"
-              placeholder="Aadhar Number"
-              onChange={handleChange}
-
-              value={formData.aadharNumber}
-            />
-            {errors.aadharNumber && (
-              <p className="text-red-500 text-sm">{errors.aadharNumber}</p>
-            )}
-            <input
-              className="input"
-              name="panNumber"
-              placeholder="PAN Number"
-              value={formData.panNumber}
-              onChange={(e) =>
-                setFormData({
-                  ...formData,
-                  panNumber: e.target.value.toUpperCase(),
-                })
-              }
-            />
-
-            {errors.panNumber && (
-              <p className="text-red-500 text-sm">{errors.panNumber}</p>
-            )}
-            <input
-              className="input"
-              name="mobileNumber1"
-              placeholder="Mobile Number 1"
-              onChange={handleChange}
-              value={formData.mobileNumber1}
-            />
-            {errors.mobileNumber1 && (
-              <p className="text-red-500 text-sm">{errors.mobileNumber1}</p>
-            )}
-            <input
-              className="input"
-              name="mobileNumber2"
-              placeholder="Mobile Number 2 (optional)"
-              onChange={handleChange}
-              value={formData.mobileNumber2}
-            />
-            {errors.mobileNumber2 && (
-              <p className="text-red-500 text-sm">{errors.mobileNumber2}</p>
-            )}
             <input
               className="input"
               name="email"
@@ -584,29 +634,29 @@ const fileRef = useRef(null);
           <h2 className="text-lg font-medium text-gray-700">
             Correspondence Address
           </h2>
-
-          <textarea
-            className="input w-full"
-            placeholder="Address"
-            onChange={(e) =>
-              handleAddressChange(
-                "correspondenceAddress",
-                "address",
-                e.target.value,
-              )
-            }
-            value={formData.correspondenceAddress?.address}
-          />
-          {errors.correspondenceAddress && (
-            <p className="text-red-500 text-sm">
-              {errors.correspondenceAddress}
-            </p>
-          )}
+          <div className="flex flex-col">
+            <textarea
+              className="input w-full"
+              placeholder="Address"
+              onChange={(e) =>
+                handleAddressChange(
+                  "correspondenceAddress",
+                  "address",
+                  e.target.value,
+                )
+              }
+              value={formData.correspondenceAddress?.address}
+            />
+            {errors.correspondenceAddress && (
+              <p className="text-red-500 text-sm m-0.5">
+                {errors.correspondenceAddress}
+              </p>
+            )}
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <input
               className="input"
               placeholder="City"
-
               onChange={(e) =>
                 handleAddressChange(
                   "correspondenceAddress",
@@ -640,23 +690,25 @@ const fileRef = useRef(null);
               }
               value={formData.correspondenceAddress?.state}
             />
-            <input
-              className="input"
-              placeholder="Pin Code"
-              onChange={(e) =>
-                handleAddressChange(
-                  "correspondenceAddress",
-                  "pincode",
-                  e.target.value,
-                )
-              }
-              value={formData.correspondenceAddress?.pincode}
-            />
-            {errors.correspondencePincode && (
-              <p className="text-red-500 text-sm">
-                {errors.correspondencePincode}
-              </p>
-            )}
+            <div className="flex flex-col">
+              <input
+                className="input"
+                placeholder="Pin Code"
+                onChange={(e) =>
+                  handleAddressChange(
+                    "correspondenceAddress",
+                    "pincode",
+                    e.target.value,
+                  )
+                }
+                value={formData.correspondenceAddress?.pincode}
+              />
+              {errors.correspondencePincode && (
+                <p className="text-red-500 text-sm m-0.5">
+                  {errors.correspondencePincode}
+                </p>
+              )}
+            </div>
           </div>
         </section>
 
@@ -665,27 +717,62 @@ const fileRef = useRef(null);
           <h2 className="text-lg font-medium text-gray-700">
             Permanent Address
           </h2>
+          <div className="flex items-center gap-2 ">
+            <input
+              type="checkbox"
+              id="sameAddress"
+              checked={sameAsCorrespondence}
+              onChange={(e) => {
+                const checked = e.target.checked;
+                setSameAsCorrespondence(checked);
+                if (checked) {
+                  //
+                  setFormData({
+                    ...formData,
+                    permanentAddress: {
+                      addressLine: formData.correspondenceAddress.address,
+                      city: formData.correspondenceAddress.city,
+                      district: formData.correspondenceAddress.district,
+                      state: formData.correspondenceAddress.state,
+                      pincode: formData.correspondenceAddress.pincode,
+                    },
+                  });
+                }
+              }}
+              className="accent-orange-600 cursor-pointer"
+            />
 
-          <textarea
-            className="input w-full"
-            placeholder="Address"
-            onChange={(e) =>
-              handleAddressChange(
-                "permanentAddress",
-                "addressLine",
-                e.target.value,
-              )
-            }
-            value={formData.permanentAddress?.addressLine}
-          />
-          {errors.permanentAddress && (
-            <p className="text-red-500 text-sm">{errors.permanentAddress}</p>
-          )}
+            <label
+              htmlFor="sameAddress"
+              className="text-gray-600 text-sm cursor-pointer"
+            >
+              Same as Correspondence Address
+            </label>
+          </div>
 
+          <div className="felx flex-col">
+            <textarea
+              className="input w-full"
+              placeholder="Address"
+              disabled={sameAsCorrespondence}
+              onChange={(e) =>
+                handleAddressChange(
+                  "permanentAddress",
+                  "addressLine",
+                  e.target.value,
+                )
+              }
+              value={formData.permanentAddress?.addressLine}
+            />
+            {errors.permanentAddress && (
+              <p className="text-red-500 text-sm">{errors.permanentAddress}</p>
+            )}
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <input
               className="input"
               placeholder="City"
+              disabled={sameAsCorrespondence}
               onChange={(e) =>
                 handleAddressChange("permanentAddress", "city", e.target.value)
               }
@@ -694,6 +781,7 @@ const fileRef = useRef(null);
             <input
               className="input"
               placeholder="District"
+              disabled={sameAsCorrespondence}
               onChange={(e) =>
                 handleAddressChange(
                   "permanentAddress",
@@ -706,39 +794,38 @@ const fileRef = useRef(null);
             <input
               className="input"
               placeholder="State"
+              disabled={sameAsCorrespondence}
               onChange={(e) =>
                 handleAddressChange("permanentAddress", "state", e.target.value)
               }
               value={formData.permanentAddress?.state}
             />
-            <input
-              className="input"
-              placeholder="Pin Code"
-              onChange={(e) =>
-                handleAddressChange(
-                  "permanentAddress",
-                  "pincode",
-                  e.target.value,
-                )
-              }
-              value={formData.permanentAddress?.pincode}
-            />
-            {errors.permanentPincode && (
-              <p className="text-red-500 text-sm">{errors.permanentPincode}</p>
-            )}
+            <div className="flex flex-col">
+              <input
+                className="input"
+                placeholder="Pin Code"
+                disabled={sameAsCorrespondence}
+                onChange={(e) =>
+                  handleAddressChange(
+                    "permanentAddress",
+                    "pincode",
+                    e.target.value,
+                  )
+                }
+                value={formData.permanentAddress?.pincode}
+              />
+              {errors.permanentPincode && (
+                <p className="text-red-500 text-sm m-0.5">
+                  {errors.permanentPincode}
+                </p>
+              )}
+            </div>
           </div>
         </section>
         {/* Education Qualifications */}
         <section className="space-y-4">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col items-start">
             <h2 className="text-lg font-medium">Educational Qualifications</h2>
-            <button
-              type="button"
-              onClick={addEducation}
-              className="text-blue-600"
-            >
-              + Add Qualification
-            </button>
           </div>
 
           {formData.education.map((edu, index) => (
@@ -755,7 +842,6 @@ const fileRef = useRef(null);
                   onChange={(e) =>
                     updateEducation(index, "course", e.target.value)
                   }
-                  
                 />
                 {errors[`edu_${index}`] && (
                   <p className="text-red-500 text-sm">
@@ -826,20 +912,30 @@ const fileRef = useRef(null);
               </div>
             </div>
           ))}
+          <div ref={educationEndRef}></div>
+
+          <button
+            type="button"
+            onClick={addEducation}
+            className="mt-1 cursor-pointer flex items-center gap-1 bg-blue-400 text-white px-3 py-1.5 rounded-full font-medium shadow hover:bg-blue-700 transition-all duration-200"
+          >
+            <span className="text-md font-bold">+</span> Add Qualification
+          </button>
         </section>
 
         {/* Teaching Experience */}
         <section className="space-y-4">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col justify-between items-start">
             <h2 className="text-lg font-medium">
               Teaching / School Experience
             </h2>
+
             <button
               type="button"
               onClick={addTeachingExperience}
-              className="text-blue-600"
+              className="mt-1 flex items-center gap-1 bg-blue-400 text-white px-3 py-1.5 rounded-full font-medium shadow hover:bg-blue-700 transition-all duration-200 cursor-pointer"
             >
-              + Add
+              <span className="text-md font-bold">+</span> Add Experience
             </button>
           </div>
 
@@ -897,8 +993,8 @@ const fileRef = useRef(null);
                   }
                   value={formData.teachingExperience[index].lastDrawnSalary}
                 />
-                <input 
-                  className="input" 
+                <input
+                  className="input"
                   placeholder="Total Experience"
                   onChange={(e) =>
                     updateTeachingExperience(
@@ -911,31 +1007,46 @@ const fileRef = useRef(null);
                 />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <input
-                  type="date"
-                  className="input"
-                  onChange={(e) =>
-                    updateTeachingExperience(
-                      index,
-                      "dateOfJoining",
-                      e.target.value,
-                    )
-                  }
-                  value={formData.teachingExperience[index].dateOfJoining}
-                />
-                <input
-                  type="date"
-                  className="input"
-                  onChange={(e) =>
-                    updateTeachingExperience(
-                      index,
-                      "dateOfLeaving",
-                      e.target.value,
-                    )
-                  }
-                  value={formData.teachingExperience[index].dateOfLeaving}
-                />
-
+                <div className="relative w-full mt-1">
+                  <label className="absolute -top-3 left-3 bg-gray-50 px-1 text-sm text-gray-500">
+                    Date of Joining
+                  </label>
+                  <input
+                    type="date"
+                    className="input w-full"
+                    onChange={(e) =>
+                      updateTeachingExperience(
+                        index,
+                        "dateOfJoining",
+                        e.target.value,
+                      )
+                    }
+                    value={formData.teachingExperience[index].dateOfJoining}
+                    onClick={(e) =>
+                      e.target.showPicker && e.target.showPicker()
+                    }
+                  />
+                </div>
+                <div className="relative w-full mt-1">
+                  <label className="absolute -top-3 left-3 bg-gray-50 px-1 text-sm text-gray-500">
+                    Date of Leaving
+                  </label>
+                  <input
+                    type="date"
+                    className="input w-full"
+                    onChange={(e) =>
+                      updateTeachingExperience(
+                        index,
+                        "dateOfLeaving",
+                        e.target.value,
+                      )
+                    }
+                    value={formData.teachingExperience[index].dateOfLeaving}
+                    onClick={(e) =>
+                      e.target.showPicker && e.target.showPicker()
+                    }
+                  />
+                </div>
               </div>
               <textarea
                 className="input w-full"
@@ -947,7 +1058,9 @@ const fileRef = useRef(null);
                     e.target.value,
                   )
                 }
-                value={formData.teachingExperience[index].reasonForDiscontinuation}
+                value={
+                  formData.teachingExperience[index].reasonForDiscontinuation
+                }
               />
               <button
                 type="button"
@@ -958,17 +1071,19 @@ const fileRef = useRef(null);
               </button>
             </div>
           ))}
+          <div ref={teachingEndRef}></div>
         </section>
         {/* Trainings */}
         <section className="space-y-4">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col justify-between items-start">
             <h2 className="text-lg font-medium">Trainings Undergone</h2>
+
             <button
               type="button"
               onClick={addTraining}
-              className="text-blue-600"
+              className="mt-1 flex items-center gap-1 bg-blue-400 text-white px-3 py-1.5 rounded-full font-medium shadow hover:bg-blue-700 transition-all duration-200 cursor-pointer"
             >
-              + Add
+              <span className="text-md font-bold">+</span> Add Training
             </button>
           </div>
 
@@ -997,6 +1112,7 @@ const fileRef = useRef(null);
                 <input
                   type="date"
                   className="input"
+                    onClick={(e) => e.target.showPicker && e.target.showPicker()}
                   onChange={(e) =>
                     updateTraining(index, "date", e.target.value)
                   }
@@ -1037,6 +1153,7 @@ const fileRef = useRef(null);
               </button>
             </div>
           ))}
+          <div ref={trainingEndRef}></div>
         </section>
 
         {/* Other Roles */}
@@ -1051,14 +1168,15 @@ const fileRef = useRef(null);
         </section>
 
         <section className="space-y-4">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col justify-between items-start">
             <h2 className="text-lg font-medium">Professional References</h2>
+
             <button
               type="button"
               onClick={addReference}
-              className="text-blue-600"
+              className="mt-1 flex items-center gap-1 bg-blue-400 text-white px-3 py-1.5 rounded-full font-medium shadow hover:bg-blue-700 transition-all duration-200 cursor-pointer"
             >
-              + Add Reference
+              <span className="text-md font-bold">+</span> Add Reference
             </button>
           </div>
 
@@ -1111,10 +1229,30 @@ const fileRef = useRef(null);
               </button>
             </div>
           ))}
+          <div ref={referenceEndRef}></div>
         </section>
- {/* Declaration */}
+        {/* Declaration */}
         <section className="text-sm text-gray-600">
-       All the above information provided by me is correct and to the best of my knowledge. Any wrong information or details can lead to the cancellation of my candidature/ selection/ appointment at any point of time.
+          <div className="flex items-start gap-3 mt-4">
+            <input
+              type="checkbox"
+              id="declaration"
+              checked={accepted}
+              onChange={(e) => setAccepted(e.target.checked)}
+              className="mt-2 scale-150 accent-orange-600 cursor-pointer"
+              required
+            />
+
+            <label
+              htmlFor="declaration"
+              className="text-md text-gray-600 leading-relaxed cursor-pointer"
+            >
+              All the above information provided by me is correct and to the
+              best of my knowledge. Any wrong information or details can lead to
+              the cancellation of my candidature/ selection/ appointment at any
+              point of time.
+            </label>
+          </div>
         </section>
         <section>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1132,27 +1270,23 @@ const fileRef = useRef(null);
               placeholder="Date"
               onChange={handleChange}
               value={formData.date}
+              onClick={(e) => e.target.showPicker && e.target.showPicker()}
             />
           </div>
         </section>
-        {/* Signature */}
-        <section className="space-y-2">
-          <label className="text-sm text-gray-600 m-1 ">Upload Signature</label>
-          <input  ref={fileRef} type="file" onChange={handleFileChange} 
-          />
-          {errors.signature && (
-            <p className="text-red-500 text-sm">{errors.signature}</p>
-          )}
-        </section>
 
-       
-       <section className="flex justify-center">
-        <button disabled={loading}
-          type="submit"
-          className=" bg-blue-600 text-white p-3 rounded-xl font-medium hover:bg-blue-700 transition"
-        >
-         {loading?"Submitting...":"Submit Application"}
-        </button>
+        <section className="flex justify-center">
+          <button
+            disabled={loading || !accepted}
+            type="submit"
+            className={` p-3 rounded-xl font-medium   ${
+              loading || !accepted
+                ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                : "bg-blue-600 text-white hover:bg-blue-700 cursor-pointer"
+            }`}
+          >
+            {loading ? "Submitting..." : "Submit Application"}
+          </button>
         </section>
       </form>
 

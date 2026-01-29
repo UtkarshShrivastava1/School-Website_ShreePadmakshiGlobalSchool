@@ -137,10 +137,7 @@ const CandidateFormSchema = new mongoose.Schema(
       type: Date,
     },
     place: String,
-    signature: {
-      type: String,
-      required: true,
-    },
+    
     status:{
       type:String,
       enum:["pending","shortlisted","rejected"],
