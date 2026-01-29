@@ -130,6 +130,9 @@ export default function CandidateForm() {
     ) {
       newErrors.mobileNumber2 = "Invalid mobile number";
     }
+    if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)){
+      newErrors.email = "Invalid email address";
+    }
 
     // Address validation
     if (!formData.correspondenceAddress.address.trim())
@@ -564,7 +567,7 @@ export default function CandidateForm() {
                 </p>
               )}
             </div>
-
+           <div className="flex flex-col">
             <input
               className="input"
               name="email"
@@ -572,6 +575,10 @@ export default function CandidateForm() {
               onChange={handleChange}
               value={formData.email}
             />
+            {errors.email && (
+              <p className="text-red-500 text-sm m-0.5">{errors.email}</p>
+            )}
+            </div>
           </div>
         </section>
 
