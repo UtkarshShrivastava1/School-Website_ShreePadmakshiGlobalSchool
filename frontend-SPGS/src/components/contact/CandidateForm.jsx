@@ -165,12 +165,52 @@ export default function CandidateForm() {
     }, 100);
   };
 
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
+    const numberFields = {
+    aadharNumber: 12,
+    mobileNumber1: 10,
+    mobileNumber2: 10,
+    fatherMobileNumber: 10,
+    motherMobileNumber: 10,
+    
+  };
+   if (numberFields[name]) {
+    const numericValue = value.replace(/\D/g, "").slice(0, numberFields[name]);
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: numericValue,
+    }));
+    return;
+  }
+   // PAN auto uppercase + length
+  if (name === "panNumber") {
+    setFormData((prev) => ({
+      ...prev,
+      panNumber: value.toUpperCase().slice(0, 10),
+    }));
+    return;
+  }
+
     setFormData({ ...formData, [name]: value });
   };
 
   const handleAddressChange = (type, field, value) => {
+    if (field === "pincode") {
+    const numericValue = value.replace(/\D/g, "").slice(0, 6);
+
+    setFormData((prev) => ({
+      ...prev,
+      [type]: {
+        ...prev[type],
+        pincode: numericValue,
+      },
+    }));
+    return;
+  }
+
     setFormData({
       ...formData,
       [type]: {
@@ -509,11 +549,13 @@ export default function CandidateForm() {
 
             <div className="flex flex-col">
               <input
+              maxLength={12}
                 className="input"
                 name="aadharNumber"
                 placeholder="Aadhar Number"
                 onChange={handleChange}
                 value={formData.aadharNumber}
+
               />
               {errors.aadharNumber && (
                 <p className="text-red-500 text-sm m-0.5">
@@ -523,6 +565,7 @@ export default function CandidateForm() {
             </div>
             <div className="flex flex-col">
               <input
+              maxLength={10}
                 className="input"
                 name="panNumber"
                 placeholder="PAN Number"
@@ -541,6 +584,7 @@ export default function CandidateForm() {
             </div>
             <div className="flex flex-col">
               <input
+                  maxLength={10}
                 className="input"
                 name="mobileNumber1"
                 placeholder="Mobile Number 1"
@@ -556,6 +600,7 @@ export default function CandidateForm() {
             <div className="flex flex-col">
               <input
                 className="input"
+                  maxLength={10}
                 name="mobileNumber2"
                 placeholder="Mobile Number 2 (optional)"
                 onChange={handleChange}
@@ -625,6 +670,7 @@ export default function CandidateForm() {
               value={formData.motherOccupation}
             />
             <input
+            maxLength={10}
               className="input"
               name="fatherMobileNumber"
               placeholder="Father's Mobile"
@@ -632,6 +678,7 @@ export default function CandidateForm() {
               value={formData.fatherMobileNumber}
             />
             <input
+            maxLength={10}
               className="input"
               name="motherMobileNumber"
               placeholder="Mother's Mobile"

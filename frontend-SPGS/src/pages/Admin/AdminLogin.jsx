@@ -32,7 +32,7 @@ function AdminLogin() {
       localStorage.setItem("adminUsername", username);
 
       // Redirect to admin dashboard
-      alert("Login successful");
+      
       router("/admin/dashboard");
     } catch (err) {
       console.error("Login error:", err);
