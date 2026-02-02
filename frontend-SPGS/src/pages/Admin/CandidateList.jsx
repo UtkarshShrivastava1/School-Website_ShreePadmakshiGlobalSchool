@@ -162,24 +162,26 @@ const CandidateList = () => {
                 {allCandidates.map((c) => (
                   <tr key={c._id} className="text-center">
                     <td className="border p-2">{c.name}</td>
-                    <td className="border p-2">{c.mobileNumber}</td>
+                    <td className="border p-2">{c.mobileNumber.join(",")}</td>
                     <td className="border p-2">{c.email}</td>
                     <td className="border p-2 capitalize">{c.status}</td>
-                    <td className="border p-2 space-x-2">
-                      <button
-                        onClick={() => updateStatus(c._id, "shortlisted")}
-                        className="bg-green-600 text-white px-3 py-1 rounded"
-                      >
-                        Shortlist
-                      </button>
+<td className="border p-2">
+  <div className="flex flex-wrap justify-center items-center gap-2">
+    <button
+      onClick={() => updateStatus(c._id, "shortlisted")}
+      className="bg-green-600 text-white px-3 py-1 rounded"
+    >
+      Shortlist
+    </button>
 
-                      <button
-                        onClick={() => updateStatus(c._id, "rejected")}
-                        className="bg-red-600 text-white px-3 py-1 rounded"
-                      >
-                        Reject
-                      </button>
-                    </td>
+    <button
+      onClick={() => updateStatus(c._id, "rejected")}
+      className="bg-red-600 text-white px-3 py-1 rounded"
+    >
+      Reject
+    </button>
+  </div>
+</td>
                   <td className="border p-3">
   <div className="flex justify-center gap-2">
     <button

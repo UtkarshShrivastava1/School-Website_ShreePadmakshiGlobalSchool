@@ -94,7 +94,9 @@ const CandidateFormSchema = new mongoose.Schema(
         totalMarks: String,
         percentageOrCGPA: String,
         yearOfPassing: String,
+        
       },
+     
     ],
     otherRoles: {
       type: String,

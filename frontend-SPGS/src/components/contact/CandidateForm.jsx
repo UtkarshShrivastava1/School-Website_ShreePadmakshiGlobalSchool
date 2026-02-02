@@ -2,9 +2,8 @@ import { useState, useRef } from "react";
 import api from "../../services/api";
 import { toast } from "react-toastify";
 
-
-
 export default function CandidateForm() {
+ 
   const [accepted, setAccepted] = useState(false);
   const [sameAsCorrespondence, setSameAsCorrespondence] = useState(false);
   const educationEndRef = useRef(null);
@@ -83,9 +82,7 @@ export default function CandidateForm() {
       },
     ],
     professionalReferences: [],
-    
   };
- 
 
   const [formData, setFormData] = useState(initialFormState);
   const [errors, setErrors] = useState({});
@@ -130,7 +127,7 @@ export default function CandidateForm() {
     ) {
       newErrors.mobileNumber2 = "Invalid mobile number";
     }
-    if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)){
+    if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Invalid email address";
     }
 
@@ -146,11 +143,19 @@ export default function CandidateForm() {
       newErrors.permanentPincode = "Invalid pincode";
 
     // Education (mandatory 10th/12th/Graduation)
-    formData.education.slice(0, 3).forEach((edu, index) => {
-      if (!edu.boardOrUniversity)
-        newErrors[`edu_${index}`] = "Education details incomplete";
+    formData.education.forEach((edu, index) => {
+      if (
+        !edu.course.trim() ||
+        !edu.boardOrUniversity.trim() ||
+        !edu.subject.trim() ||
+        !edu.marksScored.trim() ||
+        !edu.totalMarks.trim() ||
+        !edu.percentageOrCGPA.trim() ||
+        !edu.yearOfPassing.trim()
+      ) {
+        newErrors[`edu_${index}`] = "All education fields are required";
+      }
     });
-
     setErrors(newErrors);
     console.log("Errors:", newErrors);
 
@@ -165,51 +170,57 @@ export default function CandidateForm() {
     }, 100);
   };
 
-  
   const handleChange = (e) => {
+  
     const { name, value } = e.target;
+      setErrors((prev) => ({
+  ...prev,
+  
+  [name]: undefined,
+}));
     const numberFields = {
-    aadharNumber: 12,
-    mobileNumber1: 10,
-    mobileNumber2: 10,
-    fatherMobileNumber: 10,
-    motherMobileNumber: 10,
-    
-  };
-   if (numberFields[name]) {
-    const numericValue = value.replace(/\D/g, "").slice(0, numberFields[name]);
+      aadharNumber: 12,
+      mobileNumber1: 10,
+      mobileNumber2: 10,
+      fatherMobileNumber: 10,
+      motherMobileNumber: 10,
+    };
+    if (numberFields[name]) {
+      const numericValue = value
+        .replace(/\D/g, "")
+        .slice(0, numberFields[name]);
 
-    setFormData((prev) => ({
-      ...prev,
-      [name]: numericValue,
-    }));
-    return;
-  }
-   // PAN auto uppercase + length
-  if (name === "panNumber") {
-    setFormData((prev) => ({
-      ...prev,
-      panNumber: value.toUpperCase().slice(0, 10),
-    }));
-    return;
-  }
+      setFormData((prev) => ({
+        ...prev,
+        [name]: numericValue,
+      }));
+      return;
+    }
+    // PAN auto uppercase + length
+    if (name === "panNumber") {
+      setFormData((prev) => ({
+        ...prev,
+        panNumber: value.toUpperCase().slice(0, 10),
+      }));
+      return;
+    }
 
     setFormData({ ...formData, [name]: value });
   };
 
   const handleAddressChange = (type, field, value) => {
     if (field === "pincode") {
-    const numericValue = value.replace(/\D/g, "").slice(0, 6);
+      const numericValue = value.replace(/\D/g, "").slice(0, 6);
 
-    setFormData((prev) => ({
-      ...prev,
-      [type]: {
-        ...prev[type],
-        pincode: numericValue,
-      },
-    }));
-    return;
-  }
+      setFormData((prev) => ({
+        ...prev,
+        [type]: {
+          ...prev[type],
+          pincode: numericValue,
+        },
+      }));
+      return;
+    }
 
     setFormData({
       ...formData,
@@ -310,7 +321,7 @@ export default function CandidateForm() {
   };
 
   const removeEducation = (index) => {
-    if (index < 3) return; // 10th, 12th, Graduation 
+    if (index < 3) return; // 10th, 12th, Graduation
     setFormData({
       ...formData,
       education: formData.education.filter((_, i) => i !== index),
@@ -334,7 +345,13 @@ export default function CandidateForm() {
 
   const updateReference = (index, field, value) => {
     const updated = [...formData.professionalReferences];
-    updated[index][field] = value;
+    if (field === "contactNumber") {
+      const numericValue = value.replace(/\D/g, "").slice(0, 10);
+      updated[index][field] = numericValue;
+    } else {
+      updated[index][field] = value;
+    }
+
     setFormData({ ...formData, professionalReferences: updated });
   };
 
@@ -351,7 +368,6 @@ export default function CandidateForm() {
     e.preventDefault();
 
     if (!validateForm()) {
-     
       window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
@@ -406,19 +422,33 @@ export default function CandidateForm() {
 
       const res = await api.post("/candidateForm/submitCandidateForm", fd);
 
-      if (res.status === 201){
-      toast.success("Form submitted successfully");
-      setFormData(initialFormState);
-      setAccepted(false);
-      setErrors({});
-      setSameAsCorrespondence(false);
-     
-      console.log(res.data);
+      if (res.status === 201) {
+      
+        toast.success("Form submitted successfully");
+        setFormData(initialFormState);
+        setAccepted(false);
+        setErrors({});
+        setSameAsCorrespondence(false);
+
+        console.log(res.data);
       }
-    } catch (err) {
-      console.error(err);
-      toast.error(err.response?.data?.message || "Submission failed");
-    } finally {
+    }  catch (err) {
+  const data = err.response?.data;
+
+  if (data?.errors) {
+    setErrors(data.errors);
+
+    // scroll to first error field
+    const firstErrorField = Object.keys(data.errors)[0];
+    const element = document.querySelector(`[name="${firstErrorField}"]`);
+    element?.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    return;
+  }
+
+  // only unexpected errors
+  toast.error("Something went wrong");
+}finally {
       setLoading(false);
     }
   };
@@ -484,7 +514,12 @@ export default function CandidateForm() {
               )}
             </div>
             <div className="flex flex-col">
-              <select value={formData.religion} className="input" name="religion" onChange={handleChange}>
+              <select
+                value={formData.religion}
+                className="input"
+                name="religion"
+                onChange={handleChange}
+              >
                 <option value="">Select Religion</option>
                 <option value="Hindu">Hindu</option>
                 <option value="Muslim">Muslim</option>
@@ -515,7 +550,8 @@ export default function CandidateForm() {
             )}
 
             <div className="flex flex-col">
-              <select value={formData.nationality}
+              <select
+                value={formData.nationality}
                 className="input"
                 name="nationality"
                 onChange={handleChange}
@@ -549,13 +585,12 @@ export default function CandidateForm() {
 
             <div className="flex flex-col">
               <input
-              maxLength={12}
+                maxLength={12}
                 className="input"
                 name="aadharNumber"
                 placeholder="Aadhar Number"
                 onChange={handleChange}
                 value={formData.aadharNumber}
-
               />
               {errors.aadharNumber && (
                 <p className="text-red-500 text-sm m-0.5">
@@ -565,17 +600,18 @@ export default function CandidateForm() {
             </div>
             <div className="flex flex-col">
               <input
-              maxLength={10}
+                maxLength={10}
                 className="input"
                 name="panNumber"
                 placeholder="PAN Number"
                 value={formData.panNumber}
-                onChange={(e) =>
-                  setFormData({
-                    ...formData,
-                    panNumber: e.target.value.toUpperCase(),
-                  })
-                }
+                onChange={(e) => {
+                  const value = e.target.value.toUpperCase().slice(0, 10);
+
+                  setFormData({ ...formData, panNumber: value });
+                  handleChange(e);
+
+                }}
               />
 
               {errors.panNumber && (
@@ -584,7 +620,7 @@ export default function CandidateForm() {
             </div>
             <div className="flex flex-col">
               <input
-                  maxLength={10}
+                maxLength={10}
                 className="input"
                 name="mobileNumber1"
                 placeholder="Mobile Number 1"
@@ -600,7 +636,7 @@ export default function CandidateForm() {
             <div className="flex flex-col">
               <input
                 className="input"
-                  maxLength={10}
+                maxLength={10}
                 name="mobileNumber2"
                 placeholder="Mobile Number 2 (optional)"
                 onChange={handleChange}
@@ -612,17 +648,17 @@ export default function CandidateForm() {
                 </p>
               )}
             </div>
-           <div className="flex flex-col">
-            <input
-              className="input"
-              name="email"
-              placeholder="Email"
-              onChange={handleChange}
-              value={formData.email}
-            />
-            {errors.email && (
-              <p className="text-red-500 text-sm m-0.5">{errors.email}</p>
-            )}
+            <div className="flex flex-col">
+              <input
+                className="input"
+                name="email"
+                placeholder="Email"
+                onChange={handleChange}
+                value={formData.email}
+              />
+              {errors.email && (
+                <p className="text-red-500 text-sm m-0.5">{errors.email}</p>
+              )}
             </div>
           </div>
         </section>
@@ -670,7 +706,7 @@ export default function CandidateForm() {
               value={formData.motherOccupation}
             />
             <input
-            maxLength={10}
+              maxLength={10}
               className="input"
               name="fatherMobileNumber"
               placeholder="Father's Mobile"
@@ -678,7 +714,7 @@ export default function CandidateForm() {
               value={formData.fatherMobileNumber}
             />
             <input
-            maxLength={10}
+              maxLength={10}
               className="input"
               name="motherMobileNumber"
               placeholder="Mother's Mobile"
@@ -895,6 +931,7 @@ export default function CandidateForm() {
             >
               <div className="flex justify-between items-center">
                 <input
+                  required={index >= 3}
                   className="input font-medium"
                   placeholder="Course"
                   value={edu.course}
@@ -922,6 +959,7 @@ export default function CandidateForm() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <input
+                  required
                   className="input"
                   placeholder="Board / University"
                   onChange={(e) =>
@@ -930,6 +968,7 @@ export default function CandidateForm() {
                   value={formData.education[index].boardOrUniversity}
                 />
                 <input
+                  required
                   className="input"
                   placeholder="Subject / Specialization"
                   onChange={(e) =>
@@ -938,6 +977,7 @@ export default function CandidateForm() {
                   value={formData.education[index].subject}
                 />
                 <input
+                  required
                   className="input"
                   placeholder="Marks Scored"
                   onChange={(e) =>
@@ -946,6 +986,7 @@ export default function CandidateForm() {
                   value={formData.education[index].marksScored}
                 />
                 <input
+                  required
                   className="input"
                   placeholder="Total Marks"
                   onChange={(e) =>
@@ -954,6 +995,7 @@ export default function CandidateForm() {
                   value={formData.education[index].totalMarks}
                 />
                 <input
+                  required
                   className="input"
                   placeholder="Percentage / CGPA"
                   onChange={(e) =>
@@ -962,6 +1004,7 @@ export default function CandidateForm() {
                   value={formData.education[index].percentageOrCGPA}
                 />
                 <input
+                  required
                   className="input"
                   placeholder="Year of Passing"
                   onChange={(e) =>
@@ -1172,7 +1215,7 @@ export default function CandidateForm() {
                 <input
                   type="date"
                   className="input"
-                    onClick={(e) => e.target.showPicker && e.target.showPicker()}
+                  onClick={(e) => e.target.showPicker && e.target.showPicker()}
                   onChange={(e) =>
                     updateTraining(index, "date", e.target.value)
                   }
@@ -1271,6 +1314,7 @@ export default function CandidateForm() {
                   value={formData.professionalReferences[index].institutionName}
                 />
                 <input
+                  maxLength={10}
                   className="input"
                   placeholder="Contact Number"
                   onChange={(e) =>
