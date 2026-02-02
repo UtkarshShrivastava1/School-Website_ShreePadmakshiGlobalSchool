@@ -501,7 +501,9 @@ const table = (headers, rows, colWidths) => {
       "Date of Birth",
       formatDate(c.dateOfBirth),
       "Nationality",
-      c.nationality,
+      c.nationalityOther
+        ? `${c.nationality} (${c.nationalityOther})`
+        : c.nationality,
     );
     formRow(
       "Religion",
