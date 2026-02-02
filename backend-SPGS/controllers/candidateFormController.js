@@ -396,7 +396,7 @@ exports.downloadCandidateForm = async (req, res) => {
       // const rowHeight = 22;
       doc.font("B").text(l1, 40, y);
       doc.font("R").text(val(v1), 170, y,{
-         width: 110,          // 👈 LEFT VALUE WIDTH
+         width: 110,          //  LEFT VALUE WIDTH
     lineBreak: true,
       });
 

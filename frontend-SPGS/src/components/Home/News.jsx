@@ -12,7 +12,7 @@ const NewsSection = () => {
 
   const fetchNews = async () => {
     try {
-      const response = await api.get("/api/latestnews/");
+      const response = await api.get("latestnews/");
       const { data } = await api.get("/latestnews/");
 
       console.log("Fetched news data:", response);

@@ -157,7 +157,7 @@ export default function CandidateForm() {
       }
     });
     setErrors(newErrors);
-    console.log("Errors:", newErrors);
+    
 
     return Object.keys(newErrors).length === 0;
   };
@@ -229,6 +229,13 @@ export default function CandidateForm() {
         [field]: value,
       },
     });
+    setErrors(prev => ({
+  ...prev,
+  correspondenceAddress: undefined,
+  correspondencePincode: undefined,
+  permanentAddress: undefined,
+  permanentPincode: undefined,
+}));
   };
 
   // Teaching Experience handlers
@@ -447,7 +454,9 @@ export default function CandidateForm() {
   }
 
   // only unexpected errors
-  toast.error("Something went wrong");
+toast.error(
+  err.response?.data?.message || "Something went wrong"
+);
 }finally {
       setLoading(false);
     }
@@ -541,7 +550,7 @@ export default function CandidateForm() {
                   value={formData.religionOther}
                 />
 
-                {errors.religion && (
+                {errors.religionOther && (
                   <p className="text-red-500 text-sm m-0.5">
                     {errors.religion}
                   </p>
@@ -575,9 +584,9 @@ export default function CandidateForm() {
                   onChange={handleChange}
                   value={formData.nationalityOther}
                 />
-                {errors.nationality && (
+                {errors.nationalityOther && (
                   <p className="text-red-500 text-sm m-0.5">
-                    {errors.nationality}
+                    {errors.nationalityOther}
                   </p>
                 )}
               </div>
@@ -605,13 +614,10 @@ export default function CandidateForm() {
                 name="panNumber"
                 placeholder="PAN Number"
                 value={formData.panNumber}
-                onChange={(e) => {
-                  const value = e.target.value.toUpperCase().slice(0, 10);
+                onChange={handleChange
+                 
 
-                  setFormData({ ...formData, panNumber: value });
-                  handleChange(e);
-
-                }}
+                }
               />
 
               {errors.panNumber && (
@@ -732,6 +738,7 @@ export default function CandidateForm() {
           </h2>
           <div className="flex flex-col">
             <textarea
+            name="correspondenceAddress"
               className="input w-full"
               placeholder="Address"
               onChange={(e) =>
@@ -788,6 +795,7 @@ export default function CandidateForm() {
             />
             <div className="flex flex-col">
               <input
+              name="correspondencePincode"
                 className="input"
                 placeholder="Pin Code"
                 onChange={(e) =>
@@ -848,6 +856,7 @@ export default function CandidateForm() {
 
           <div className="felx flex-col">
             <textarea
+            name="permanentAddress"
               className="input w-full"
               placeholder="Address"
               disabled={sameAsCorrespondence}
@@ -898,6 +907,7 @@ export default function CandidateForm() {
             />
             <div className="flex flex-col">
               <input
+              name="permanentPincode"
                 className="input"
                 placeholder="Pin Code"
                 disabled={sameAsCorrespondence}
