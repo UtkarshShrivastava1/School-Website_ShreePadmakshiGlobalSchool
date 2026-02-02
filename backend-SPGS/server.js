@@ -74,7 +74,7 @@ app.use("/api/leaves", require("./Routes/LeaveRoutes"));
 app.use("/api/notices", require("./Routes/NoticeRoutes"));
 app.use("/api/posts", require("./Routes/postRoutes"));
 app.use("/api/disclosure", require("./Routes/disclosureRoutes"));
-app.use("",require("./Routes/latestnews"));
+app.use("/api/latestnews",require("./Routes/latestnews"));
 app.use("/api/candidateForm", require("./Routes/CandidateFormRoutes"));
 // Health check endpoint
 app.get("/health", (req, res) => {
