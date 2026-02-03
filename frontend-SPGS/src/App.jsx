@@ -1,4 +1,6 @@
 import React from "react";
+
+import "sweetalert2/dist/sweetalert2.min.css";
 import {
   BrowserRouter as Router,
   Routes,
