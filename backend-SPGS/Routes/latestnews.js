@@ -7,9 +7,9 @@ const  {
 } = require('../controllers/latestnews.js');
 
 const router = express.Router();
-
-router.post('/create', createNews);
 router.get('/', getAllNews);
+router.post('/create', createNews);
+
 router.get('/:id', getNewsById);
 router.delete('/:id', deleteNews);
 

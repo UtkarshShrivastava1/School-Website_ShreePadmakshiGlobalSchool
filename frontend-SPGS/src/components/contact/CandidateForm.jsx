@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import api from "../../services/api";
 import { toast } from "react-toastify";
-
+import Swal from "sweetalert2";
 export default function CandidateForm() {
  
   const [accepted, setAccepted] = useState(false);
@@ -429,9 +429,15 @@ export default function CandidateForm() {
 
       const res = await api.post("/candidateForm/submitCandidateForm", fd);
 
-      if (res.status === 201) {
+      if (res.status === 201 || res.status === 200) {
       
-        toast.success("Form submitted successfully");
+        // toast.success("Form submitted successfully");
+        Swal.fire({ 
+  icon: 'success',
+  title: 'Success',
+  text: 'Your Form submitted successfully',
+  confirmButtonText: 'OK'
+});
         setFormData(initialFormState);
         setAccepted(false);
         setErrors({});
