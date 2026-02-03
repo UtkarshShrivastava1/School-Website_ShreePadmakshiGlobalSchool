@@ -344,7 +344,7 @@ exports.downloadCandidateForm = async (req, res) => {
     /* ---------- PDF Setup ---------- */
     const doc = new PDFDocument({ size: "A4", margin: 40 });
     doc.registerFont("R", "./fonts/OpenSans-Regular.ttf");
-    doc.registerFont("B", "./fonts/OpenSans-SemiBold.ttf");
+    doc.registerFont("B", "./fonts/OpenSans-Semibold.ttf");
 
     res.setHeader(
       "Content-Disposition",
