@@ -432,12 +432,13 @@ export default function CandidateForm() {
       if (res.status === 201 || res.status === 200) {
       
         // toast.success("Form submitted successfully");
+        setTimeout(() => {
         Swal.fire({ 
   icon: 'success',
   title: 'Success',
   text: 'Your Form submitted successfully',
   confirmButtonText: 'OK'
-});
+}); }, 100);
         setFormData(initialFormState);
         setAccepted(false);
         setErrors({});
