@@ -1,6 +1,17 @@
 const fs = require("fs");
 const path = require("path");
 
+const getUploadDateFromFilename = (filename, stats) => {
+  const timestampPrefix = filename.split("-")[0];
+  const parsedTimestamp = Number(timestampPrefix);
+
+  if (Number.isFinite(parsedTimestamp) && parsedTimestamp > 0) {
+    return new Date(parsedTimestamp);
+  }
+
+  return stats.birthtime || stats.ctime;
+};
+
 // Controller to add disclosure
 exports.addDisclosure = async (req, res) => {
   try {
@@ -47,6 +58,7 @@ exports.getAllDisclosure = async (req, res) => {
     const disclosures = files.map((filename) => {
       const filePath = path.join(uploadsDir, filename);
       const stats = fs.statSync(filePath);
+      const uploadDate = getUploadDateFromFilename(filename, stats);
       return {
         id: filename, // Use filename as ID for now
         filename: filename, // Add this for delete functionality
@@ -61,7 +73,7 @@ exports.getAllDisclosure = async (req, res) => {
         originalName: filename.split("-").slice(1).join("-").replace(/_/g, " "), // Extract original name
         fileName: filename,
         fileSize: stats.size,
-        uploadDate: stats.birthtime || stats.ctime,
+        uploadDate,
         modifiedDate: stats.mtime,
         filePath: `uploads/${filename}`,
       };
