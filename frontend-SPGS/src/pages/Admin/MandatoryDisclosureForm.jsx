@@ -64,7 +64,13 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
   };
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+    const selectedFile = e.target.files?.[0] || null;
+    setFile(selectedFile);
+
+    if (selectedFile && !formData.title.trim()) {
+      const defaultTitle = selectedFile.name.replace(/\.[^/.]+$/, "");
+      setFormData((prev) => ({ ...prev, title: defaultTitle }));
+    }
   };
 
   const handleSubmit = async (e) => {
