@@ -206,12 +206,15 @@ exports.downloadDisclosure = async (req, res) => {
         const parsed = parseCloudinaryUrl(file);
 
         const publicId = disclosure?.publicId || parsed?.publicId;
-        const resourceType = disclosure?.resourceType || parsed?.resourceType || 'auto';
+        // Prioritize parsed resourceType from URL since that's the actual stored type
+        const resourceType = parsed?.resourceType || disclosure?.resourceType || 'image';
         const format = parsed?.format;
 
         if (!publicId) {
           throw new Error('Unable to parse Cloudinary public ID from URL');
         }
+
+        console.log('Download params:', { publicId, resourceType, format, originalFilename });
 
         const downloadUrl = cloudinary.url(publicId, {
           resource_type: resourceType,
