@@ -482,10 +482,6 @@ const SchoolPortal = () => {
                           Created: {new Date(doc.date).toLocaleDateString('en-GB')}
                         </span>
                       </div>
-                      <div className="flex items-center space-x-1">
-                        <File size={14} />
-                        <span>Size: {doc.size}</span>
-                      </div>
                     </div>
                   </div>
                   <div className="mt-4 md:mt-0 md:ml-6 flex items-center">
