@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const DisclosureModel = require("../models/disclosure");
 const cloudinary = require("../config/cloudinary");
+const axios = require("axios");
 
 // Controller to add disclosure
 exports.addDisclosure = async (req, res) => {
@@ -152,10 +153,22 @@ exports.downloadDisclosure = async (req, res) => {
       return res.status(400).json({ error: "File parameter is required" });
     }
 
-    // Assuming file is the Cloudinary URL
-    // To force download, modify the URL to include fl_attachment
-    const downloadUrl = file.replace('/upload/', '/upload/fl_attachment/');
-    res.redirect(downloadUrl);
+    if (file.startsWith('http')) {
+      // Cloudinary URL - fetch and stream the file
+      try {
+        const response = await axios.get(file, { responseType: 'stream' });
+        const filename = file.split('/').pop().split('?')[0]; // Extract filename
+        res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+        res.setHeader('Content-Type', response.headers['content-type'] || 'application/octet-stream');
+        response.data.pipe(res);
+      } catch (error) {
+        console.error('Error fetching from Cloudinary:', error);
+        res.status(500).json({ error: 'Failed to download file from cloud' });
+      }
+    } else {
+      // Local file (legacy) - but files don't exist on live server
+      res.status(404).json({ error: "File not found - please reupload the disclosure" });
+    }
   } catch (error) {
     console.error("Error downloading file:", error);
     res.status(500).json({ error: "Failed to download file" });
