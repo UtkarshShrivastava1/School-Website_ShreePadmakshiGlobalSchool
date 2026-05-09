@@ -52,5 +52,5 @@ Thumbs.db
 
 # Git-specific
 .git/
-# uploads/
-# uploadFile/
+uploads/
+uploadFile/
