@@ -168,6 +168,8 @@ exports.downloadDisclosure = async (req, res) => {
         const disclosure = await DisclosureModel.findOne({ file });
         console.log('Found disclosure:', disclosure ? 'yes' : 'no');
 
+        const originalFilename = disclosure?.originalFilename || 'download';
+
         // Extract public_id from Cloudinary URL
         // URL format: https://res.cloudinary.com/{cloud_name}/{resource_type}/upload/{transformations}/{public_id}.{format}
         const urlParts = file.split('/');
@@ -177,11 +179,12 @@ exports.downloadDisclosure = async (req, res) => {
 
         console.log('Extracted public_id:', publicId, 'format:', format);
 
-        // Generate signed URL with attachment flag
+        // Generate signed URL with attachment flag and filename
         const downloadUrl = cloudinary.url(publicId, {
           resource_type: 'raw', // or 'auto' for any type
           format: format,
           flags: 'attachment',
+          attachment: originalFilename, // Set the download filename
           sign_url: true
         });
 
