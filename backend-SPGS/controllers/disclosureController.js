@@ -153,6 +153,8 @@ exports.deleteDisclosure = async (req, res) => {
 exports.downloadDisclosure = async (req, res) => {
   try {
     const { file } = req.query;
+    console.log('Download request for file:', file);
+
     if (!file) {
       return res.status(400).json({ error: "File parameter is required" });
     }
@@ -160,21 +162,44 @@ exports.downloadDisclosure = async (req, res) => {
     if (file.startsWith('http')) {
       // Cloudinary URL - fetch and stream the file
       try {
-        const response = await axios.get(file, { responseType: 'stream' });
-        
+        console.log('Fetching from Cloudinary URL:', file);
+
         // Find the disclosure to get the original filename
         const disclosure = await DisclosureModel.findOne({ file });
-        const filename = disclosure?.originalFilename || file.split('/').pop().split('?')[0];
-        
+        console.log('Found disclosure:', disclosure ? 'yes' : 'no', disclosure?.originalFilename);
+
+        const filename = disclosure?.originalFilename || file.split('/').pop().split('?')[0] || 'download';
+        console.log('Using filename:', filename);
+
+        const response = await axios.get(file, {
+          responseType: 'stream',
+          timeout: 30000 // 30 seconds timeout
+        });
+
+        console.log('Cloudinary response status:', response.status);
+        console.log('Content-Type:', response.headers['content-type']);
+
         res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
         res.setHeader('Content-Type', response.headers['content-type'] || 'application/octet-stream');
+
         response.data.pipe(res);
+
+        // Handle stream errors
+        response.data.on('error', (error) => {
+          console.error('Stream error:', error);
+          if (!res.headersSent) {
+            res.status(500).json({ error: 'Stream error' });
+          }
+        });
+
       } catch (error) {
-        console.error('Error fetching from Cloudinary:', error);
+        console.error('Error fetching from Cloudinary:', error.message);
+        console.error('Error details:', error.response?.status, error.response?.data);
         res.status(500).json({ error: 'Failed to download file from cloud' });
       }
     } else {
       // Local file (legacy) - but files don't exist on live server
+      console.log('Local file requested, not supported');
       res.status(404).json({ error: "File not found - please reupload the disclosure" });
     }
   } catch (error) {
