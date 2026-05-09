@@ -468,7 +468,9 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
                             {disclosure.file && (
                               <p className="text-[10px] sm:text-xs text-gray-500 mt-1.5 sm:mt-2 flex items-center space-x-1 truncate">
                                 <File size={10} className="flex-shrink-0" />
-                                <span className="truncate">{disclosure.file}</span>
+                                <span className="truncate">
+                                  {disclosure.originalFilename || (disclosure.file.startsWith('http') ? 'File uploaded' : disclosure.file)}
+                                </span>
                               </p>
                             )}
                           </div>

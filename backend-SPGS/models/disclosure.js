@@ -5,7 +5,8 @@ const DisclosureSchema = new mongoose.Schema(
     type: { type: String, required: true },
     title: { type: String, required: true },
     description: { type: String, required: false },
-    file: { type: String }, // path to the file
+    file: { type: String }, // Cloudinary URL
+    originalFilename: { type: String }, // Original filename for display and download
   },
   { timestamps: true }
 );

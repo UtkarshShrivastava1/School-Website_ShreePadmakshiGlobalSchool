@@ -97,7 +97,7 @@ const SchoolPortal = () => {
         const transformedData = data.map((doc, index) => ({
           id: doc._id || doc.id || index,
           title: doc.title || doc.originalName || doc.file || "Untitled Document",
-          description: doc.description || `File: ${doc.file || "Unknown"}`,
+          description: doc.description || (doc.originalFilename ? `File: ${doc.originalFilename}` : "File uploaded to cloud storage"),
           type: doc.type || "general",
           date: doc.createdAt || doc.uploadDate || doc.modifiedDate || new Date(),
           size: "File", // File size is no longer tracked directly in DB model, so we show "File"
@@ -137,21 +137,9 @@ const SchoolPortal = () => {
       const url = window.URL.createObjectURL(new Blob([response.data]));
       const link = document.createElement("a");
       link.href = url;
-
-      // Extract the file extension from the actual filename on the server
-      const fileExtension = fileName.split('.').pop();
-      
-      // We check if the originalName (Title) already has the extension, if not we append it
-      let downloadName = originalName || fileName;
-      if (!downloadName.toLowerCase().endsWith(`.${fileExtension.toLowerCase()}`)) {
-        downloadName = `${downloadName}.${fileExtension}`;
-      }
-
-      link.setAttribute("download", downloadName);
-
+      link.setAttribute("download", doc.originalFilename || doc.title || "download");
       document.body.appendChild(link);
       link.click();
-
       link.remove();
       window.URL.revokeObjectURL(url);
     } catch (error) {

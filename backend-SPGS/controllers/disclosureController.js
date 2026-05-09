@@ -10,6 +10,7 @@ exports.addDisclosure = async (req, res) => {
     const { type, title, description } = req.body;
     
     let cloudinaryUrl = "";
+    let originalFilename = "";
     if (req.file) {
       try {
         const result = await cloudinary.uploader.upload(req.file.path, {
@@ -17,6 +18,7 @@ exports.addDisclosure = async (req, res) => {
           resource_type: 'auto'
         });
         cloudinaryUrl = result.secure_url;
+        originalFilename = req.file.originalname;
       } catch (error) {
         console.error('Cloudinary upload error:', error);
         return res.status(500).json({ error: 'Failed to upload file to cloud' });
@@ -28,6 +30,7 @@ exports.addDisclosure = async (req, res) => {
       title,
       description,
       file: cloudinaryUrl,
+      originalFilename,
     };
 
     const savedDisclosure = await DisclosureModel.create(disclosureData);
@@ -73,6 +76,7 @@ exports.editDisclosure = async (req, res) => {
           resource_type: 'auto'
         });
         updateData.file = result.secure_url;
+        updateData.originalFilename = req.file.originalname;
       } catch (error) {
         console.error('Cloudinary upload error:', error);
         return res.status(500).json({ error: 'Failed to upload file to cloud' });
@@ -157,7 +161,11 @@ exports.downloadDisclosure = async (req, res) => {
       // Cloudinary URL - fetch and stream the file
       try {
         const response = await axios.get(file, { responseType: 'stream' });
-        const filename = file.split('/').pop().split('?')[0]; // Extract filename
+        
+        // Find the disclosure to get the original filename
+        const disclosure = await DisclosureModel.findOne({ file });
+        const filename = disclosure?.originalFilename || file.split('/').pop().split('?')[0];
+        
         res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
         res.setHeader('Content-Type', response.headers['content-type'] || 'application/octet-stream');
         response.data.pipe(res);
