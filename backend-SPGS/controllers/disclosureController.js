@@ -171,18 +171,18 @@ exports.downloadDisclosure = async (req, res) => {
         const originalFilename = disclosure?.originalFilename || 'download';
 
         // Extract public_id from Cloudinary URL
-        // URL format: https://res.cloudinary.com/{cloud_name}/{resource_type}/upload/{transformations}/{public_id}.{format}
+        // URL format: https://res.cloudinary.com/{cloud_name}/raw/upload/v{version}/{folder}/{public_id}
         const urlParts = file.split('/');
-        const publicIdWithExt = urlParts[urlParts.length - 1];
-        const publicId = publicIdWithExt.split('.')[0]; // Remove extension
-        const format = publicIdWithExt.split('.')[1];
+        const uploadIndex = urlParts.findIndex(part => part === 'upload');
+        const versionIndex = uploadIndex + 1;
+        // Everything after version is the public_id (including folder)
+        const publicId = urlParts.slice(versionIndex + 1).join('/');
 
-        console.log('Extracted public_id:', publicId, 'format:', format);
+        console.log('Extracted public_id:', publicId);
 
         // Generate signed URL with attachment flag and filename
         const downloadUrl = cloudinary.url(publicId, {
-          resource_type: 'raw', // or 'auto' for any type
-          format: format,
+          resource_type: 'raw',
           flags: 'attachment',
           attachment: originalFilename, // Set the download filename
           sign_url: true
