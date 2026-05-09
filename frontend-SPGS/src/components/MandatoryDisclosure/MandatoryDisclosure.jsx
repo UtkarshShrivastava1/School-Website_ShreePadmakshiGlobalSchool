@@ -488,63 +488,68 @@ const SchoolPortal = () => {
                 )}
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredDocuments.map((doc) => (
-                  <div
-                    key={doc.id}
-                    className="bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col group"
-                  >
-                    <div className="p-6 flex-grow">
-                      <div className="flex justify-between items-start mb-5">
-                        <div className={`p-2.5 rounded-xl flex items-center justify-center transition-colors
-                          ${doc.type === "results" ? "bg-red-50 text-red-600 group-hover:bg-red-100" : ""}
-                          ${doc.type === "academic" ? "bg-blue-50 text-blue-600 group-hover:bg-blue-100" : ""}
-                          ${doc.type === "information" ? "bg-green-50 text-green-600 group-hover:bg-green-100" : ""}
-                          ${doc.type === "general" || !["results", "academic", "information"].includes(doc.type) ? "bg-gray-50 text-gray-600 group-hover:bg-gray-100" : ""}
-                        `}>
-                          {doc.type === "results" ? <FileText size={22} /> :
-                           doc.type === "academic" ? <School size={22} /> :
-                           doc.type === "information" ? <Info size={22} /> :
-                           <File size={22} />}
-                        </div>
-                        <span className={`text-[10px] font-bold px-3 py-1.5 rounded-full capitalize tracking-wide
-                          ${doc.type === "results" ? "bg-red-50 text-red-600 border border-red-100" : ""}
-                          ${doc.type === "academic" ? "bg-blue-50 text-blue-600 border border-blue-100" : ""}
-                          ${doc.type === "information" ? "bg-green-50 text-green-600 border border-green-100" : ""}
-                          ${doc.type === "general" || !["results", "academic", "information"].includes(doc.type) ? "bg-gray-50 text-gray-600 border border-gray-100" : ""}
-                        `}>
-                          {doc.type}
-                        </span>
+            <div className="space-y-4">
+              {filteredDocuments.map((doc) => (
+                <div
+                  key={doc.id}
+                  className={`bg-white border border-gray-100 border-l-4 rounded-2xl overflow-hidden shadow-[0_2px_10px_-3px_rgba(6,81,237,0.1)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300 flex flex-col sm:flex-row group
+                    ${doc.type === "results" ? "border-l-red-500" : ""}
+                    ${doc.type === "academic" ? "border-l-blue-500" : ""}
+                    ${doc.type === "information" ? "border-l-green-500" : ""}
+                    ${doc.type === "general" || !["results", "academic", "information"].includes(doc.type) ? "border-l-gray-400" : ""}
+                  `}
+                >
+                  <div className="p-6 flex-grow flex flex-col justify-center">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <div className={`p-2 rounded-xl flex items-center justify-center transition-colors
+                        ${doc.type === "results" ? "bg-red-50 text-red-600 group-hover:bg-red-100" : ""}
+                        ${doc.type === "academic" ? "bg-blue-50 text-blue-600 group-hover:bg-blue-100" : ""}
+                        ${doc.type === "information" ? "bg-green-50 text-green-600 group-hover:bg-green-100" : ""}
+                        ${doc.type === "general" || !["results", "academic", "information"].includes(doc.type) ? "bg-gray-50 text-gray-600 group-hover:bg-gray-100" : ""}
+                      `}>
+                        {doc.type === "results" ? <FileText size={20} /> :
+                         doc.type === "academic" ? <School size={20} /> :
+                         doc.type === "information" ? <Info size={20} /> :
+                         <File size={20} />}
                       </div>
-                      
-                      <h3 className="font-bold text-lg mb-2.5 text-gray-900 group-hover:text-[#191f5d] transition-colors line-clamp-2 leading-tight">
-                        {doc.title}
-                      </h3>
-                      
-                      {doc.description && (
-                        <p className="text-sm text-gray-500 mb-5 line-clamp-3 leading-relaxed">
-                          {doc.description}
-                        </p>
-                      )}
-                      
-                      <div className="flex items-center text-xs font-medium text-gray-400 mt-auto pt-4 border-t border-gray-50">
-                        <Clock size={14} className="mr-1.5 text-gray-400" />
-                        <span>Added {new Date(doc.date).toLocaleDateString('en-GB')}</span>
-                      </div>
+                      <span className={`text-[10px] font-bold px-3 py-1 rounded-full capitalize tracking-wide
+                        ${doc.type === "results" ? "bg-red-50 text-red-600 border border-red-100" : ""}
+                        ${doc.type === "academic" ? "bg-blue-50 text-blue-600 border border-blue-100" : ""}
+                        ${doc.type === "information" ? "bg-green-50 text-green-600 border border-green-100" : ""}
+                        ${doc.type === "general" || !["results", "academic", "information"].includes(doc.type) ? "bg-gray-50 text-gray-600 border border-gray-100" : ""}
+                      `}>
+                        {doc.type}
+                      </span>
                     </div>
                     
-                    <div className="px-6 pb-6 pt-2">
-                      <button
-                        onClick={() => handleDownload(doc.fileName, doc.originalName)}
-                        className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-[#191f5d]/5 text-[#191f5d] font-semibold rounded-xl hover:bg-[#191f5d] hover:text-white transition-all duration-300 active:scale-[0.98]"
-                      >
-                        <Download size={18} className="transition-transform group-hover:-translate-y-0.5" />
-                        <span>Download File</span>
-                      </button>
+                    <h3 className="font-bold text-lg mb-1.5 text-gray-900 group-hover:text-[#191f5d] transition-colors leading-tight">
+                      {doc.title}
+                    </h3>
+                    
+                    {doc.description && (
+                      <p className="text-sm text-gray-500 mb-3 line-clamp-2 leading-relaxed">
+                        {doc.description}
+                      </p>
+                    )}
+                    
+                    <div className="flex items-center text-xs font-medium text-gray-400 mt-2">
+                      <Clock size={14} className="mr-1.5 text-gray-400" />
+                      <span>Added {new Date(doc.date).toLocaleDateString('en-GB')}</span>
                     </div>
                   </div>
-                ))}
-              </div>
+                  
+                  <div className="p-6 bg-gray-50/50 flex items-center justify-center sm:border-l sm:border-t-0 border-t border-gray-100 min-w-[200px]">
+                    <button
+                      onClick={() => handleDownload(doc.fileName, doc.originalName)}
+                      className="w-full flex items-center justify-center space-x-2 px-5 py-3 bg-white border border-gray-200 text-[#191f5d] font-semibold rounded-xl hover:bg-[#191f5d] hover:text-white hover:border-[#191f5d] shadow-sm transition-all duration-300 active:scale-[0.98]"
+                    >
+                      <Download size={18} className="transition-transform group-hover:-translate-y-0.5" />
+                      <span>Download</span>
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
             )}
           </div>
         )}
