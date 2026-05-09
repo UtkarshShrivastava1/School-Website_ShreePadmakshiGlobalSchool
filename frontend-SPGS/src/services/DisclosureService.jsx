@@ -23,6 +23,21 @@ export const addDisclosure = async (formData) => {
   }
 };
 
+// PUT - Edit Disclosure
+export const editDisclosure = async (id, formData) => {
+  try {
+    const response = await axios.put(`${API}/edit/${id}`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return response;
+  } catch (error) {
+    console.error("Error editing disclosure:", error);
+    throw error;
+  }
+};
+
 // GET - Get All Disclosures
 export const getAllDisclosures = async () => {
   try {

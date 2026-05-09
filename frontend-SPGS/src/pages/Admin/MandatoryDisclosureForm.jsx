@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { addDisclosure } from "../../services/DisclosureService";
+import { addDisclosure, editDisclosure } from "../../services/DisclosureService";
 
 const MandatoryDisclosureForm = ({ refreshNotices }) => {
   const [formData, setFormData] = useState({
@@ -13,6 +13,7 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
   const [disclosures, setDisclosures] = useState([]);
   const [loading, setLoading] = useState(false);
   const [deleteMessage, setDeleteMessage] = useState("");
+  const [editId, setEditId] = useState(null);
   const fileInputRef = useRef();
 
   const baseURL =
@@ -38,17 +39,31 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
     if (file) data.append("file", file);
 
     try {
-      await addDisclosure(data);
-      setMessage("Disclosure added successfully!");
+      if (editId) {
+        await editDisclosure(editId, data);
+        setMessage("Disclosure updated successfully!");
+        setEditId(null);
+      } else {
+        await addDisclosure(data);
+        setMessage("Disclosure added successfully!");
+      }
       setFormData({ type: "", title: "", description: "" });
       setFile(null);
-      document.getElementById("file").value = "";
+      if (fileInputRef.current) fileInputRef.current.value = "";
       if (refreshNotices) refreshNotices();
     } catch (error) {
-      console.error("Error adding disclosure:", error);
+      console.error("Error saving disclosure:", error);
       const errorMsg = error?.response?.data?.message || error.message;
-      setMessage(`Failed to add disclosure: ${errorMsg}`);
+      setMessage(`Failed to save disclosure: ${errorMsg}`);
     }
+  };
+
+  const handleCancelEdit = () => {
+    setEditId(null);
+    setFormData({ type: "", title: "", description: "" });
+    setFile(null);
+    if (fileInputRef.current) fileInputRef.current.value = "";
+    setMessage("");
   };
 
   const fetchDisclosures = async () => {
@@ -66,9 +81,9 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
     }
   };
 
-  const handleDeleteDisclosure = async (filename) => {
+  const handleDeleteDisclosure = async (id) => {
     try {
-      const response = await fetch(`${API}/delete/${filename}`, {
+      const response = await fetch(`${API}/delete/${id}`, {
         method: "DELETE",
       });
 
@@ -81,6 +96,19 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
       console.error("Error deleting disclosure:", error);
       setDeleteMessage("Failed to delete disclosure");
     }
+  };
+
+  const handleEditClick = (disclosure) => {
+    setEditId(disclosure._id);
+    setFormData({
+      type: disclosure.type || "",
+      title: disclosure.title || "",
+      description: disclosure.description || "",
+    });
+    setFile(null);
+    if (fileInputRef.current) fileInputRef.current.value = "";
+    setMessage("");
+    closeModal();
   };
 
   const openModal = () => {
@@ -99,7 +127,7 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
       <div className="p-6 bg-white shadow-lg rounded-lg w-[50%] mx-auto mt-3">
         <div className="flex justify-between items-center mb-2">
           <h2 className="text-3xl font-bold text-center flex-1">
-            Create Mandatory Disclosure
+            {editId ? "Edit Mandatory Disclosure" : "Create Mandatory Disclosure"}
           </h2>
           <button
             onClick={openModal}
@@ -111,15 +139,19 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
         <hr className="text-gray-400 mb-2" />
         {message && <p className="text-green-600">{message}</p>}
         <div className="space-y-4">
-          <input
-            type="text"
+          <select
             name="type"
             value={formData.type}
             onChange={handleChange}
-            placeholder="Type"
             required
-            className="w-full p-2 border rounded"
-          />
+            className="w-full p-2 border rounded bg-white"
+          >
+            <option value="" disabled>Select Type</option>
+            <option value="results">Results</option>
+            <option value="academic">Academic</option>
+            <option value="information">Information</option>
+            <option value="general">General</option>
+          </select>
           <input
             type="text"
             name="title"
@@ -133,23 +165,38 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
             name="description"
             value={formData.description}
             onChange={handleChange}
-            placeholder="Description"
-            required
+            placeholder="Description (Optional)"
             className="w-full p-2 border rounded"
           />
           <input
             id="file"
             type="file"
+            ref={fileInputRef}
             accept=".pdf,.doc,.docx,.png,.jpeg,.jpg,.gif,.webp"
             onChange={handleFileChange}
             className="w-full border rounded p-1 text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
           />
-          <button
-            onClick={handleSubmit}
-            className="font-bold px-4 bg-[#f25811] text-white py-2 rounded-lg hover:bg-orange-600"
-          >
-            Add Disclosure
-          </button>
+          {editId && (
+            <p className="text-sm text-gray-500">
+              Note: Uploading a new file will overwrite the existing one.
+            </p>
+          )}
+          <div className="flex gap-2">
+            <button
+              onClick={handleSubmit}
+              className="font-bold px-4 bg-[#f25811] text-white py-2 rounded-lg hover:bg-orange-600 flex-1"
+            >
+              {editId ? "Update Disclosure" : "Add Disclosure"}
+            </button>
+            {editId && (
+              <button
+                onClick={handleCancelEdit}
+                className="font-bold px-4 bg-gray-500 text-white py-2 rounded-lg hover:bg-gray-600 flex-1"
+              >
+                Cancel
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
@@ -202,22 +249,26 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
                         Type: {disclosure.type}
                       </p>
                       <p className="text-gray-700">{disclosure.description}</p>
-                      {disclosure.filename && (
+                      {disclosure.file && (
                         <p className="text-sm text-gray-500 mt-2">
-                          File: {disclosure.filename}
+                          File: {disclosure.file}
                         </p>
                       )}
                     </div>
-                    <button
-                      onClick={() =>
-                        handleDeleteDisclosure(
-                          disclosure.filename || disclosure.id
-                        )
-                      }
-                      className="ml-4 px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 text-sm font-semibold"
-                    >
-                      Delete
-                    </button>
+                    <div className="flex flex-col gap-2 ml-4">
+                      <button
+                        onClick={() => handleEditClick(disclosure)}
+                        className="px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm font-semibold"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        onClick={() => handleDeleteDisclosure(disclosure._id)}
+                        className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 text-sm font-semibold"
+                      >
+                        Delete
+                      </button>
+                    </div>
                   </div>
                 ))}
               </div>

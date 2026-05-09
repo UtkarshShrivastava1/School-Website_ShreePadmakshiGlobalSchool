@@ -91,16 +91,14 @@ const SchoolPortal = () => {
         const data = response.data;
 
         const transformedData = data.map((doc, index) => ({
-          id: doc.id || doc._id || index,
-          title: doc.originalName || doc.fileName || "Untitled Document",
-          description: `File: ${doc.fileName || "Unknown"}`,
+          id: doc._id || doc.id || index,
+          title: doc.title || doc.originalName || doc.file || "Untitled Document",
+          description: doc.description || `File: ${doc.file || "Unknown"}`,
           type: doc.type || "general",
-          date: doc.uploadDate || doc.modifiedDate || new Date(),
-          size: formatFileSize(doc.fileSize),
-          fileName: doc.fileName,
-          originalName: doc.originalName,
-          fileSize: doc.fileSize,
-          uploadDate: doc.uploadDate,
+          date: doc.createdAt || doc.uploadDate || doc.modifiedDate || new Date(),
+          size: "File", // File size is no longer tracked directly in DB model, so we show "File"
+          fileName: doc.file, // Our new model uses 'file' instead of 'fileName'
+          originalName: doc.title,
           _id: doc._id || doc.id,
         }));
 

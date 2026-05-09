@@ -6,6 +6,7 @@ const {
   getAllDisclosure,
   downloadDisclosure,
   deleteDisclosure,
+  editDisclosure,
 } = require("../controllers/disclosureController");
 
 // Setup multer for file upload
@@ -25,6 +26,7 @@ const upload = multer({ storage });
 router.post("/addDisclosure", upload.single("file"), addDisclosure);
 router.get("/", getAllDisclosure);
 router.get("/download", downloadDisclosure);
-router.delete("/delete/:filename", deleteDisclosure);
+router.put("/edit/:id", upload.single("file"), editDisclosure);
+router.delete("/delete/:id", deleteDisclosure);
 
 module.exports = router;
