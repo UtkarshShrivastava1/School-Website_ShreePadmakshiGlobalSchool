@@ -1,22 +1,32 @@
 const fs = require("fs");
 const path = require("path");
 const DisclosureModel = require("../models/disclosure");
+const cloudinary = require("../config/cloudinary");
 
 // Controller to add disclosure
 exports.addDisclosure = async (req, res) => {
   try {
     const { type, title, description } = req.body;
     
-    let filename = "";
+    let cloudinaryUrl = "";
     if (req.file) {
-      filename = req.file.filename;
+      try {
+        const result = await cloudinary.uploader.upload(req.file.path, {
+          folder: 'disclosures',
+          resource_type: 'auto'
+        });
+        cloudinaryUrl = result.secure_url;
+      } catch (error) {
+        console.error('Cloudinary upload error:', error);
+        return res.status(500).json({ error: 'Failed to upload file to cloud' });
+      }
     }
 
     const disclosureData = {
       type,
       title,
       description,
-      file: filename,
+      file: cloudinaryUrl,
     };
 
     const savedDisclosure = await DisclosureModel.create(disclosureData);
@@ -56,18 +66,16 @@ exports.editDisclosure = async (req, res) => {
     let updateData = { type, title, description };
 
     if (req.file) {
-      // If there's a new file, we should delete the old one
-      if (existingDisclosure.file) {
-        const oldFilePath = path.join(__dirname, "../uploads/disclosures", existingDisclosure.file);
-        if (fs.existsSync(oldFilePath)) {
-          try {
-            fs.unlinkSync(oldFilePath);
-          } catch (err) {
-            console.error("Failed to delete old file:", err);
-          }
-        }
+      try {
+        const result = await cloudinary.uploader.upload(req.file.path, {
+          folder: 'disclosures',
+          resource_type: 'auto'
+        });
+        updateData.file = result.secure_url;
+      } catch (error) {
+        console.error('Cloudinary upload error:', error);
+        return res.status(500).json({ error: 'Failed to upload file to cloud' });
       }
-      updateData.file = req.file.filename;
     }
 
     const updatedDisclosure = await DisclosureModel.findByIdAndUpdate(
@@ -143,31 +151,11 @@ exports.downloadDisclosure = async (req, res) => {
     if (!file) {
       return res.status(400).json({ error: "File parameter is required" });
     }
-    const filePath = path.join(__dirname, "../uploads/disclosures", file);
-    // Check if file exists
-    if (!fs.existsSync(filePath)) {
-      return res.status(404).json({ error: "File not found" });
-    }
-    // Get file stats
-    const stats = fs.statSync(filePath);
-    // Extract original filename (remove timestamp prefix)
-    const originalName = file.split("-").slice(1).join("-").replace(/_/g, " ");
-    // Set proper headers for download
-    res.setHeader(
-      "Content-Disposition",
-      `attachment; filename="${originalName}"`
-    );
-    res.setHeader("Content-Type", "application/octet-stream");
-    res.setHeader("Content-Length", stats.size);
-    // Create read stream and pipe to response
-    const fileStream = fs.createReadStream(filePath);
-    fileStream.pipe(res);
-    fileStream.on("error", (error) => {
-      console.error("Error streaming file:", error);
-      if (!res.headersSent) {
-        res.status(500).json({ error: "Error downloading file" });
-      }
-    });
+
+    // Assuming file is the Cloudinary URL
+    // To force download, modify the URL to include fl_attachment
+    const downloadUrl = file.replace('/upload/', '/upload/fl_attachment/');
+    res.redirect(downloadUrl);
   } catch (error) {
     console.error("Error downloading file:", error);
     res.status(500).json({ error: "Failed to download file" });
