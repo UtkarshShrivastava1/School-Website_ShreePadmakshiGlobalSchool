@@ -153,17 +153,20 @@ exports.deleteDisclosure = async (req, res) => {
       });
     }
 
-    // Delete the file from filesystem
-    if (disclosure.file) {
-      const filePath = path.join(__dirname, "../uploads/disclosures", disclosure.file);
-      if (fs.existsSync(filePath)) {
-        try {
-          fs.unlinkSync(filePath);
-          console.log(`File deleted successfully: ${disclosure.file}`);
-        } catch (fileError) {
-          console.error("Error deleting file:", fileError);
-        }
+    // Delete the file from Cloudinary
+    if (disclosure.publicId) {
+      try {
+        const result = await cloudinary.uploader.destroy(disclosure.publicId, {
+          resource_type: disclosure.resourceType || 'image'
+        });
+        console.log(`Cloudinary file deleted successfully: ${disclosure.publicId}`, result);
+      } catch (cloudinaryError) {
+        console.error("Error deleting file from Cloudinary:", cloudinaryError);
+        // Don't fail the entire operation if Cloudinary deletion fails
+        // The file might already be deleted or there might be a temporary issue
       }
+    } else {
+      console.log("No publicId found for disclosure, skipping Cloudinary deletion");
     }
 
     await DisclosureModel.findByIdAndDelete(id);
