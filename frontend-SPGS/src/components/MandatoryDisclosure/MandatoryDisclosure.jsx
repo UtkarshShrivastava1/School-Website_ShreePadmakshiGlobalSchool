@@ -479,7 +479,7 @@ const SchoolPortal = () => {
                       <div className="flex items-center space-x-1">
                         <Clock size={14} />
                         <span>
-                          Created: {new Date(doc.date).toLocaleString()}
+                          Created: {new Date(doc.date).toLocaleDateString('en-GB')}
                         </span>
                       </div>
                       <div className="flex items-center space-x-1">
