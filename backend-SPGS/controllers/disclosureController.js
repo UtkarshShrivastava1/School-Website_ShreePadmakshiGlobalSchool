@@ -160,42 +160,39 @@ exports.downloadDisclosure = async (req, res) => {
     }
 
     if (file.startsWith('http')) {
-      // Cloudinary URL - fetch and stream the file
+      // Cloudinary URL - redirect with download attachment
       try {
-        console.log('Fetching from Cloudinary URL:', file);
+        console.log('Processing Cloudinary URL:', file);
 
         // Find the disclosure to get the original filename
         const disclosure = await DisclosureModel.findOne({ file });
-        console.log('Found disclosure:', disclosure ? 'yes' : 'no', disclosure?.originalFilename);
+        console.log('Found disclosure:', disclosure ? 'yes' : 'no');
 
-        const filename = disclosure?.originalFilename || file.split('/').pop().split('?')[0] || 'download';
-        console.log('Using filename:', filename);
+        // Extract public_id from Cloudinary URL
+        // URL format: https://res.cloudinary.com/{cloud_name}/{resource_type}/upload/{transformations}/{public_id}.{format}
+        const urlParts = file.split('/');
+        const publicIdWithExt = urlParts[urlParts.length - 1];
+        const publicId = publicIdWithExt.split('.')[0]; // Remove extension
+        const format = publicIdWithExt.split('.')[1];
 
-        const response = await axios.get(file, {
-          responseType: 'stream',
-          timeout: 30000 // 30 seconds timeout
+        console.log('Extracted public_id:', publicId, 'format:', format);
+
+        // Generate signed URL with attachment flag
+        const downloadUrl = cloudinary.url(publicId, {
+          resource_type: 'raw', // or 'auto' for any type
+          format: format,
+          flags: 'attachment',
+          sign_url: true
         });
 
-        console.log('Cloudinary response status:', response.status);
-        console.log('Content-Type:', response.headers['content-type']);
+        console.log('Generated download URL:', downloadUrl);
 
-        res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
-        res.setHeader('Content-Type', response.headers['content-type'] || 'application/octet-stream');
-
-        response.data.pipe(res);
-
-        // Handle stream errors
-        response.data.on('error', (error) => {
-          console.error('Stream error:', error);
-          if (!res.headersSent) {
-            res.status(500).json({ error: 'Stream error' });
-          }
-        });
+        // Redirect to the signed URL
+        res.redirect(downloadUrl);
 
       } catch (error) {
-        console.error('Error fetching from Cloudinary:', error.message);
-        console.error('Error details:', error.response?.status, error.response?.data);
-        res.status(500).json({ error: 'Failed to download file from cloud' });
+        console.error('Error processing Cloudinary URL:', error);
+        res.status(500).json({ error: 'Failed to generate download link' });
       }
     } else {
       // Local file (legacy) - but files don't exist on live server
