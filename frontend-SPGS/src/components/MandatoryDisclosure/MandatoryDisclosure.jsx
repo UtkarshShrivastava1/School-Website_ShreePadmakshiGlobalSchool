@@ -134,7 +134,15 @@ const SchoolPortal = () => {
       const link = document.createElement("a");
       link.href = url;
 
-      const downloadName = originalName || fileName;
+      // Extract the file extension from the actual filename on the server
+      const fileExtension = fileName.split('.').pop();
+      
+      // We check if the originalName (Title) already has the extension, if not we append it
+      let downloadName = originalName || fileName;
+      if (!downloadName.toLowerCase().endsWith(`.${fileExtension.toLowerCase()}`)) {
+        downloadName = `${downloadName}.${fileExtension}`;
+      }
+
       link.setAttribute("download", downloadName);
 
       document.body.appendChild(link);
