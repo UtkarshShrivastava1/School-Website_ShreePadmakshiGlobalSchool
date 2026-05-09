@@ -32,6 +32,7 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
   const [deleteMessageType, setDeleteMessageType] = useState("");
   const [editId, setEditId] = useState(null);
   const [showSuccessAnimation, setShowSuccessAnimation] = useState(false);
+  const [deletingIds, setDeletingIds] = useState(new Set());
   const fileInputRef = useRef();
 
   const baseURL =
@@ -136,6 +137,9 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
   };
 
   const handleDeleteDisclosure = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this disclosure?")) return;
+    
+    setDeletingIds(prev => new Set(prev).add(id));
     try {
       const response = await fetch(`${API}/delete/${id}`, {
         method: "DELETE",
@@ -151,6 +155,12 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
       console.error("Error deleting disclosure:", error);
       setDeleteMessage("Failed to delete disclosure");
       setDeleteMessageType("error");
+    } finally {
+      setDeletingIds(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(id);
+        return newSet;
+      });
     }
   };
 
@@ -388,14 +398,14 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
             {/* Delete Message Alert */}
             {deleteMessage && (
               <div
-                className={`mx-4 sm:mx-8 mt-4 sm:mt-6 p-3 sm:p-4 rounded-lg sm:rounded-xl flex items-start space-x-2 sm:space-x-3 border text-xs sm:text-sm ${
+                className={`mx-4 sm:mx-8 mt-4 sm:mt-6 p-3 sm:p-4 rounded-lg sm:rounded-xl flex items-start space-x-2 sm:space-x-3 border text-xs sm:text-sm transition-all duration-500 ease-out transform ${
                   deleteMessageType === "success"
-                    ? "bg-green-50 border-green-200 text-green-800"
+                    ? "bg-green-50 border-green-200 text-green-800 animate-bounce"
                     : "bg-red-50 border-red-200 text-red-800"
                 }`}
               >
                 {deleteMessageType === "success" ? (
-                  <CheckCircle size={16} className="flex-shrink-0 mt-0.5 sm:w-5 sm:h-5" />
+                  <CheckCircle size={16} className="flex-shrink-0 mt-0.5 sm:w-5 sm:h-5 animate-pulse" />
                 ) : (
                   <AlertCircle size={16} className="flex-shrink-0 mt-0.5 sm:w-5 sm:h-5" />
                 )}
@@ -474,9 +484,14 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
                               onClick={() =>
                                 handleDeleteDisclosure(disclosure._id)
                               }
-                              className="flex-1 sm:flex-none px-2.5 sm:px-4 py-1.5 sm:py-2 bg-red-600 text-white font-semibold text-xs sm:text-sm rounded-lg sm:rounded-lg hover:bg-red-700 transition-all duration-200 flex items-center justify-center space-x-1 sm:space-x-1.5 cursor-pointer active:scale-95"
+                              disabled={deletingIds.has(disclosure._id)}
+                              className="flex-1 sm:flex-none px-2.5 sm:px-4 py-1.5 sm:py-2 bg-red-600 text-white font-semibold text-xs sm:text-sm rounded-lg sm:rounded-lg hover:bg-red-700 transition-all duration-200 flex items-center justify-center space-x-1 sm:space-x-1.5 cursor-pointer active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                              <Trash2 size={14} className="sm:w-4 sm:h-4" />
+                              {deletingIds.has(disclosure._id) ? (
+                                <Loader size={14} className="animate-spin" />
+                              ) : (
+                                <Trash2 size={14} className="sm:w-4 sm:h-4" />
+                              )}
                               <span className="hidden sm:inline">Delete</span>
                             </button>
                           </div>
