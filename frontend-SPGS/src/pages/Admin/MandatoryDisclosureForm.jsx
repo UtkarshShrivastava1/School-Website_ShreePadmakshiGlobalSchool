@@ -31,6 +31,7 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
   const [deleteMessage, setDeleteMessage] = useState("");
   const [deleteMessageType, setDeleteMessageType] = useState("");
   const [editId, setEditId] = useState(null);
+  const [showSuccessAnimation, setShowSuccessAnimation] = useState(false);
   const fileInputRef = useRef();
 
   const baseURL =
@@ -75,6 +76,7 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const data = new FormData();
     data.append("type", formData.type);
     data.append("title", formData.title);
@@ -91,6 +93,8 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
         await addDisclosure(data);
         setMessage("Disclosure added successfully!");
         setMessageType("success");
+        setShowSuccessAnimation(true);
+        setTimeout(() => setShowSuccessAnimation(false), 3000);
       }
       setFormData({ type: "general", title: "", description: "" });
       setFile(null);
@@ -102,6 +106,8 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
       const errorMsg = error?.response?.data?.message || error.message;
       setMessage(`Failed to save disclosure: ${errorMsg}`);
       setMessageType("error");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -189,7 +195,7 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
               </div>
               <button
                 onClick={openModal}
-                className="inline-flex items-center justify-center space-x-1.5 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 bg-[#191f5d] text-white font-semibold rounded-lg sm:rounded-xl hover:bg-[#0f1449] transition-all duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto text-sm sm:text-base flex-shrink-0"
+                className="inline-flex items-center justify-center space-x-1.5 sm:space-x-2 px-3 sm:px-6 py-2 sm:py-3 bg-[#191f5d] text-white font-semibold rounded-lg sm:rounded-xl hover:bg-[#0f1449] transition-all duration-200 shadow-lg hover:shadow-xl w-full sm:w-auto text-sm sm:text-base flex-shrink-0 cursor-pointer active:scale-95"
               >
                 <Settings size={16} className="sm:w-5 sm:h-5" />
                 <span>Manage</span>
@@ -215,14 +221,14 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
             {/* Message Alerts */}
             {message && (
               <div
-                className={`mx-4 sm:mx-8 mt-4 sm:mt-6 p-3 sm:p-4 rounded-lg sm:rounded-xl flex items-start space-x-2 sm:space-x-3 border text-xs sm:text-sm ${
+                className={`mx-4 sm:mx-8 mt-4 sm:mt-6 p-3 sm:p-4 rounded-lg sm:rounded-xl flex items-start space-x-2 sm:space-x-3 border text-xs sm:text-sm transition-all duration-500 ease-out transform ${
                   messageType === "success"
-                    ? "bg-green-50 border-green-200 text-green-800"
+                    ? "bg-green-50 border-green-200 text-green-800 animate-slide-in"
                     : "bg-red-50 border-red-200 text-red-800"
-                }`}
+                } ${showSuccessAnimation ? "animate-bounce" : ""}`}
               >
                 {messageType === "success" ? (
-                  <CheckCircle size={16} className="flex-shrink-0 mt-0.5 sm:w-5 sm:h-5" />
+                  <CheckCircle size={16} className="flex-shrink-0 mt-0.5 sm:w-5 sm:h-5 animate-pulse" />
                 ) : (
                   <AlertCircle size={16} className="flex-shrink-0 mt-0.5 sm:w-5 sm:h-5" />
                 )}
@@ -331,9 +337,14 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
               <div className="flex flex-col gap-2 sm:gap-3 pt-4 sm:pt-6 border-t border-gray-100">
                 <button
                   type="submit"
-                  className="w-full px-4 sm:px-6 py-2.5 sm:py-3 bg-[#f25811] text-white font-semibold text-sm sm:text-base rounded-lg sm:rounded-xl hover:bg-orange-600 transition-all duration-200 shadow-lg hover:shadow-xl active:scale-95 flex items-center justify-center space-x-1.5 sm:space-x-2"
+                  disabled={loading}
+                  className="w-full px-4 sm:px-6 py-2.5 sm:py-3 bg-[#f25811] text-white font-semibold text-sm sm:text-base rounded-lg sm:rounded-xl hover:bg-orange-600 transition-all duration-200 shadow-lg hover:shadow-xl active:scale-95 flex items-center justify-center space-x-1.5 sm:space-x-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <Plus size={16} className="sm:w-5 sm:h-5" />
+                  {loading ? (
+                    <Loader size={16} className="animate-spin" />
+                  ) : (
+                    <Plus size={16} className="sm:w-5 sm:h-5" />
+                  )}
                   <span>{editId ? "Update" : "Add"}</span>
                   <span className="hidden sm:inline">{editId ? "Disclosure" : "Disclosure"}</span>
                 </button>
@@ -341,7 +352,7 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
                   <button
                     type="button"
                     onClick={handleCancelEdit}
-                    className="w-full px-4 sm:px-6 py-2.5 sm:py-3 bg-gray-200 text-gray-900 font-semibold text-sm sm:text-base rounded-lg sm:rounded-xl hover:bg-gray-300 transition-all duration-200 active:scale-95"
+                    className="w-full px-4 sm:px-6 py-2.5 sm:py-3 bg-gray-200 text-gray-900 font-semibold text-sm sm:text-base rounded-lg sm:rounded-xl hover:bg-gray-300 transition-all duration-200 active:scale-95 cursor-pointer"
                   >
                     Cancel
                   </button>
@@ -454,7 +465,7 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
                           <div className="flex gap-1.5 sm:gap-2 w-full sm:w-auto flex-shrink-0">
                             <button
                               onClick={() => handleEditClick(disclosure)}
-                              className="flex-1 sm:flex-none px-2.5 sm:px-4 py-1.5 sm:py-2 bg-blue-600 text-white font-semibold text-xs sm:text-sm rounded-lg sm:rounded-lg hover:bg-blue-700 transition-all duration-200 flex items-center justify-center space-x-1 sm:space-x-1.5"
+                              className="flex-1 sm:flex-none px-2.5 sm:px-4 py-1.5 sm:py-2 bg-blue-600 text-white font-semibold text-xs sm:text-sm rounded-lg sm:rounded-lg hover:bg-blue-700 transition-all duration-200 flex items-center justify-center space-x-1 sm:space-x-1.5 cursor-pointer active:scale-95"
                             >
                               <Edit3 size={14} className="sm:w-4 sm:h-4" />
                               <span className="hidden sm:inline">Edit</span>
@@ -463,7 +474,7 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
                               onClick={() =>
                                 handleDeleteDisclosure(disclosure._id)
                               }
-                              className="flex-1 sm:flex-none px-2.5 sm:px-4 py-1.5 sm:py-2 bg-red-600 text-white font-semibold text-xs sm:text-sm rounded-lg sm:rounded-lg hover:bg-red-700 transition-all duration-200 flex items-center justify-center space-x-1 sm:space-x-1.5"
+                              className="flex-1 sm:flex-none px-2.5 sm:px-4 py-1.5 sm:py-2 bg-red-600 text-white font-semibold text-xs sm:text-sm rounded-lg sm:rounded-lg hover:bg-red-700 transition-all duration-200 flex items-center justify-center space-x-1 sm:space-x-1.5 cursor-pointer active:scale-95"
                             >
                               <Trash2 size={14} className="sm:w-4 sm:h-4" />
                               <span className="hidden sm:inline">Delete</span>
@@ -481,7 +492,7 @@ const MandatoryDisclosureForm = ({ refreshNotices }) => {
             <div className="border-t border-gray-100 bg-gray-50 px-4 sm:px-8 py-3 sm:py-4 flex justify-end flex-shrink-0">
               <button
                 onClick={closeModal}
-                className="px-4 sm:px-6 py-2 sm:py-2.5 bg-gray-900 text-white font-semibold text-sm sm:text-base rounded-lg hover:bg-gray-800 transition-all duration-200"
+                className="px-4 sm:px-6 py-2 sm:py-2.5 bg-gray-900 text-white font-semibold text-sm sm:text-base rounded-lg hover:bg-gray-800 transition-all duration-200 cursor-pointer active:scale-95"
               >
                 Close
               </button>
