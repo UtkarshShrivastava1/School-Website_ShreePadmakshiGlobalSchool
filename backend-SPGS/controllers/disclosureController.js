@@ -58,7 +58,7 @@ exports.editDisclosure = async (req, res) => {
     if (req.file) {
       // If there's a new file, we should delete the old one
       if (existingDisclosure.file) {
-        const oldFilePath = path.join(__dirname, "../uploads", existingDisclosure.file);
+        const oldFilePath = path.join(__dirname, "../uploads/disclosures", existingDisclosure.file);
         if (fs.existsSync(oldFilePath)) {
           try {
             fs.unlinkSync(oldFilePath);
@@ -108,7 +108,7 @@ exports.deleteDisclosure = async (req, res) => {
 
     // Delete the file from filesystem
     if (disclosure.file) {
-      const filePath = path.join(__dirname, "../uploads", disclosure.file);
+      const filePath = path.join(__dirname, "../uploads/disclosures", disclosure.file);
       if (fs.existsSync(filePath)) {
         try {
           fs.unlinkSync(filePath);
@@ -143,7 +143,7 @@ exports.downloadDisclosure = async (req, res) => {
     if (!file) {
       return res.status(400).json({ error: "File parameter is required" });
     }
-    const filePath = path.join(__dirname, "../uploads", file);
+    const filePath = path.join(__dirname, "../uploads/disclosures", file);
     // Check if file exists
     if (!fs.existsSync(filePath)) {
       return res.status(404).json({ error: "File not found" });

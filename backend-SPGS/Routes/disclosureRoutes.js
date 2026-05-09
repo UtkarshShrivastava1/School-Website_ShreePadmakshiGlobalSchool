@@ -12,7 +12,7 @@ const {
 // Setup multer for file upload
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/");
+    cb(null, "uploads/disclosures/");
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + "-" + file.originalname;
