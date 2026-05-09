@@ -34,6 +34,10 @@ const SchoolPortal = () => {
       established: "2022",
       affiliation: "Central Board of Secondary Education (CBSE)",
       affiliationNumber: "3330519",
+      udiseCode: "22072516913",
+      schoolCode: "16271",
+      periodOfAffiliation: "01/04/2024 to 31/03/2029",
+      nocInformation: "Chhattisgarh State | Letter No.:\nF-6-08/2023/20-3",
       address:
         "Main Road, Near Over Bridge Uslapur, Bilaspur C.G., Bilaspur Chhattisgarh, India 495001",
       contact: "+91 9111777295",
@@ -42,24 +46,24 @@ const SchoolPortal = () => {
     },
     infrastructure: {
       totalCampusArea: "6179.83 SQ.MTR",
-      classRooms: "30 (Size 10.50x5.50)",
+      classRooms: "35",
       laboratories: "5 labs, 299.25 SQ.MTR",
       internetFacility: "YES",
       girlsToilets: "16",
       boysToilets: "18",
     },
     facultyInfo: {
-      teachers: "48",
+      teachers: "56",
       administrativeStaff: "6",
       nonTeachingStaff: "5",
-      peons: "5",
-      g4Staff: "14",
-      sweepers: "2",
+      peons: "6",
+      g4Staff: "15",
+      sweepers: "3",
     },
     importantDates: {
-      academicSession: "2025-26",
-      sessionStartDate: "April 1, 2025",
-      admissionPeriod: "Nov 15,2024 to june 15 2025 ",
+      academicSession: "2026-27",
+      sessionStartDate: "April 1, 2026",
+      admissionPeriod: "Nov 15, 2025 to June 15, 2026",
       examinationSchedule: "As per academic calendar",
     },
   };
@@ -205,7 +209,7 @@ const SchoolPortal = () => {
                 <h3 className="text-sm text-gray-500 capitalize">
                   {key.replace(/([A-Z])/g, " $1").toLowerCase()}
                 </h3>
-                <p className="font-medium">{value}</p>
+                <p className="font-medium whitespace-pre-line">{value}</p>
               </div>
             ))}
           </div>
@@ -337,7 +341,7 @@ const SchoolPortal = () => {
             <Info size={12} className="sm:w-[14px] sm:h-[14px]" />
             <span>Transparency Portal</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white mb-3 sm:mb-4 tracking-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-white mb-4 sm:mb-4 tracking-tight leading-tight">
             Mandatory Disclosure
           </h1>
           <p className="text-blue-100/90 max-w-2xl mx-auto text-sm sm:text-base md:text-lg leading-relaxed px-2 sm:px-0">
@@ -351,30 +355,30 @@ const SchoolPortal = () => {
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
         {/* Navigation Tabs */}
         <div className="border-b border-gray-100 bg-gray-50/50 overflow-x-auto no-scrollbar">
-          <div className="flex min-w-max px-2">
+          <div className="flex min-w-max px-1 sm:px-2">
             <button
-              className={`py-4 px-6 sm:px-8 flex items-center justify-center space-x-2 sm:space-x-3 font-semibold text-sm transition-all duration-200 relative whitespace-nowrap ${
+              className={`py-3 sm:py-4 px-3 sm:px-6 md:px-8 flex items-center justify-center space-x-1 sm:space-x-2 md:space-x-3 font-semibold text-xs sm:text-sm md:text-base transition-all duration-200 relative whitespace-nowrap ${
                 activeTab === "documents"
                   ? "text-[#f25811]"
                   : "text-gray-500 hover:text-gray-700 hover:bg-gray-100/50"
               }`}
               onClick={() => setActiveTab("documents")}
             >
-              <FileText size={18} />
+              <FileText size={16} className="sm:w-5 sm:h-5" />
               <span>Documents & Reports</span>
               {activeTab === "documents" && (
                 <div className="absolute bottom-0 left-0 w-full h-0.5 bg-[#f25811]"></div>
               )}
             </button>
             <button
-              className={`py-4 px-6 sm:px-8 flex items-center justify-center space-x-2 sm:space-x-3 font-semibold text-sm transition-all duration-200 relative whitespace-nowrap ${
+              className={`py-3 sm:py-4 px-3 sm:px-6 md:px-8 flex items-center justify-center space-x-1 sm:space-x-2 md:space-x-3 font-semibold text-xs sm:text-sm md:text-base transition-all duration-200 relative whitespace-nowrap ${
                 activeTab === "school"
                   ? "text-[#f25811]"
                   : "text-gray-500 hover:text-gray-700 hover:bg-gray-100/50"
               }`}
               onClick={() => setActiveTab("school")}
             >
-              <School size={18} />
+              <School size={16} className="sm:w-5 sm:h-5" />
               <span>School Information</span>
               {activeTab === "school" && (
                 <div className="absolute bottom-0 left-0 w-full h-0.5 bg-[#f25811]"></div>
