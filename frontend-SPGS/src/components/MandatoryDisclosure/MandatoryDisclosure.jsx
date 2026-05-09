@@ -120,32 +120,13 @@ const SchoolPortal = () => {
     fetchDocuments();
   }, []);
 
-  const handleDownload = async (fileName, originalName) => {
-    try {
-      const baseUrl =
-        import.meta.env.VITE_NODE_ENV === "development"
-          ? import.meta.env.VITE_DEVELOPMENT_URL
-          : import.meta.env.VITE_PRODUCTION_URL;
+  const handleDownload = (fileName) => {
+    const baseUrl =
+      import.meta.env.VITE_NODE_ENV === "development"
+        ? import.meta.env.VITE_DEVELOPMENT_URL
+        : import.meta.env.VITE_PRODUCTION_URL;
 
-      const response = await axios.get(
-        `${baseUrl}/api/disclosure/download?file=${fileName}`,
-        {
-          responseType: "blob",
-        }
-      );
-
-      const url = window.URL.createObjectURL(new Blob([response.data]));
-      const link = document.createElement("a");
-      link.href = url;
-      link.setAttribute("download", doc.originalFilename || doc.title || "download");
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error("Error downloading file:", error);
-      alert("Download failed. Please try again.");
-    }
+    window.location.href = `${baseUrl}/api/disclosure/download?file=${encodeURIComponent(fileName)}`;
   };
 
   // Fixed filtering with proper null checks

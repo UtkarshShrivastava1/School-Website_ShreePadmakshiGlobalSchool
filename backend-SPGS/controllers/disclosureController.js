@@ -4,6 +4,31 @@ const DisclosureModel = require("../models/disclosure");
 const cloudinary = require("../config/cloudinary");
 const axios = require("axios");
 
+const parseCloudinaryUrl = (fileUrl) => {
+  try {
+    const parsed = new URL(fileUrl);
+    const parts = parsed.pathname.split("/").filter(Boolean);
+
+    const uploadIndex = parts.indexOf("upload");
+    if (uploadIndex === -1 || uploadIndex + 1 >= parts.length) return null;
+
+    const resourceType = parts[uploadIndex - 1] || "auto";
+    let publicPathParts = parts.slice(uploadIndex + 1);
+
+    if (publicPathParts[0] && /^v\d+$/.test(publicPathParts[0])) {
+      publicPathParts = publicPathParts.slice(1);
+    }
+
+    const publicIdWithExt = publicPathParts.join("/");
+    const publicId = publicIdWithExt.replace(/\.[^/.]+$/, "");
+    const format = publicIdWithExt.split(".").pop();
+
+    return { resourceType, publicId, format };
+  } catch (error) {
+    return null;
+  }
+};
+
 // Controller to add disclosure
 exports.addDisclosure = async (req, res) => {
   try {
@@ -11,6 +36,9 @@ exports.addDisclosure = async (req, res) => {
     
     let cloudinaryUrl = "";
     let originalFilename = "";
+    let publicId = "";
+    let resourceType = "auto";
+
     if (req.file) {
       try {
         const result = await cloudinary.uploader.upload(req.file.path, {
@@ -19,6 +47,8 @@ exports.addDisclosure = async (req, res) => {
         });
         cloudinaryUrl = result.secure_url;
         originalFilename = req.file.originalname;
+        publicId = result.public_id;
+        resourceType = result.resource_type;
       } catch (error) {
         console.error('Cloudinary upload error:', error);
         return res.status(500).json({ error: 'Failed to upload file to cloud' });
@@ -31,6 +61,8 @@ exports.addDisclosure = async (req, res) => {
       description,
       file: cloudinaryUrl,
       originalFilename,
+      publicId,
+      resourceType,
     };
 
     const savedDisclosure = await DisclosureModel.create(disclosureData);
@@ -77,6 +109,8 @@ exports.editDisclosure = async (req, res) => {
         });
         updateData.file = result.secure_url;
         updateData.originalFilename = req.file.originalname;
+        updateData.publicId = result.public_id;
+        updateData.resourceType = result.resource_type;
       } catch (error) {
         console.error('Cloudinary upload error:', error);
         return res.status(500).json({ error: 'Failed to upload file to cloud' });
@@ -169,14 +203,26 @@ exports.downloadDisclosure = async (req, res) => {
         console.log('Found disclosure:', disclosure ? 'yes' : 'no');
 
         const originalFilename = disclosure?.originalFilename || 'download';
+        const parsed = parseCloudinaryUrl(file);
 
-        // Create download URL by modifying the Cloudinary URL
-        // Replace /upload/ with /upload/fl_attachment/ to force download
-        const downloadUrl = file.replace('/upload/', '/upload/fl_attachment/');
+        const publicId = disclosure?.publicId || parsed?.publicId;
+        const resourceType = disclosure?.resourceType || parsed?.resourceType || 'auto';
+        const format = parsed?.format;
 
-        console.log('Download URL:', downloadUrl);
+        if (!publicId) {
+          throw new Error('Unable to parse Cloudinary public ID from URL');
+        }
 
-        // Redirect to the download URL
+        const downloadUrl = cloudinary.url(publicId, {
+          resource_type: resourceType,
+          format,
+          flags: 'attachment',
+          attachment: originalFilename,
+          sign_url: true,
+          secure: true,
+        });
+
+        console.log('Generated Cloudinary download URL:', downloadUrl);
         res.redirect(downloadUrl);
 
       } catch (error) {
