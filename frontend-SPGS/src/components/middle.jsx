@@ -579,8 +579,8 @@ export default function MiddleSchoolProgram() {
                 </div>
               </div>
               <p className="text-gray-600 italic">
-                "The Annual Function at Shree Padmakshi Global Mount Litera
-                School was a fantastic event! My Son, Aadvik Todekar, had an
+                "The Annual Function at Shree Padmakshi Global School
+                 was a fantastic event! My Son, Aadvik Todekar, had an
                 incredible time performing alongside his friends. The
                 performances were well-organized. showcasing the students'
                 talents and creativity. The inspiring theme and vibrant

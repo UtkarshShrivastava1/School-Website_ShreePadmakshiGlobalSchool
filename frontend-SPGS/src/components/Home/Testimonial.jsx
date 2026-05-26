@@ -52,7 +52,7 @@ Many many congratulations to you and entire school team
       src: "/Testimonial/SPGS10.jpg",
     },
     {
-      quote: `The Annual Function at Shree Padmakshi Global Mount Litera School was a fantastic
+      quote: `The Annual Function at Shree Padmakshi Global  School was a fantastic
 event! My Son, Aadvik Todekar, had an incredible time performing alongside his friends. The
 performances were well-organized. showcasing the students' talents and creativity. The
 inspiring theme and vibrant decorations added to the excitement. It was wonderful to see

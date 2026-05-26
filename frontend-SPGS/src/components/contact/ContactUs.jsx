@@ -23,8 +23,8 @@ const LocationSection = () => {
 
             <p className="text-base md:text-lg">
               You can find
-              <span className="font-semibold">
-                Shree Padmakshi Global School
+              <span className="font-semibold">{" "}
+                 Shree Padmakshi Global School
               </span>{" "}
               at Main road, near over bridge, Uslapur, Bilaspur C.G., Pincode-
               495001..
