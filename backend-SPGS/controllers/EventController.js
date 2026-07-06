@@ -32,3 +32,33 @@ exports.getAllEvents = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+// Update an event
+exports.updateEvent = async (req, res) => {
+  try {
+    const { title, description, date } = req.body;
+    const event = await Event.findById(req.params.id);
+    if (!event) return res.status(404).json({ message: "Event not found" });
+
+    if (title !== undefined) event.title = title;
+    if (description !== undefined) event.description = description;
+    if (date !== undefined) event.date = date;
+
+    await event.save();
+    res.status(200).json({ message: "Event updated successfully", Event: event });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+// Delete an event
+exports.deleteEvent = async (req, res) => {
+  try {
+    const event = await Event.findByIdAndDelete(req.params.id);
+    if (!event) return res.status(404).json({ message: "Event not found" });
+    res.status(200).json({ message: "Event deleted successfully" });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+

@@ -4,21 +4,18 @@ const  {
   getAllNews,
   getNewsById,
   deleteNews,
+  updateNews,
 } = require('../controllers/latestnews.js');
+const { protect, isAdmin } = require('../middleware/auth');
+const uploadMiddleware = require('../middleware/upload');
 
 const router = express.Router();
+
 router.get('/', getAllNews);
-router.post('/create', createNews);
-
 router.get('/:id', getNewsById);
-router.delete('/:id', deleteNews);
 
-
-// | Method | Endpoint           | Description            |
-// | ------ | ------------------ | ---------------------- |
-// | POST   | `/api/latestnews/create` | Create a news item     |
-// | GET    | `/api/latestnews/`        | Get all news           |
-// | GET    | `/api/latestnews/:id`    | Get a single news item |
-// | DELETE | `/api/latestnews/:id`    | Delete a news item     |
+router.post('/create', protect, isAdmin, uploadMiddleware, createNews);
+router.put('/:id', protect, isAdmin, uploadMiddleware, updateNews);
+router.delete('/:id', protect, isAdmin, deleteNews);
 
 module.exports = router;

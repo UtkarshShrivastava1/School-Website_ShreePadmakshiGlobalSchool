@@ -3,7 +3,7 @@
 
 
 import React, { useState } from "react";
-import { LogOut, Menu, X, User } from "lucide-react";
+import { LogOut, Menu, X, User, Newspaper } from "lucide-react";
 import { FaCalendarAlt, FaUmbrellaBeach } from "react-icons/fa";
 import { IoMdNotifications } from "react-icons/io";
 import { MdPhotoLibrary, MdNotificationImportant } from "react-icons/md";
@@ -15,6 +15,7 @@ import GalleryForm from "./GalleryForm";
 import HolidayForm from "./HolidayForm";
 import MandatoryDisclosureForm from "./MandatoryDisclosureForm";
 import CandidateList from "./CandidateList";
+import NewsDashboard from "./NewsDashboard";
 
 function AdminDashboard() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,13 +23,13 @@ function AdminDashboard() {
   const navigate = useNavigate();
 
   const menuItems = [
-     { name: "candidate list", icon: User },
+    { name: "candidate list", icon: User },
     { name: "events", icon: FaCalendarAlt },
     { name: "notice", icon: IoMdNotifications },
+    { name: "latest news", icon: Newspaper },
     { name: "gallery", icon: MdPhotoLibrary },
     { name: "holidays", icon: FaUmbrellaBeach },
     { name: "Mandatory Disclosure", icon: MdNotificationImportant },
-   
   ];
 
   const handleLogout = () => {
@@ -133,15 +134,15 @@ function AdminDashboard() {
         {/* CONTENT */}
         <main className="flex-1 p-6 overflow-y-auto">
           <div className="bg-white rounded-xl shadow-md p-6 min-h-[80vh]">
-             {activeItem === "candidate list" && <CandidateList />}
+            {activeItem === "candidate list" && <CandidateList />}
             {activeItem === "events" && <EventForm />}
             {activeItem === "notice" && <NoticeForm />}
+            {activeItem === "latest news" && <NewsDashboard />}
             {activeItem === "gallery" && <GalleryForm />}
             {activeItem === "holidays" && <HolidayForm />}
             {activeItem === "Mandatory Disclosure" && (
               <MandatoryDisclosureForm />
             )}
-           
           </div>
         </main>
       </div>
