@@ -24,7 +24,7 @@ export default function MiddleSchoolProgram() {
         <div className="relative w-full h-[60vh] md:h-[70vh] lg:h-[80vh]">
           <img
             loading="lazy"
-            src="/Images/c-2.png"
+            src="/LabAndLibrary/c3.jpeg"
             alt="Middle School Students Learning"
             className="absolute inset-0 w-full h-[60vh] object-cover brightness-[0.7]"
             priority
@@ -67,7 +67,7 @@ export default function MiddleSchoolProgram() {
           <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
             <img
               loading="lazy"
-              src="/LabAndLibrary/ArtRoom2.jpg"
+              src="/LabAndLibrary/Artroom3.jpeg"
               alt="Middle school students engaged in learning"
               fill
               className="object-cover"

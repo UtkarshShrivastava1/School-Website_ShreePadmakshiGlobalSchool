@@ -35,7 +35,7 @@ const FeeStructure = () => {
         }}
       >
         <img
-          src='/Images/image.png'
+          src='/Images/FeeStructure.png'
           alt="Office Fee List"
           style={{ display: 'block', maxWidth: '100%', height: 'auto' }}
         />

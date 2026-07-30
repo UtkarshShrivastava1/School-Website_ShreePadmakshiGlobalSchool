@@ -7,7 +7,7 @@ const Carousal = () => {
     { image: '/Images/School.jpg', text: "Modern Secure and Safe Infrastructure" },
     { image: '/Transport/Bus.jpg', text: "Bus Facility Available" },
     { image: '/Images/SchoolFront.jpg', text: "Students at Our Campus" },
-    { image: '/LabAndLibrary/Library_2.jpg', text: "A Well-Stocked Library" },
+    { image: '/LabAndLibrary/Library3.jpeg', text: "A Well-Stocked Library" },
     { image: "/LabAndLibrary/BioLab.jpeg", text: "Exploring Life Sciences" },
     { image: "/LabAndLibrary/PhyLab.jpeg", text: "Hands-On Learning in Physics" },
     { image: "/LabAndLibrary/ChemLab.jpeg", text: "Experimenting with Science" },

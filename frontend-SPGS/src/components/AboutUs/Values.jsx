@@ -125,7 +125,7 @@ const ValuesPage = () => {
               <div className="absolute inset-0 bg-blue-300 rounded-lg transform -rotate-3"></div>
               <img
                 loading="lazy"
-                src="/Images/c-3.jpg"
+                src="/LabAndLibrary/c3.jpeg"
                 alt="Students engaged in values-based learning"
                 className="relative rounded-lg shadow-lg z-10"
               />
