@@ -3,22 +3,28 @@ import React from 'react';
 const SchoolTimings = () => {
   const timingsSections = [
     {
-      title: 'School Office Hours',
-      timing: '9:00AM TO 3:00PM',
-      colorClass: 'bg-blue-50 text-blue-600 border-blue-200',
-      iconClass: 'text-blue-500'
-    },
-    {
-      title: 'Pre-Primary Timing',
-      timing: '9:00AM TO 12:00PM',
+      title: 'Play Group to Grade 2',
+      timing: '8:30 AM to 12:30 PM',
       colorClass: 'bg-green-50 text-green-600 border-green-200',
       iconClass: 'text-green-500'
     },
     {
-      title: 'Primary Timing',
-      timing: '9:00AM TO 3:00PM',
+      title: 'Grades 3 to 10',
+      timing: '7:30 AM to 1:30 PM',
       colorClass: 'bg-purple-50 text-purple-600 border-purple-200',
       iconClass: 'text-purple-500'
+    },
+    {
+      title: 'Grade 11 & 12',
+      timing: '7:30 AM to 12:30 PM',
+      colorClass: 'bg-orange-50 text-orange-600 border-orange-200',
+      iconClass: 'text-orange-500'
+    },
+    {
+      title: 'School Office Hours',
+      timing: '9:00 AM to 3:00 PM',
+      colorClass: 'bg-blue-50 text-blue-600 border-blue-200',
+      iconClass: 'text-blue-500'
     }
   ];
 
@@ -30,10 +36,10 @@ const SchoolTimings = () => {
         <div className="w-1/4 h-px bg-gray-300"></div>
       </div>
       <p className="text-center text-gray-600 mb-8">
-        Please note the following operating hours for different sections of our school.
+        Please note the following operating hours for different grades and sections of our school.
       </p>
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {timingsSections.map((section, index) => (
           <div 
             key={index} 

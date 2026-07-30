@@ -24,7 +24,7 @@ export default function PrimarySchoolProgram() {
         <div className="absolute inset-0 z-0">
           <img
             loading="lazy"
-            src="/Images/c-1.jpg"
+            src="/LabAndLibrary/Library3.jpeg"
             alt="Primary School Children Learning"
             fill
             className="object-cover w-full h-[100%] brightness-[0.7]"
@@ -160,7 +160,7 @@ export default function PrimarySchoolProgram() {
           <div className="order-2 lg:order-1 relative h-[400px] rounded-xl overflow-hidden shadow-xl">
             <img
               loading="lazy"
-              src="/Images/4Z2A4233.jpg"
+              src="/LabAndLibrary/learning4.jpeg"
               alt="Interactive classroom learning"
               className="object-cover"
             />

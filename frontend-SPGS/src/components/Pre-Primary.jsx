@@ -170,7 +170,7 @@ export default function PrePrimaryPage() {
             <div className="md:w-1/2 relative h-64 md:h-80 rounded-lg overflow-y-clip shadow-md">
               <img
                 loading="lazy"
-                src="/Images/Piano.jpg"
+                src="/LabAndLibrary/Artroom3.jpeg"
                 alt="Piano"
                 className="w-full h-full object-center rounded-lg"
               />

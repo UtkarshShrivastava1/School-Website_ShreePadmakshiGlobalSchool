@@ -81,7 +81,7 @@ Thank you and best wishes!
         {/* Background Image Wrapper */}
         <div
           className="w-full h-[60vh] md:h-[70vh] lg:h-[80vh] bg-cover bg-center bg-no-repeat flex items-center"
-          style={{ backgroundImage: `url(/Images/c-2.png)` }}
+          style={{ backgroundImage: `url(/LabAndLibrary/c3.jpeg)` }}
         >
           <div className="w-full h-full bg-black/50 flex items-center">
             <div className="container mx-auto px-4 sm:px-6 md:px-8 text-white text-center sm:text-left">

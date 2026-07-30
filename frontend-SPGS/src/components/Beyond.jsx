@@ -30,7 +30,7 @@ const BeyondAcademic = () => {
       id: "science-lab",
       title: "Science Lab",
       icon: "🧪",
-      image: "/Pictures/ScienceLab.jpg",
+      image: "/LabAndLibrary/science3.jpeg",
       description:
         "Young students always relish being exposed to miracles of scientific experimentation. Science is always better learnt when the knowledge acquired in theory classes is realized in laboratories. Exploration and discovery are the mainstay for scientific development in todays world. They can only be accomplished if the child is open to the elements of both, the classroom drill along with experimentation in the laboratories. Our laboratories are well designed and follow all international norms and rules to enable a child to explore and dazzle the world with her discovery.",
     },
@@ -38,7 +38,7 @@ const BeyondAcademic = () => {
       id: "math-lab",
       title: "Math Lab",
       icon: "🔢",
-      image: "/Pictures/DSC_8664.jpg",
+      image: "/LabAndLibrary/Artroom3.jpeg",
       description:
         "From time immemorial, mathematics has been the tool to decode greatest mysteries of the world and the universe. With development in teaching methods, which have become more and more experimental, learning mathematical concepts requires special training. This intricate puzzle needs to be solved outside the classroom, away from mere theoretical approach. SPGS makes this work even easier with its math lab which endows the child with insight into mathematical formulae, collection of data and rectifying errors through experimentation. The math lab consists of all the required material for a fascinating experience of the subject making mathematical studies a piece of cake.",
     },
@@ -54,7 +54,7 @@ const BeyondAcademic = () => {
       id: "library",
       title: "Library",
       icon: "📚",
-      image: "/Pictures/Library_2.jpg",
+      image: "/LabAndLibrary/Library3.jpeg",
       description:
         "A book is a mans best friend. The library is a place where imagination is let loose to fly. Believing in this philosophy, we have created a stock-pile of books by eminent authors on various subjects to enlighten our young students. Newspapers and national and regional periodicals are readily available. The students develop a great habit of reading which inevitably improves their skills in language and reasoning.",
     },

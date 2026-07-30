@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Users, Star, Award, BookOpen, Flame, Music, Zap, Leaf ,Trophy} from 'lucide-react';
+import { Users, Star, Award, Trophy } from 'lucide-react';
 
 const HouseSystem = () => {
   const [selectedHouse, setSelectedHouse] = useState(null);
@@ -21,8 +21,9 @@ const topPerformers = [
       bgColor: "bg-gradient-to-br from-orange-50 to-red-50",
       borderColor: "border-orange-500",
       textColor: "text-orange-700",
-      icon: BookOpen,
+      image: "/house/RIGVEDA.png",
       students: 245,
+      points: 1800,
       achievements: ["Academic Excellence", "Debate Championship", "Quiz Masters"],
       motto: "Knowledge is Light",
       element: "Fire",
@@ -38,7 +39,7 @@ const topPerformers = [
       bgColor: "bg-gradient-to-br from-blue-50 to-indigo-50",
       borderColor: "border-blue-500",
       textColor: "text-blue-700",
-      icon: Music,
+      image: "/house/samaveda.png",
       students: 220,
       points: 1780,
       achievements: ["Cultural Festival Winners", "Music Competition", "Drama Excellence"],
@@ -56,7 +57,7 @@ const topPerformers = [
       bgColor: "bg-gradient-to-br from-green-50 to-emerald-50",
       borderColor: "border-green-500",
       textColor: "text-green-700",
-      icon: Leaf,
+      image: "/house/YAJURVED.png",
       students: 235,
       points: 1920,
       achievements: ["Community Service", "Environmental Champions", "Leadership Excellence"],
@@ -74,7 +75,7 @@ const topPerformers = [
       bgColor: "bg-gradient-to-br from-purple-50 to-violet-50",
       borderColor: "border-purple-500",
       textColor: "text-purple-700",
-      icon: Zap,
+      image: "/house/ATHARVAVEDA.png",
       students: 210,
       points: 1690,
       achievements: ["Innovation Award", "Science Fair Winners", "Technology Excellence"],
@@ -84,10 +85,7 @@ const topPerformers = [
     }
   ];
 
-
-
   const HouseCard = ({ house, index }) => {
-    const Icon = house.icon;
     return (
       <div 
         className={`relative group cursor-pointer transform transition-all duration-500 hover:scale-105 ${
@@ -103,7 +101,11 @@ const topPerformers = [
             </div>
             <div className="relative z-10">
               <div className="flex items-center justify-between mb-2">
-                <Icon className="h-8 w-8" />
+                <img 
+                  src={house.image} 
+                  alt={house.name} 
+                  className="h-12 w-12 object-contain bg-white/20 rounded-xl p-1 backdrop-blur-sm shadow-sm" 
+                />
                 <span className="text-2xl font-bold">#{index + 1}</span>
               </div>
               <h3 className="text-2xl font-bold mb-1">{house.name}</h3>
@@ -182,6 +184,11 @@ const topPerformers = [
               return (
                 <div key={house.name} className={`relative p-6 rounded-2xl ${houseData.bgColor} border-2 ${houseData.borderColor}`}>
                   <div className="text-center">
+                    <img 
+                      src={houseData.image} 
+                      alt={house.name} 
+                      className="h-12 w-12 mx-auto mb-2 object-contain drop-shadow" 
+                    />
                     <div className={`text-4xl font-bold ${houseData.textColor} mb-2`}>
                       {house.position}
                     </div>
