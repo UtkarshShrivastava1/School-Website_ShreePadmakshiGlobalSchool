@@ -13,7 +13,7 @@ const LocationSection = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-1 gap-8 items-center">
         {/* Location Information - Left Side */}
         <div>
           <div className="space-y-6 border-2 border-red-600 rounded-lg p-6 shadow-md">
@@ -44,7 +44,7 @@ const LocationSection = () => {
         </div>
 
         {/* Map - Right Side */}
-        <div className="w-full h-96 bg-gray-200 rounded-lg shadow-md overflow-hidden">
+        {/* <div className="w-full h-96 bg-gray-200 rounded-lg shadow-md overflow-hidden">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d41462.84320624708!2d82.13888371396226!3d22.098369066162103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3a280d5707b8343d%3A0xb4ce01d89a86f6b9!2sMount%20Litera%20Zee%20School%20Bilaspur%20Uslapur%20Bilaspur%2C%20Chhattisgarh%20495001!3m2!1d22.1006911!2d82.11006359999999!5e0!3m2!1sen!2sin!4v1740726352171!5m2!1sen!2sin"
             className="w-full h-full border-0"
@@ -52,7 +52,7 @@ const LocationSection = () => {
             loading="lazy"
             title="SHREE PADMAKSHI GLOBAL SCHOOL Map"
           ></iframe>
-        </div>
+        </div> */}
       </div>
     </div>
   );

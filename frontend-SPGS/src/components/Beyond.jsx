@@ -22,7 +22,7 @@ const BeyondAcademic = () => {
       id: "language-lab",
       title: "Language Lab",
       icon: "🗣️",
-      image: "/Pictures/LanguageLab.JPG",
+      image: "/LabAndLibrary/language-new.JPG",
       description:
         "Language is the torch that enlightens the way to knowledge. An indispensable part of the students training, our language labs are well- equipped with polished study material, smart-interactive boards, headphones and projectors for a splendid experience. Learning language enables a child to understand the world in a much better manner. The child is thus exposed to unfamiliar cultures and traditions, comes to know about the variations of ethnicities around the globe and interacts with people with a wider assortment of knowledge and awareness. The language faculty with innovative active sessions and motivating guidance instill the love for languages in our students. Technological assistance helps the child to not only understand the language but also to experience it a never-happened-before mode.",
     },
@@ -46,7 +46,7 @@ const BeyondAcademic = () => {
       id: "music-room",
       title: "Music Room",
       icon: "🎵",
-      image: "/Pictures/MusicRoom.jpg",
+      image: "/LabAndLibrary/music-new1.jpg",
       description:
         "Music rejuvenates the mind and soul and refreshes it. At SPGS, we encourage students to express themselves in the language of melody. With a fully equipped music room with all instruments intact, we push the bar higher and higher. Our skilled vocals and instrumental trainers make sure that music in the heart never ceases to enthrall the world.",
     },
