@@ -14,7 +14,7 @@ const TransportFacilities = () => {
         {/* Left section */}
         <div className="bg-white rounded-lg shadow-md overflow-hidden md:w-1/2">
           <div className="w-full p-8">
-            <img src='/Images/transport.jpg' alt="School Bus" className="w-full h-auto rounded" />
+            <img src='/Transport/bus-new.jpg' alt="School Bus" className="w-full h-auto rounded" />
           </div>
           
           <div className="p-6">
