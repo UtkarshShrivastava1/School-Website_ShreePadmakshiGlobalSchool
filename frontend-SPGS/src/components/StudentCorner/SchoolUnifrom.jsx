@@ -9,22 +9,23 @@ const UniformGuidelines = () => {
       id: 'sports', 
       name: 'Sports Uniform', 
       icon: '🏅',
-      image: '/Images/Sport_uniform.jpg'
+      image: ''
     },
     { 
       id: 'summer', 
       name: 'Summer Uniform', 
       icon: '☀️',
-      image: '/Images/Summer_uniform.jpg'
+      image: ''
     },
     { 
       id: 'winter', 
       name: 'Winter Uniform', 
       icon: '❄️',
-      image: '/Images/Winter_uniform.jpg'
+      image: ''
     },
-    
   ];
+
+  const currentUniform = uniformTypes.find(u => u.id === activeTab);
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -62,11 +63,13 @@ const UniformGuidelines = () => {
 {/* Uniform Image Display */}
 {activeTab && (
   <div className="max-w-4xl mx-auto px-2 sm:px-4">
-    <img 
-      src={uniformTypes.find(u => u.id === activeTab).image}
-      alt={`${activeTab} uniform`}
-      className="w-full h-auto rounded-lg shadow-lg"
-    />
+    {currentUniform?.image && (
+      <img 
+        src={currentUniform.image}
+        alt={`${activeTab} uniform`}
+        className="w-full h-auto rounded-lg shadow-lg"
+      />
+    )}
   </div>
 )}
     </div>
