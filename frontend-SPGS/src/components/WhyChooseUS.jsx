@@ -497,7 +497,7 @@ export default function WhyChooseUs() {
                 Schedule a Visit
               </button>
             </Link>
-            <button className="bg-transparent border border-white hover:bg-white/10 px-6 py-3 rounded-md font-medium cursor-pointer">
+            {/* <button className="bg-transparent border border-white hover:bg-white/10 px-6 py-3 rounded-md font-medium cursor-pointer">
               <a
                 href="/Padmakshi-School-Brochure-new.pdf" // Path to your brochure file
                 download="Padmakshi-School-Brochure.pdf" // Suggested filename for the downloaded file
@@ -505,7 +505,7 @@ export default function WhyChooseUs() {
               >
                 Download Brochure
               </a>
-            </button>
+            </button> */}
           </div>
         </div>
       </section>

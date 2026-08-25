@@ -244,7 +244,7 @@ const ValuesPage = () => {
           <div className="bg-white rounded-lg shadow-md overflow-hidden">
             <img
               loading="lazy"
-              src="/P_And_H/Student_plant.jpeg"
+              src="/community.jpeg"
               alt="student_plant"
               className="w-full h-48 object-cover"
             />

@@ -67,7 +67,7 @@ export default function MiddleSchoolProgram() {
           <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
             <img
               loading="lazy"
-              src="/LabAndLibrary/Artroom3.jpeg"
+              src="/MathsLab.jpeg"
               alt="Middle school students engaged in learning"
               fill
               className="object-cover"

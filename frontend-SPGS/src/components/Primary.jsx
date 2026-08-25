@@ -24,7 +24,7 @@ export default function PrimarySchoolProgram() {
         <div className="absolute inset-0 z-0">
           <img
             loading="lazy"
-            src="/LabAndLibrary/Library3.jpeg"
+            src="/academics-primary-cover-image.jpeg"
             alt="Primary School Children Learning"
             fill
             className="object-cover w-full h-[100%] brightness-[0.7]"
