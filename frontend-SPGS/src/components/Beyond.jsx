@@ -38,7 +38,7 @@ const BeyondAcademic = () => {
       id: "math-lab",
       title: "Math Lab",
       icon: "🔢",
-      image: "/LabAndLibrary/Artroom3.jpeg",
+      image: "/MathsLab.jpeg",
       description:
         "From time immemorial, mathematics has been the tool to decode greatest mysteries of the world and the universe. With development in teaching methods, which have become more and more experimental, learning mathematical concepts requires special training. This intricate puzzle needs to be solved outside the classroom, away from mere theoretical approach. SPGS makes this work even easier with its math lab which endows the child with insight into mathematical formulae, collection of data and rectifying errors through experimentation. The math lab consists of all the required material for a fascinating experience of the subject making mathematical studies a piece of cake.",
     },
@@ -54,7 +54,7 @@ const BeyondAcademic = () => {
       id: "library",
       title: "Library",
       icon: "📚",
-      image: "/LabAndLibrary/Library3.jpeg",
+      image: "/academics-primary-cover-image.jpeg",
       description:
         "A book is a mans best friend. The library is a place where imagination is let loose to fly. Believing in this philosophy, we have created a stock-pile of books by eminent authors on various subjects to enlighten our young students. Newspapers and national and regional periodicals are readily available. The students develop a great habit of reading which inevitably improves their skills in language and reasoning.",
     },

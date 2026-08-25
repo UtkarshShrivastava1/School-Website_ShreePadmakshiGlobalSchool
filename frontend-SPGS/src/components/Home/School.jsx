@@ -22,7 +22,7 @@ const CommunityVoices = () => {
     },
     {
       title: "Middle School",
-      imgSrc: "/LabAndLibrary/Artroom3.jpeg",
+      imgSrc: "/MathsLab.jpeg",
       alt: "Middle School Students",
       description:
         "Our Middle School empowers students to explore their passions, develop independence, and grow as young leaders.",
