@@ -66,7 +66,7 @@ export default function PrimarySchoolProgram() {
           <div className="relative h-[400px] rounded-xl overflow-hidden shadow-xl">
             <img
               loading="lazy"
-              src="/Images/School.jpg"
+              src="schoolMain.jpeg"
               alt="Students engaged in learning activities"
               fill
               className="object-cover h-[100%]"

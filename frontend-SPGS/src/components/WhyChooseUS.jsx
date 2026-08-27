@@ -80,7 +80,7 @@ export default function WhyChooseUs() {
               <div className="relative h-[400px] w-[300px] md:h-[400px] md:w-[400px] rounded-full overflow-hidden border-4 border-white/20">
                 <img
                   loading="lazy"
-                  src="/Images/School.jpg"
+                  src="schoolMain.jpeg"
                   alt="SPGS School"
                   fill
                   className="object-cover h-[400px]"
@@ -247,7 +247,7 @@ export default function WhyChooseUs() {
                     <div className="relative h-[400px] rounded-lg overflow-hidden">
                       <img
                         loading="lazy"
-                        src="/Images/School.jpg"
+                        src="schoolMain.jpeg"
                         alt="Trained Teachers"
                         fill
                         className="object-cover"
@@ -295,7 +295,7 @@ export default function WhyChooseUs() {
                     </div>
                     <div className="relative h-[400px] rounded-lg overflow-hidden">
                       <img
-                        src="/Images/School.jpg"
+                        src="schoolMain.jpeg"
                         alt=" PADMAKSHI  Octave"
                         fill
                         className="object-cover"

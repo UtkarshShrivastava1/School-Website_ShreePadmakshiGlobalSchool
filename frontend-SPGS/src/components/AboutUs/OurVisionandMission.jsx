@@ -211,7 +211,7 @@ const OurVisionAndMission = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="relative overflow-hidden rounded-lg shadow-md h-64">
             <img
-              src="/Images/School.jpg"
+              src="schoolMain.jpeg"
               alt="Campus"
               className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
             />
