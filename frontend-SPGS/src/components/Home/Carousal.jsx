@@ -1,12 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 
-
+//updated images
 const Carousal = () => {
   const images = [
-    { image: '/Images/School.jpg', text: "Modern Secure and Safe Infrastructure" },
-    { image: '/Transport/Bus.jpg', text: "Bus Facility Available" },
-    { image: '/Images/SchoolFront.jpg', text: "Students at Our Campus" },
+    { image: 'schoolMain.jpeg', text: "Modern Secure and Safe Infrastructure" },
+    { image: 'transportMain.jpeg', text: "Bus Facility Available" },
+    { image: 'schoolMain.jpeg', text: "Students at Our Campus" },
     { image: '/LabAndLibrary/Library3.jpeg', text: "A Well-Stocked Library" },
     { image: "/LabAndLibrary/BioLab.jpeg", text: "Exploring Life Sciences" },
     { image: "/LabAndLibrary/PhyLab.jpeg", text: "Hands-On Learning in Physics" },

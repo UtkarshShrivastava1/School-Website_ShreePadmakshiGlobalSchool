@@ -180,7 +180,7 @@ export default function PrePrimaryPage() {
           <div className="flex flex-col md:flex-row items-center gap-8 mb-16">
             <div className="md:w-1/2 relative h-auto md:h-80 rounded-lg overflow-hidden shadow-md order-1 md:order-1">
               <img
-                src="/Images/SchoolFront.jpg"
+                src="schoolMain.jpeg"
                 alt="SchoolFront"
                 className="w-full h-full object-cover rounded-lg"
                 loading="lazy"
